@@ -60,15 +60,24 @@ function cpassvalid() {
   }
 }
 
-function routevalid() {
+function loginvalid() {
   let err = document.getElementById("error-text");
+  let temp_err = err;
   let pass = document.getElementById("login-password");
   let email = document.getElementById("login-email");
-  if (!pass.value && !email.value) {
-    alert("Email and password is empty");
-  } else if (!pass.value) {
-    alert("Password is empty");
-  } else {
-    alert("Email is empty");
+  if (!pass.value || !email.value) {
+    if (!pass.value) {
+      email.insertAdjacentElement("afterend", err);
+      err.innerHTML = "Password is empty";
+    }
+    if (!email) {
+      pass.insertAdjacentElement("afterend", temp_err);
+      temp_err.innerHTML = "Email is empty";
+    }
+    return false;
   }
+}
+
+function registervalid() {
+  let;
 }
