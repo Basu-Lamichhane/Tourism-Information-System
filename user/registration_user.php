@@ -12,7 +12,7 @@ if ($con->connect_error) {
         $gender = $_POST['gender'];
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-        $qry = "insert into user(user_name,user_dob,user_gender,user_address,user_email,user_password,user_phone) values('$name','$dob','$gender','$address','$email','$password','$phone')";
+        $qry = "insert into user_ac(user_name,user_dob,user_gender,user_address,user_email,user_password,user_phone) values('$name','$dob','$gender','$address','$email','$password','$phone')";
         $result = $con->query($qry);
         if ($result) {
             $re = "Data Inserted Sucessfully";
