@@ -49,7 +49,10 @@
               /><label class="reg_terms" id="lbl_check">Do you Agree</label>
             </div>
             <input type="submit" value="Register" id="reg_btn" class="register_btn" onClick="registervalid();" />
-            Have an Account already?Login in<a href="./login.php" style="text-decoration:underline; display:inline;">here</a>
+            <p>
+
+              Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
+            </p>
             
           </div>
         </form>
