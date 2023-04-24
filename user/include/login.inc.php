@@ -12,7 +12,7 @@
       <input type="submit" value="Login" id="login_btn" class="login_btn" onClick="loginvalid();" />
       <p>
         Don't have an account?
-        <a href="" style="text-decoration:underline;">Register</a> yourself
+        <a href="./register.php" style="text-decoration:underline;">Register</a> yourself
       </p>
 
     </div>
