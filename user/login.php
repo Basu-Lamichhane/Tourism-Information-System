@@ -10,7 +10,7 @@
 <body>
     <?php include "include/nav.inc.php"; ?>
 
-    <div class="register_container">
+    <div class="login_container">
         <?php include "include/login.inc.php"; ?>
     </div>
     
