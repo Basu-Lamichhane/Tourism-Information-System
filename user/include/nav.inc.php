@@ -5,7 +5,6 @@
     <nav>
         <ul>
             <li><a href="Home">Home</a></li>
-            <li><a href="Home">Browse</a></li>
             <li><a href="Home">About Us</a></li>
             <li><a href="Home">Contact Us</a></li>
         </ul>

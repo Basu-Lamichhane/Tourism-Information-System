@@ -1,48 +1,58 @@
- <form action="" class="login-form">
-          <div id="register" class="form-style">
+<fieldset >
+  <legend>Register</legend>
+<form action="">
+          <div id="register" class="form_style">
 
-            <label for="name" class="lbl">Name</label>
+            <label for="name" class="lbl">Enter Your Name</label>
             <input type="text" id="name" class="text" placeholder="Enter your name" onkeyup="namevalid();">
             <!-- <p id="name_err" class="error_style"></p> -->
-            <label for="email" class="lbl">Email</label>
+            <label for="email" class="lbl">Enter Your Email</label>
             <input
               type="email"
               placeholder="Enter your Email"
-              id="reg-email"
+              id="reg_email"
               class="text"
             />
-            <label for="email" class="lbl">Confirm-Email</label>
-            <input
-              type="email"
-              placeholder="Enter your Email"
-              id="cemail"
-              class="text"
-            />
-            <label for="password" class="lbl">Password</label>
+            <label for="password" class="lbl">Enter a Password</label>
             <input
               type="password"
               placeholder="Enter your password"
-              id="reg-password"
+              id="reg_password"
               class="text password"
             />
-            <label for="cpassword" class="lbl">Confirm-Password</label>
+            <label for="cpassword" class="lbl">Confirm Password</label>
             <input
               type="password"
-              placeholder="Enter your password"
-              id="cpassword"
+              placeholder="Confirm Password"
+              id="reg_cpassword"
               class="text password"
               onkeyup="cpassvalid();"
             />
+            
+            <div class="gender">
+            <label>Choose Your Gender :</label>
+            <div class="gender_options">
+            <i><input type="radio" name="gender" id="reg_gender" value="Male"><span>Male</span></i>
+            <i><input type="radio" name="gender" id="reg_gender" value="Female"><span>Female</span></i>
+            </div>
+            </div>
+            <div class="reg_dob">
+              <label>Date of Birth</label>
+              <input type="date" name="reg_date" id="reg_date">
+            </div>
             <div id="tick">
               <input
                 type="checkbox"
                 name="terms"
                 id="agree"
                 class="condition"
-              /><label id="lbl-check">Do you Agree</label>
+              /><label class="reg_terms" id="lbl_check">Do you Agree</label>
             </div>
-            <input type="submit" value="Register" id="reg-btn" class="btn" onClick="registervalid();" />
+            <input type="submit" value="Register" id="reg_btn" class="register_btn" onClick="registervalid();" />
+            Have an Account already?Login in<a href="" style="text-decoration:underline; display:inline;">here</a>
+            
           </div>
         </form>
+        </fieldset>
       </div>
     </div>
