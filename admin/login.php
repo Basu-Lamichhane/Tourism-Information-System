@@ -9,12 +9,14 @@
     <nav class="nav_admin">
          <img src="./img/logo.png" alt="">
     </nav>
+    
     <div class="login_container">
       <div class="label"><h1>Admin Login</h1></div>
+      <?php if(isset($_GET['err'])){echo "<p class='error_text'>Please Login First</p>";} ?>
   <form action="include/check_db.php">
     <div id="login" class="form_style">
-      <label for="email" class="lbl">Enter Admin Username</label>
-      <input type="email" placeholder="Username" id="login_email" class="text" />
+      <label for="username" class="lbl">Enter Admin Username</label>
+      <input type="text" placeholder="Username" id="login_email" class="text" />
       <label for="password" class="lbl">Enter Admin Password</label>
       <input type="password" placeholder="Password" id="login_password" class="text password" />
 

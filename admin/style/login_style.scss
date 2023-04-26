@@ -6,6 +6,9 @@ body {
   height: 100%;
   width: 100%;
 }
+.error_text {
+  color: red;
+}
 .nav_admin {
   width: 100vw;
   height: 15vh;
@@ -35,12 +38,15 @@ body {
     label {
       margin: 10px 0px;
     }
-    input {
+    .text {
       height: 5vh;
       width: 20vw;
       margin-bottom: 10px;
       border: 0px;
       border-bottom: 1px solid black;
+    }
+    .text:focus {
+      outline: none;
     }
     .login_btn {
       margin-top: 20px;

@@ -8,6 +8,10 @@ body {
   width: 100%;
 }
 
+.error_text {
+  color: red;
+}
+
 .nav_admin {
   width: 100vw;
   height: 15vh;
@@ -40,12 +44,15 @@ body {
 .login_container .form_style label {
   margin: 10px 0px;
 }
-.login_container .form_style input {
+.login_container .form_style .text {
   height: 5vh;
   width: 20vw;
   margin-bottom: 10px;
   border: 0px;
   border-bottom: 1px solid black;
+}
+.login_container .form_style .text:focus {
+  outline: none;
 }
 .login_container .form_style .login_btn {
   margin-top: 20px;
