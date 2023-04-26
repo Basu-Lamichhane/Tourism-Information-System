@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+.nav_admin {
+  width: 100vw;
+  height: 15vh;
+  padding: 10px;
+  img {
+    width: 15vw;
+    height: 10vh;
+  }
+}
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 5%;
+  .label {
+    width: 20%;
+    h1 {
+      margin-bottom: 20px;
+      color: blue;
+      text-decoration: underline;
+    }
+  }
+  .form_style {
+    display: flex;
+    flex-direction: column;
+    label {
+      margin: 10px 0px;
+    }
+    input {
+      height: 5vh;
+      width: 20vw;
+      margin-bottom: 10px;
+      border: 0px;
+      border-bottom: 1px solid black;
+    }
+    .login_btn {
+      margin-top: 20px;
+      width: 10vw;
+      margin-left: 25%;
+    }
+  }
+}
