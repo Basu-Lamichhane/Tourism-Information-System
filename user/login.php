@@ -1,3 +1,8 @@
+<?php
+require "include/dbconn.inc.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
