@@ -1,11 +1,16 @@
 * {
   margin: 0px;
   padding: 0px;
+  color: #073064;
+  font-weight: bold;
 }
 
 body {
   height: 100%;
   width: 100%;
+  background: url("../img/home_page.jpg");
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .error_text {
@@ -29,13 +34,12 @@ body {
   flex-direction: column;
   margin-top: 5%;
 }
-.login_container .label {
-  width: 20%;
-}
-.login_container .label h1 {
-  margin-bottom: 20px;
-  color: blue;
-  text-decoration: underline;
+.login_container fieldset {
+  padding: 25px;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  border-radius: 10px;
+  background-color: rgba(248, 137, 50, 0.5);
 }
 .login_container .form_style {
   display: flex;
@@ -50,6 +54,7 @@ body {
   margin-bottom: 10px;
   border: 0px;
   border-bottom: 1px solid black;
+  background: transparent;
 }
 .login_container .form_style .text:focus {
   outline: none;
@@ -57,5 +62,8 @@ body {
 .login_container .form_style .login_btn {
   margin-top: 20px;
   width: 10vw;
+  height: 5vh;
   margin-left: 25%;
+  background: transparent;
+  border-radius: 10px;
 }/*# sourceMappingURL=login_style.css.map */

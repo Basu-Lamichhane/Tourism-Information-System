@@ -13,16 +13,15 @@
     <?php include "include/nav.inc.php";?>
     <section class="home_page">
       <div class="home_left">
-         <div class="home_left_content">
+        <div class="home_left_content">
           <h1><span>J</span>oin Now</h1>
-          <h4>To get you next destination planned...!</h4>
-           <div class="home_left_buttons">
-          <button id="home_login_btn">Login</button>
+          <h4>To get your next destination planned...!</h4>
+          <div class="home_left_buttons">
+          <button id="home_login_btn"><a href="./login.php">Login</a></button>
           <div class="slash"></div>
-          <button id="home_register_btn">Register</button>
+          <button id="home_register_btn"><a href="./register.php">Register</a></button>
         </div>
         </div>
-
       </div>
       <div class="home_right">
 
