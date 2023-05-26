@@ -1,68 +1,65 @@
-<fieldset >
+<fieldset>
   <legend>Register</legend>
-<form action="">
-          <div id="register" class="form_style">
-            <label for="name" class="lbl">Enter Your Name :</label>
-            <input type="text" id="name" class="text" placeholder="Enter your name" onkeyup="namevalid();">
-            <!-- <p id="name_err" class="error_style"></p> -->
-            <label for="email" class="lbl">Enter Your Email :</label>
-            <input
-              type="email"
-              placeholder="Enter your Email"
-              id="reg_email"
-              class="text"
-            />
-            <label for="password" class="lbl">Enter a Password :</label>
-            <input
-              type="password"
-              placeholder="Enter your password"
-              id="reg_password"
-              class="text password"
-            />
-            <label for="cpassword" class="lbl">Confirm Password :</label>
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              id="reg_cpassword"
-              class="text password"
-              onkeyup="cpassvalid();"
-            />
-            
-            <label for="address">Address :</label>
-            <input
-              type="text"
-              placeholder="Enter your address"
-              id="address"
-              class="text"
-            />
+  <form action="#">
+    <div id="register" class="form_style">
 
-            <div class="gender">
-            <label>Choose Your Gender :</label>
-            <div class="gender_options">
-            <i><input type="radio" name="gender" id="reg_gender" value="Male"><span>Male</span></i>
-            <i><input type="radio" name="gender" id="reg_gender" value="Female"><span>Female</span></i>
-            </div>
-            </div>
-            <div class="reg_dob">
-              <label>Date of Birth :</label>
-              <input type="date" name="reg_date" id="reg_date">
-            </div>
-            <div id="tick">
-              <input
-                type="checkbox"
-                name="terms"
-                id="agree"
-                class="condition"
-              /><label class="reg_terms" id="lbl_check">Do you Agree?</label>
-            </div>
-            <input type="submit" value="Register" id="reg_btn" class="register_btn" onClick="registervalid();" />
-            <p>
+      <label for="name" class="lbl">Enter Your Name :</label>
+      <input type="text" id="name" class="text" placeholder="Enter your name" onkeyup="namevalid()" required />
+      <p id="name_err" class="error_style"></p>
 
-              Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
-            </p>
-            
-          </div>
-        </form>
-        </fieldset>
+      <label for="email" class="lbl">Enter Your Email :</label>
+      <input type="email" placeholder="Enter your Email" id="reg_email" class="text" onkeyup="emailvalid();" required />
+      <p id="email_err" class="error_style"></p>
+
+      <label for="password" class="lbl">Enter a Password :</label>
+      <input type="password" placeholder="Enter your password" id="reg_password" class="text password"
+        onkeyup="passvalid();" required />
+      <p id="pass_err" class="error_style"></p>
+
+      <label for="cpassword" class="lbl">Confirm Password :</label>
+      <input type="password" placeholder="Confirm Password" id="reg_cpassword" class="text password"
+        onkeyup="cpassvalid()" required />
+      <p id="cpass_err" class="error_style"></p>
+
+      <div class="address">
+        <label for="address">Address :</label>
+        <div class="address_options">
+          <span class="addr_city">
+            <input type="text" placeholder="Enter your city" id="address_city" class="text" onkeyup="city_addressvalid()" required />
+          </span>
+          <span><input type="text" placeholder="Enter your district" id="address_district" class="text" onkeyup="district_addressvalid()"
+              required /></span>
+        </div>
+        <p id="address_err" class="error_style"></p>
       </div>
+
+      <div class="gender">
+        <label>Choose Your Gender :</label>
+        <div class="gender_options">
+          <i><input type="radio" name="gender" id="reg_gender_male" value="Male"><span>Male</span></i>
+          <i><input type="radio" name="gender" id="reg_gender_female" value="Female"><span>Female</span></i>
+          <i><input type="radio" name="gender" id="reg_gender_others" value="Others"><span>Others</span></i>
+        </div>
+      </div>
+
+      <div class="reg_dob">
+        <label>Date of Birth :</label>
+        <input type="date" name="reg_date" id="reg_date" required />
+      </div>
+
+      <div id="tick">
+        <input type="checkbox" name="terms" id="agree" class="condition" required/><label class="reg_terms" id="lbl_check"
+          required />Do
+        you Agree?</label>
+      </div>
+      <input type="submit" value="Register" id="reg_btn" class="register_btn" onsubmit="registervalid();" />
+      <p>
+
+        Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
+      </p>
+
     </div>
+  </form>
+</fieldset>
+</div>
+</div>

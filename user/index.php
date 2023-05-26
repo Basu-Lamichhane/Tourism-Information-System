@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="../style/style.css">
     <script src="script/accountscript.js"></script>
     <script src="script/valid.js"></script>
     <link rel="stylesheet" href="style/nav_style.css">

@@ -7,11 +7,13 @@ require "include/dbconn.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
     <link rel="stylesheet" href="style/nav_style.css">
     <link rel="stylesheet" href="style/register_style.css">
+    <script src="./script/validation.js"></script>
 </head>
-<body>
+<body onload="dobvalid();">
     <?php include "include/nav.inc.php"; ?>
 
     <div class="register_container">
