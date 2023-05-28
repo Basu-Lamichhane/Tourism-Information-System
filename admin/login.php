@@ -1,5 +1,5 @@
 <?php
-require "include/dbconn.inc.php";
+require "include/check_db.php";
 ?>
 
 <!DOCTYPE html>

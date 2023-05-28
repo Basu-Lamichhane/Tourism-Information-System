@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION)){
     
-    header("Location:admin_dashboard.php");
+    header("Location:../admin_dashboard.php");
 }
 else{
     $err="003";
