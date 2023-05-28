@@ -1,5 +1,8 @@
+let e_name,e_email,e_pass,e_cpass,e_city,e_district;
+
 function namevalid() {
     let e_name=0;
+    console.log(e_name);
     var name = document.getElementById("name").value;
     name_regex = /^[a-zA-Z\s]+$/;
     if (!name_regex.test(name)) {
