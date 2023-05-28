@@ -36,9 +36,11 @@
       <div class="gender">
         <label>Choose Your Gender :</label>
         <div class="gender_options">
+          
           <i><input type="radio" name="gender" id="reg_gender_male" value="Male"><span>Male</span></i>
           <i><input type="radio" name="gender" id="reg_gender_female" value="Female"><span>Female</span></i>
           <i><input type="radio" name="gender" id="reg_gender_others" value="Others"><span>Others</span></i>
+          
         </div>
       </div>
 
@@ -52,7 +54,7 @@
           required />Do
         you Agree?</label>
       </div>
-      <input type="submit" value="Register" id="reg_btn" class="register_btn" onsubmit="registervalid();" disabled />
+      <input type="submit" value="Register" id="reg_btn" class="register_btn" onsubmit="accountregister();" disabled />
       <p>
 
         Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
