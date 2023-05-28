@@ -17,9 +17,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $insert_qry="insert into tbl_user(u_name,u_email,u_pass,u_city,u_district,u_age,u_gender,u_dob) values('$name','$email','$password','$city','$district','$gender','$dob')";
         $insert_result=$con->query($insert_qry);
         if($insert_result){
-            header(location: './index.php');
+            echo "done"
         }else{
-            header(location: './register.php');
+            echo "failed";
         }
 
     }

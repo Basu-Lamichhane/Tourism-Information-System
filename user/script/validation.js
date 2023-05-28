@@ -151,7 +151,7 @@ function accountregister() {
   var dob = document.getElementById("reg_date").value;
   var gender = document.querySelector('input[name="gender"]:checked').value;
   $.ajax({
-    url: "./include/check_db",
+    url: "./include/check_db.php",
     type: "POST",
     data: {
       name: name,
