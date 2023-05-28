@@ -142,12 +142,28 @@ function checkevent() {
 }
 
 function accountregister() {
+  preventDefault();
   var name = document.getElementById("name").value;
   var email = document.getElementById("reg_email").value;
   var pass = document.getElementById("reg_password").value;
   var city = document.getElementById("address_city").value;
+  var district = document.getElementById("address_district").value;
   var dob = document.getElementById("reg_date").value;
   var gender = document.querySelector('input[name="gender"]:checked').value;
-    
-    
+  $.ajax({
+    url: "./include/check_db",
+    type: "POST",
+    data: {
+      name: name,
+      email: email,
+      password: pass,
+      city: city,
+      district: district,
+      gender: gender,
+      dob: dob,
+    },
+    success: function (responseText) {
+      alert(responseText);
+    },
+  });
 }
