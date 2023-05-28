@@ -1,51 +1,62 @@
-
-var e=0;
 function namevalid() {
+    e_name=0;
     var name = document.getElementById("name").value;
     name_regex = /^[a-zA-Z\s]+$/;
     if (!name_regex.test(name)) {
-        document.getElementById("name_err").innerHTML = "**Invalid Name <br> (Your name must contains a-z,A-Z only)";
+        document.getElementById("name_err").innerHTML = "**Invalid Name <br> (Your name must contains a-z, A-Z only)";
+        e_name=1;
     }
     else
         document.getElementById("name_err").innerHTML = " ";
 }
 
 function emailvalid() {
+    e_email=0;
     var email = document.getElementById("reg_email").value;
     email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!email_regex.test(email)) {
         document.getElementById("email_err").innerHTML = "**Invalid email <br> (Email must be in format of \"email@example.com\").";
+        e_email=1;
     }
     else
         document.getElementById("email_err").innerHTML = " ";
 }
 
 function passvalid() {
+    e_pass=0;
     var pass = document.getElementById("reg_password").value;
     var pass_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/;
     if (/\s+/g.test(pass)) {
         document.getElementById("pass_err").innerHTML = "**Invalid password format <br> (Password shouldn't contain whitespaces)";
+        e_pass=1;
     }
     else if (!pass_regex.test(pass)) {
         document.getElementById("pass_err").innerHTML = "**Invalid password format <br> (Password should contain atleast one number <br> and one special character)";
+        e_pass=1;
     }
     else {
-        if (pass.length < 8)
+        if (pass.length < 8){
             document.getElementById("pass_err").innerHTML = "**Invalid password format <br> (Password must be atleast 8 characters)";
-        else if (pass.length > 16)
+            e_pass=1;
+        }
+        else if (pass.length > 16){
             document.getElementById("pass_err").innerHTML = "**Invalid password format <br> (Password must be atmost 16 characters)";
+            e_pass=1;
+        }
         else
             document.getElementById("pass_err").innerHTML = " ";
     }
 }
 
 function cpassvalid() {
+    e_cpass=0;
     var pass = document.getElementById("reg_password").value;
     console.log(pass);
     var cpass = document.getElementById("reg_cpassword").value;
     console.log(cpass);
     if (!(cpass == pass)) {
         document.getElementById("cpass_err").innerHTML = "Invalid password <br> (Password must match.)";
+        e_cpass=1;
     }
     else {
         document.getElementById("cpass_err").innerHTML = " ";
@@ -75,21 +86,24 @@ function dobvalid(){
 
 
 function city_addressvalid() {
-
+    e_city=0;
     var city=document.getElementById("address_city").value;
     city_regex=/^[A-Za-z0-9'\.\-\s\,]+$/g;
     if (!city_regex.test(city)) {
         document.getElementById("address_err").innerHTML="**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',',']";
+        e_city=1;
     }
     else{
         document.getElementById("address_err").innerHTML=" ";
     }
 }
 function district_addressvalid() {
+    e_district=0;
     var district=document.getElementById("address_district").value;
     district_regex=/^[A-Za-z\s]+$/g;
     if (!district_regex.test(district)) {
         document.getElementById("address_err").innerHTML="**Invalid district address format <br>(District address only contains [a-z,A-Z])";
+        e_district=1;
     }
     else{
         document.getElementById("address_err").innerHTML=" ";
