@@ -142,25 +142,25 @@ function checkevent() {
 }
 
 function accountregister() {
-  preventDefault();
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("reg_email").value;
-  var pass = document.getElementById("reg_password").value;
-  var city = document.getElementById("address_city").value;
-  var district = document.getElementById("address_district").value;
-  var dob = document.getElementById("reg_date").value;
-  var gender = document.querySelector('input[name="gender"]:checked').value;
+  event.preventDefault();
+  var t_name = document.getElementById("name").value;
+  var t_email = document.getElementById("reg_email").value;
+  var t_pass = document.getElementById("reg_password").value;
+  var t_city = document.getElementById("address_city").value;
+  var t_district = document.getElementById("address_district").value;
+  var t_dob = document.getElementById("reg_date").value;
+  var t_gender = document.querySelector('input[name="gender"]:checked').value;
   $.ajax({
-    url: "./include/check_db.php",
     type: "POST",
+    url: "./include/check_db.php",
     data: {
-      name: name,
-      email: email,
-      password: pass,
-      city: city,
-      district: district,
-      gender: gender,
-      dob: dob,
+      name: t_name,
+      email: t_email,
+      password: t_pass,
+      city: t_city,
+      district: t_district,
+      gender: t_gender,
+      dob: t_dob,
     },
     success: function (responseText) {
       alert(responseText);

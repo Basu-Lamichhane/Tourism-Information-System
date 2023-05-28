@@ -54,7 +54,7 @@
           required />Do
         you Agree?</label>
       </div>
-      <input type="submit" value="Register" id="reg_btn" class="register_btn" onsubmit="accountregister();" disabled />
+      <input type="submit" value="Register" id="reg_btn" class="register_btn" onclick="accountregister();" disabled />
       <p>
 
         Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
