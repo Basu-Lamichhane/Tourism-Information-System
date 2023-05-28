@@ -156,8 +156,10 @@ function accountregister() {
       dob: t_dob,
     },
     success: function (responseText) {
-      if (responseText == "405") {
+      if (responseText == "200") {
         window.location = "/include/dashboard.php";
+      } else {
+        alert(responseText);
       }
     },
   });

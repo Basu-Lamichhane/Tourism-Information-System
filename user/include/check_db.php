@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $insert_qry="insert into tbl_user(u_name,u_email,u_pass,u_city,u_district,u_gender,u_dob) values('$name','$email','$password','$city','$district','$gender','$dob')";
         $insert_result=$conn->query($insert_qry);
         if($insert_result){
-           echo "405";
+           echo "200";
         }else{
             echo "404";
         }
