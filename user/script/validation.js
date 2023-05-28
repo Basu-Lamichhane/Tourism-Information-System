@@ -2,7 +2,6 @@ let e_name, e_email, e_pass, e_cpass, e_city, e_district;
 
 function namevalid() {
   e_name = 0;
-  console.log(e_name);
   var name = document.getElementById("name").value;
   name_regex = /^[a-zA-Z\s]+$/;
   if (!name_regex.test(name)) {
@@ -123,12 +122,6 @@ function district_addressvalid() {
 
 function checkevent() {
   let btn = document.getElementById("reg_btn");
-  console.log(e_name);
-  console.log(e_email);
-  console.log(e_pass);
-  console.log(e_cpass);
-  console.log(e_city);
-  console.log(e_district);
   if (
     e_name == 0 &&
     e_email == 0 &&
@@ -163,7 +156,9 @@ function accountregister() {
       dob: t_dob,
     },
     success: function (responseText) {
-      alert(responseText);
+      if (responseText == "405") {
+        window.location = "/include/dashboard.php";
+      }
     },
   });
 }
