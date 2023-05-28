@@ -121,7 +121,7 @@ function district_addressvalid() {
   }
 }
 
-window.addEventListener("load", function () {
+window.onload = (event) => {
   let btn = document.getElementById("reg_btn");
   if (
     e_name == 0 &&
@@ -133,4 +133,4 @@ window.addEventListener("load", function () {
   ) {
     btn.removeAttribute("disabled");
   }
-});
+};
