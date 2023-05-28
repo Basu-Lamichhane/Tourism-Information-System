@@ -97,32 +97,38 @@ function dobvalid() {
 }
 
 function city_addressvalid() {
-  let e_city = 0;
+  e_city = 0;
   var city = document.getElementById("address_city").value;
   city_regex = /^[A-Za-z0-9'\.\-\s\,]+$/g;
   if (!city_regex.test(city)) {
     document.getElementById("address_err").innerHTML =
       "**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',',']";
-    let e_city = 1;
+    e_city = 1;
   } else {
     document.getElementById("address_err").innerHTML = " ";
   }
 }
 function district_addressvalid() {
-  let e_district = 0;
+  e_district = 0;
   var district = document.getElementById("address_district").value;
   district_regex = /^[A-Za-z\s]+$/g;
   if (!district_regex.test(district)) {
     document.getElementById("address_err").innerHTML =
       "**Invalid district address format <br>(District address only contains [a-z,A-Z])";
-    let e_district = 1;
+    e_district = 1;
   } else {
     document.getElementById("address_err").innerHTML = " ";
   }
 }
 
-window.onload = (event) => {
+function checkevent() {
   let btn = document.getElementById("reg_btn");
+  console.log(e_name);
+  console.log(e_email);
+  console.log(e_pass);
+  console.log(e_cpass);
+  console.log(e_city);
+  console.log(e_district);
   if (
     e_name == 0 &&
     e_email == 0 &&
@@ -133,4 +139,4 @@ window.onload = (event) => {
   ) {
     btn.removeAttribute("disabled");
   }
-};
+}

@@ -1,6 +1,6 @@
 <fieldset>
   <legend>Register</legend>
-  <form action="#">
+  <form action="#" onchange="checkevent();">
     <div id="register" class="form_style">
 
       <label for="name" class="lbl">Enter Your Name :</label>
