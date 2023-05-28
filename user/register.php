@@ -12,7 +12,7 @@ require "include/dbconn.inc.php";
     <link rel="stylesheet" href="style/nav_style.css">
     <link rel="stylesheet" href="style/register_style.css">
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="script/jquery.js"></script>
 </head>
 <body onload="dobvalid();">
     <?php include "include/nav.inc.php"; ?>
