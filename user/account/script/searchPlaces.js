@@ -5,9 +5,13 @@ function fnSearch() {
   $.ajax({
     type: "POST",
     url: "./include/db_files/findPlaces.php",
+    dataType: "JSON",
     data: { find: toSearch },
     success: function (response) {
-      console.log(response);
+      for (let i = 0; i < response.length; i++) {
+        console.log(response[i].id);
+        console.log(response[i].name);
+      }
     },
   });
 }
