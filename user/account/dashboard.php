@@ -14,12 +14,34 @@
         <i class="ri-search-line" onclick="fnSearch();"></i>
     </div>
     <div class="dash_main">
-        <!-- <div class="place_card" id="card1"></div>
-        <div class="place_card" id="card2"></div>
-        <div class="place_card" id="card3"></div>
-        <div class="place_card" id="card4"></div>
-        <div class="place_card" id="card5"></div>
-        <div class="place_card" id="card6"></div> -->
+        <?php
+        require "include/db_files/dbconn.inc.php";
+        $str="select * from tbl_place order by p_name";
+        $res=$con->query($str);
+        if($res->num_rows>0){
+            while($row=$res->fetch_assoc()){
+                $id=$row['p_id'];
+        ?>
+        
+            
+            <div class="place_card" id="<?php echo "card".($id); ?>">
+            <div class="card_body" id="<?php echo 'card'.($id).'main'; ?>">
+            
+
+            </div>
+            <div class="card_foot" id="<?php echo 'card'.($id).'foot'; ?>">
+            <h2><?php echo strtoupper($row['p_name']); ?></h2>
+            </div>
+            </div>
+
+            <?php
+            }
+        }
+    
+            ?>
+        
+    
+    
     </div>
     <div class="next_page" id="next">
         <div class="page" id="page1">1</div>
