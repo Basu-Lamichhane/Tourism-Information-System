@@ -13,13 +13,13 @@ body {
 
 .dash_section {
   margin: 50px;
-  padding: 50px;
+  padding: 40px;
   height: 100%;
 }
-.dash_section #search {
+.dash_section .search_div {
   display: block;
 }
-.dash_section #search #search_field {
+.dash_section .search_div .search {
   margin-left: 25%;
   height: 40px;
   width: 40%;
@@ -27,16 +27,20 @@ body {
   padding: 20px;
 }
 .dash_section .dash_main {
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding-top: 25px;
 }
 .dash_section .dash_main .place_card {
   height: 200px;
-  margin: 25px;
+  width: 300px;
+  margin: 20px;
   background-color: black;
 }
 .dash_section .next_page {
