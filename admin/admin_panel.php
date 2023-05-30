@@ -37,13 +37,13 @@
                             Manage Tourism
                         </div>
                         <li class="item">
-                            <a href="#">Attractions</a>
+                            <a href="#"  onclick='attractionTable() ;'>Attractions</a>
                         </li>
                         <li class="item">
                             <a href="#">Accommodations</a>
                         </li>
                         <li class="item">
-                            <a href="#" onclick="getPlaces('resturants');">Restaurants</a>
+                            <a href="#" onclick='get_restaurants()'>Restaurants</a>
                         </li>
                         <li class="item">
                             <a href="#">Cafes</a>
@@ -106,22 +106,18 @@
     </nav>
 
     <main class="main" id="main_content">
-        <h1>Admin Dashboard Content</h1>
     </main>
 
     <script src="./script/admin_panel.js"></script>
-    <script>
-        function getPlaces(txt) {
-            var mainContent = document.getElementById("main_content");
-            if (txt == "resturants") {
-                mainContent.innerHTML = "<?php echo 'hello'; ?> ";
-            } else if (txt  == "cafes") {
-                mainContent.innerHTML = "include 'include/getCafes.php'";
-            }
+    <script src="./script/attraction_table_ajax.js"></script>
+    <!-- <script>
+        function get_restaurants() {
+            var main_content = document.getElementById("main_content");
+            main_content.innerHTML="<?php include_once 'include/get_restaurants.php';?> ";
         }
 
         
-    </script>
+    </script> -->
 </body>
 
 </html>
