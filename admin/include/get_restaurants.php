@@ -3,7 +3,8 @@ require "dbconn.inc.php";
 $str="SELECT * FROM tbl_restaurant";
 $res=$con->query($str);
 if($res->num_rows>0){
-    while($row=$res->fetch_assoc()){
+    while($row=$res->fetch_assoc()){}
+}
 ?>
 <table>
     <tr>
@@ -18,6 +19,3 @@ if($res->num_rows>0){
         <th>Closetime</th>
     </tr>
 </table>
-<?php }
-}
-?h
