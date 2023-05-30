@@ -220,3 +220,55 @@
     margin-left:20px;
     background: url(../img/logout.png);
 }
+
+
+/* for ajax table data in main content */
+
+/* for attraction table data */
+
+#table-content{
+    width: 100%;
+    overflow-y: auto;
+    height: 700px;
+    margin-top: 55px;
+}
+.place-image{
+    height: 60px;
+    width: 50px;
+    border: #073064 solid 3px;
+    border-radius: 5px;
+}
+.place-table{
+    width: 100%;
+    text-align: center;
+    padding: 0px 10px;
+    border-collapse: collapse ;
+}
+
+tr,td{
+    border: #073064 solid 3px;
+    height: 60px;
+}
+
+td{
+    height: 600px;
+}
+
+thead{
+    background-color: rgb(7, 48, 100,0.25);
+    height: 50px;
+}
+
+th:hover{
+    color: #073064;
+    background-color:  rgb(248, 137, 50,0.25);
+}
+
+tr:hover{
+    background-color: rgb(248, 137, 50,0.25);
+}
+
+thead{
+    position: sticky; /* make the table heads sticky */
+    top: 0px; /* table head will be placed from the top of the table and sticks to it */
+}

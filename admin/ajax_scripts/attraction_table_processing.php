@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD']==="POST") {
 
-    require "include/dbconn.inc.php";
+    require "../include/dbconn.inc.php";
 
     $num = 0;
 

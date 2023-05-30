@@ -43,7 +43,7 @@
                             <a href="#">Accommodations</a>
                         </li>
                         <li class="item">
-                            <a href="#" onclick='get_restaurants()'>Restaurants</a>
+                            <a href="#">Restaurants</a>
                         </li>
                         <li class="item">
                             <a href="#">Cafes</a>
@@ -106,18 +106,13 @@
     </nav>
 
     <main class="main" id="main_content">
+        <div id="table-content">
+
+        </div>
     </main>
 
     <script src="./script/admin_panel.js"></script>
     <script src="./script/attraction_table_ajax.js"></script>
-    <!-- <script>
-        function get_restaurants() {
-            var main_content = document.getElementById("main_content");
-            main_content.innerHTML="<?php include_once 'include/get_restaurants.php';?> ";
-        }
-
-        
-    </script> -->
 </body>
 
 </html>
