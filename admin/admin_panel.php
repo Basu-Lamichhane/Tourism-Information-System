@@ -43,7 +43,7 @@
                             <a href="#">Accommodations</a>
                         </li>
                         <li class="item">
-                            <a href="#">Restaurants</a>
+                            <a href="#" onclick="getPlaces('resturants');">Restaurants</a>
                         </li>
                         <li class="item">
                             <a href="#">Cafes</a>
@@ -105,11 +105,23 @@
         <span class="nav-bars" id="sidebar-close"></span>
     </nav>
 
-    <main class="main">
+    <main class="main" id="main_content">
         <h1>Admin Dashboard Content</h1>
     </main>
 
     <script src="./script/admin_panel.js"></script>
+    <script>
+        function getPlaces(txt) {
+            var mainContent = document.getElementById("main_content");
+            if (txt == "resturants") {
+                mainContent.innerHTML = "<?php echo 'hello'; ?> ";
+            } else if (txt  == "cafes") {
+                mainContent.innerHTML = "include 'include/getCafes.php'";
+            }
+        }
+
+        
+    </script>
 </body>
 
 </html>
