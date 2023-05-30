@@ -45,6 +45,10 @@ body {
         background: pink;
         height: 80%;
         width: 100%;
+        img{
+          max-height: 100%;
+          max-width: 100%;
+        }
       }
       .card_foot {
         height: 20%;

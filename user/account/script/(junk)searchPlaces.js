@@ -4,7 +4,7 @@ function fnSearch() {
 
   $.ajax({
     type: "POST",
-    url: "./include/db_files/findPlaces.php",
+    url: "./include/db_files/(junk)findPlaces.php",
     dataType: "JSON",
     data: { find: toSearch },
     success: function (response) {
