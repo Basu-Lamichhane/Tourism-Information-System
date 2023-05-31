@@ -33,12 +33,9 @@ select {
 }
 
 .s010 {
-    min-height: 85vh;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
+    flex-direction: column;
     justify-content: center;
-    -ms-flex-align: center;
     align-items: center;
     background: #d9eff5;
     padding: 15px;
@@ -48,7 +45,6 @@ select {
 .s010 form {
     width: 100%;
     max-width: 790px;
-    margin-top: -35vh;
 }
 
 .s010 form .inner-form {
@@ -246,4 +242,9 @@ select {
 
 .s010 form .inner-form .advance-search .input-select {
     height: 40px;
+}
+
+.search-suggestion{
+
+    
 }

@@ -5,7 +5,7 @@ function load_search_result(search_query){
 
         form_data.append("query",search_query);
         var ajax_request =new XMLHttpRequest();
-        ajax_request.open("POST","./process_search_query.php");
+        ajax_request.open("POST","./ajax_processing/process_search_query.php");
         ajax_request.send(form_data);
 
         ajax_request.onreadystatechange =function()
@@ -38,3 +38,4 @@ function load_search_result(search_query){
         document.getElementById("search_result").innerHTML="";
     }
 }
+

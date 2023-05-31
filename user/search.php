@@ -14,7 +14,7 @@
             <div class="inner-form">
                 <div class="basic-search">
                     <div class="input-field">
-                        <input id="search" type="text" placeholder="Type Keywords" />
+                        <input id="search" type="text" placeholder="Type Keywords"  onkeyup="javascript:(load_search_result(this.value))"/>
                         <div class="icon-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path
@@ -30,7 +30,7 @@
                         <div class="input-field">
                             <div class="input-select">
                                 <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">Accessories</option>
+                                    <option placeholder="" value="">District</option>
                                     <option>Subject b</option>
                                     <option>Subject c</option>
                                 </select>
@@ -87,16 +87,13 @@
                 </div>
             </div>
         </form>
+        <br>
+        <div id="search_result" class="search-suggestion"></div>
     </div>
+    <script src="./script/search_query_suggestion.js"></script>
     <script>
         const customSelects = document.querySelectorAll("select");
         const deleteBtn = document.getElementById('delete')
-        const choices = new Choices('select',
-            {
-                searchEnabled: false,
-                itemSelectText: '',
-                removeItemButton: true,
-            });
         for (let i = 0; i < customSelects.length; i++) {
             customSelects[i].addEventListener('addItem', function (event) {
                 if (event.detail.value) {
