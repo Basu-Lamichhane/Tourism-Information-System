@@ -19,6 +19,7 @@ a {
 .navbar {
   display: flex;
   justify-content: space-between;
+  height: 15vh;
 }
 .navbar .logo {
   height: 10vh;
