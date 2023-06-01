@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="style/search.css">
 </head>
 
-<body>
+<body onload="javascript:(district_dropdown_options())">
     <?php include "include/nav.inc.php" ?>
     <div class="s010">
         <form>
             <div class="inner-form">
                 <div class="basic-search">
                     <div class="input-field">
-                        <input id="search" type="text" placeholder="Type Keywords"  onkeyup="javascript:(load_search_result(this.value))"/>
+                        <input id="search" type="text" placeholder="Type Keywords"
+                            onkeyup="javascript:(load_search_result(this.value))" />
                         <div class="icon-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path
@@ -29,49 +30,37 @@
                     <div class="row">
                         <div class="input-field">
                             <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">District</option>
-                                    <option>Subject b</option>
-                                    <option>Subject c</option>
+                                <select name="district" id="district" class="options">
+                                    <option disabled selected>District</option>
                                 </select>
                             </div>
                         </div>
                         <div class="input-field">
                             <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">Color</option>
-                                    <option>Subject b</option>
-                                    <option>Subject c</option>
+                                <select name="destination" id="destination" class="options"
+                                    onchange="javascript:(type_dropdown_options(this.value))">
+                                    <option disabled selected class="default">Destination</option>
+                                        <option value="place" id="place">Places</option>
+                                        <option value="accommodation" id="accommodation">Accommodations</option>
+                                        <option value="restaurant" id="restaurant">Restaurants</option>
+                                        <option value="cafe" id="cafe">Cafes</option>
                                 </select>
                             </div>
                         </div>
                         <div class="input-field">
                             <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">Color</option>
-                                    <option>Subject b</option>
-                                    <option>Subject c</option>
+                                <select name="type" id="type" class="options">
+                                    <option disabled selected>Types&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="input-field">
+                        <!-- <div class="input-field">
                             <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">Color</option>
-                                    <option>Subject b</option>
-                                    <option>Subject c</option>
+                                <select name="price" id="price">
+                                <option disabled selected>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="input-field">
-                            <div class="input-select">
-                                <select data-trigger="" name="choices-single-defaul">
-                                    <option placeholder="" value="">Size</option>
-                                    <option>Subject b</option>
-                                    <option>Subject c</option>
-                                </select>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="input-field">
@@ -79,7 +68,7 @@
                                 <span>108 </span>results
                             </div>
                             <div class="group-btn">
-                                <button class="btn-delete" id="delete">RESET</button>
+                                <button class="btn-delete" id="reset">RESET</button>
                                 <button class="btn-search">SEARCH</button>
                             </div>
                         </div>
@@ -90,30 +79,7 @@
         <br>
         <div id="search_result" class="search-suggestion"></div>
     </div>
-    <script src="./script/search_query_suggestion.js"></script>
-    <script>
-        const customSelects = document.querySelectorAll("select");
-        const deleteBtn = document.getElementById('delete')
-        for (let i = 0; i < customSelects.length; i++) {
-            customSelects[i].addEventListener('addItem', function (event) {
-                if (event.detail.value) {
-                    let parent = this.parentNode.parentNode
-                    parent.classList.add('valid')
-                    parent.classList.remove('invalid')
-                }
-                else {
-                    let parent = this.parentNode.parentNode
-                    parent.classList.add('invalid')
-                    parent.classList.remove('valid')
-                }
-            }, false);
-        }
-        deleteBtn.addEventListener("click", function (e) {
-            e.preventDefault()
-            const deleteAll = document.querySelectorAll('.choices__button')
-            for (let i = 0; i < deleteAll.length; i++) {
-                deleteAll[i].click();
-            }
-        });
-
-    </script>
+    <script src="./script/jquery.js"></script>
+    <script src="./script/ajax_script/search_query_suggestion.js"></script>
+    <script src="./script/ajax_script/select_options.js"></script>
+    <script src="./script/search.js"></script>
