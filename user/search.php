@@ -31,7 +31,7 @@
                         <div class="input-field">
                             <div class="input-select">
                                 <select name="district" id="district" class="options">
-                                    <option disabled selected>District</option>
+                                    <option disabled selected value="">District</option>
                                 </select>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="input-select">
                                 <select name="destination" id="destination" class="options"
                                     onchange="javascript:(type_dropdown_options(this.value))">
-                                    <option disabled selected class="default">Destination</option>
+                                    <option disabled selected value="">Destinations</option>
                                         <option value="place" id="place">Places</option>
                                         <option value="accommodation" id="accommodation">Accommodations</option>
                                         <option value="restaurant" id="restaurant">Restaurants</option>
@@ -50,7 +50,7 @@
                         <div class="input-field">
                             <div class="input-select">
                                 <select name="type" id="type" class="options">
-                                    <option disabled selected>Types&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                                    <option disabled selected value="">Types</option>
                                 </select>
                             </div>
                         </div>
@@ -77,8 +77,8 @@
             </div>
         </form>
         <br>
-        <div id="search_result" class="search-suggestion"></div>
     </div>
+    <div id="search_results" class="search-suggestion"></div>
     <script src="./script/jquery.js"></script>
     <script src="./script/ajax_script/search_query_suggestion.js"></script>
     <script src="./script/ajax_script/select_options.js"></script>
