@@ -51,6 +51,7 @@
                             <div class="input-select">
                                 <select name="type" id="type" class="options">
                                     <option disabled selected value="">Types</option>
+                                    <!-- <option disabled selected value="">Types</option> -->
                                 </select>
                             </div>
                         </div>
