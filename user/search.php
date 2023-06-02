@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="input-field">
                             <div class="result-count">
-                                <span>108 </span>results
+                                <span id="no-of-results">0</span>results
                             </div>
                             <div class="group-btn">
                                 <button class="btn-delete" id="reset">RESET</button>

@@ -1,5 +1,6 @@
 function load_search_result(search_query) {
-    if (search_query.length > 2) {
+    var no_of_results = document.getElementById("no-of-results");
+    if (search_query.length > 0) {
 
         var dest_selected = document.getElementById("destination").value;
         var dist_selected = document.getElementById("district").value;
@@ -30,13 +31,19 @@ function load_search_result(search_query) {
                 // var response = ajax_request.responseText;
                 var response = JSON.parse(ajax_request.responseText);
 
+
+                var count = Object.keys(response).length;
+                if (count > 0) {
+                    no_of_results.innerHTML = count;
+                }
+
                 console.log(response);
                 var html = "<div class='list-results'>";
                 html += "<table class='table-results'>";
                 html += "<thead><tr><th>S.N</th><th>Destination Name</th><th>address</th><th>district</th><th>type</th></tr></thead><tbody>";
                 if (response.length > 0) {
                     for (let count = 0; count < response.length; count++) {
-                        html += "<tr><td>" + (count + 1) + "</td><td><a href=# class='list-result' disabled>" + response[count].p_name + "</a></td><td>" + response[count].p_address + "</td><td>" + response[count].p_district + "</td><td>" + response[count].p_type + "</td></tr>";
+                        html += "<tr><td>" + (count + 1) + "</td><td><a href=# class='list-result' disabled>" + Object.values(response[count])[0] + "</a></td><td>" + Object.values(response[count])[1] + "</td><td>" + Object.values(response[count])[2] + "</td><td>" + Object.values(response[count])[3] + "</td></tr>";
                     }
                 }
                 else {
@@ -48,7 +55,8 @@ function load_search_result(search_query) {
             }
         }
     }
-    else {
+    else{
+        no_of_results.innerHTML = 0;
         document.getElementById("search_results").innerHTML = "";
     }
 }
