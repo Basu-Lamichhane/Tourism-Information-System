@@ -44,7 +44,7 @@ function type_dropdown_options(option) {
             // var option2=document.getElementsByClassName("btn-search");
             console.log(option);
             // console.log(option2);
-            option.innerHTML = "<option disabled selected>Types&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>";
+            option.innerHTML = "<option disabled selected>Types</option>";
             for (let count = 0; count < response.length; count++) {
                 var types = response[count].type;
                 // console.log(types);
