@@ -7,17 +7,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
     $district = $_POST["district"];
     $type = $_POST["type"];
 
-    // echo $type;
-    // echo $destination;
-    // echo $district;
-
-    // require "./include/db_files/dbconn.inc.php";
-    $con = new mysqli("localhost", "root", "", "db_tis"); //creating connection
-
-    //checking connection
-    if ($con->connect_error) {
-        die("Connection failed :" . $con->connect_error);
-    }
+    require "../include/dbconn.inc.php";
 
     $data = array();
 
@@ -25,7 +15,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
     // echo $condition;
 
-    if ($destination == "" && $district == "" && $type == "") {
+    if ($destination == "" && $district == "" && $type == "") {// if any of the options are not selected
 
         $query_data = "SELECT name, address, district, type
         FROM (
@@ -44,58 +34,13 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         WHERE name LIKE '" . $condition . "%'
         ORDER BY name ASC;
         ";
-            // echo $query_data;
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
-    }
-    // if ($destination != "") {
-    //     dest_search_results($destination,$district,$type,$con,$condition);
-    // }
-    else if ($district == "" && $type != "" && $destination != "") {
+    } else if ($district == "" && $type != "" && $destination != "") {// if only district is not selected
         $first_char = $destination[0];
         $query_data = "
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type 
             FROM tbl_" . $destination . "  where " . $first_char . "_type = '" . $type . "' and " . $first_char . "_name LIKE '" . $condition . "%'ORDER BY name ASC;";
 
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
-    } else if ($district != "" && $type == "" && $destination == "") {
+    } else if ($district != "" && $type == "" && $destination == "") {//if only district is selected
         // $first_char = $destination[0];
         $query_data = "SELECT name, address, district, type
         FROM (
@@ -114,186 +59,46 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         WHERE name LIKE '" . $condition . "%' and district = '" . $district . "'
         ORDER BY name ASC;
         ";
-        // echo $query_data;
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
-    } 
-    
-    
-    
-    else if ($district == "" && $destination != "" && $type == "") {
+    } else if ($district == "" && $destination != "" && $type == "") {//if only destination is selected
         $first_char = $destination[0];
         $query_data = "
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type 
             FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'ORDER BY name ASC;";
 
-
-        // echo $query_data;
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
-    }
-    
-    
-    else if ($district != "" && $destination != "" && $type == "") {
+    } else if ($district != "" && $destination != "" && $type == "") {// if only type is not selected
         $first_char = $destination[0];
         $query_data = "
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type 
-            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and ".$first_char."_district ='".$district."' ORDER BY name ASC;";
+            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' ORDER BY name ASC;";
 
-
-        // echo $query_data;
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
-    }
-    
-    
-    else if ($district != "" && $destination != "" && $type != "") {
+    } else if ($district != "" && $destination != "" && $type != "") {// if all options are selected
         $first_char = $destination[0];
         $query_data = "
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type 
-            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and ".$first_char."_district ='".$district."' and ".$first_char."_type ='".$type."' ORDER BY name ASC;";
-
-
-        // echo $query_data;
-        $result = $con->query($query_data);
-
-
-        $count = 0;
-        // echo $result;
-        while ($result_row = $result->fetch_assoc()) {
-
-            // echo $result_row['name'];
-            $replace_string = '<b>' . $condition . '</b>';
-
-            $data[$count] = array(
-                "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
-                "address" => $result_row["address"],
-                "district" => $result_row["district"],
-                "type" => $result_row["type"]
-            );
-            $count++;
-
-        }
-        echo json_encode($data);
+            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' and " . $first_char . "_type ='" . $type . "' ORDER BY name ASC;";
     }
 
+    // echo $query_data;
+    $result = $con->query($query_data);
 
 
+    $count = 0;
+    // echo $result;
+    while ($result_row = $result->fetch_assoc()) {
 
+        // echo $result_row['name'];
+        $replace_string = '<b>' . $condition . '</b>';
 
+        $data[$count] = array(
+            "name" => str_ireplace($condition, $replace_string, $result_row["name"]),
+            "address" => $result_row["address"],
+            "district" => $result_row["district"],
+            "type" => $result_row["type"]
+        );
+        $count++;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+    echo json_encode($data);
 
 }
-
-
-
-
 ?>

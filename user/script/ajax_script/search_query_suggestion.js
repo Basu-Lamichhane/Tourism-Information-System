@@ -40,7 +40,7 @@ function load_search_result(search_query) {
                 console.log(response);
                 var html = "<div class='list-results'>";
                 html += "<table class='table-results'>";
-                html += "<thead><tr><th>S.N</th><th>Destination Name</th><th>address</th><th>district</th><th>type</th></tr></thead><tbody>";
+                html += "<thead><tr><th>S.N</th><th>Destination Name</th><th>Address</th><th>District</th><th>Types</th></tr></thead><tbody>";
                 if (response.length > 0) {
                     for (let count = 0; count < response.length; count++) {
                         html += "<tr><td>" + (count + 1) + "</td><td><a href=# class='list-result' disabled>" + Object.values(response[count])[0] + "</a></td><td>" + Object.values(response[count])[1] + "</td><td>" + Object.values(response[count])[2] + "</td><td>" + Object.values(response[count])[3] + "</td></tr>";
