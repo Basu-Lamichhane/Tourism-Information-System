@@ -41,7 +41,7 @@ function district_dropdown_value()
 
     foreach ($result as $row) {
         $data[] = array(
-            'p_district' => $row["district"]
+            'district' => $row["district"]
         );
     }
 

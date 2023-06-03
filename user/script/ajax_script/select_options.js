@@ -16,9 +16,9 @@ function district_dropdown_options() {
             var option = document.querySelector("#district");
 
             for (let count = 0; count < response.length; count++) {
-                var district_name = response[count].p_district;
+                var district_name = response[count].district;
                 console.log(district_name);
-                option.insertAdjacentHTML("beforeend", "<option value=" + district_name.toLowerCase() + " id=" + district_name.toLowerCase() + " >" + district_name + "</option>")
+                option.insertAdjacentHTML("beforeend", "<option value=" + district_name + " id=" + district_name.toLowerCase() + " >" + district_name + "</option>")
                 // option=  document.querySelector("#"+district_name.toLowerCase().toLowerCase());
             }
         }
