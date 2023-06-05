@@ -24,7 +24,7 @@ footer{
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    padding: 20px 30px 10px 30px;
+    padding: 20px 30px 0px 30px;
 }
 
 .footer-section .footer-left, .footer-section .footer-center, .footer-section .footer-right {
