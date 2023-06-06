@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_email'])){
+    $_SESSION['admin_login'] = "Please login first";
     header('Location:login.php');
 }
  ?>

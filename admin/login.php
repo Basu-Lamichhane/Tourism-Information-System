@@ -1,5 +1,8 @@
 <?php
-require "include/check_db.php";
+session_start();
+if(isset($_SESSION['admin_email'])){
+    header('Location:admin_dashboard.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +12,7 @@ require "include/check_db.php";
   <meta charset="UTF-8">
   <title>Admin Login</title>
   <link rel="stylesheet" href="style/login_style.css">
+  <link rel="stylesheet" href="style/noti.css">
 </head>
 
 <body>
@@ -17,12 +21,22 @@ require "include/check_db.php";
   </nav>
 
   <div class="login_container">
-    <!-- <div class="label">
-      <h1>Admin Login</h1>
-    </div> -->
-    <?php if (isset($_GET['err'])) {
-      echo "<p class='error_text'>Please Login First</p>";
-    } ?>
+    <?php
+        if (isset($_SESSION['!admin_pass_match']))
+            {
+                echo "<div id='noti'>" . $_SESSION['!admin_pass_match'] . "</div>";
+                unset($_SESSION['!admin_pass_match']);
+            }
+            elseif(isset( $_SESSION['admin_err'])){
+                echo "<div id='noti'>" .  $_SESSION['admin_err'] . "</div>";
+                unset( $_SESSION['admin_err']);
+            }
+            elseif(isset($_SESSION['admin_login'])){
+              echo "<div id='noti'>" .  $_SESSION['admin_login'] . "</div>";
+      unset($_SESSION['admin_login']);
+            }
+
+        ?>
     <fieldset>
     <legend><h1>Admin Login</h1></legend>
       <form action="include/check_db.php">
@@ -42,6 +56,7 @@ require "include/check_db.php";
   </div>
   </form>
   </div>
+  <script src="script/noti.js"></script>
 </body>
 
 </html>

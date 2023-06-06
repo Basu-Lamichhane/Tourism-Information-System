@@ -1,9 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION['admin_email'])){
-    header('Location:admin_dashboard.php');
-}
-else if(isset($_POST['email'])&&isset($_POST['pass'])){
+if(isset($_POST['email'])&&isset($_POST['pass'])){
      $email=$_POST['email'];
     $pass = $_POST['pass'];
     require "dbconn.inc.php";
@@ -20,7 +16,7 @@ else if(isset($_POST['email'])&&isset($_POST['pass'])){
             }
         }
     }else{
-        $_SESSION['login_err'] = "Admin Email is Incorrect";
+        $_SESSION['admin_err'] = "Admin Email is Incorrect";
         header('location:../login.php');
     }
     
