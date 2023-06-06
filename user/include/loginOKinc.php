@@ -7,15 +7,16 @@ else if(isset($_POST['email'])&& isset($_POST['pass'])){
     $email=$_POST['email'];
     $pass = $_POST['pass'];
     require "dbconn.inc.php";
-    $str = "select * from tbl_user where u_email='$email' ";
+    $str = "select u_pass from tbl_user where u_email='$email' ";
     $result = $con->query($str);
     if($result->num_rows>0){
-        while($row=$result->fetch_assoc){
+        while($row=$result->fetch_assoc()){
             if($pass!=$row['u_pass']){
-                $_SESSION["login_err"] = "Please Enter Your Correct  Password";
+                $_SESSION["!login_pass_match"] = "Please Enter Your Correct  Password";
+                header('location:login.php');
             }else{
                 $_SESSION['email'] = $_POST['email'];
-                header('location../district_page.php');
+                header('location:../district_page.php');
             }
         }
     }else{
