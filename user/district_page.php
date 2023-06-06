@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['email'])){
+    $_SESSION['Signed'] = "Please Login First";
+    header('location:login.php');
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +23,7 @@
 
 <body>
     <header>
-        <?php include "/include/header.inc.php"; ?>
+        <?php include "include/header.inc.php"; ?>
     </header>
 
     <main>
@@ -2872,7 +2880,7 @@
     </main>
 
     <footer>
-        <?php include "/include/footer.inc.php"; ?>
+        <?php include "include/footer.inc.php"; ?>
     </footer>
 
 

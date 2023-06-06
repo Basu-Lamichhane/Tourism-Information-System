@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['email'])){
+    header('location:district_page.php');
+}
 require "include/dbconn.inc.php";
 ?>
 
@@ -22,6 +25,10 @@ require "include/dbconn.inc.php";
             {
                 echo "<div id='noti'>" . $_SESSION['!login_pass_match'] . "</div>";
                 unset($_SESSION['!login_pass_match']);
+            }
+            elseif(isset($_SESSION['Signed'])){
+                echo "<div id='noti'>" . $_SESSION['Signed'] . "</div>";
+                unset($_SESSION['Signed']);
             }
 
         ?>

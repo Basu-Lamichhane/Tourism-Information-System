@@ -55,7 +55,6 @@
 
         Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
       </p>
-
     </div>
   </form>
 </fieldset>
