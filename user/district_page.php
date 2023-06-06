@@ -1,9 +1,10 @@
 <?php
-session_start();
-if(!isset($_SESSION['email'])){
-    $_SESSION['Signed'] = "Please Login First";
-    header('location:login.php');
-}
+// Do NOT REMOVE This
+// session_start();
+// if(!isset($_SESSION['email'])){
+//     $_SESSION['Signed'] = "Please Login First";
+//     header('location:login.php');
+// }
  ?>
 
 <!DOCTYPE html>
