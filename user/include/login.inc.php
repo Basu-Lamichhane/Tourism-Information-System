@@ -1,13 +1,13 @@
 <fieldset>
   <legend>Login</legend>
-  <form action="">
+  <form action="include/loginOKinc.php" method="POST">
     <div id="login" class="form_style">
 
       <!-- <p id="name_err" class="error_style"></p> -->
       <label for="email" class="lbl">Enter Your Email</label>
-      <input type="email" placeholder="Enter your Email" id="login_email" class="text" />
+      <input type="email" placeholder="Enter your Email" id="login_email" class="text" name="email" />
       <label for="password" class="lbl">Enter your Password</label>
-      <input type="password" placeholder="Enter your password" id="login_password" class="text password" />
+      <input type="password" placeholder="Enter your password" id="login_password" class="text password" name="pass" />
 
       <input type="submit" value="Login" id="login_btn" class="login_btn" onClick="loginvalid();" />
       <p>

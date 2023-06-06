@@ -1,18 +1,18 @@
 <fieldset>
   <legend>Register</legend>
-  <form action="#" onchange="checkevent();">
+  <form action="include/registerOK.php" method="POST" onchange="checkevent();">
     <div id="register" class="form_style">
 
       <label for="name" class="lbl">Enter Your Name :</label>
-      <input type="text" id="name" class="text" placeholder="Enter your name" onkeyup="namevalid()" required />
+      <input type="text" id="name" class="text" placeholder="Enter your name" onkeyup="namevalid()" name="name" required />
       <p id="name_err" class="error_style"></p>
 
       <label for="email" class="lbl">Enter Your Email :</label>
-      <input type="email" placeholder="Enter your Email" id="reg_email" class="text" onkeyup="emailvalid();" required />
+      <input type="email" name="email" placeholder="Enter your Email" id="reg_email" class="text" onkeyup="emailvalid();" required />
       <p id="email_err" class="error_style"></p>
 
       <label for="password" class="lbl">Enter a Password :</label>
-      <input type="password" placeholder="Enter your password" id="reg_password" class="text password"
+      <input type="password" placeholder="Enter your password" id="reg_password" class="text password" name="pass"
         onkeyup="passvalid();" required />
       <p id="pass_err" class="error_style"></p>
 
@@ -25,9 +25,9 @@
         <label for="address">Address :</label>
         <div class="address_options">
           <span class="addr_city">
-            <input type="text" placeholder="Enter your city" id="address_city" class="text" onkeyup="city_addressvalid()" required />
+            <input type="text" placeholder="Enter your city" id="address_city" class="text" onkeyup="city_addressvalid()" name="city" required />
           </span>
-          <span><input type="text" placeholder="Enter your district" id="address_district" class="text" onkeyup="district_addressvalid()"
+          <span><input type="text" placeholder="Enter your district" id="address_district" class="text" onkeyup="district_addressvalid()" name="district"
               required /></span>
         </div>
         <p id="address_err" class="error_style"></p>
@@ -46,15 +46,11 @@
 
       <div class="reg_dob">
         <label>Date of Birth :</label>
-        <input type="date" name="reg_date" id="reg_date" required />
+        <input type="date" name="reg_date" id="reg_date" name="dob" required />
       </div>
 
-      <div id="tick">
-        <input type="checkbox" name="terms" id="agree" class="condition" required/><label class="reg_terms" id="lbl_check"
-          required />Do
-        you Agree?</label>
-      </div>
-      <input type="submit" value="Register" id="reg_btn" class="register_btn" onclick="accountregister();" disabled />
+
+      <input type="submit" value="Register" id="reg_btn" class="register_btn" disabled />
       <p>
 
         Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
