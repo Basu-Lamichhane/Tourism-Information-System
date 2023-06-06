@@ -46,7 +46,7 @@
 
       <div class="reg_dob">
         <label>Date of Birth :</label>
-        <input type="date" name="reg_date" id="reg_date" name="dob" required />
+        <input type="date" name="reg_date" id="reg_date" required />
       </div>
 
 
