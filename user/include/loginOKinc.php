@@ -12,8 +12,8 @@ else if(isset($_POST['email'])&& isset($_POST['pass'])){
     if($result->num_rows>0){
         while($row=$result->fetch_assoc()){
             if($pass!=$row['u_pass']){
-                $_SESSION["!login_pass_match"] = "Please Enter Your Correct  Password";
-                header('location:login.php');
+                $_SESSION['!login_pass_match'] = "Please Enter Your Correct  Password";
+                header('location:../login.php');
             }else{
                 $_SESSION['email'] = $_POST['email'];
                 header('location:../district_page.php');
