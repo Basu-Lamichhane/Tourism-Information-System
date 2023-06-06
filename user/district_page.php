@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>District Page</title>
-    <link rel="stylesheet" href="style/nav_style.css">
+    <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/district_page_style.css">
@@ -15,15 +15,17 @@
 
 <body>
     <header>
-        <?php include "/include/nav.inc.php"; ?>
+        <?php include "/include/header.inc.php"; ?>
     </header>
 
     <main>
 
-        <div class="container">
+        <div class="container" id="sticky-div">
 
-            <div class="title">
-                <h1 class="title-text">Discover, Explore, Experience !!!</h1>
+            <div class="title" id="menu-title">
+                <i class="title-text" id="discover">Discover</i>,&nbsp;
+                <i class="title-text" id="explore">Explore</i>,&nbsp;
+                <i class="title-text" id="experience">Experience</i>&nbsp;!!!
             </div>
             <span>
 
@@ -82,7 +84,7 @@
                         <div class="menu-box">
                             <div class="menu-position">
                                 <button href="" class="menu-content" onclick="javascript:toggleMenu();">
-                                    <span class="name">More</span>
+                                    <span class="name" id="more-btn" >More</span>
                                     <span class="blank"></span>
                                     <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 320 512" width="24px" height="24px">
@@ -114,7 +116,7 @@
         <div class="picture-container">
             <div class="picture-box">
                 <img class="picture"
-                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/4a/kathmandu.jpg?w=400&amp;h=300&amp;s=1%201x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/4a/kathmandu.jpg?w=800&amp;h=600&amp"
+                    src="https://royalmt.com.np/news/wp-content/uploads/sites/3/2017/03/Kathmandu-Nepal.jpg"
                     alt="This is my picture" />
             </div>
         </div>
@@ -168,7 +170,7 @@
                                 <div class="arrow-keys-div left">
                                     <div class="arrow-keys"><!--no padding-->
                                         <span class="arrow-key-left">
-                                            <button id="left-scroll-button" onclick="scrollContent(-3,'do');"><svg
+                                            <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'do');"><svg
                                                     viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
@@ -803,7 +805,7 @@
                                 <div class="arrow-keys-div right">
                                     <div class="arrow-keys">
                                         <span class="arrow-key-right">
-                                            <button id="right-scroll-button" onclick="scrollContent(3,'do');">
+                                            <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'do');">
                                                 <svg viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
@@ -849,7 +851,7 @@
                                 <div class="arrow-keys-div left">
                                     <div class="arrow-keys"><!--no padding-->
                                         <span class="arrow-key-left">
-                                            <button id="left-scroll-button" onclick="scrollContent(-3,'stay');"><svg
+                                            <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'stay');"><svg
                                                     viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
@@ -1484,7 +1486,7 @@
                                 <div class="arrow-keys-div right">
                                     <div class="arrow-keys">
                                         <span class="arrow-key-right">
-                                            <button id="right-scroll-button" onclick="scrollContent(3,'stay');">
+                                            <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'stay');">
                                                 <svg viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
@@ -1530,7 +1532,7 @@
                                 <div class="arrow-keys-div left">
                                     <div class="arrow-keys"><!--no padding-->
                                         <span class="arrow-key-left">
-                                            <button id="left-scroll-button" onclick="scrollContent(-3,'eat');"><svg
+                                            <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'eat');"><svg
                                                     viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
@@ -2165,7 +2167,7 @@
                                 <div class="arrow-keys-div right">
                                     <div class="arrow-keys">
                                         <span class="arrow-key-right">
-                                            <button id="right-scroll-button" onclick="scrollContent(3,'eat');">
+                                            <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'eat');">
                                                 <svg viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
@@ -2211,7 +2213,7 @@
                                 <div class="arrow-keys-div left">
                                     <div class="arrow-keys"><!--no padding-->
                                         <span class="arrow-key-left">
-                                            <button id="left-scroll-button" onclick="scrollContent(-3,'socialize');"><svg
+                                            <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'socialize');"><svg
                                                     viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
@@ -2846,7 +2848,7 @@
                                 <div class="arrow-keys-div right">
                                     <div class="arrow-keys">
                                         <span class="arrow-key-right">
-                                            <button id="right-scroll-button" onclick="scrollContent(3,'socialize');">
+                                            <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'socialize');">
                                                 <svg viewBox="0 0 24 24" width="24px" height="24px">
                                                     <path
                                                         d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
@@ -2896,6 +2898,28 @@
                 behavior: 'smooth'
             });
         }
+
+        // var stickyDiv = document.getElementById('sticky-div');
+        // const copy_stickyDiv=stickyDiv;
+        // console.log(copy_stickyDiv);
+        // window.addEventListener('scroll', function() {
+        // // var innerHTML_menu_title=document.querySelector('#sticky-div div');
+        // // var innerHTML_menu=document.querySelector('#sticky-div span');
+
+        // // var innerHTML_content=document.getElementById("div-menu");
+        // // console.log(innerHTML_menu_title);
+        // // console.log(typeof(innerHTML_menu_title));
+        // // console.log(innerHTML_menu);
+        // var scrollPosition = window.pageYOffset;
+        //     // console.log(scrollPosition);
+        // // Check the scroll position to determine the content change
+        // if (scrollPosition >= 200) {
+        //     stickyDiv.innerHTML = "New content";
+        // } else {
+        //     stickyDiv.innerHTML = copy_stickyDiv.innerHTML;
+        //     // console.log(typeof(stickyDiv.innerHTML));
+        // }
+        // });
 
     </script>
 </body>
