@@ -50,7 +50,6 @@ body {
   cursor: pointer;
 }
 .dash_section .dash_main .place_card .card_body {
-  background: pink;
   height: 80%;
   width: 100%;
 }
@@ -69,7 +68,6 @@ body {
   font-size: 10px;
 }
 .dash_section .next_page {
-  display: inline-block;
   height: 25px;
   width: 100%;
   display: flex;
@@ -77,8 +75,10 @@ body {
 }
 .dash_section .next_page .page {
   height: 100%;
+  background-color: #f88932;
+  margin-left: 5px;
   text-align: center;
   width: 20px;
-  display: block;
+  display: inline-block;
   border: 2px solid black;
 }/*# sourceMappingURL=dashboard.css.map */
