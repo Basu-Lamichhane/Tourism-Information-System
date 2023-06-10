@@ -46,20 +46,27 @@ body {
   margin: 20px;
   border: 2px solid black;
 }
+.dash_section .dash_main .place_card:hover {
+  cursor: pointer;
+}
 .dash_section .dash_main .place_card .card_body {
   background: pink;
   height: 80%;
   width: 100%;
 }
-.dash_section .dash_main .place_card .card_body img {
-  max-height: 100%;
-  max-width: 100%;
+.dash_section .dash_main .place_card .card_body .card_image {
+  height: 100%;
+  width: 100%;
+}
+.dash_section .dash_main .place_card .card_body .card_image img {
+  width: inherit;
+  height: inherit;
 }
 .dash_section .dash_main .place_card .card_foot {
   height: 20%;
-  width: 100%;
   text-align: center;
   padding: 10px;
+  font-size: 10px;
 }
 .dash_section .next_page {
   display: inline-block;

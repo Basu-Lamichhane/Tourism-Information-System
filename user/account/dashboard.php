@@ -32,7 +32,7 @@
                     <div class="place_card" id="<?php echo "card" . ($id); ?>" onclick="loadPlace(<?php echo $id?>);">
                         <div class="card_body" id="<?php echo 'card' . ($id) . 'main'; ?>">
                             <div class="card_image" id="<?php echo 'card' . ($id) . 'image'?>">
-                                    <img src="<?php echo $img ;?>" alt="Image">
+                                    <img src="<?php echo $img ;?>" alt="Image" class="place_img">
                             </div>
 
                         </div>

@@ -1,4 +1,4 @@
-/* * {
+* {
   color: #073064;
   font-weight: bold;
 }
@@ -50,77 +50,10 @@
 .register_container fieldset .form_style .reg_dob {
   margin-bottom: 10px;
 }
-.register_container fieldset .form_style .reg_dob input[type="date"] {
+.register_container fieldset .form_style .reg_dob input[type=date] {
   border-radius: 1em;
 }
 .register_container fieldset .form_style .radio_items {
   display: inline-block;
   margin-bottom: 10px;
-} */
-
-* {
-  color: #073064;
-  font-weight: bold;
-}
-
-.register_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.register_container fieldset {
-  margin-top: -30px;
-  padding: 15px;
-  border: 1px solid black;
-  box-shadow: 2px 2px black;
-  border-radius: 10px;
-  background-color: rgba(248, 137, 50, 0.5);
-}
-
-.register_container fieldset legend {
-  font-size: 36px;
-}
-
-.register_container fieldset .form_style {
-  display: flex;
-  flex-direction: column;
-}
-
-.register_container fieldset .form_style .text,
-.register_container fieldset .form_style .register_btn {
-  height: 5vh;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.register_container fieldset .form_style .register_btn {
-  width: 10vw;
-  background-color: #f88932;
-  margin: 10px 30%;
-}
-
-.register_container fieldset .form_style .gender {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.register_container fieldset .form_style .gender .gender_options {
-  display: flex;
-  justify-content: space-evenly;
-  padding-top: 10px;
-}
-
-.register_container fieldset .form_style .reg_dob {
-  margin-bottom: 10px;
-}
-
-.register_container fieldset .form_style .reg_dob input[type="date"] {
-  border-radius: 1em;
-}
-
-.register_container fieldset .form_style .radio_items {
-  display: inline-block;
-  margin-bottom: 10px;
-}
+}/*# sourceMappingURL=register_style.css.map */

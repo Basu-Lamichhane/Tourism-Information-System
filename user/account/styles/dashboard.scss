@@ -41,20 +41,28 @@ body {
       width: 300px;
       margin: 20px;
       border: 2px solid black;
+      &:hover {
+        cursor: pointer;
+        
+      }
       .card_body {
         background: pink;
         height: 80%;
         width: 100%;
-        img{
-          max-height: 100%;
-          max-width: 100%;
+        .card_image {
+          height: 100%;
+          width: 100%;
+          img {
+            width: inherit;
+            height: inherit;
+          }
         }
       }
       .card_foot {
         height: 20%;
-        width: 100%;
         text-align: center;
         padding: 10px;
+        font-size: 10px;
       }
     }
   }
