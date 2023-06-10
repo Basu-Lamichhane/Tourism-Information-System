@@ -29,7 +29,7 @@
                     ?>
 
 
-                    <div class="place_card" id="<?php echo "card" . ($id); ?>">
+                    <div class="place_card" id="<?php echo "card" . ($id); ?>" onclick="loadPlace(<?php echo $id?>);">
                         <div class="card_body" id="<?php echo 'card' . ($id) . 'main'; ?>">
                             <div class="card_image" id="<?php echo 'card' . ($id) . 'image'?>">
                                     <img src="<?php echo $img ;?>" alt="Image">
@@ -60,6 +60,7 @@
     <script src="script/jquery.js"></script>
     <script src="script/(junk)searchPlaces.js"></script>
     <script src="script/search_query_suggestion.js"></script>
+    <script src="script/main.js"></script>
 </body>
 
 </html>
