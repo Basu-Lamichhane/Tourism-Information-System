@@ -27,7 +27,7 @@
                 <div class="menu">
                     <div class="menu-container">
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="#" class="menu-content" onclick="SearchBar.focus(),destination_option.options[1].selected = true;">
                                 <span class="name">Attractions/Places</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -39,7 +39,7 @@
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="#" class="menu-content" onclick="SearchBar.focus(),destination_option.options[2].selected = true;">
                                 <span class="name">Accommodation</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -51,7 +51,7 @@
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="#" class="menu-content" onclick="SearchBar.focus(),destination_option.options[3].selected = true;">
                                 <span class="name">Restaurants</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -63,7 +63,7 @@
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="" class="menu-content" onclick="SearchBar.focus(),destination_option.options[4].selected = true;">
                                 <span class="name">cafes</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -83,7 +83,7 @@
         </div>
 
         <div class="s010">
-            <form>
+            <form id="search-form">
                 <div class="inner-form">
                     <div class="basic-search">
                         <div class="input-field">
@@ -103,7 +103,7 @@
                         <div class="row">
                             <div class="input-field">
                                 <div class="input-select">
-                                    <select name="district" id="district" class="options">
+                                    <select name="district" id="district" class="options" onchange="javascript:(load_search_result(SearchBar.value))">
                                         <option disabled selected value="">District</option>
                                     </select>
                                 </div>
@@ -111,7 +111,7 @@
                             <div class="input-field">
                                 <div class="input-select">
                                     <select name="destination" id="destination" class="options"
-                                        onchange="javascript:(type_dropdown_options(this.value))">
+                                        onchange="javascript:(type_dropdown_options(this.value),load_search_result(SearchBar.value))">
                                         <option disabled selected value="">Destinations</option>
                                         <option value="place" id="place">Places</option>
                                         <option value="accommodation" id="accommodation">Accommodations</option>
@@ -122,7 +122,7 @@
                             </div>
                             <div class="input-field">
                                 <div class="input-select">
-                                    <select name="type" id="type" class="options">
+                                    <select name="type" id="type" class="options" onchange="javascript:(load_search_result(SearchBar.value))">
                                         <option disabled selected value="">Types</option>
                                         <!-- <option disabled selected value="">Types</option> -->
                                     </select>
@@ -142,7 +142,7 @@
                                     <span id="no-of-results">0</span>results
                                 </div>
                                 <div class="group-btn">
-                                    <button class="btn-delete" id="reset">RESET</button>
+                                    <button class="btn-delete" id="reset" onclick="javascript:resetBtn(); return false;">RESET</button>
                                     <button class="btn-search">SEARCH</button>
                                 </div>
                             </div>
@@ -154,22 +154,30 @@
         </div>
 
         <div class="typeahead_suggestions_container" id="suggestions_container" style="display: none;">
-            <hr>
-            <a href="#" class="suggestion_container">
 
-                <div class="suggestion-logo">
-                <svg viewBox="0 0 24 24" width="24px" height="24px"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.497 4.612a.85.85 0 011.08 1.072l-5.055 15.29c-.254.769-1.337.781-1.608.019l-2.487-6.988-7.068-2.673c-.746-.282-.728-1.344.028-1.6l15.11-5.12zm-.754 1.84L6.586 10.57l5.653 2.138a.85.85 0 01.5.51l1.953 5.487L18.743 6.45z"></path></svg>
-                </div>
-
-                <div class="suggestion_details">
-                    <div class="suggestion-name">
+            <div class="nearby_search">
+                <a href="#" class="suggestion_container">
+                    <div class="suggestion-logo">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.497 4.612a.85.85 0 011.08 1.072l-5.055 15.29c-.254.769-1.337.781-1.608.019l-2.487-6.988-7.068-2.673c-.746-.282-.728-1.344.028-1.6l15.11-5.12zm-.754 1.84L6.586 10.57l5.653 2.138a.85.85 0 01.5.51l1.953 5.487L18.743 6.45z"></path></svg>
+                    </div>
+                    <div class="suggestion_details">
+                        <div class="suggestion-name">
                             Nearby
+                        </div>
+                        <div class="suggestion-address">
+                            <?php echo "Current Address";?>    
+                        </div>
                     </div>
-                    <div class="suggestion-address">
-                        Current location    
-                    </div>
-                </div>
-            </a>
+                </a>
+            </div>
+
+            <div class="search_suggestions_container" id="changing_suggestions">
+
+
+            </div>
+
+            <div></div>
+            
             <hr>
         </div>
 

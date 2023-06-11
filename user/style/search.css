@@ -435,6 +435,7 @@ tr{
 
 /* For typeahead suggestions css */
 .typeahead_suggestions_container{
+    top:-20px;
     position: relative;
     max-width: 100%;
     box-sizing: border-box;
@@ -444,7 +445,11 @@ tr{
     padding-right: 24px;
     width: 795px;
     text-align: left;
-    background: rgb(255, 255, 255,0.5);
+    background: rgb(255, 255, 255);
+    height: auto;
+    max-height: 400px;
+    overflow: auto;
+    z-index: 1;
 }
 
 .suggestion_container{
