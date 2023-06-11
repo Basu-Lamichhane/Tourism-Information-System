@@ -11,7 +11,7 @@
 
 .container {
     width: 100%;
-    height: 85vh;
+    /* height: 85vh; */
 }
 
 body{
@@ -299,4 +299,188 @@ tr{
     padding: 5px 40px;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+}
+
+/* from district_page_style.css */
+
+.container {
+    padding: 10px 0px;
+}
+
+
+.title {
+    text-align: center;
+    height: 35px;
+    font-size: x-large;
+    cursor: default;
+}
+
+.title-text {
+    color: rgb(7, 48, 100);
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.title-text:hover {
+    color: #f88932;
+    font-size: smaller;
+}
+
+.menu,
+.picture-box,
+.info-container,
+.feed-title,
+.feed-line {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 1184px;
+}
+
+.picture-box {
+    margin-top: 3vh;
+}
+
+.menu-container {
+    /* display: -webkit-flex; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-box {
+
+    flex: 0 0 auto;
+    min-width: 0;
+    display: flex;
+    margin: 0px 10px;
+}
+
+.menu-content:hover,
+.more-options:hover,
+.arrow:hover {
+    background-color: #073064;
+    color: #f88932;
+    border-color: #f88932;
+    fill: #f88932;
+
+}
+
+.menu-content:hover,
+.arrow:hover {
+
+    transform: scale(1.1);
+}
+
+.menu-content:active,
+.arrow:active {
+    background-color: #f88932;
+    color: #073064;
+    border-color: #073064;
+    fill: #073064;
+}
+
+.menu-content {
+    background: rgb(255, 255, 255,0.5);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border: 2px solid;
+    color: black;
+    display: flex;
+    gap: 12px;
+    min-width: 150px;
+    padding: 11px 16px;
+    transition: 0.5s;
+    text-align: left;
+    border-radius: 12px;
+    height: 100%;
+    align-items: flex-start;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.name {
+    margin-top: 4px;
+}
+
+#more-btn{
+    font-family: "traverse-nepal-hammersmith-one-regular";
+    font-size: initial;
+}
+
+.menu-hidden {
+    display: none;
+}
+
+.more {
+    right: 0;
+    margin-top: 12px;
+    box-shadow: 0 2px 54px 0 rgba(0, 0, 0, .1);
+    min-width: 192px;
+    position: absolute;
+    z-index: 10104;
+    background-color: white;
+    border-radius: 12px;
+    display: none;
+}
+
+/* End of style from district_page_style.css */
+
+
+/* For typeahead suggestions css */
+.typeahead_suggestions_container{
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 795px;
+    text-align: left;
+    background: rgb(255, 255, 255,0.5);
+}
+
+.suggestion_container{
+    display: flex;
+    padding: 16px 24px;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.suggestion-logo{
+    align-items: center;
+    border: 2px solid blue;
+    border-radius: 50%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    flex: 0 0 40px;
+    background-color: white;
+    height: 40px;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.suggestion_details{
+    align-self: center;
+    padding-left: 8px;
+}
+
+.suggestion-name{
+    font-weight: 800;
+}
+
+.suggestion-address {
+    font-weight: 700;
+    font-size: smaller;
 }
