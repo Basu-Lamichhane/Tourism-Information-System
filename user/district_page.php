@@ -6,9 +6,17 @@
 //     header('location:login.php');
 // }
 
+require "include/dbconn.inc.php";
+// $district_selected="";
+$district_selected;
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    $district_selected=$_GET["district_selected"];
+}
 
-
- ?>
+$selected_district_query = "select * from tbl_district where d_name='".$district_selected."';";
+$selected_district_result = $con->query($selected_district_query);
+$selected_district_data_row=$selected_district_result->fetch_assoc();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -129,8 +137,8 @@
         <div class="picture-container">
             <div class="picture-box">
                 <img class="picture"
-                    src="https://royalmt.com.np/news/wp-content/uploads/sites/3/2017/03/Kathmandu-Nepal.jpg"
-                    alt="This is my picture" />
+                    src="<?php echo $selected_district_data_row['d_image']?>"
+                    alt="This is <?php echo $selected_district_data_row['d_name']?> district's picture" />
             </div>
         </div>
 
@@ -138,15 +146,11 @@
         <div class="info-container">
             <div class="info-grid">
                 <div class="geo-desc">
-                    <div class="info-about">About kathmandu</div>
-                    <div class="info-desc">Nepal’s capital is surrounded by a valley full of historic sites, ancient
-                        temples, shrines, and fascinating villages. Mingle with locals and animals amid Durbar Square’s
-                        monuments, or join mountain trekkers in the bustling Thamel District. Explore shops for
-                        exquisite work by local artisans—carpets and paper prints are specialties.</div>
+                    <div class="info-about">About <?php echo $selected_district_data_row['d_name']?></div>
+                    <div class="info-desc"><?php echo $selected_district_data_row['d_desc']?></div>
                 </div>
             </div>
         </div>
-
 
         <?php include "include/feed_container.inc.php" ?>
     </main>
