@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>Searcḣ Page</title>
     <link rel="stylesheet" href="style/nav_style.css">
+    <!-- <link rel="stylesheet" href="style/district_page_style.css"> -->
     <link rel="stylesheet" href="style/search.css">
     <link rel="stylesheet" href="style/footer_style.css">
+    <link rel="stylesheet" href="style/feed_container_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
@@ -15,7 +17,7 @@
     </header>
     <main>
 
-        <div class="container" id="sticky-div">
+        <div class="search-container" id="sticky-div">
 
             <div class="title" id="menu-title">
                 <i class="title-text" id="discover">Discover</i>,&nbsp;
@@ -63,7 +65,7 @@
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content" onclick="SearchBar.focus(),destination_option.options[4].selected = true;">
+                            <a href="#" class="menu-content" onclick="SearchBar.focus(),destination_option.options[4].selected = true;">
                                 <span class="name">cafes</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -142,8 +144,8 @@
                                     <span id="no-of-results">0</span>results
                                 </div>
                                 <div class="group-btn">
-                                    <button class="btn-delete" id="reset" onclick="javascript:resetBtn(); return false;">RESET</button>
-                                    <button class="btn-search">SEARCH</button>
+                                    <button class="btn-delete search-page-btn" id="reset" onclick="javascript:resetBtn(); return false;">RESET</button>
+                                    <button class="btn-search search-page-btn">SEARCH</button>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +167,7 @@
                             Nearby
                         </div>
                         <div class="suggestion-address">
-                            <?php echo "Current Address";?>    
+                            <?php echo "Current Address"; ?>    
                         </div>
                     </div>
                 </a>
@@ -176,12 +178,30 @@
 
             </div>
 
-            <div></div>
             
-            <hr>
         </div>
 
         <div id="search_results" class="search-suggestion"></div>
+
+        <div class="picture-container">
+            <div class="picture-box">
+                <img class="picture"
+                    src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1595073504/blog/dmida4bcnbnrejsq7lyw.jpg"
+                    alt="This is my picture" />
+            </div>
+        </div>
+
+
+        <div class="info-container">
+            <div class="info-grid">
+                <div class="geo-desc">
+                    <div class="info-about">About Nepal</div>
+                    <div class="info-desc">Nepal, located in South Asia, is a land of diverse landscapes, rich cultural heritage, and breathtaking natural beauty. It is known for its majestic Himalayan mountain range, including the world's highest peak, Mount Everest. Nepal offers a captivating blend of adventure, spirituality, and serenity, making it a popular destination for travelers from around the globe.</div>
+                </div>
+            </div>
+        </div>
+
+        <?php include "include/feed_container.inc.php" ?>
     </main>
 
     <!-- including footer.inc.php -->
@@ -193,6 +213,19 @@
     <script src="./script/ajax_script/search_query_suggestion.js"></script>
     <script src="./script/ajax_script/select_options.js"></script>
     <script src="./script/search.js"></script>
+    <script>
+        function scrollContent(scrollAmount,action) {
+            const scrollContainer = document.querySelector('#container-'+action);
+            const scrollContent = document.querySelector('#content-'+action);
+            const scrollPosition = scrollContainer.scrollLeft;
+            const scrollStep = scrollContent.clientWidth / 3;
+
+            scrollContainer.scrollBy({
+                left: scrollStep * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 
 </html>
