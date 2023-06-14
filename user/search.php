@@ -201,6 +201,12 @@
             </div>
         </div>
 
+        <?php $district_url="attractions_list.php?destination=district"; ?>
+        <?php $place_url="attractions_list.php?destination=place"; ?>
+        <?php $accommodation_url="attractions_list.php?destination=accommodation"; ?>
+        <?php $restaurant_url="attractions_list.php?destination=restaurant"; ?>
+        <?php $cafe_url="attractions_list.php?destination=cafe"; ?>
+        
         <?php include "include/feed_container.inc.php" ?>
     </main>
 
@@ -229,3 +235,6 @@
 </body>
 
 </html>
+
+
+

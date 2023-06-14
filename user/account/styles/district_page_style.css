@@ -55,7 +55,7 @@ main {
 .picture-box,
 .info-container,
 .feed-title,
-.feed-line {
+.feed-line{
     max-width: 100%;
     box-sizing: border-box;
     margin-left: auto;
@@ -69,8 +69,21 @@ main {
     margin-top: 3vh;
 }
 
+.path-container {
+    position: relative;
+}
+.path-contents{
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 1184px;
+    border: #073064;
+}
+
 .menu-container {
-    /* display: -webkit-flex; */
     display: flex;
     flex-wrap: wrap;
 }

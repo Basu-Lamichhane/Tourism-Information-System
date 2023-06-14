@@ -25,7 +25,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>District Page</title>
+    <title><?php echo $selected_district_data_row['d_name']?> | Traverse Nepal</title>
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -132,8 +132,13 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                 </div>
             </span>
         </div>
-
-
+        
+        <!-- <div class="path-container" id="path_container">
+            <div class="path-contents">
+                <a href="#">Nepal</a> ><a href="#"> <?php echo $district_selected; ?></a>>
+            </div>
+        </div> -->
+        
         <div class="picture-container">
             <div class="picture-box">
                 <img class="picture"
@@ -141,6 +146,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                     alt="This is <?php echo $selected_district_data_row['d_name']?> district's picture" />
             </div>
         </div>
+
 
 
         <div class="info-container">
