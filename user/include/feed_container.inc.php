@@ -1,10 +1,10 @@
 <?php
 require "dbconn.inc.php";
-$district_selected = "";
-$district_selected = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
+$district = "";
+$district = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
 // if ($_SERVER["REQUEST_METHOD"] == "GET") {
-// $district_selected = $_GET["district_selected"];
-// echo $district_selected;
+// $district = $_GET["district"];
+// echo $district;
 //     $place_selected = $_GET["place_selected"];
 //     echo $place_selected;
 //     $accommodation_selected = $_GET["accommodation_selected"];
@@ -15,23 +15,23 @@ $district_selected = $place_selected = $accommodation_selected = $restaurant_sel
 //     echo $cafe_selected;
 // }
 
-if (isset($_GET['district_selected'])) {
-    $district_selected = $_GET['district_selected'];
+if (isset($_GET['district'])) {
+    $district = $_GET['district'];
 
 
-    $district_query = "select * from tbl_district where d_name!='" . $district_selected . "';";
+    $district_query = "select * from tbl_district where d_name!='" . $district . "';";
     $district_result = $con->query($district_query);
 
-    $place_query = "select * from tbl_place where p_district='" . $district_selected . "';";
+    $place_query = "select * from tbl_place where p_district='" . $district . "';";
     $place_result = $con->query($place_query);
 
-    $accommodation_query = "select * from tbl_accommodation where a_district='" . $district_selected . "';";
+    $accommodation_query = "select * from tbl_accommodation where a_district='" . $district . "';";
     $accommodation_result = $con->query($accommodation_query);
 
-    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district_selected . "';";
+    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "';";
     $restaurant_result = $con->query($restaurant_query);
 
-    $cafe_query = "select * from tbl_cafe where c_district='" . $district_selected . "';";
+    $cafe_query = "select * from tbl_cafe where c_district='" . $district . "';";
     $cafe_result = $con->query($cafe_query);
 } else {
 
@@ -105,7 +105,7 @@ if (isset($_GET['district_selected'])) {
                                         <!-- php code here -->
                                         <li class="feed-content-li" id="<?php echo $district_data_row['d_name']; ?>">
                                             <div class="feed-content-box">
-                                                <a href="district_page.php?district_selected=<?php echo $district_data_row['d_name'] ?>"
+                                                <a href="district_page.php?district=<?php echo $district_data_row['d_name'] ?>"
                                                     target="_blank">
                                                     <div class="image-container-box">
                                                         <div class="image-container">

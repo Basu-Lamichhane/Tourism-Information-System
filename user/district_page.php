@@ -7,13 +7,13 @@
 // }
 
 require "include/dbconn.inc.php";
-// $district_selected="";
-$district_selected;
+// $district="";
+$district;
 if($_SERVER["REQUEST_METHOD"]=="GET"){
-    $district_selected=$_GET["district_selected"];
+    $district=$_GET["district"];
 }
 
-$selected_district_query = "select * from tbl_district where d_name='".$district_selected."';";
+$selected_district_query = "select * from tbl_district where d_name='".$district."';";
 $selected_district_result = $con->query($selected_district_query);
 $selected_district_data_row=$selected_district_result->fetch_assoc();
 ?>
@@ -53,7 +53,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                 <div class="menu">
                     <div class="menu-container">
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=place" class="menu-content">
                                 <span class="name">Attractions/Places</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -65,7 +65,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=accommodation" class="menu-content">
                                 <span class="name">Accommodation</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -77,7 +77,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=restaurant" class="menu-content">
                                 <span class="name">Restaurants</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -89,7 +89,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="" class="menu-content">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=cafe" class="menu-content">
                                 <span class="name">cafes</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -135,7 +135,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
         
         <!-- <div class="path-container" id="path_container">
             <div class="path-contents">
-                <a href="#">Nepal</a> ><a href="#"> <?php echo $district_selected; ?></a>>
+                <a href="#">Nepal</a> ><a href="#"> <?php echo $district; ?></a>>
             </div>
         </div> -->
         
@@ -158,6 +158,11 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
             </div>
         </div>
 
+        <?php $district_url="attractions_list.php?destination=district"; ?>
+        <?php $place_url="attractions_list.php?district=".$selected_district_data_row['d_name']."&&destination=place"; ?>
+        <?php $accommodation_url="attractions_list.php?district=".$selected_district_data_row['d_name']."&&destination=accommodation"; ?>
+        <?php $restaurant_url="attractions_list.php?district=".$selected_district_data_row['d_name']."&&destination=restaurant"; ?>
+        <?php $cafe_url="attractions_list.php?district=".$selected_district_data_row['d_name']."&&destination=cafe"; ?>
         <?php include "include/feed_container.inc.php" ?>
     </main>
 

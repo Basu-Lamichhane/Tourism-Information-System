@@ -470,12 +470,8 @@ img.picture:hover {
 
 /* For typeahead suggestions css */
 .typeahead_suggestions_container{
-    top:-20px;
-    position: relative;
+    position: absolute;
     max-width: 100%;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
     padding-left: 24px;
     padding-right: 24px;
     width: 795px;
@@ -484,6 +480,8 @@ img.picture:hover {
     height: auto;
     max-height: 293px;
     overflow: auto;
+    left: 360px;
+    z-index: 1;
 }
 
 .suggestion_container{

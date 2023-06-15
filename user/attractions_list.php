@@ -2,12 +2,20 @@
 
 require "include/dbconn.inc.php";
 
-if(isset($_GET['destination'])){
+if(isset($_GET['destination']) && (!isset($_GET['district']))){
     $destination = $_GET['destination'];
+    $first_char = substr($destination, 0, 1);
+    $records = $con->query("SELECT * FROM tbl_" . $destination . ";");
+    $no_of_rows = $records->num_rows;
 }
-$first_char = substr($destination, 0, 1);
-$records = $con->query("SELECT * FROM tbl_" . $destination . ";");
-$no_of_rows = $records->num_rows;
+else if(isset($_GET['destination']) && isset($_GET['district'])){
+    $destination = $_GET['destination'];
+    $district=$_GET['district'];
+    $first_char = substr($destination, 0, 1);
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where ".$first_char."_district='".$district."';");
+    $no_of_rows = $records->num_rows;
+
+}
 $start = 0;
 $contents_per_page = 12;
 //calculating no of pages
@@ -20,7 +28,9 @@ if (isset($_GET['page'])) {
 }
 
 $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " LIMIT " . $start . "," . $contents_per_page . ";");
-
+if(isset($_GET['destination']) && isset($_GET['district'])){
+    $pagination_query_execute= $con->query("SELECT * FROM tbl_" . $destination . " where ".$first_char."_district='".$district."' ORDER BY ".$first_char."_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+}
 
 
 
@@ -35,7 +45,7 @@ $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $destination;?> List Page</title>
+    <title><?php echo ucfirst($destination)."s | "; if(isset($_GET['district'])) echo $district; echo " Traverse Nepal";?></title>
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="style/attraction_list_style.css">
@@ -57,7 +67,11 @@ $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " 
 
                 <div class="attractions-list-title">
                     <div class="list-title">
-                        <?php echo $destination; ?>
+                        <?php if ($destination=="district") echo "Popular Districts in Nepal"; ?> 
+                        <?php if ($destination=="place") echo "Top Attractions in Nepal"; ?> 
+                        <?php if ($destination=="accommodation") echo "Popular Accommodations in Nepal right now"; ?> 
+                        <?php if ($destination=="restaurant") echo "Popular Resruarants in Nepal right now"; ?> 
+                        <?php if ($destination=="cafe") echo "Popular Cafes in Nepal right now"; ?> 
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Searcḣ Page</title>
+    <title>Traverse Nepal</title>
     <link rel="stylesheet" href="style/nav_style.css">
     <!-- <link rel="stylesheet" href="style/district_page_style.css"> -->
     <link rel="stylesheet" href="style/search.css">
