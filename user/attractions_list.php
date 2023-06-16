@@ -46,6 +46,7 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ucfirst($destination)."s | "; if(isset($_GET['district'])) echo $district; echo " Traverse Nepal";?></title>
+    <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="style/attraction_list_style.css">
@@ -56,6 +57,11 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
 </head>
 
 <body>
+    <!-- Reload Animation -->
+    <div id="loader-overlay">
+        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+    </div>
+    <!-- Reload Animation -->
     <header>
         <?php include "include/header.inc.php" ?>
     </header>
@@ -143,4 +149,6 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
             <?php include "include/footer.inc.php" ?>
         </footer>
     </main>
+    <script src="./script/reload_animation.js"></script>
 </body>
+</html>

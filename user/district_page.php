@@ -26,6 +26,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $selected_district_data_row['d_name']?> | Traverse Nepal</title>
+    <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -35,6 +36,11 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
 </head>
 
 <body>
+    <!-- Reload Animation -->
+    <div id="loader-overlay">
+        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+    </div>
+    <!-- Reload Animation -->
     <header>
         <?php include "include/header.inc.php"; ?>
     </header>
@@ -170,6 +176,7 @@ $selected_district_data_row=$selected_district_result->fetch_assoc();
         <?php include "include/footer.inc.php"; ?>
     </footer>
 
+    <script src="./script/reload_animation.js"></script>
 
     <script>
         function toggleMenu() {

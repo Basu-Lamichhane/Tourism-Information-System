@@ -20,10 +20,10 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .search-page-btn,
-input,
 select,
 textarea,option{
     font-family: sans-serif;
@@ -31,6 +31,7 @@ textarea,option{
     line-height: 1.15;
     margin: 0;
     background: linear-gradient(to right, #073064 0%, #073064 28%, #f88932 91%, #f88932 100%);
+    color: black;
 }
 
 #search:hover,select:hover{
@@ -50,6 +51,9 @@ select {
     text-transform: none;
     border: black solid 2px;
     border-radius: 20px;
+    height: 35px;
+    text-align: center;
+    color: white;
 }
 
 .s010 {
@@ -182,6 +186,10 @@ select {
 
 .s010 form .inner-form .basic-search .input-field input {
     padding: 10px 80px 10px 40px;
+    transition: 0.5s;
+}
+.s010 form .inner-form .basic-search .input-field input:hover{
+    transform: scale(1.1);
 }
 
 .s010 form .inner-form .basic-search .input-field .icon-wrap {
@@ -306,15 +314,16 @@ tr{
     position: sticky;
     top: 0;
     background-color: #ffffff;
-    z-index: 1;
+    z-index: 2;
 }
 
 
 .title {
     text-align: center;
     height: 35px;
-    font-size: x-large;
+    font-size: xxx-large;
     cursor: default;
+    margin-bottom: 40px;
 }
 
 .title-text {
@@ -472,14 +481,14 @@ img.picture:hover {
 .typeahead_suggestions_container{
     position: absolute;
     max-width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 795px;
     text-align: left;
     background: rgb(255, 255, 255);
     height: auto;
     max-height: 293px;
-    overflow: auto;
+    overflow: hidden;
     left: 360px;
     z-index: 1;
 }
@@ -491,6 +500,17 @@ img.picture:hover {
     cursor: pointer;
     box-sizing: border-box;
     width: 100%;
+    transition: 0.5s;
+    border-radius: 15px;
+}
+
+.suggestion_container:hover{
+    transform: scale(1.02);
+    background-color: #f88932;
+    color: #073064;
+    fill: #073064;
+    border-color:#073064 ;
+
 }
 
 .suggestion-logo{
@@ -520,4 +540,10 @@ img.picture:hover {
 .suggestion-address {
     font-weight: 700;
     font-size: smaller;
+}
+.nav-container{
+    justify-content: space-between;
+}
+.navbar-container{
+    justify-content: flex-end;
 }
