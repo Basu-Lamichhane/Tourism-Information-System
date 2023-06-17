@@ -1,6 +1,6 @@
 <div class="header-container">
     <nav class="nav-container">
-        <a class="logo-container" href="/">
+        <a class="logo-container" href="./search.php">
             <picture>
                 <img src="./img/logo.png" alt="Traverse Nepal" class="logo">
             </picture>

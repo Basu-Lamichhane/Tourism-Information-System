@@ -6,9 +6,9 @@ const suggestionDiv = document.getElementById('suggestions_container');
 SearchBar.addEventListener('focusin', function () {
     suggestionDiv.style.display = (suggestionDiv.style.display === 'none') ? 'block' : 'none';
 });
-SearchBar.addEventListener('focusout', function () {
-    suggestionDiv.style.display = (suggestionDiv.style.display === 'none') ? 'block' : 'none';
-});
+// SearchBar.addEventListener('focusout', function () {
+//     suggestionDiv.style.display = (suggestionDiv.style.display === 'none') ? 'block' : 'none';
+// });
 
 
 

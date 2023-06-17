@@ -324,10 +324,11 @@ tr{
     font-size: xxx-large;
     cursor: default;
     margin-bottom: 40px;
+    color: rgb(7, 48, 100);
+
 }
 
 .title-text {
-    color: rgb(7, 48, 100);
     font-weight: 900;
     transition: 0.5s;
 }

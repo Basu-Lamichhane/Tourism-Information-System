@@ -55,7 +55,8 @@ if (isset($_GET['district'])) {
 
 <div class="feed-container">
 
-    <div class="feed-box" id="feed-explore">
+
+<div class="feed-box" id="feed-explore">
         <div class="feed-line">
             <div class="feed-contents">
                 <!-- start of feed left side details -->
@@ -171,10 +172,6 @@ if (isset($_GET['district'])) {
                 </div>
             </div>
         </div>
-    </div>
-
-
-
 
 
     <div class="feed-box" id="feed-do">

@@ -25,10 +25,12 @@ body{
 
 
 .list-title{
+    font-family: 'traverse-nepal-hammersmith-one-regular';
     padding: 10px;
-    font-size: xxx-large;
+    font-size: xx-large;
     font-weight: bold;
     cursor: default;
+    color: rgb(7, 48, 100);
 }
 
 .attractions-list-body{
@@ -90,4 +92,8 @@ body{
     font-size: x-large;
     font-weight: bolder;
     margin-top: 50px;
+}
+
+footer{
+    margin-top: 20px;
 }

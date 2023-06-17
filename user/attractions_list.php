@@ -7,6 +7,7 @@ if(isset($_GET['destination']) && (!isset($_GET['district']))){
     $first_char = substr($destination, 0, 1);
     $records = $con->query("SELECT * FROM tbl_" . $destination . ";");
     $no_of_rows = $records->num_rows;
+    $title_text="Popular ".ucfirst($destination)."s in Nepal right now";
 }
 else if(isset($_GET['destination']) && isset($_GET['district'])){
     $destination = $_GET['destination'];
@@ -14,7 +15,7 @@ else if(isset($_GET['destination']) && isset($_GET['district'])){
     $first_char = substr($destination, 0, 1);
     $records = $con->query("SELECT * FROM tbl_" . $destination . " where ".$first_char."_district='".$district."';");
     $no_of_rows = $records->num_rows;
-
+    $title_text="Popular ".ucfirst($destination)."s in ".$district." right now";
 }
 $start = 0;
 $contents_per_page = 12;
@@ -46,6 +47,7 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ucfirst($destination)."s | "; if(isset($_GET['district'])) echo $district; echo " Traverse Nepal";?></title>
+    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
@@ -73,11 +75,7 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
 
                 <div class="attractions-list-title">
                     <div class="list-title">
-                        <?php if ($destination=="district") echo "Popular Districts in Nepal"; ?> 
-                        <?php if ($destination=="place") echo "Top Attractions in Nepal"; ?> 
-                        <?php if ($destination=="accommodation") echo "Popular Accommodations in Nepal right now"; ?> 
-                        <?php if ($destination=="restaurant") echo "Popular Resruarants in Nepal right now"; ?> 
-                        <?php if ($destination=="cafe") echo "Popular Cafes in Nepal right now"; ?> 
+                        <?php echo $title_text ?> 
                     </div>
                 </div>
 
@@ -141,9 +139,6 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
         
         <?php if($pages>1) include "include/pagination.inc.php"; ?> 
         <!-- including pagination -->
-
-        <div class="recommended">Recommended To You</div>
-        <?php include "include/feed_container.inc.php" ?>
 
         <footer>
             <?php include "include/footer.inc.php" ?>

@@ -1,8 +1,55 @@
+<?php
+require "include/dbconn.inc.php";
+$district = "";
+$district = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
+
+if (isset($_GET['district'])) {
+    $district = $_GET['district'];
+
+
+    $district_query = "select * from tbl_district where d_name!='" . $district . "';";
+    $district_result = $con->query($district_query);
+
+    $place_query = "select * from tbl_place where p_district='" . $district . "';";
+    $place_result = $con->query($place_query);
+
+    $accommodation_query = "select * from tbl_accommodation where a_district='" . $district . "';";
+    $accommodation_result = $con->query($accommodation_query);
+
+    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "';";
+    $restaurant_result = $con->query($restaurant_query);
+
+    $cafe_query = "select * from tbl_cafe where c_district='" . $district . "';";
+    $cafe_result = $con->query($cafe_query);
+} else {
+
+    // for district feed updates
+    $district_query = "select * from tbl_district;";
+    $district_result = $con->query($district_query);
+
+    $place_query = "select * from tbl_place;";
+    $place_result = $con->query($place_query);
+
+    $accommodation_query = "select * from tbl_accommodation;";
+    $accommodation_result = $con->query($accommodation_query);
+
+    $restaurant_query = "select * from tbl_restaurant;";
+    $restaurant_result = $con->query($restaurant_query);
+
+    $cafe_query = "select * from tbl_cafe;";
+    $cafe_result = $con->query($cafe_query);
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Traverse Nepal</title>
+    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/nav_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <!-- <link rel="stylesheet" href="style/district_page_style.css"> -->
@@ -23,30 +70,13 @@
     <header>
         <div class="header-container">
             <nav class="nav-container">
-                <a class="logo-container" href="/">
+                <a class="logo-container" href="./search.php">
                     <picture>
                         <img src="./img/logo.png" alt="Traverse Nepal" class="logo">
                     </picture>
                 </a>
 
                 <div class="navbar-container">
-                    <!-- <div class="nav-search-bar-container">
-                <div class="nav-search-bar">
-                    <div class="search-bar">
-                        <div class="whole-screen"></div>
-                        <form action="">
-                            <input type="search" name="search" id="">
-                            <button type="submit">
-                                <svg viewBox="0 0 24 24" width="1em" height="1em">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M9.74 3.75a5.99 5.99 0 100 11.98 5.99 5.99 0 000-11.98zM2.25 9.74a7.49 7.49 0 1113.3 4.728l5.44 5.442-1.06 1.06-5.44-5.439A7.49 7.49 0 012.25 9.74z">
-                                    </path>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
                     <div class="nav-menus">
                         <a href="#" class="nav-menu">
                             <svg viewBox="0 0 24 24" width="24px" height="24px">
@@ -220,7 +250,8 @@
                                 <div class="group-btn">
                                     <button class="btn-delete search-page-btn" id="reset"
                                         onclick="javascript:resetBtn(); return false;">RESET</button>
-                                    <button class="btn-search search-page-btn">SEARCH</button>
+                                    <button class="btn-search search-page-btn" onclick="window.location.href='/attractions_list.php';
+                                    console.log('basu');">SEARCH</button>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +264,7 @@
         <div class="typeahead_suggestions_container" id="suggestions_container" style="display: none;">
 
             <div class="nearby_search">
-                <a href="#" class="suggestion_container">
+                <a href="?nearby=True" class="suggestion_container" id="location-link";>
                     <div class="suggestion-logo">
                         <svg viewBox="0 0 24 24" width="24px" height="24px">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -290,7 +321,11 @@
         <?php $restaurant_url = "attractions_list.php?destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?destination=cafe"; ?>
 
-        <?php include "include/feed_container.inc.php" ?>
+        <?php include "include/feeds/district_feed.inc.php" ?>
+        <?php include "include/feeds/place_feed.inc.php" ?>
+        <?php include "include/feeds/accommodation_feed.inc.php" ?>
+        <?php include "include/feeds/restaurant_feed.inc.php" ?>
+        <?php include "include/feeds/cafe_feed.inc.php" ?>
     </main>
 
     <!-- including footer.inc.php -->
@@ -315,6 +350,38 @@
                 behavior: 'smooth'
             });
         }
+        // Feature detection using 'navigator.geolocation'
+        if ('geolocation' in navigator) {
+            // Geolocation API is supported, you can use it here
+
+            const locationLink = document.getElementById('location-link');
+            console.log('obtained');
+            locationLink.addEventListener('click', getLocation);
+
+            function getLocation(event) {
+                event.preventDefault();  
+
+                var cords=navigator.geolocation.getCurrentPosition(showPosition);
+                console.log('basu');
+                console.log(cords);
+            }
+            
+            function showPosition(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                
+                console.log('Latitude: ' + latitude);
+                console.log('Longitude: ' + longitude);
+                return(latitude, longitude);
+
+                // You can perform additional actions with the location data, such as sending it to a server or updating the webpage.
+            }
+        } else {
+            // Geolocation API is not supported, handle the absence of this feature
+                console.log('Geolocation API is not supported');
+            // You can provide an alternative experience or fallback here, such as displaying a message or using a different method to obtain location information.
+        }
+
     </script>
 </body>
 

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <script src="script/accountscript.js"></script>
     <script src="script/valid.js"></script>

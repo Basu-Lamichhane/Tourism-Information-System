@@ -12,6 +12,7 @@ require "include/dbconn.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
     <link rel="stylesheet" href="style/nav_style.css">
