@@ -39,6 +39,7 @@ if (isset($_GET['district'])) {
     $cafe_query = "select * from tbl_cafe;";
     $cafe_result = $con->query($cafe_query);
 }
+include "/include/star_rating.inc.php";
 ?>
 
 
@@ -351,36 +352,36 @@ if (isset($_GET['district'])) {
             });
         }
         // Feature detection using 'navigator.geolocation'
-        if ('geolocation' in navigator) {
-            // Geolocation API is supported, you can use it here
+        // if ('geolocation' in navigator) {
+        //     // Geolocation API is supported, you can use it here
 
-            const locationLink = document.getElementById('location-link');
-            console.log('obtained');
-            locationLink.addEventListener('click', getLocation);
+        //     const locationLink = document.getElementById('location-link');
+        //     console.log('obtained');
+        //     locationLink.addEventListener('click', getLocation);
 
-            function getLocation(event) {
-                event.preventDefault();  
+        //     function getLocation(event) {
+        //         event.preventDefault();  
 
-                var cords=navigator.geolocation.getCurrentPosition(showPosition);
-                console.log('basu');
-                console.log(cords);
-            }
+        //         var cords=navigator.geolocation.getCurrentPosition(showPosition);
+        //         console.log('basu');
+        //         console.log(cords);
+        //     }
             
-            function showPosition(position) {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
+        //     function showPosition(position) {
+        //         const latitude = position.coords.latitude;
+        //         const longitude = position.coords.longitude;
                 
-                console.log('Latitude: ' + latitude);
-                console.log('Longitude: ' + longitude);
-                return(latitude, longitude);
+        //         console.log('Latitude: ' + latitude);
+        //         console.log('Longitude: ' + longitude);
+        //         return(latitude, longitude);
 
-                // You can perform additional actions with the location data, such as sending it to a server or updating the webpage.
-            }
-        } else {
-            // Geolocation API is not supported, handle the absence of this feature
-                console.log('Geolocation API is not supported');
-            // You can provide an alternative experience or fallback here, such as displaying a message or using a different method to obtain location information.
-        }
+        //         // You can perform additional actions with the location data, such as sending it to a server or updating the webpage.
+        //     }
+        // } else {
+        //     // Geolocation API is not supported, handle the absence of this feature
+        //         console.log('Geolocation API is not supported');
+        //     // You can provide an alternative experience or fallback here, such as displaying a message or using a different method to obtain location information.
+        // }
 
     </script>
 </body>

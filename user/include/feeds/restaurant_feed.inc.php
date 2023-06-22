@@ -2,15 +2,22 @@
 $district = "";
 $restaurant_selected = "";
 
-if (isset($_GET['district'])) {
+// for destination.php
+if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
-
+    $destination_id = $_GET['dest_id'];
+    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "' AND r_id!='" . $destination_id . "';";
+    $restaurant_result = $con->query($restaurant_query);
+}
+// for district_page.php
+elseif (isset($_GET['district'])) {
+    $district = $_GET['district'];
     $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "';";
     $restaurant_result = $con->query($restaurant_query);
-} else {
+}
+else {
     $restaurant_query = "select * from tbl_restaurant;";
     $restaurant_result = $con->query($restaurant_query);
-
 }
 ?>
 <div class="feed-container">
@@ -63,7 +70,7 @@ if (isset($_GET['district'])) {
                                         <!-- php code here -->
                                         <li class="feed-content-li" id="<?php echo $restaurant_data_row['r_id']; ?>">
                                             <div class="feed-content-box">
-                                                <a href="#">
+                                                <a href="./destination.php?district=<?php echo $restaurant_data_row['r_district']; ?>&destination=restaurant&dest_id=<?php echo $restaurant_data_row['r_id']; ?>" target="_blank">
                                                     <div class="image-container-box">
                                                         <div class="image-container">
                                                             <div class="image-div">
@@ -83,24 +90,7 @@ if (isset($_GET['district'])) {
 
                                                         <div class="destination-rating-review-container">
                                                             <div class="destination-rating">
-                                                                <svg viewBox="0 0 128 24" width="68" height="12"
-                                                                    aria-label="">
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform=""></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(26 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(52 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(78 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
-                                                                        transform="translate(104 0)"></path>
-                                                                </svg>
+                                                            <?php star_ratings($restaurant_data_row['r_rating'])?>
                                                                 <span class="destination-review-container">
                                                                     <span class="destination-review">
                                                                         <?php echo $restaurant_data_row['r_num_reviews']; ?>

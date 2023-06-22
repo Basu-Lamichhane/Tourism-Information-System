@@ -16,6 +16,9 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 $selected_district_query = "select * from tbl_district where d_name='".$district."';";
 $selected_district_result = $con->query($selected_district_query);
 $selected_district_data_row=$selected_district_result->fetch_assoc();
+
+
+include "/include/star_rating.inc.php";
 ?>
 
 <!DOCTYPE html>

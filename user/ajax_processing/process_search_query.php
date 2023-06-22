@@ -6,7 +6,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
     $destination = $_POST["destination"];
     $district = $_POST["district"];
     $type = $_POST["type"];
-
+    // print_r($_POST);
     require "../include/dbconn.inc.php";
 
     $data = array();
@@ -15,7 +15,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
     // echo $condition;
 
-    if ($destination == "" && $district == "" && $type == "") {// if any of the options are not selected
+    if ($destination == "" && $district == "" && $type == "") { // if any of the options are not selected
 
         $query_data = "SELECT name, address, district, type, source_table
         FROM (
@@ -35,13 +35,13 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         ORDER BY name ASC
         ;
         ";
-    } else if ($district == "" && $type != "" && $destination != "") {// if only district is not selected
+    } else if ($district == "" && $type != "" && $destination != "") { // if only district is not selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_".$destination."' AS source_table
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
             FROM tbl_" . $destination . "  where " . $first_char . "_type = '" . $type . "' and " . $first_char . "_name LIKE '" . $condition . "%'ORDER BY name ASC;";
 
-    } else if ($district != "" && $type == "" && $destination == "") {//if only district is selected
+    } else if ($district != "" && $type == "" && $destination == "") { //if only district is selected
         // $first_char = $destination[0];
         $query_data = "SELECT name, address, district, type, source_table
         FROM (
@@ -60,26 +60,24 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         WHERE name LIKE '" . $condition . "%' and district = '" . $district . "'
         ORDER BY name ASC;
         ";
-    } else if ($district == "" && $destination != "" && $type == "") {//if only destination is selected
+    } else if ($district == "" && $destination != "" && $type == "") { //if only destination is selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_".$destination."' AS source_table
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
             FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'ORDER BY name ASC;";
 
-    } else if ($district != "" && $destination != "" && $type == "") {// if only type is not selected
+    } else if ($district != "" && $destination != "" && $type == "") { // if only type is not selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_".$destination."' AS source_table
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
             FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' ORDER BY name ASC;";
 
-    } else if ($district != "" && $destination != "" && $type != "") {// if all options are selected
+    } else if ($district != "" && $destination != "" && $type != "") { // if all options are selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_".$destination."' AS source_table
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
             FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' and " . $first_char . "_type ='" . $type . "' ORDER BY name ASC;";
     }
-
-    // echo $query_data;
     $result = $con->query($query_data);
 
 
@@ -95,12 +93,13 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
             "address" => $result_row["address"],
             "district" => $result_row["district"],
             "type" => $result_row["type"],
-            "destinaton" => substr($result_row["source_table"],4)//removing "tbl_" from table name in database
+            "destinaton" => substr($result_row["source_table"], 4) //removing "tbl_" from table name in database
         );
         $count++;
 
     }
     echo json_encode($data);
+    
 
 }
 ?>

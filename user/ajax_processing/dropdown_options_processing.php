@@ -5,6 +5,7 @@ if (isset($_POST["select_option"])) {
 }
 if (isset($_POST["dest_option"])) {
     type_dropdown_value($_POST["dest_option"]);
+    // print_r($_POST["dest_option"]);
 }
 
 function district_dropdown_value()
@@ -73,7 +74,7 @@ function type_dropdown_value($dest_option)
 
     foreach ($result as $row) {
         $data[] = array(
-            'type' => $row[$fstchar . "_type"]
+            'type' => $row[$fstchar.'_type']
         );
     }
 

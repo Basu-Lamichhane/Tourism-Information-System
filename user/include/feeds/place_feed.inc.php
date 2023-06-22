@@ -1,12 +1,20 @@
 <?php
-$place_selected ="";
+// $place_selected = "";
 
-if (isset($_GET['district'])) {
+// for destination.php
+if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
-
+    $destination_id = $_GET['dest_id'];
+    $place_query = "select * from tbl_place where p_district='" . $district . "' AND p_id!='" . $destination_id . "';";
+    $place_result = $con->query($place_query);
+}
+// for district_page.php
+elseif (isset($_GET['district'])) {
+    $district = $_GET['district'];
     $place_query = "select * from tbl_place where p_district='" . $district . "';";
     $place_result = $con->query($place_query);
-} else {
+}
+else {
     $place_query = "select * from tbl_place;";
     $place_result = $con->query($place_query);
 }
@@ -64,7 +72,7 @@ if (isset($_GET['district'])) {
                                         <li class="feed-content-li" id="<?php echo $place_data_row['p_id']; ?>">
                                             <!--width to be aligned -->
                                             <div class="feed-content-box">
-                                                <a href="#">
+                                                <a href="./destination.php?district=<?php echo $place_data_row['p_district']; ?>&destination=place&dest_id=<?php echo $place_data_row['p_id']; ?>" target="_blank">
                                                     <div class="image-container-box">
                                                         <div class="image-container">
                                                             <div class="image-div">
@@ -84,24 +92,7 @@ if (isset($_GET['district'])) {
 
                                                         <div class="destination-rating-review-container">
                                                             <div class="destination-rating">
-                                                                <svg viewBox="0 0 128 24" width="68" height="12"
-                                                                    aria-label="">
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform=""></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(26 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(52 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
-                                                                        transform="translate(78 0)"></path>
-                                                                    <path
-                                                                        d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
-                                                                        transform="translate(104 0)"></path>
-                                                                </svg>
+                                                            <?php star_ratings($place_data_row['p_rating'])?>
                                                                 <span class="destination-review-container">
                                                                     <span class="destination-review">
                                                                         <?php echo $place_data_row['p_num_reviews']; ?>

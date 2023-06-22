@@ -30,11 +30,61 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
     width: 1184px;
     border: solid 1px black;
-    padding: 20px 0px;
+    padding-bottom: 20px;
+}
+
+section.destination-title-container{
+    display:flex;
+    position: relative;
+    /* margin-top: 0px; */
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.destination-title {
+    flex: 1;
+    color: rgb(7, 48, 100);
+    font-size: xxx-large;
+    font-weight: bold;
+    font-family: 'traverse-nepal-hammersmith-one-regular';
+}
+
+.destination-share-like-container {
+    display: inline-flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.destination-share-like-container div{
+    padding:0 10px;
+    position: relative;
+}
+
+.destination-share-like-container div button{
+    border-radius: 16px;
+    height: 32px;
+    min-width: 32px;
+    padding: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.destination-share-like-container div button:hover{
+    background-color: #f88932;
+    color: #073064;
+    fill: #073064;
+    border-color:#073064;
+    transform: scale(1.2);
+}
+.destination-share-like-container div button:active{
+    background-color: #073064;
+    color: #f88932;
+    fill: #f88932;
+    border-color:#f88932;
 }
 
 .destination-desc-image-container{
@@ -59,8 +109,11 @@
     
 }
 .destination-desc-container{
-    padding: 5px;
+    padding: 0px 5px;
     border: solid 1px black;
+    height: 400px;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .destination-desc-container .desc-title{
@@ -70,6 +123,11 @@
     font-weight: bold;
     font-size: x-large;
     line-height: 1;
+    position: sticky;
+    top: 0;
+    padding-top: 5px;
+    background-color: white;
+    z-index: 1;
 }
 
 .desc-text::first-letter {
@@ -78,4 +136,14 @@
 .desc-text {
     font-family: 'traverse-nepal-hammersmith-one-regular';
     font-size: medium;
+}
+
+section.destination-information-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+section.destination-information-container>div{
+    border: #073064 solid 1px;
 }

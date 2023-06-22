@@ -154,10 +154,10 @@
 
 .feed-contents-container {
     width: 100%;
-    margin: -4px;
+    /* margin: -4px; */
     display: block;
     overflow: hidden;
-    padding: 4px;
+    /* padding: 4px; */
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     box-sizing: border-box;
@@ -276,17 +276,9 @@
     align-items: center;
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
 }
 
-.destination-rating svg {
-    fill: yellow;
-    fill-rule: evenodd;
-    font-size: 0;
-    vertical-align: text-top;
-    margin-right: 8px;
-    line-height: 0;
-    display: inline-block;
-}
 
 .destination-review-container {
     font: 400;

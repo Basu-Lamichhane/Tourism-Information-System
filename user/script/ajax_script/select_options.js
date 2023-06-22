@@ -48,8 +48,8 @@ function type_dropdown_options(option) {
             option.innerHTML = "<option disabled selected>Types</option>";
             for (let count = 0; count < response.length; count++) {
                 var types = response[count].type;
-                // console.log(types);
-                option.insertAdjacentHTML("beforeend", "<option value=" + types.toLowerCase() + " id=" + types.toLowerCase() + " >" + types + "</option>");
+                // console.log(types.toLowerCase());
+                option.insertAdjacentHTML("beforeend", "<option value='" + types +"' id='" + types + "' >" + types + "</option>");
                 // option=  document.querySelector("#"+types.toLowerCase());
             }
         }

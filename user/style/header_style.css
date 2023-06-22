@@ -65,9 +65,8 @@ picture img{
 }
 
 .search-bar form:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
     border: #f88932 solid 3px;
-
 }
 
 .search-bar{

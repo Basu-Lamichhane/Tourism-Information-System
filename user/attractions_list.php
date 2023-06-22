@@ -34,7 +34,7 @@ if(isset($_GET['destination']) && isset($_GET['district'])){
 }
 
 
-
+include "/include/star_rating.inc.php";
 ?>
 
 
