@@ -11,18 +11,43 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
     $destination_record = $destination_record_exec->fetch_assoc();
 
     $destination_name = $destination_record[$first_char . '_name'];
-    if ($destination == "place")
+
+    if ($destination == "place") {
         $destination_desc = $destination_record[$first_char . '_desc'];
+    }
+
     $destination_image = $destination_record[$first_char . '_image'];
     $destination_address = $destination_record[$first_char . '_address'];
-    $destination_image = $destination_record[$first_char . '_image'];
     $destination_latitude = $destination_record[$first_char . '_latitude'];
     $destination_longitude = $destination_record[$first_char . '_longitude'];
     $destination_type = $destination_record[$first_char . '_type'];
     $destination_rating = $destination_record[$first_char . '_rating'];
     $destination_num_reviews = $destination_record[$first_char . '_num_reviews'];
 
-    // print_r($destination_record);   
+    if ($destination == "accommodation") {
+        $destination_phone = $destination_record[$first_char . '_phone'];
+        $destination_email = $destination_record[$first_char . '_email'];
+        $destination_website = $destination_record[$first_char . '_website'];
+        $destination_room = $destination_record[$first_char . '_no_of_rooms'];
+        $destination_room_rate = $destination_record[$first_char . '_room_rate'];
+    }
+
+    if ($destination == "restaurant") {
+        $destination_phone = $destination_record[$first_char . '_phone'];
+        $destination_website = $destination_record[$first_char . '_website'];
+        $destination_service = $destination_record[$first_char . '_services'];
+        $destination_start_time = $destination_record[$first_char . '_starttime'];
+        $destination_close_time = $destination_record[$first_char . '_closetime'];
+    }
+
+    if ($destination == "cafe") {
+        $destination_phone = $destination_record[$first_char . '_phone'];
+        $destination_service = $destination_record[$first_char . '_services'];
+        $destination_start_time = $destination_record[$first_char . '_starttime'];
+        $destination_close_time = $destination_record[$first_char . '_closetime'];
+    }
+
+    print_r($destination_record);   
 
 }
 
@@ -67,24 +92,20 @@ include "/include/star_rating.inc.php";
     <main>
         <div class="breadcrumb-container">
             <div class="breadcrumb-trails">
-                <div class="breadcrumbs">
-                    <a href="#">
-                        <div class="crumb">Nepal&nbsp;></div>
-                    </a>
-                    <a href="#">
+                <ul class="breadcrumbs">
+                    
+                        <li class="crumb"><a href="#">Nepal</a>&nbsp;></li>
+                    
                         <?php if (isset($_GET['district']))
-                            echo '<div class="crumb">&nbsp;' . $district . '&nbsp;></div>' ?>
-                        </a>
-                        <a href="#">
-                            <div class="crumb">&nbsp;
-                            <?php echo " " . ucfirst($destination) . "s&nbsp;>" ?>
-                        </div>
-                    </a>
-                    <a href="#">
+                            echo '<li class="crumb">&nbsp;<a href="#">' . $district . '</a>&nbsp;></li>' ?>
+
+                            <li class="crumb">&nbsp;
+                            <?php echo " <a href='#'>" . ucfirst($destination) . "s</a>&nbsp;>" ?>
+                        </li>
+
                         <?php if (isset($_GET['dest_id']))
-                            echo '<div class="crumb">&nbsp;' . $destination_name . '</div>' ?>
-                        </a>
-                    </div>
+                            echo '<li class="crumb">&nbsp;<a href="#">' . $destination_name . '</a></li>' ?>
+                    </ul>
                 </div>
             </div>
 
@@ -127,14 +148,26 @@ include "/include/star_rating.inc.php";
                             <?php echo $destination_name; ?>
                         </div>
                         <?php if ($destination == "place")
-                            echo ('<div class="desc-text">' . $destination_desc . '</div>'); ?>
+                            echo ('<div class="desc-text-place">' . $destination_desc . '</div>');
+                        elseif($destination == "accommodation")
+                            echo ('<div class="desc-accommodation">
+                                    <div class="room-details">
+                                    <div class="no-of-rooms">Available rooms : '.$destination_room.'</div>
+                                    <div class="room-rate">'.$destination_room_rate.'</div>
+                                    </div>
+                                    <div class="phone-details contact-detail">'.$destination_phone.'</div>
+                                    <div class="email-details contact-detail">'.$destination_email.'</div>
+                                    <div class="website-details contact-detail">'.$destination_website.'</div>
+                            </div>')
+                                ?>
+
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section class="destination-information-container">
-                <div class="dest-type-container">
-                    <div class="dest-info-title">TYPE OF DESTINATION:</div>
-                    <div class="dest-type">
+                </section>
+                <section class="destination-information-container">
+                    <div class="dest-type-container">
+                        <div class="dest-info-title">TYPE OF DESTINATION:</div>
+                        <div class="dest-type">
                         <?php echo $destination_type; ?>
                     </div>
                 </div>
@@ -148,6 +181,7 @@ include "/include/star_rating.inc.php";
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
                         <?php star_ratings($destination_rating); ?>
+                        <div class="dest-num-reviews">(<?php echo $destination_num_reviews; ?>)</div>
                     </div>
                 </div>
             </section>
@@ -155,7 +189,7 @@ include "/include/star_rating.inc.php";
 
 
         <?php //displaying the feeds section differently for each destination pages
-        if ($destination == 'accommodation') {?>
+        if ($destination == 'accommodation') { ?>
             <div class="recommended-title-bar">
                 More Accommodations to stay in
                 <?php echo $district; ?>.
@@ -164,14 +198,14 @@ include "/include/star_rating.inc.php";
             include "include/feeds/accommodation_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around 
+                More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
             include "include/feeds/place_feed.inc.php";
             include "include/feeds/restaurant_feed.inc.php";
             include "include/feeds/cafe_feed.inc.php";
-        } elseif ($destination == 'restaurant') {?>
+        } elseif ($destination == 'restaurant') { ?>
             <div class="recommended-title-bar">
                 More Restaurants to eat out in
                 <?php echo $district; ?>.
@@ -180,14 +214,14 @@ include "/include/star_rating.inc.php";
             include "include/feeds/restaurant_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around 
+                More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
             include "include/feeds/place_feed.inc.php";
             include "include/feeds/accommodation_feed.inc.php";
             include "include/feeds/cafe_feed.inc.php";
-        } elseif ($destination == 'cafe') {?>
+        } elseif ($destination == 'cafe') { ?>
             <div class="recommended-title-bar">
                 More Cafes to socialize in
                 <?php echo $district; ?>.
@@ -196,7 +230,7 @@ include "/include/star_rating.inc.php";
             include "include/feeds/cafe_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around 
+                More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
@@ -213,14 +247,14 @@ include "/include/star_rating.inc.php";
             include "include/feeds/place_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around 
+                More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
             include "include/feeds/accommodation_feed.inc.php";
             include "include/feeds/restaurant_feed.inc.php";
             include "include/feeds/cafe_feed.inc.php";
-        }?>
+        } ?>
         <div class="recommended-title-bar">
             Know more about other districts in Nepal
         </div>

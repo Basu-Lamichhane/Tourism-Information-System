@@ -22,6 +22,7 @@
 
 .breadcrumbs{
     display: flex;
+    list-style: none
 }
 
 /* breadcrumb css */
@@ -132,7 +133,7 @@ section.destination-title-container{
 .desc-text::first-letter {
     font-size: xx-large;
 }
-.desc-text {
+.desc-text-place {
     font-family: 'traverse-nepal-hammersmith-one-regular';
     font-size: medium;
 }
@@ -143,10 +144,34 @@ section.destination-information-container{
     justify-content: space-evenly;
 }
 
-section.destination-information-container>div{
-    border: #073064 solid 1px;
+
+.dest-type {
+    display: flex;
+    align-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+    align-items: flex-end;
 }
 
+/* if destination is accommodation */
+.desc-accommodation{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 92px;
+    align-content: center;
+}
+
+.room-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.contact-detail{
+
+}
 
 .recommended-title-bar{
     margin-top: 5vh;

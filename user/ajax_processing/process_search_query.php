@@ -19,6 +19,9 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
         $query_data = "SELECT name, address, district, type, source_table
         FROM (
+            SELECT d_name AS id, d_name AS name, 'Nepal' AS address, d_name AS district, d_type AS type, 'tbl_district' AS source_table
+            FROM tbl_district
+            UNION
             SELECT p_id AS id, p_name AS name, p_address AS address, p_district AS district, p_type AS type, 'tbl_place' AS source_table
             FROM tbl_place
             UNION
@@ -78,6 +81,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
             FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' and " . $first_char . "_type ='" . $type . "' ORDER BY name ASC;";
     }
+    // echo $query_data;
     $result = $con->query($query_data);
 
 
