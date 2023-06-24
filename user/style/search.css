@@ -127,6 +127,8 @@ select {
     position: relative;
 }
 
+
+
 .s010 form .inner-form .input-field .btn-search:before {
     border-radius: inherit;
     background: linear-gradient(45deg, #f88932 0%, #f88932 28%, #073064 91%, #073064 100%);
@@ -192,7 +194,7 @@ select {
     transform: scale(1.1);
 }
 
-.s010 form .inner-form .basic-search .input-field .icon-wrap {
+/* .s010 form .inner-form .basic-search .input-field .icon-wrap {
     position: absolute;
     top: 0;
     right: 0;
@@ -205,6 +207,29 @@ select {
     justify-content: center;
     background-color: transparent;
     border-color: transparent;
+} */
+.s010 form .inner-form .basic-search .input-field #search-cancel-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 100%;
+    justify-content: center;
+}
+
+.s010 form .inner-form .basic-search .input-field #search-cancel-btn button{
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    transition: 0.5s;
+}
+
+.s010 form .inner-form .basic-search .input-field #search-cancel-btn button:hover{
+    fill:#073064;
+    transform: scale(0.8);
 }
 
 .s010 form .inner-form .basic-search .input-field .icon-wrap svg {
@@ -490,7 +515,7 @@ img.picture:hover {
     width: 795px;
     text-align: left;
     background: rgb(255, 255, 255);
-    height: 75px;
+    min-height: 75px;
     max-height: 293px;
     overflow: auto;
     left: 360px;
