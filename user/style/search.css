@@ -189,9 +189,10 @@ select {
 .s010 form .inner-form .basic-search .input-field input {
     padding: 10px 80px 10px 40px;
     transition: 0.5s;
+    transform: scale(1.1);
 }
 .s010 form .inner-form .basic-search .input-field input:hover{
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 /* .s010 form .inner-form .basic-search .input-field .icon-wrap {

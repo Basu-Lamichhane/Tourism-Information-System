@@ -49,7 +49,6 @@ function cpassvalid() {
 
 function dobvalid() {
   var current_date = new Date();
-
   var current_day = current_date.getDate();
   var current_month = current_date.getMonth() + 1; //month starts with 0
   var current_year = current_date.getFullYear();

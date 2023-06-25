@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['email'])){
+    $_SESSION['not_signed']="Plz, Log in first";
+    header('location:login.php');
+}
 require "include/dbconn.inc.php";
 $district = "";
 $district = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
@@ -53,7 +59,6 @@ include "/include/star_rating.inc.php";
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/nav_style.css">
     <link rel="stylesheet" href="style/header_style.css">
-    <!-- <link rel="stylesheet" href="style/district_page_style.css"> -->
     <link rel="stylesheet" href="style/search.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="style/feed_container_style.css">
@@ -343,6 +348,8 @@ include "/include/star_rating.inc.php";
     <script src="./script/search.js"></script>
     <script src="./script/reverse_geocoding_script/find_current_district.js"></script>
     <script src="./script/feed_container_script.js"></script>
+    <script src="./script/ajax_script/like_update.js"></script>
+    <?php include "include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

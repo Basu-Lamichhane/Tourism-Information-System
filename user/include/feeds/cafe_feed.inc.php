@@ -108,8 +108,9 @@ else {
                                                 </a>
 
                                                 <div class="rating-icon-circle">
-                                                    <button class="socialize-like-btn"
-                                                        id="<?php echo "btn" . $cafe_data_row['c_id'] ?>">
+                                                    <button class="like-btn" data-liked="no"
+                                                    data-destination-type="cafe"
+                                                        data-destination-id="<?php echo $cafe_data_row['c_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
                                                             height="24px"><!--haven't applied css-->
                                                             <path fill-rule="evenodd" clip-rule="evenodd"

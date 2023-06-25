@@ -107,8 +107,9 @@ else {
                                                 </a>
 
                                                 <div class="rating-icon-circle">
-                                                    <button class="stay-like-btn"
-                                                        id="<?php echo "btn" . $accommodation_data_row['a_id'] ?>">
+                                                    <button class="like-btn" data-liked="no"
+                                                    data-destination-type="accommodation"
+                                                        data-destination-id="<?php echo $accommodation_data_row['a_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
                                                             height="24px"><!--haven't applied css-->
                                                             <path fill-rule="evenodd" clip-rule="evenodd"

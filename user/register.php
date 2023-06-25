@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['email'])){
-    header('location:district_page.php');
+    header('location:search.php');
 }
 require "include/dbconn.inc.php";
 ?>

@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['email'])){
+    $_SESSION['not_signed']="Plz, Log in first";
+    header('location:login.php');
+}
+
 require "/include/dbconn.inc.php";
 
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
@@ -47,7 +53,7 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
         $destination_close_time = $destination_record[$first_char . '_closetime'];
     }
 
-    print_r($destination_record);   
+    print_r($destination_record);
 
 }
 
@@ -93,18 +99,18 @@ include "/include/star_rating.inc.php";
         <div class="breadcrumb-container">
             <div class="breadcrumb-trails">
                 <ul class="breadcrumbs">
-                    
-                        <li class="crumb"><a href="#">Nepal</a>&nbsp;></li>
-                    
-                        <?php if (isset($_GET['district']))
-                            echo '<li class="crumb">&nbsp;<a href="#">' . $district . '</a>&nbsp;></li>' ?>
 
-                            <li class="crumb">&nbsp;
-                            <?php echo " <a href='#'>" . ucfirst($destination) . "s</a>&nbsp;>" ?>
-                        </li>
+                    <li class="crumb"><a href="#">Nepal</a>&nbsp;></li>
 
-                        <?php if (isset($_GET['dest_id']))
-                            echo '<li class="crumb">&nbsp;<a href="#">' . $destination_name . '</a></li>' ?>
+                    <?php if (isset($_GET['district']))
+                        echo '<li class="crumb">&nbsp;<a href="#">' . $district . '</a>&nbsp;></li>' ?>
+
+                        <li class="crumb">&nbsp;
+                        <?php echo " <a href='#'>" . ucfirst($destination) . "s</a>&nbsp;>" ?>
+                    </li>
+
+                    <?php if (isset($_GET['dest_id']))
+                        echo '<li class="crumb">&nbsp;<a href="#">' . $destination_name . '</a></li>' ?>
                     </ul>
                 </div>
             </div>
@@ -116,7 +122,7 @@ include "/include/star_rating.inc.php";
                     <?php echo $destination_name; ?>
                 </div>
                 <div class="destination-share-like-container">
-                    <div class="like-btn">
+                    <div class="like-btn" id="like-dest" destination>
                         <button>
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -125,7 +131,7 @@ include "/include/star_rating.inc.php";
                             </svg>
                         </button>
                     </div>
-                    <div class="share-btn">
+                    <div class="share-btn" id="share-dest">
                         <button>
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -149,15 +155,54 @@ include "/include/star_rating.inc.php";
                         </div>
                         <?php if ($destination == "place")
                             echo ('<div class="desc-text-place">' . $destination_desc . '</div>');
-                        elseif($destination == "accommodation")
+                        elseif ($destination == "accommodation")
+
                             echo ('<div class="desc-accommodation">
+                                    <div class="room-info-details">
+                                    <div class="room-info-title">Room Info:</div>
+                                    <div class="room-info">
+                                    <span href="#">
                                     <div class="room-details">
-                                    <div class="no-of-rooms">Available rooms : '.$destination_room.'</div>
-                                    <div class="room-rate">'.$destination_room_rate.'</div>
+                                    ' . $destination_room . '
                                     </div>
-                                    <div class="phone-details contact-detail">'.$destination_phone.'</div>
-                                    <div class="email-details contact-detail">'.$destination_email.'</div>
-                                    <div class="website-details contact-detail">'.$destination_website.'</div>
+                                    Rooms
+                                    </span>
+                                    <span href="#">
+                                    <div class="room-rate-details">
+                                    <small style="font-size: small; display:contents;">NRs.</small>' . $destination_room_rate . '/-
+                                    </div>
+                                    Per room
+                                    </span>
+                                    </div>
+                                    </div>
+                                    <div class="contact-info-details">
+                                    <div class="contact-info-title">Contact Info:</div>
+                                    <div class="contact-info">
+                                    <a href="tel:' . $destination_phone . '">
+                                    <div class="phone-details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 512 512">
+                                    <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
+                                    </svg>
+                                    Phone
+                                    </div>
+                                    </a>
+                                    <a href="' . $destination_website . '" target="_blank">
+                                    <div class="email-details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/>
+                                    </svg>
+                                    Website
+                                    </div>
+                                    </a>
+                                    <a href="mailto:' . $destination_email . '">
+                                    <div class="website-details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 512 512">
+                                    <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                                    </svg>
+                                    Email
+                                    </div>
+                                    </a>
+                                    </div>
+                                    </div>
                             </div>')
                                 ?>
 
@@ -181,7 +226,9 @@ include "/include/star_rating.inc.php";
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
                         <?php star_ratings($destination_rating); ?>
-                        <div class="dest-num-reviews">(<?php echo $destination_num_reviews; ?>)</div>
+                        <div class="dest-num-reviews">(
+                            <?php echo $destination_num_reviews; ?>)
+                        </div>
                     </div>
                 </div>
             </section>
@@ -283,6 +330,27 @@ include "/include/star_rating.inc.php";
     <!-- javascripts -->
 
     <script src="./script/destination.js"></script>
+    <script>
+        document.getElementById("share-dest").addEventListener("click", function () {
+            if (navigator.share) { // Check if the share API is supported
+                navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                })
+                    .then(function () {
+                        console.log("Successfully shared.");
+                    })
+                    .catch(function (error) {
+                        console.error("Error sharing:", error);
+                    });
+            } else {
+                console.log("Share API is not supported.");
+            }
+        });
+
+    </script>
+    <script src="./script/ajax_script/like_update.js"></script>
+    <?php include "include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

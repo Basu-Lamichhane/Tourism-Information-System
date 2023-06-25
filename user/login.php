@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['email'])){
-    header('location:district_page.php');
+    header('location:search.php');
 }
 require "include/dbconn.inc.php";
 ?>
@@ -30,6 +30,10 @@ require "include/dbconn.inc.php";
             elseif(isset($_SESSION['Signed'])){
                 echo "<div id='noti'>" . $_SESSION['Signed'] . "</div>";
                 unset($_SESSION['Signed']);
+            }
+            elseif(isset($_SESSION['not_signed'])){
+                echo "<div id='noti'>" . $_SESSION['not_signed'] . "</div>";
+                unset($_SESSION['not_signed']);
             }
 
         ?>

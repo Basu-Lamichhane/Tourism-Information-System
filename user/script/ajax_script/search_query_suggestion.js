@@ -43,7 +43,10 @@ function load_search_result(search_query) {
 
                 console.log(response);
 
-                var district_logo='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="24px" width="24px" version="1.1" id="Layer_1" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path d="M240.3,396.8L240.3,396.8c3.3,5.1,9.1,8.5,15.7,8.5c6.6,0,12.4-3.4,15.8-8.5l110.2-170.2c14.8-22.9,23.4-48.1,23.4-77.3  C405.3,64.9,339,0,256,0c-83,0-149.3,64.9-149.3,149.3c0,29.2,8.6,54.4,23.4,77.3L240.3,396.8z M256,64c47.1,0,85.3,38.2,85.3,85.3  s-38.2,85.3-85.3,85.3s-85.3-38.2-85.3-85.3S208.9,64,256,64z M365.4,323.5L256,469.3L146.6,323.5c-37.4,19.6-61.3,48.9-61.3,81.8  C85.3,464.2,161.7,512,256,512s170.7-47.8,170.7-106.7C426.7,372.4,402.8,343.1,365.4,323.5z"/></svg>';
+
+
+
+                var district_logo = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="24px" width="24px" version="1.1" id="Layer_1" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path d="M240.3,396.8L240.3,396.8c3.3,5.1,9.1,8.5,15.7,8.5c6.6,0,12.4-3.4,15.8-8.5l110.2-170.2c14.8-22.9,23.4-48.1,23.4-77.3  C405.3,64.9,339,0,256,0c-83,0-149.3,64.9-149.3,149.3c0,29.2,8.6,54.4,23.4,77.3L240.3,396.8z M256,64c47.1,0,85.3,38.2,85.3,85.3  s-38.2,85.3-85.3,85.3s-85.3-38.2-85.3-85.3S208.9,64,256,64z M365.4,323.5L256,469.3L146.6,323.5c-37.4,19.6-61.3,48.9-61.3,81.8  C85.3,464.2,161.7,512,256,512s170.7-47.8,170.7-106.7C426.7,372.4,402.8,343.1,365.4,323.5z"/></svg>';
 
                 var place_logo = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24px" height="24px"><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>';
 
@@ -59,29 +62,43 @@ function load_search_result(search_query) {
                 var destination_logo;
                 if (response.length > 0) {
                     for (let count = 0; count < response.length; count++) {
+
+                        destination = Object.values(response[count])[4];//for destination 
+                        destination_id=Object.values(response[count])[5];//for destination id
+                        destination_name = Object.values(response[count])[0];//for destination name
+                        destination_address = Object.values(response[count])[1];//for destination address
+                        destination_district = Object.values(response[count])[2];//for destination district
+                        destination_type = Object.values(response[count])[3];//for destination type
+
+
                         //channging the logo according to the destination
                         console.log(Object.values(response[count])[4]);
-                        switch(Object.values(response[count])[4]){
+                        switch (Object.values(response[count])[4]) {
                             case "district":
-                                destination_logo=district_logo;
+                                destination_logo = district_logo;
                                 break;
                             case "place":
-                                destination_logo=place_logo;
+                                destination_logo = place_logo;
                                 break;
                             case "accommodation":
-                                destination_logo=accommodation_logo;
+                                destination_logo = accommodation_logo;
                                 break;
                             case "restaurant":
-                                destination_logo=restaurant_logo;
+                                destination_logo = restaurant_logo;
                                 break;
                             case "cafe":
-                                destination_logo=cafe_logo;
+                                destination_logo = cafe_logo;
                                 break;
                             default:
                                 console.log("destination logo error in search.php");
                         }
-                        // 
-                        html += '<hr><a href="#" class="suggestion_container"><div class="suggestion-logo">' + destination_logo + '</div><div class="suggestion_details"><div class="suggestion-name">' + Object.values(response[count])[0] + '</div><div class="suggestion-address">' + Object.values(response[count])[1] + '</div></div></a>';
+                        if (destination=="district") {//checking if district is the destination
+                            href_value="district_page.php?district="+destination_district;
+                        }
+                        else{
+                            href_value="destination.php?district="+destination_district+"&destination="+destination+"&dest_id="+destination_id;
+                        }
+                        html += '<hr><a href="'+href_value+'" target="_blank" class="suggestion_container"><div class="suggestion-logo">' + destination_logo + '</div><div class="suggestion_details"><div class="suggestion-name">' + destination_name + '</div><div class="suggestion-address">' + destination_address + '</div></div></a>';
                     }
                 }
                 else {

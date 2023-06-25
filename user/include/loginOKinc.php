@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['email'])){
-    header('location:../district_page.php');
+    header('location:../search.php');
 }
 else if(isset($_POST['email'])&& isset($_POST['pass'])){
     $email=$_POST['email'];
@@ -16,7 +16,7 @@ else if(isset($_POST['email'])&& isset($_POST['pass'])){
                 header('location:../login.php');
             }else{
                 $_SESSION['email'] = $_POST['email'];
-                header('location:../district_page.php');
+                header('location:../search.php');
             }
         }
     }else{

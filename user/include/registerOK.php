@@ -2,7 +2,7 @@
 session_start();
 require "dbconn.inc.php";
 if(isset($_SESSION['email'])){
-    header('location:../district_page.php');
+    header('location:../search.php');
 }
 else if(isset($_POST['email'])&& isset($_POST['pass'])){
     $name = $_POST['name'];
@@ -21,7 +21,7 @@ else if(isset($_POST['email'])&& isset($_POST['pass'])){
     $str = "insert into tbl_user(u_name,u_email,u_pass,u_city,u_district,u_gender,u_dob) values('$name','$email','$pass','$city','$district','$gender','$dob')";
     if($con->query($str)==TRUE){
                 $_SESSION['email'] = $email;
-                header('location:../district_page.php');
+                header('location:../search.php');
             }
 }
 

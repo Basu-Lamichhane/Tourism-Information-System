@@ -87,6 +87,13 @@ body{
     fill: blue;
 }
 
+.rating-icon-circle{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 1;
+}
+
 .recommended{
     text-align: center;
     font-size: x-large;

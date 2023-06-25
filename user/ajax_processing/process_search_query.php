@@ -17,7 +17,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
     if ($destination == "" && $district == "" && $type == "") { // if any of the options are not selected
 
-        $query_data = "SELECT name, address, district, type, source_table
+        $query_data = "SELECT id, name, address, district, type, source_table
         FROM (
             SELECT d_name AS id, d_name AS name, 'Nepal' AS address, d_name AS district, d_type AS type, 'tbl_district' AS source_table
             FROM tbl_district
@@ -46,7 +46,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
     } else if ($district != "" && $type == "" && $destination == "") { //if only district is selected
         // $first_char = $destination[0];
-        $query_data = "SELECT name, address, district, type, source_table
+        $query_data = "SELECT id,name, address, district, type, source_table
         FROM (
             SELECT p_id AS id,p_name AS name, p_address AS address, p_district AS district, p_type AS type , 'tbl_place' AS source_table
             FROM tbl_place
@@ -97,7 +97,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
             "address" => $result_row["address"],
             "district" => $result_row["district"],
             "type" => $result_row["type"],
-            "destinaton" => substr($result_row["source_table"], 4) //removing "tbl_" from table name in database
+            "destinaton" => substr($result_row["source_table"], 4), //removing "tbl_" from table name in database
+            "id" => $result_row["id"]
         );
         $count++;
 

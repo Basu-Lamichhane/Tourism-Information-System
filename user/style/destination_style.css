@@ -1,9 +1,9 @@
-.destination-page{
+.destination-page {
     font-family: 'traverse-nepal-hammersmith-one-regular';
 }
 
 /* breadcrumb css */
-.breadcrumb-container{
+.breadcrumb-container {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -14,20 +14,20 @@
     padding: 20px 0px;
 }
 
-.breadcrumb-trails{
+.breadcrumb-trails {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
 }
 
-.breadcrumbs{
+.breadcrumbs {
     display: flex;
     list-style: none
 }
 
 /* breadcrumb css */
 
-.destination-container{
+.destination-container {
     margin-top: 5vh;
     box-sizing: border-box;
     margin-left: auto;
@@ -37,8 +37,8 @@
     padding-bottom: 20px;
 }
 
-section.destination-title-container{
-    display:flex;
+section.destination-title-container {
+    display: flex;
     position: relative;
     /* margin-top: 0px; */
     align-content: center;
@@ -60,12 +60,12 @@ section.destination-title-container{
     justify-content: center;
 }
 
-.destination-share-like-container div{
-    padding:0 10px;
+.destination-share-like-container div {
+    padding: 0 10px;
     position: relative;
 }
 
-.destination-share-like-container div button{
+.destination-share-like-container div button {
     border-radius: 16px;
     height: 32px;
     min-width: 32px;
@@ -75,50 +75,51 @@ section.destination-title-container{
     transition: 0.5s;
 }
 
-.destination-share-like-container div button:hover{
+.destination-share-like-container div button:hover {
     background-color: #f88932;
     color: #073064;
     fill: #073064;
-    border-color:#073064;
+    border-color: #073064;
     transform: scale(1.2);
 }
-.destination-share-like-container div button:active{
+
+.destination-share-like-container div button:active {
     background-color: #073064;
     color: #f88932;
     fill: #f88932;
-    border-color:#f88932;
+    border-color: #f88932;
 }
 
-.destination-desc-image-container{
+.destination-desc-image-container {
     padding: 32px 0;
 }
 
-.destination-desc-image{
+.destination-desc-image {
     display: grid;
     column-gap: 16px;
     grid-template-columns: 8fr 4fr;
 }
 
-.destination-image-container{
-    /* border: solid 1px black; */
-    
-}
-.destination-image-container img{
+
+.destination-image-container img {
     border-radius: 20px;
     width: 100%;
     height: 400px;
-    
+
 }
-.destination-desc-container{
+
+.destination-desc-container {
     padding: 0px 5px;
     height: 400px;
     overflow: auto;
     overflow-x: hidden;
+    border: #073064 solid 2px;
+    border-radius: 25px;
 }
 
-.destination-desc-container .desc-title{
-    margin-bottom: 5px;
+.destination-desc-container .desc-title {
     text-align: center;
+    margin-bottom: 5px;
     font-family: 'traverse-nepal-hammersmith-one-regular';
     font-weight: bold;
     font-size: x-large;
@@ -128,17 +129,19 @@ section.destination-title-container{
     padding-top: 5px;
     background-color: white;
     z-index: 1;
+    color: #073064;
 }
 
 .desc-text::first-letter {
     font-size: xx-large;
 }
+
 .desc-text-place {
     font-family: 'traverse-nepal-hammersmith-one-regular';
     font-size: medium;
 }
 
-section.destination-information-container{
+section.destination-information-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -154,26 +157,108 @@ section.destination-information-container{
 }
 
 /* if destination is accommodation */
-.desc-accommodation{
+.desc-accommodation {
+    padding: 10px;
+    text-align: center;
+}
+
+/* for room-info-details */
+.room-info-details {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    gap: 92px;
-    align-content: center;
+    gap: 6px;
 }
 
-.room-details{
+.room-info-title{
+    color: #073064;
+    font-size: x-large;
+}
+.room-info {
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: space-evenly;
 }
 
-.contact-detail{
-
+.room-info span {
+    border: #073064 solid 3px;
+    border-radius: 10%;
+    height: 80px;
+    display: inline-grid;
+    align-items: center;
+    text-decoration: none;
+    color: #073064;
+    fill: #073064;
+    transition: 0.5s;
+    padding: 0 10px;
+    cursor: default;
+}
+.room-info span:hover {
+    border: #f88932 solid 3px;
+    color: #f88932;
+    fill: #f88932;
 }
 
-.recommended-title-bar{
+.room-info span div{
+    display: flex;
+    flex-direction: column;
+}
+
+.room-details,.room-rate-details{
+    font-size: xx-large;
+}
+
+/* end */
+/* For contact info section */
+.contact-info-details {
+    display: flex;
+    margin-top: 70px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact-info-title{
+    color: #073064;
+    font-size: x-large;
+}
+.contact-info {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-info a {
+    border: #073064 solid 3px;
+    border-radius: 10%;
+    width: 100%;
+    height: 100px;
+    display: inline-grid;
+    align-items: center;
+    text-decoration: none;
+    color: #073064;
+    fill: #073064;
+    transition: 0.5s;
+}
+.contact-info a:hover {
+    border: #f88932 solid 3px;
+    border-radius: 10%;
+    width: 100%;
+    height: 100px;
+    display: inline-grid;
+    align-items: center;
+    text-decoration: none;
+    background-color: #073064;
+    color: #f88932;
+    fill: #f88932;
+    transform: scale(1.1);
+}
+
+.contact-info a div{
+    display: flex;
+    flex-direction: column;
+}
+
+/* end */
+
+.recommended-title-bar {
     margin-top: 5vh;
     box-sizing: border-box;
     margin-left: auto;
@@ -186,6 +271,6 @@ section.destination-information-container{
     font-family: 'traverse-nepal-hammersmith-one-regular';
 }
 
-.feed-container{
+.feed-container {
     margin-top: 10px;
 }
