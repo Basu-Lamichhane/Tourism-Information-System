@@ -13,7 +13,7 @@ if (isset($_GET['district'])) {
 }
 ?>
 
-<div class="feed-container">
+<div class="feed-container" id="feed-explore-container">
 
 
     <div class="feed-box" id="feed-explore">

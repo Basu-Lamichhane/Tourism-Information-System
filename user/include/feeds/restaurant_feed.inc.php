@@ -20,7 +20,7 @@ else {
     $restaurant_result = $con->query($restaurant_query);
 }
 ?>
-<div class="feed-container">
+<div class="feed-container" id="feed-eat-container">
 
 
     <div class="feed-box" id="feed-eat">

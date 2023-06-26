@@ -21,7 +21,7 @@ else {
 
 ?>
 
-<div class="feed-container">
+<div class="feed-container" id="feed-stay-container">
 
 
     <div class="feed-box" id="feed-stay">

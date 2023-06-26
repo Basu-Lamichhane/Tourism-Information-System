@@ -20,7 +20,7 @@ else {
     $cafe_result = $con->query($cafe_query);
 }
 ?>
-<div class="feed-container">
+<div class="feed-container" id="feed-socialize-container">
 
 
     <div class="feed-box" id="feed-socialize">

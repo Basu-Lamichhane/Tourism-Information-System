@@ -51,7 +51,6 @@ function district_dropdown_value()
 
 function type_dropdown_value($dest_option)
 {
-
     // require "./include/db_files/dbconn.inc.php";
     $con = new mysqli("localhost", "root", "", "db_tis"); //creating connection
 
