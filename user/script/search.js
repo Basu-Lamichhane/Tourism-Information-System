@@ -11,13 +11,25 @@ const feedEat = document.getElementById('feed-eat-container');
 const feedSocialize = document.getElementById('feed-socialize-container');
 const footerElement = document.getElementById('search-page-footer');
 
-const blurElements = new Array(headerElement, searchTitle, pictureContainer, infoContainer, feedExplore, feedDo, feedStay, feedEat,feedSocialize,footerElement);
+const blurElements = new Array(headerElement, searchTitle, pictureContainer, infoContainer, feedExplore, feedDo, feedStay, feedEat, feedSocialize, footerElement);
 
 blurElements.forEach(function (blurElement) {
     blurElement.style.transition = "filter 0.2 ease";
 })
 
-//
+//making a transition on scrolling
+var movingText = document.getElementById('menu-title');
+
+window.addEventListener('scroll', function () {
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 400) { // Adjust the scroll position threshold as desired
+        movingText.classList.add('title-scrolled');
+    } else {
+        movingText.classList.remove('title-scrolled');
+    }
+});
+
 
 
 var searchBar = document.getElementById('search');
@@ -140,5 +152,8 @@ search_button.addEventListener("click", function (event) {
     }
     else if (district_selected == "" && destination_selected != "" && type_selected != "" && search_query != "") {
         window.location.href = "attractions_list.php?destination=" + destination_selected + "&type=" + type_selected + "&query=" + search_query;
+    }
+    else if (district_selected != "" && destination_selected != "" && type_selected != "" && search_query != "") {
+        window.location.href = "attractions_list.php?district=" + district_selected + "&destination=" + destination_selected + "&type=" + type_selected + "&query=" + search_query;
     }
 });

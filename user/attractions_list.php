@@ -115,7 +115,19 @@ else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET
     $type=$_GET["type"];
     $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
     $no_of_rows = $records->num_rows;
-    $title_text = "Popular " . ucfirst($destination) . "s in " . $district . " right now";
+    $title_text = "Search Results for '" . $_GET['query'] . "'";
+    
+}//if district,destination,type and query are selected
+else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
+    $district=$_GET['district'];
+    $destination=$_GET['destination'];
+    $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
+    $first_char = substr($destination, 0, 1);
+    $type=$_GET["type"];
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='".$district."' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
+    $no_of_rows = $records->num_rows;
+    $title_text = "Search Results for '" . $_GET['query'] . "' in ".$district." district";
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,6 +202,9 @@ else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET
 }//if destination,type and query is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
     $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+}//if district,destination,type and query are selected
+else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='".$district."' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char .  "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
 }
 
 

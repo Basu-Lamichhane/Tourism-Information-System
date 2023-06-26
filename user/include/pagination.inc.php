@@ -26,6 +26,9 @@
     else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
         $query_string="?destination=" . $_GET['destination']."&type=" . $_GET['type']."&query=" . $_GET['query'];
     }
+    else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
+        $query_string="?district=" . $_GET['district']."&destination=" . $_GET['destination']."&type=" . $_GET['type']."&query=" . $_GET['query'];
+    }
 
 ?>
 
