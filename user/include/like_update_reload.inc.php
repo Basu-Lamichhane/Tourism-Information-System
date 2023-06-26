@@ -15,13 +15,8 @@ while($liked_destinations_row=$liked_destinations_details_exec->fetch_assoc()){?
 <script>
     var liked_destination_type="<?php echo $liked_destinations_row['like_dest_type']; ?>";
     var liked_destination_id="<?php echo $liked_destinations_row['like_dest_id']; ?>";
-    console.log(liked_destination_type,liked_destination_id);
 
-    console.log('[data-destination-type="'+liked_destination_type+'"][data-destination-id="'+liked_destination_id+'"]');
     var liked_destination_element=document.querySelector('[data-destination-type="'+liked_destination_type+'"][data-destination-id="'+liked_destination_id+'"]');
-    console.log(liked_destination_element);
-    // var liked_destination=document.querySelector('.like-btn');
-    // console.log(liked_destination);
     liked_destination_element.style.backgroundColor ="#f88932";
     liked_destination_element.setAttribute("data-liked","yes");
 </script>

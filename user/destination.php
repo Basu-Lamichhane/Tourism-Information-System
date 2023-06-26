@@ -53,12 +53,7 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
         $destination_close_time = $destination_record[$first_char . '_closetime'];
     }
 
-    print_r($destination_record);
-
 }
-
-
-
 include "/include/star_rating.inc.php";
 ?>
 

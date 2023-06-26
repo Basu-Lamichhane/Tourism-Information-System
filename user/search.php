@@ -66,7 +66,7 @@ include "/include/star_rating.inc.php";
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
-<body onload="javascript:(district_dropdown_options())">
+<body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
         <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
@@ -242,13 +242,6 @@ include "/include/star_rating.inc.php";
                                     </select>
                                 </div>
                             </div>
-                            <!-- <div class="input-field">
-                            <div class="input-select">
-                                <select name="price" id="price">
-                                <option disabled selected>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                                </select>
-                            </div>
-                        </div> -->
                         </div>
                         <div class="row">
                             <div class="input-field">
@@ -258,8 +251,7 @@ include "/include/star_rating.inc.php";
                                 <div class="group-btn">
                                     <button class="btn-delete search-page-btn" id="reset"
                                         onclick="javascript:resetBtn(); return false;">RESET</button>
-                                    <button class="btn-search search-page-btn" onclick="window.location.href='/attractions_list.php';
-                                    console.log('basu');">SEARCH</button>
+                                    <button class="btn-search search-page-btn" id="search-button">SEARCH</button>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +339,6 @@ include "/include/star_rating.inc.php";
     <script src="./script/ajax_script/select_options.js"></script>
     <script src="./script/search.js"></script>
     <script src="./script/reverse_geocoding_script/find_current_district.js"></script>
-    <script src="./script/feed_container_script.js"></script>
     <script src="./script/ajax_script/like_update.js"></script>
     <?php include "include/like_update_reload.inc.php"; ?>
 </body>

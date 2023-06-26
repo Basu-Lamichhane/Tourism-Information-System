@@ -1,5 +1,5 @@
 
-function district_dropdown_options() {
+// function district_dropdown_options() {
 
     var form_data = new FormData();
     form_data.append("select_option", "district");
@@ -24,7 +24,7 @@ function district_dropdown_options() {
             }
         }
     }
-}
+// }
 
 
 function type_dropdown_options(option) {

@@ -1,4 +1,3 @@
-console.log("running reverse geocoding...");
 if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
         position => {
