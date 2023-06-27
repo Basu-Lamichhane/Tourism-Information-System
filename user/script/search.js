@@ -23,7 +23,7 @@ var movingText = document.getElementById('menu-title');
 window.addEventListener('scroll', function () {
     var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 400) { // Adjust the scroll position threshold as desired
+    if (scrollPosition > 1000) { // Adjust the scroll position threshold as desired
         movingText.classList.add('title-scrolled');
     } else {
         movingText.classList.remove('title-scrolled');
@@ -119,8 +119,10 @@ search_button.addEventListener("click", function (event) {
     }
 
     console.log(search_query, district_selected, destination_selected, type_selected);
-
-    if (district_selected != "" && destination_selected == "" && type_selected == "" && search_query == "") {//
+    if (district_selected == "" && destination_selected == "" && type_selected == "" && search_query == "") {//
+        searchBar.value ="Plz select filters or enter some queries first... ";
+    }
+    else if (district_selected != "" && destination_selected == "" && type_selected == "" && search_query == "") {//
         window.location.href = "district_page.php?district=" + district_selected;
     }
     else if (district_selected == "" && destination_selected != "" && type_selected == "" && search_query == "") {//

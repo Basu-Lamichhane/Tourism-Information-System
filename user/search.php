@@ -198,7 +198,7 @@ include "/include/star_rating.inc.php";
                 <div class="inner-form">
                     <div class="basic-search">
                         <div class="input-field">
-                            <input id="search" type="text" placeholder="Type Keywords"
+                            <input id="search" type="text" placeholder="Enter a destination..."
                                 onkeyup="javascript:(load_search_result(this.value))" />
                             <div id="search-cancel-btn">
                                 <button class="icon-wrap" id="search-btn">

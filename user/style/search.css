@@ -42,12 +42,16 @@ textarea,option{
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
-    background: linear-gradient(to right, #073064 0%, #073064 28%, #f88932 91%, #f88932 100%);
+    background: #073064;
     color: black;
+    transition: 0.3s;
 }
 
 #search:hover,select:hover{
-    background: linear-gradient(45deg, #f88932 0%, #f88932 28%, #073064 91%, #073064 100%);
+    background: #f88932;
+    border: #073064 2px solid;
+    border-radius: 15px;
+    color: #073064;
 }
 
 
@@ -61,8 +65,8 @@ input {
 select {
     /* 1 */
     text-transform: none;
-    border: black solid 2px;
-    border-radius: 20px;
+    border: #f88932 solid 2px;
+    border-radius: 15px;
     height: 35px;
     text-align: center;
     color: white;
@@ -98,19 +102,16 @@ select {
     padding: 10px 32px 10px 70px;
     font-size: 18px;
     height: 70px;
-    color: #fff;
-    background: linear-gradient(to right, #073064 0%, #073064 28%, #f88932 91%, #f88932 100%);
-    font-family: 'Lato', sans-serif;
+    color: #f88932;
+    background: #073064;
+    font-family: 'traverse-nepal-hammersmith-one-regular', sans-serif;
+    border-color: #f88932;
+    transition: 0.3s;
 }
 
-.s010 form .inner-form .input-field input.placeholder {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 400;
-}
 
 .s010 form .inner-form .input-field input::-webkit-input-placeholder {
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 400;
 }
@@ -190,8 +191,8 @@ select {
 .s010 form .inner-form .basic-search {
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    border-radius: 34px;
-    margin-bottom: 5px;
+    border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .s010 form .inner-form .basic-search .input-field {
@@ -486,7 +487,7 @@ img.picture:hover {
     background: rgb(255, 255, 255,0.5);
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     border: 2px solid;
-    color: black;
+    color: #073064;
     display: flex;
     gap: 12px;
     min-width: 150px;
@@ -503,6 +504,7 @@ img.picture:hover {
     justify-content: space-between;
     text-decoration: none;
     font-size: large;
+    fill: #073064;
 }
 
 .menu-icon{

@@ -14,7 +14,7 @@ if (isset($_GET['destination']) && (!isset($_GET['district'])) && (!isset($_GET[
     $records = $con->query("SELECT * FROM tbl_" . $destination . ";");
     $no_of_rows = $records->num_rows;
     $title_text = "Popular " . ucfirst($destination) . "s in Nepal right now";
-}// if only query is given 
+} // if only query is given 
 else if (!isset($_GET['destination']) && !isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) { //
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $records = $con->query("SELECT id, name, address, district, type, source_table
@@ -39,15 +39,15 @@ else if (!isset($_GET['destination']) && !isset($_GET['district']) && !isset($_G
     ;");
     $no_of_rows = $records->num_rows;
     $title_text = "Search Results for '" . $_GET['query'] . "'";
-}// if destination and district is selected 
-else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && !isset($_GET['query'])) {//
+} // if destination and district is selected 
+else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && !isset($_GET['query'])) { //
     $destination = $_GET['destination'];
     $district = $_GET['district'];
     $first_char = substr($destination, 0, 1);
     $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "';");
     $no_of_rows = $records->num_rows;
     $title_text = "Popular " . ucfirst($destination) . "s in " . $district . " right now";
-}//if district and query is given 
+} //if district and query is given 
 else if (!isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $district = $_GET['district'];
@@ -68,66 +68,70 @@ else if (!isset($_GET['destination']) && isset($_GET['district']) && !isset($_GE
         SELECT c_id AS id, c_name AS name, c_address AS address, c_district AS district, c_type AS type, 'tbl_cafe' AS source_table
         FROM tbl_cafe
     ) AS combined_table
-    WHERE name LIKE '" . $condition . "%' AND district='".$district."'
+    WHERE name LIKE '" . $condition . "%' AND district='" . $district . "'
     ORDER BY name ASC
     ;");
     $no_of_rows = $records->num_rows;
     $title_text = "Search Results for '" . $_GET['query'] . "'";
-}//if destination and type is selected
+} //if destination and type is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && !isset($_GET['query'])) {
-    $destination=$_GET['destination'];
-    $type=$_GET['type'];
+    $destination = $_GET['destination'];
+    $type = $_GET['type'];
     $first_char = substr($destination, 0, 1);
     $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "';");
     $no_of_rows = $records->num_rows;
     $title_text = "Popular " . ucfirst($destination) . "s";
-}//if destination and query is selected
+} //if destination and query is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
-    $destination=$_GET['destination'];
+    $destination = $_GET['destination'];
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $first_char = substr($destination, 0, 1);
-    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_name ASC;");
     $no_of_rows = $records->num_rows;
     $title_text = "Search Results for '" . $_GET['query'] . "'";
-}//if destination, district and type are selected
+} //if destination, district and type are selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && !isset($_GET['query'])) {
-    $destination=$_GET['destination'];
-    $district=$_GET['district'];
-    $type=$_GET['type'];
+    $destination = $_GET['destination'];
+    $district = $_GET['district'];
+    $type = $_GET['type'];
     $first_char = substr($destination, 0, 1);
-    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND ". $first_char . "_type='" . $type . "';");
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_type='" . $type . "';");
     $no_of_rows = $records->num_rows;
     $title_text = "Popular " . ucfirst($destination) . "s in " . $district . " right now";
-}//if district,destination and query is selected
+} //if district,destination and query is selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
-    $destination=$_GET['destination'];
-    $district=$_GET['district'];
+    $destination = $_GET['destination'];
+    $district = $_GET['district'];
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $first_char = substr($destination, 0, 1);
-    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_name ASC;");
     $no_of_rows = $records->num_rows;
     $title_text = "Popular " . ucfirst($destination) . "s in " . $district . " right now";
-}//if destination,type and query is selected
+} //if destination,type and query is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
-    $destination=$_GET['destination'];
+    $destination = $_GET['destination'];
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $first_char = substr($destination, 0, 1);
-    $type=$_GET["type"];
-    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
+    $type = $_GET["type"];
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_name ASC;");
     $no_of_rows = $records->num_rows;
     $title_text = "Search Results for '" . $_GET['query'] . "'";
-    
-}//if district,destination,type and query are selected
+
+} //if district,destination,type and query are selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
-    $district=$_GET['district'];
-    $destination=$_GET['destination'];
+    $district = $_GET['district'];
+    $destination = $_GET['destination'];
     $condition = preg_replace("/[^0-9A-Za-z\s_*><&$#@()=-]/", "", $_GET["query"]);
     $first_char = substr($destination, 0, 1);
-    $type=$_GET["type"];
-    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='".$district."' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC;");
+    $type = $_GET["type"];
+    $records = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_name ASC;");
     $no_of_rows = $records->num_rows;
-    $title_text = "Search Results for '" . $_GET['query'] . "' in ".$district." district";
-    
+    $title_text = "Search Results for '" . $_GET['query'] . "' in " . $district . " district";
+
+}
+
+if($no_of_rows==0){
+    header("Location:search_error_page.php");
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,10 +171,9 @@ else if (!isset($_GET['destination']) && !isset($_GET['district']) && !isset($_G
     ) AS combined_table
     WHERE name LIKE '" . $condition . "%'
     ORDER BY name ASC LIMIT " . $start . "," . $contents_per_page . ";");
-}
-else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && !isset($_GET['query'])) {
+} else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && !isset($_GET['query'])) {
     $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
-}else if(!isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])){
+} else if (!isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
     $pagination_query_execute = $con->query("SELECT id, name, address, image, rating, num_reviews, district, type, source_table
     FROM (
         SELECT p_id AS id, p_name AS name, p_address AS address, p_image as image, p_rating as rating,p_num_reviews as num_reviews ,p_district AS district, p_type AS type, 'tbl_place' AS source_table
@@ -185,26 +188,26 @@ else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET
         SELECT c_id AS id, c_name AS name, c_address AS address, c_image as image, c_rating as rating,c_num_reviews as num_reviews , c_district AS district, c_type AS type, 'tbl_cafe' AS source_table
         FROM tbl_cafe
     ) AS combined_table
-    WHERE name LIKE '" . $condition . "%' AND district='".$district."'
+    WHERE name LIKE '" . $condition . "%' AND district='" . $district . "'
     ORDER BY name ASC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if destination and type is selected
+} //if destination and type is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && !isset($_GET['query'])) {
-    $pagination_query_execute=$con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if destination and query is selected
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+} //if destination and query is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
-    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_name ASC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if destination, district and type are selected
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_name ASC LIMIT " . $start . "," . $contents_per_page . ";");
+} //if destination, district and type are selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && !isset($_GET['query'])) {
-    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND ". $first_char . "_type='" . $type . "' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if district,destination and query is selected
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_type='" . $type . "' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+} //if district,destination and query is selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && !isset($_GET['type']) && isset($_GET['query'])) {
-    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if destination,type and query is selected
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+} //if destination,type and query is selected
 else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
-    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
-}//if district,destination,type and query are selected
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+} //if district,destination,type and query are selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
-    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='".$district."' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '".$condition."%' ORDER BY " . $first_char .  "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
+    $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $destination . " where " . $first_char . "_district='" . $district . "' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";");
 }
 
 
@@ -223,7 +226,7 @@ include "/include/star_rating.inc.php";
     <title>
         <?php
         if (isset($_GET['destination']))
-            echo ucfirst($destination). "s | ";
+            echo ucfirst($destination) . "s | ";
         else
             echo "Searched Destinations | "; ?>
         <?php if (isset($_GET['district']))
@@ -301,9 +304,9 @@ include "/include/star_rating.inc.php";
                                     <div class="attraction-name">
                                         <?php
                                         if (isset($_GET['destination']))
-                                            echo $start . "." . $pagination_result[$first_char . '_name'];
+                                            echo $start . ". " . $pagination_result[$first_char . '_name'];
                                         else
-                                            echo $pagination_result['name']; ?>
+                                            echo $start . ". " . $pagination_result['name']; ?>
                                     </div>
                                     <div class="attraction-rating-review">
                                         <div class="attraction-rating">
@@ -357,11 +360,11 @@ include "/include/star_rating.inc.php";
         <?php if ($pages > 1)
             include "include/pagination.inc.php"; ?>
         <!-- including pagination -->
-
-        <footer>
-            <?php include "include/footer.inc.php" ?>
-        </footer>
     </main>
+
+    <footer>
+        <?php include "include/footer.inc.php" ?>
+    </footer>
     <script src="./script/reload_animation.js"></script>
     <script src="./script/ajax_script/like_update.js"></script>
     <?php include "./include/like_update_reload.inc.php"; ?>
