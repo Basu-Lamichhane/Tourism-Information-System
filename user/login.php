@@ -15,12 +15,14 @@ require "include/dbconn.inc.php";
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
-    <link rel="stylesheet" href="style/nav_style.css">
+    <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/login_style.css">
     <link rel="stylesheet" href="style/noti.css">
 </head>
 <body>
-    <?php include "include/nav.inc.php"; ?>
+    <header>
+        <?php include "include/header.inc.php"; ?>
+    </header>
     <?php
         if (isset($_SESSION['!login_pass_match']))
             {
@@ -42,6 +44,8 @@ require "include/dbconn.inc.php";
         <?php include "include/login.inc.php"; ?>
     </div>
     <script src="./script/noti.js"></script>
+    <script src="./script/login.js"></script>
+    <script src="./script/validation.js"></script>
 
 </body>
 </html>

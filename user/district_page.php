@@ -111,34 +111,6 @@ include "/include/star_rating.inc.php";
                                     </svg></span>
                             </a>
                         </div>
-
-
-                        <div class="menu-box">
-                            <div class="menu-position">
-                                <button href="" class="menu-content" onclick="javascript:toggleMenu();">
-                                    <span class="name" id="more-btn">More</span>
-                                    <span class="blank"></span>
-                                    <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 320 512" width="24px" height="24px">
-                                            <path
-                                                d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
-                                        </svg></span>
-                                </button>
-
-                                <div class="more" data-menu="true" id="more-menu">
-                                    <ul role="menu" tabindex="-1" class="more-ul">
-                                        <li role="none">
-                                            <a href="#" tabindex="-1" class="more-options" id="add-destination"
-                                                role="menu-items">Add a Destination</a>
-                                        </li>
-                                        <li role="none">
-                                            <a href="#" tabindex="-1" class="more-options" id="add-feedback"
-                                                role="menu-items">Give us Feedbacks</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </span>

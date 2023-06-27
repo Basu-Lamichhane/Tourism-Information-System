@@ -105,6 +105,9 @@ search_cancel_btn.addEventListener('click', function (event) {
     }
 });
 
+// to set the option-type on page refresh
+// var type_option=document.getElementById("type");
+// type_option.options[1].selected=true;
 
 var search_button = document.getElementById("search-button");
 
@@ -120,7 +123,7 @@ search_button.addEventListener("click", function (event) {
 
     console.log(search_query, district_selected, destination_selected, type_selected);
     if (district_selected == "" && destination_selected == "" && type_selected == "" && search_query == "") {//
-        searchBar.value ="Plz select filters or enter some queries first... ";
+        searchBar.placeholder ="Plz select filters or enter some queries first... ";
     }
     else if (district_selected != "" && destination_selected == "" && type_selected == "" && search_query == "") {//
         window.location.href = "district_page.php?district=" + district_selected;

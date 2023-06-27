@@ -5,7 +5,7 @@
 
       <!-- <p id="name_err" class="error_style"></p> -->
       <label for="email" class="lbl">Enter Your Email</label>
-      <input type="email" placeholder="Enter your Email" id="login_email" class="text" name="email" />
+      <input type="email" placeholder="Enter your Email" id="login_email" class="text" name="email" onkeyup="emailvalid();"/>
       <label for="password" class="lbl">Enter your Password</label>
       <input type="password" placeholder="Enter your password" id="login_password" class="text password" name="pass" />
 

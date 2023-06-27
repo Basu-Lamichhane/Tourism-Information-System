@@ -4,16 +4,18 @@
 }
 
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
-header{
+
+header {
     position: relative;
     font-family: "traverse-nepal-hammersmith-one-regular";
 
 }
-.header-container{
+
+.header-container {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -22,43 +24,44 @@ header{
     padding-right: 24px;
     width: 1184px;
     min-width: 1184px;
-    margin-top: 5px;
+    padding-top: 5px;
 }
 
-.nav-container{
+.nav-container {
     display: flex;
 }
 
-.logo-container{
+.logo-container {
     margin-right: 28px;
 
 }
 
-.logo:hover{
+.logo:hover {
     transform: scaleX(1.1);
 }
 
-picture img{
+picture img {
     width: 250px;
     height: 100%;
     display: block;
     transition: 0.5s;
 }
 
-.navbar-container{
+.navbar-container {
     display: flex;
     flex: 1;
     align-items: center;
+    justify-content: flex-end;
 }
 
-.nav-search-bar-container{
+.nav-search-bar-container {
     flex: 1 1 0;
     margin-right: 6px;
     opacity: 1;
     transition: opacity 0.15s ease-in;
 }
 
-.nav-search-bar{
+.nav-search-bar {
     max-width: 350px;
     width: 100%;
 
@@ -69,7 +72,7 @@ picture img{
     border: #f88932 solid 3px;
 }
 
-.search-bar{
+.search-bar {
     position: relative;
     width: 100%;
     height: 42px;
@@ -77,6 +80,7 @@ picture img{
     z-index: 0;
     text-align: left;
 }
+
 .whole-screen {
     background: white;
     bottom: 0;
@@ -88,7 +92,8 @@ picture img{
     top: 0;
     transition: opacity .15s ease;
 }
-.search-bar form{
+
+.search-bar form {
     border: 2px solid #073064;
     border-radius: 21px;
     padding: 0 12px;
@@ -98,7 +103,7 @@ picture img{
     transition: 0.5s;
 }
 
-.search-bar form input{
+.search-bar form input {
     font-size: 16px;
     height: 38px;
     line-height: 38px;
@@ -112,12 +117,14 @@ picture img{
     appearance: none;
     box-sizing: border-box;
 }
-.search-bar form input:focus,.search-bar form input:invalid{
+
+.search-bar form input:focus,
+.search-bar form input:invalid {
     box-shadow: none;
     outline: none;
 }
 
-.search-bar form button{
+.search-bar form button {
     font-size: 22px;
     height: 38px;
     left: 1px;
@@ -139,22 +146,21 @@ picture img{
 
 }
 
-.nav-menus{
+.nav-menus {
     display: grid;
     gap: 8px;
     grid-auto-flow: column;
 }
 
-.nav-menu:hover{
+.nav-menu:hover {
     transform: scale(1.1);
 }
 
-.nav-menu{
+.nav-menu {
     border-radius: 20px;
     height: 40px;
     min-width: 40px;
     padding: 6px;
-    background-color: white;
     color: black;
     border: 2px solid transparent;
     cursor: pointer;
@@ -165,28 +171,28 @@ picture img{
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    width: 100px;
+    width: 90px;
 }
 
-.nav-menu:hover{
+.nav-menu:hover {
     background-color: #f88932;
     color: #073064;
     fill: #073064;
-    border-color:#073064 ;
+    border-color: #073064;
 }
 
-.nav-menu:active{
+.nav-menu:active {
     background-color: #073064;
     color: #f88932;
     fill: #f88932;
-    border-color:#f88932;
+    border-color: #f88932;
 }
 
-.menu-name{
+.menu-name {
     padding-top: 3px;
 }
 
-.profile-container{
+.profile-container {
     position: relative;
     width: 100%;
     outline: none;
@@ -205,18 +211,91 @@ picture img{
     text-decoration: none;
 
 }
+.profile-btn{
+    border-radius: 50%;
+    border: transparent;
+    cursor: pointer;
+}
 
-
-.profile-container a picture img{
+.profile-container button picture img {
     object-fit: cover;
     object-position: center;
     height: 40px;
-    width: 40px;
+    width: 45px;
     border: #f88932 solid 2px;
-    border-radius:50% ;
+    border-radius: 50%;
     transition: 0.5s;
 }
-.profile-container a picture img:hover{
+
+.profile-container button picture img:hover {
     transform: scale(1.2);
-    border: #073064 solid 3px;
+}
+
+.profile-dropdown-content {
+    max-height: 0px;
+    overflow: hidden;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    top: 70px;
+    padding: 0px 6px;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+.dropped{
+    max-height: 400px;
+    overflow: visible;
+    border: #073064 solid 1px;;
+}
+
+
+.profile-dropdown-content:after {
+    border-width: 0px 16px 9px;
+    top: -10px;
+    border-color: #073064 transparent;
+    border-style: solid;
+    content: "";
+    position: absolute;
+    transition: 0.5s;
+}
+
+.dropdown-contents{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.dropdown-content{
+    text-decoration: none;
+    display: flex;
+    padding: 8px 0px;
+    margin: 2px;
+    font-size: medium;
+    color: #073064;
+    fill: #073064;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.dropdown-label{
+    margin-left: 5px ;
+    padding-top: 2px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dropdown-content:hover{
+    transform: scale(1.1);
+    fill: #f88932;
+    color: #f88932;
+    background-color: #073064;
+    transition-delay: 0ms;
+}
+
+.dropdown-content:active{
+    fill: #073064;
+    color: #073064;
+    background-color: #f88932;
 }

@@ -7,7 +7,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "traverse-nepal-hammersmith-one-regular";
+    font-family: "traverse-nepal-hammersmith-one-regular" !important;
 }
 ::-webkit-scrollbar{
     background-color: #f6b98a;
@@ -356,7 +356,7 @@ tr{
     position: sticky;
     top: 0;
     background-color: #ffffff;
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -605,9 +605,8 @@ img.picture:hover {
     font-weight: 700;
     font-size: smaller;
 }
-.nav-container{
-    justify-content: space-between;
-}
-.navbar-container{
-    justify-content: flex-end;
+
+
+.profile-container a picture img{
+    
 }
