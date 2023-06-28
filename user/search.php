@@ -267,7 +267,7 @@ include "/include/star_rating.inc.php";
             <div class="picture-container" id="picture-contain">
                 <div class="picture-box">
                     <img class="picture"
-                        src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1595073504/blog/dmida4bcnbnrejsq7lyw.jpg"
+                        src="../image/Nepal.webp"
                         alt="This is my picture" />
                 </div>
             </div>
