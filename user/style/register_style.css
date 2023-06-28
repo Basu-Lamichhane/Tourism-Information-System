@@ -52,6 +52,9 @@
 }
 .register_container fieldset .form_style .reg_dob input[type=date] {
   border-radius: 1em;
+    width: 125px;
+    text-align: center;
+    height: 30px;
 }
 .register_container fieldset .form_style .radio_items {
   display: inline-block;

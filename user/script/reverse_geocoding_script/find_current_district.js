@@ -1,4 +1,7 @@
-if ("geolocation" in navigator) {
+var nearby_search = document.getElementById('location-link');
+nearby_search.addEventListener('click', function(event){
+    
+    if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
         position => {
             const lat = position.coords.latitude;
@@ -6,7 +9,7 @@ if ("geolocation" in navigator) {
 
             //nominate API 
             const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
-
+            
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -16,7 +19,6 @@ if ("geolocation" in navigator) {
                     const latitude= data.lat;
                     const longitude= data.lon;
                     
-                    var nearby_search = document.getElementById('location-link');
                     nearby_search.setAttribute('href',"district_page.php?district="+district);
                 })
                 .catch(error => {
@@ -33,3 +35,4 @@ if ("geolocation" in navigator) {
     console.log('Geolocation is not supported by this browser.');
     // Handle the case where Geolocation API is not available
 }
+});

@@ -34,6 +34,7 @@ include "/include/star_rating.inc.php";
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
+    <link rel="stylesheet" href="style/breadcrumb_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/district_page_style.css">
@@ -51,6 +52,9 @@ include "/include/star_rating.inc.php";
     </header>
 
     <main id="district_page">
+
+    <!-- breadcrumb included -->
+    <?php include "include/breadcrumb.inc.php"; ?>
 
         <div class="container" id="sticky-div">
 

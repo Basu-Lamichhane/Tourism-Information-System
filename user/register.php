@@ -20,7 +20,7 @@ require "include/dbconn.inc.php";
     
     <script src="script/jquery.js"></script>
 </head>
-<body onload="dobvalid();">
+<body>
 
     <?php include "include/nav.inc.php"; ?>
         <?php

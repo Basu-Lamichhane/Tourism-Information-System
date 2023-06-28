@@ -47,6 +47,8 @@ function cpassvalid() {
   }
 }
 
+
+dobvalid();//calling dobvalid(); function when the page reloads
 function dobvalid() {
   var current_date = new Date();
   var current_day = current_date.getDate();

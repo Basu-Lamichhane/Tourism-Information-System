@@ -23,7 +23,7 @@ var movingText = document.getElementById('menu-title');
 window.addEventListener('scroll', function () {
     var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 1000) { // Adjust the scroll position threshold as desired
+    if (scrollPosition > 1000) { // Adjusting the scroll position threshold as desired
         movingText.classList.add('title-scrolled');
     } else {
         movingText.classList.remove('title-scrolled');
@@ -41,6 +41,7 @@ function resetBtn() {
     district_option.options[0].selected = true;
     destination_option.options[0].selected = true;
     type_option.options[0].selected = true;
+    load_search_result(searchBar.value);
 }
 
 //for search focus-in and focus-out
@@ -105,9 +106,6 @@ search_cancel_btn.addEventListener('click', function (event) {
     }
 });
 
-// to set the option-type on page refresh
-// var type_option=document.getElementById("type");
-// type_option.options[1].selected=true;
 
 var search_button = document.getElementById("search-button");
 

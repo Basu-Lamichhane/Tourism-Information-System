@@ -125,7 +125,6 @@ section.destination-title-container {
     height: 400px;
     overflow: auto;
     overflow-x: hidden;
-    border: #073064 solid 2px;
     border-radius: 25px;
 }
 

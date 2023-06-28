@@ -257,7 +257,8 @@ select {
     padding: 5px 40px;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    height: 15vh;
+    height: 20vh;
+    border: #073064 solid 3px;
 }
 
 .s010 form .inner-form .advance-search .desc {
@@ -280,21 +281,16 @@ select {
 
 .s010 form .inner-form .advance-search .row .input-field {
     width: 100%;
-    display: -ms-flexbox;
+    margin-top: 10px;
     display: flex;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -ms-flex-align: center;
     align-items: center;
     padding-left: 45px;
 }
 
 .s010 form .inner-form .advance-search .row .input-field .result-count {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: start;
     justify-content: flex-start;
-    -ms-flex-align: center;
     align-items: center;
     width: 110px;
     color: #999;
@@ -357,6 +353,8 @@ tr{
     top: 0;
     background-color: #ffffff;
     z-index: 1;
+    border-bottom: #073064 3px solid;
+    border-radius: 25%;
 }
 
 
@@ -391,14 +389,17 @@ tr{
     color: #f88932;
     font-size: smaller;
 }
+.picture-info-container{
+    display: flex;
+    gap: 20px;
+}
 
 .picture-container {
     position: relative;
 }
 
 .menu,
-.picture-box,
-.info-container,
+.picture-info-container,
 .feed-title,
 .feed-line {
     max-width: 100%;
@@ -414,13 +415,13 @@ tr{
     width: 1100px;
 }
 .picture-box {
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
 }
 
 img.picture {
-    min-width: 100%;
+    /* min-width: 100%; */
     transition: 0.5s;
-    height: 500px;
+    height: 300px;
 }
 
 img.picture:hover {
@@ -429,8 +430,13 @@ img.picture:hover {
 
 .info-grid {
     display: grid;
-    gap: 112px;
-    grid-template-columns: 50% 1fr;
+}
+
+.info-container{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .info-about {
@@ -604,9 +610,4 @@ img.picture:hover {
 .suggestion-address {
     font-weight: 700;
     font-size: smaller;
-}
-
-
-.profile-container a picture img{
-    
 }

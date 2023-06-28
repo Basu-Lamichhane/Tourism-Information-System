@@ -96,8 +96,7 @@ include "/include/star_rating.inc.php";
                                 <span class="name">Attractions</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                                        width="24px"
-                                        height="24px">
+                                        width="24px" height="24px">
                                         <path
                                             d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
                                     </svg></span>
@@ -109,8 +108,7 @@ include "/include/star_rating.inc.php";
                                 <span class="name">Accommodation</span>
                                 <span class="blank"></span>
                                 <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                        width="24px"
-                                        viewBox="0 0 512 512">
+                                        width="24px" viewBox="0 0 512 512">
                                         <path
                                             d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
                                     </svg></span>
@@ -222,7 +220,7 @@ include "/include/star_rating.inc.php";
         <div class="typeahead_suggestions_container" id="suggestions_container" style="display: none;">
 
             <div class="nearby_search">
-                <a href="#" target="_blank" class="suggestion_container" id="location-link" ;>
+                <a target="_blank" class="suggestion_container" id="location-link" ;>
                     <div class="suggestion-logo">
                         <svg viewBox="0 0 24 24" width="24px" height="24px">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -249,24 +247,28 @@ include "/include/star_rating.inc.php";
 
         </div>
 
-        <div class="picture-container" id="picture-contain">
-            <div class="picture-box">
-                <img class="picture"
-                    src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1595073504/blog/dmida4bcnbnrejsq7lyw.jpg"
-                    alt="This is my picture" />
+        <div class="picture-info-container">
+            <div class="info-container" id="info-contain">
+                <div class="info-grid">
+                    <div class="geo-desc">
+                        <div class="info-about">About Nepal</div>
+                        <div class="info-desc">Nepal, located in South Asia, is a land of diverse landscapes, rich
+                            cultural
+                            heritage, and breathtaking natural beauty. It is known for its majestic Himalayan mountain
+                            range, including the world's highest peak, Mount Everest. Nepal offers a captivating blend
+                            of
+                            adventure, spirituality, and serenity, making it a popular destination for travelers from
+                            around
+                            the globe.</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-
-        <div class="info-container" id="info-contain">
-            <div class="info-grid">
-                <div class="geo-desc">
-                    <div class="info-about">About Nepal</div>
-                    <div class="info-desc">Nepal, located in South Asia, is a land of diverse landscapes, rich cultural
-                        heritage, and breathtaking natural beauty. It is known for its majestic Himalayan mountain
-                        range, including the world's highest peak, Mount Everest. Nepal offers a captivating blend of
-                        adventure, spirituality, and serenity, making it a popular destination for travelers from around
-                        the globe.</div>
+            <div class="picture-container" id="picture-contain">
+                <div class="picture-box">
+                    <img class="picture"
+                        src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1595073504/blog/dmida4bcnbnrejsq7lyw.jpg"
+                        alt="This is my picture" />
                 </div>
             </div>
         </div>

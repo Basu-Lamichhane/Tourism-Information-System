@@ -95,13 +95,18 @@ include "/include/star_rating.inc.php";
             <div class="breadcrumb-trails">
                 <ul class="breadcrumbs">
 
-                    <li class="crumb"><a href="#">Nepal</a>&nbsp;></li>
+                    <li class="crumb"><a href="search.php">Nepal</a>&nbsp;></li>
 
                     <?php if (isset($_GET['district']))
-                        echo '<li class="crumb">&nbsp;<a href="#">' . $district . '</a>&nbsp;></li>' ?>
+                        echo '<li class="crumb">&nbsp;<a href="district_page.php?district='.$_GET['district'].'">' . $district . '</a>&nbsp;></li>' 
+                        ?>
 
                         <li class="crumb">&nbsp;
-                        <?php echo " <a href='#'>" . ucfirst($destination) . "s</a>&nbsp;>" ?>
+                        <?php if (isset($_GET['district']))
+                        echo " <a href='attractions_list.php?district=".$_GET['district']."&destination=".$destination."'>" . ucfirst($destination) . "s</a>&nbsp;>" ;
+                        else
+                        echo " <a href='attractions_list.php?destination=".$destination."'>" . ucfirst($destination) . "s</a>&nbsp;>"  ;
+                        ?>
                     </li>
 
                     <?php if (isset($_GET['dest_id']))
