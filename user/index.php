@@ -10,10 +10,10 @@
     <title>Home</title>
   </head>
   <body>
+    <!-- Reload Animation -->
   <div id="loader-overlay">
         <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
-    <!-- Reload Animation -->
 
     <?php include "include/header.inc.php";?>
 

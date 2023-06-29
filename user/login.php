@@ -12,11 +12,18 @@ require "include/dbconn.inc.php";
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
+    <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/login_style.css">
     <link rel="stylesheet" href="style/noti.css">
 </head>
 <body>
+
+    <!-- Reload Animation -->
+    <div id="loader-overlay">
+        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+    </div>
+
     <header>
         <?php include "include/header.inc.php"; ?>
     </header>
@@ -43,6 +50,7 @@ require "include/dbconn.inc.php";
     <script src="./script/noti.js"></script>
     <script src="./script/login.js"></script>
     <script src="./script/validation.js"></script>
+    <script src="./script/reload_animation.js"></script>
 
 </body>
 </html>
