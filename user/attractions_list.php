@@ -130,7 +130,7 @@ else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET[
 
 }
 
-if($no_of_rows==0){
+if ($no_of_rows == 0) {
     header("Location:search_error_page.php");
 }
 
@@ -257,8 +257,8 @@ include "/include/star_rating.inc.php";
 
     <main>
 
-    <!-- including breadcrumb -->
-    <?php include "include/breadcrumb.inc.php" ?>
+        <!-- including breadcrumb -->
+        <?php include "include/breadcrumb.inc.php" ?>
 
         <div class="attractions-list-container">
 
@@ -280,64 +280,77 @@ include "/include/star_rating.inc.php";
                             echo $pagination_result[$first_char . '_name'];
                         else
                             echo $pagination_result['name']; ?>">
-                            <a href="./destination.php?district=<?php
-                            if (isset($_GET['destination']))
-                                echo $pagination_result[$first_char . '_district'];
-                            else
-                                echo $pagination_result['district']; ?>&destination=<?php
-                                  if (isset($_GET['destination']))
-                                      echo $destination;
-                                  else
-                                      echo substr($pagination_result['source_table'], 4); ?>&dest_id=<?php
-                                         if (isset($_GET['destination']))
-                                             echo $pagination_result[$first_char . '_id'];
-                                         else
-                                             echo $pagination_result['id']; ?>">
-                                <div class="attraction-image-container">
-                                    <img src="<?php
+                            <?php
+                            if (isset($_GET['destination']) && $_GET['destination'] == 'district') {
+                                echo '<a href="./district_page.php?district=',$pagination_result['d_name'];
+                            } else {
+                                if (isset($_GET['destination'])) {
+                                    echo '<a href="./destination.php?district=';
+                                    echo $pagination_result[$first_char . '_district'];
+                                } else {
+                                    echo '<a href="./destination.php?district=';
+                                    echo $pagination_result['district']; ?>&destination=<?php
+                                }
+                                if (isset($_GET['destination']))
+                                    echo $destination;
+                                else
+                                    echo substr($pagination_result['source_table'], 4); ?>&dest_id=<?php
+                                       if (isset($_GET['destination']))
+                                           echo $pagination_result[$first_char . '_id'];
+                                       else
+                                           echo $pagination_result['id'];
+                            }
+                            ?>">
+
+                            <div class="attraction-image-container">
+                                <img src="<?php
+                                if (isset($_GET['destination']))
+                                    echo $pagination_result[$first_char . '_image'];
+                                else
+                                    echo $pagination_result['image']; ?>" alt="This is <?php
+                                      if (isset($_GET['destination']))
+                                          echo $pagination_result[$first_char . '_name'];
+                                      else
+                                          echo $pagination_result['name']; ?>'s picture.">
+                            </div>
+
+                            <div class="bottom-content">
+                                <div class="attraction-name">
+                                    <?php
                                     if (isset($_GET['destination']))
-                                        echo $pagination_result[$first_char . '_image'];
+                                        echo $start . ". " . $pagination_result[$first_char . '_name'];
                                     else
-                                        echo $pagination_result['image']; ?>" alt="This is <?php
-                                          if (isset($_GET['destination']))
-                                              echo $pagination_result[$first_char . '_name'];
-                                          else
-                                              echo $pagination_result['name']; ?>'s picture.">
+                                        echo $start . ". " . $pagination_result['name']; ?>
                                 </div>
-
-                                <div class="bottom-content">
-                                    <div class="attraction-name">
+                                <div class="attraction-rating-review">
+                                    <div class="attraction-rating">
                                         <?php
-                                        if (isset($_GET['destination']))
-                                            echo $start . ". " . $pagination_result[$first_char . '_name'];
+                                        if (isset($_GET['destination'])){
+                                            if($_GET['destination']!='district')
+                                            star_ratings($pagination_result[$first_char . '_rating']);
+                                        }
                                         else
-                                            echo $start . ". " . $pagination_result['name']; ?>
+                                            star_ratings($pagination_result['rating']); ?>
                                     </div>
-                                    <div class="attraction-rating-review">
-                                        <div class="attraction-rating">
-                                            <?php
-                                            if (isset($_GET['destination']))
-                                                star_ratings($pagination_result[$first_char . '_rating']);
-                                            else
-                                                star_ratings($pagination_result['rating']); ?>
-                                        </div>
 
-                                        <div class="attraction-review">
-                                            <?php
-                                            if (isset($_GET['destination']))
-                                                echo $pagination_result[$first_char . '_num_reviews'];
-                                            else
-                                                echo $pagination_result['num_reviews']; ?>
-                                        </div>
-                                    </div>
-                                    <div class="attraction-type">
+                                    <div class="attraction-review">
                                         <?php
-                                        if (isset($_GET['destination']))
-                                            echo $pagination_result[$first_char . '_type'];
+                                        if (isset($_GET['destination'])){
+                                            if($_GET['destination']!='district')
+                                            echo $pagination_result[$first_char . '_num_reviews'];
+                                        }
                                         else
-                                            echo $pagination_result['type']; ?>
+                                            echo $pagination_result['num_reviews']; ?>
                                     </div>
                                 </div>
+                                <div class="attraction-type">
+                                    <?php
+                                    if (isset($_GET['destination']))
+                                        echo $pagination_result[$first_char . '_type'];
+                                    else
+                                        echo $pagination_result['type']; ?>
+                                </div>
+                            </div>
 
                             </a>
                             <div class="rating-icon-circle">

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])){
-    header('location:search.php');
-}
+// if(isset($_SESSION['email'])){
+//     header('location:login.php');
+// }
 require "include/dbconn.inc.php";
 ?>
 
@@ -10,11 +10,11 @@ require "include/dbconn.inc.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Register | Traverse Nepal</title>
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
-    <link rel="stylesheet" href="style/nav_style.css">
+    <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/register_style.css">
     <link rel="stylesheet" href="style/noti.css">
     
@@ -22,7 +22,7 @@ require "include/dbconn.inc.php";
 </head>
 <body>
 
-    <?php include "include/nav.inc.php"; ?>
+    <?php include "include/header.inc.php"; ?>
         <?php
         if (isset($_SESSION['login_err']))
             {
@@ -42,5 +42,6 @@ require "include/dbconn.inc.php";
     </div>
     <script src="./script/validation.js"></script>
     <script src="./script/noti.js"></script>
+    <script src="./script/register.js"></script>
 </body>
 </html>

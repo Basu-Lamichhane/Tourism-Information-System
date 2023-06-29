@@ -205,9 +205,9 @@ include "/include/star_rating.inc.php";
                                     <span id="no-of-results">0</span>results
                                 </div>
                                 <div class="group-btn">
-                                    <button class="btn-delete search-page-btn" id="reset"
+                                    <button  class="btn-delete search-page-btn" id="reset"
                                         onclick="javascript:resetBtn(); return false;">RESET</button>
-                                    <button class="btn-search search-page-btn" id="search-button">SEARCH</button>
+                                    <button type="submit" class="btn-search search-page-btn" id="search-button">SEARCH</button>
                                 </div>
                             </div>
                         </div>

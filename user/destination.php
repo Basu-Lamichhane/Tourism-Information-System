@@ -71,6 +71,7 @@ include "/include/star_rating.inc.php";
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/header_style.css">
+    <link rel="stylesheet" href="style/breadcrumb_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="style/destination_style.css">
     <link rel="stylesheet" href="style/feed_container_style.css">
@@ -91,30 +92,9 @@ include "/include/star_rating.inc.php";
 
     <!-- main -->
     <main>
-        <div class="breadcrumb-container">
-            <div class="breadcrumb-trails">
-                <ul class="breadcrumbs">
 
-                    <li class="crumb"><a href="search.php">Nepal</a>&nbsp;></li>
-
-                    <?php if (isset($_GET['district']))
-                        echo '<li class="crumb">&nbsp;<a href="district_page.php?district='.$_GET['district'].'">' . $district . '</a>&nbsp;></li>' 
-                        ?>
-
-                        <li class="crumb">&nbsp;
-                        <?php if (isset($_GET['district']))
-                        echo " <a href='attractions_list.php?district=".$_GET['district']."&destination=".$destination."'>" . ucfirst($destination) . "s</a>&nbsp;>" ;
-                        else
-                        echo " <a href='attractions_list.php?destination=".$destination."'>" . ucfirst($destination) . "s</a>&nbsp;>"  ;
-                        ?>
-                    </li>
-
-                    <?php if (isset($_GET['dest_id']))
-                        echo '<li class="crumb">&nbsp;<a href="#">' . $destination_name . '</a></li>' ?>
-                    </ul>
-                </div>
-            </div>
-
+    <!-- including breadcrumb -->
+    <?php include "/include/breadcrumb.inc.php"; ?>
 
             <div class="destination-container">
                 <section class="destination-title-container">

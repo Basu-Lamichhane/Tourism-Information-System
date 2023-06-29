@@ -1,6 +1,6 @@
 function namevalid() {
   var name = document.getElementById("name").value;
-  name_regex = /^[a-zA-Z\s]+$/;
+  const name_regex = /^[a-zA-Z\s]+$/;
   if (!name_regex.test(name)) {
     document.getElementById("name_err").innerHTML =
       "**Invalid Name <br> (Your name must contains a-z, A-Z only)";
@@ -9,7 +9,7 @@ function namevalid() {
 
 function emailvalid() {
   var email = document.getElementById("reg_email").value;
-  email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (!email_regex.test(email)) {
     document.getElementById("email_err").innerHTML =
       '**Invalid email <br> (Email must be in format of "email@example.com").';
@@ -55,16 +55,16 @@ function dobvalid() {
   var current_month = current_date.getMonth() + 1; //month starts with 0
   var current_year = current_date.getFullYear();
 
-  // console.log(current_year+"-"+current_month+"-"+current_day);
+  console.log(current_year+"-"+current_month+"-"+current_day);
   document.getElementById("reg_date").value = dateFormat(
     current_day,
     current_month,
-    current_year - 18
+    current_year - 13
   );
   document.getElementById("reg_date").max = dateFormat(
     current_day,
     current_month,
-    current_year - 18
+    current_year - 13
   );
   document.getElementById("reg_date").min = dateFormat(
     current_day,
@@ -83,7 +83,7 @@ function dobvalid() {
 
 function city_addressvalid() {
   var city = document.getElementById("address_city").value;
-  city_regex = /^[A-Za-z0-9'\.\-\s\,]+$/g;
+  const city_regex = /^[A-Za-z0-9'\.\-\s\,]+$/g;
   if (!city_regex.test(city)) {
     document.getElementById("address_err").innerHTML =
       "**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',',']";
@@ -93,7 +93,7 @@ function city_addressvalid() {
 }
 function district_addressvalid() {
   var district = document.getElementById("address_district").value;
-  district_regex = /^[A-Za-z\s]+$/g;
+  constdistrict_regex = /^[A-Za-z\s]+$/g;
   if (!district_regex.test(district)) {
     document.getElementById("address_err").innerHTML =
       "**Invalid district address format <br>(District address only contains [a-z,A-Z])";
@@ -101,6 +101,7 @@ function district_addressvalid() {
     document.getElementById("address_err").innerHTML = " ";
   }
 }
+
 
 function checkevent() {
   const inputs = document.querySelectorAll(

@@ -4,14 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
-    <script src="script/accountscript.js"></script>
-    <script src="script/valid.js"></script>
-    <link rel="stylesheet" href="style/nav_style.css">
+    <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/home_style.css">
     <title>Home</title>
   </head>
   <body>
-    <?php include "include/nav.inc.php";?>
+    <?php include "include/header.inc.php";?>
     <section class="home_page">
       <div class="home_left">
         <div class="home_left_content">
@@ -26,7 +24,11 @@
       </div>
       <div class="home_right">
 
-      </div>
-    </section>
+        </div>
+      </section>
+      
+      <script src="script/accountscript.js"></script>
+      <script src="script/home.js"></script>
+      <script src="script/valid.js"></script>
   </body>
 </html>

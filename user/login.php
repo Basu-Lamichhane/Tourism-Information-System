@@ -1,8 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])){
-    header('location:search.php');
-}
+
+
+// if(isset($_SESSION['email'])){
+//     header('location:search.php');
+// }
 require "include/dbconn.inc.php";
 ?>
 
@@ -11,7 +13,7 @@ require "include/dbconn.inc.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login | Traverse Nepal</title>
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/home_style.css">
