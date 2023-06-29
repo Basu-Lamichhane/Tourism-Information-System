@@ -1,11 +1,8 @@
 <?php
 session_start();
 require "dbconn.inc.php";
-if(!isset($_SESSION['email'])){
-    header('location:../register.php');
-}
 
-else if(isset($_POST['email'])&& isset($_POST['pass'])){
+if(isset($_POST['email'])&& isset($_POST['pass'])){
     $name =cleanInput($_POST['name']);
     $email=cleanInput($_POST['email']);
     $pass = cleanInput($_POST['pass']);

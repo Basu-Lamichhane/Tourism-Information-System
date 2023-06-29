@@ -1,10 +1,5 @@
 <?php
 session_start();
-
-
-// if(isset($_SESSION['email'])){
-//     header('location:search.php');
-// }
 require "include/dbconn.inc.php";
 ?>
 

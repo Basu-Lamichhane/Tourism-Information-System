@@ -1,5 +1,6 @@
 <?php
-if (isset($_SESSION['email'])){
+
+if (isset($_SESSION['email']) && isset($_SESSION['password'])){
   $session_email=$_SESSION["email"];
   $session_pass=$_SESSION["password"];
 }
@@ -19,7 +20,7 @@ else{
       <label for="email" class="lbl">Enter Your Email</label>
       <input type="email" value="<?php echo $session_email; ?>" placeholder="Enter your Email" id="login_email" class="text" name="email" onkeyup="emailvalid();"/>
       <label for="password" class="lbl">Enter your Password</label>
-      <input type="password" value="<?php echo $session_pass; ?>" placeholder="Enter your password" id="login_password" class="text password" name="pass" />
+      <input type="password" value="<?php echo $session_pass; unset($_SESSION['password']); ?>" placeholder="Enter your password" id="login_password" class="text password" name="pass" />
 
       <input type="submit" value="Login" id="login_btn" class="login_btn" onClick="loginvalid();" />
       <p>

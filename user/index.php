@@ -5,11 +5,18 @@
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="style/header_style.css">
+    <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="style/home_style.css">
     <title>Home</title>
   </head>
   <body>
+  <div id="loader-overlay">
+        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+    </div>
+    <!-- Reload Animation -->
+
     <?php include "include/header.inc.php";?>
+
     <section class="home_page">
       <div class="home_left">
         <div class="home_left_content">
@@ -28,6 +35,7 @@
       </section>
       
       <script src="script/accountscript.js"></script>
+      <script src="script/reload_animation.js"></script>
       <script src="script/home.js"></script>
       <script src="script/valid.js"></script>
   </body>
