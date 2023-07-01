@@ -138,12 +138,7 @@ body{
     align-content: center;
 }
 
-.suggestion-form div{
-    /* display: flex; */
-    /* flex-direction: column; */
-}
-
-.suggestion-form div input:not(#dest-submit),select{
+.suggestion-form div input:not(#dest-submit,#dest-image),select{
     height: 30px;
     width: 50%;
     font-size: large;
@@ -151,6 +146,22 @@ body{
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
+}
+
+.suggestion-form div input:not(input[type="submit"]){
+    height: 30px;
+    width: 50%;
+    font-size: large;
+    font-family: "traverse-nepal-hammersmith-one-regular";
+}
+
+.suggestion-form div input[type="submit"]{
+    font-size: large;
+    font-family: "traverse-nepal-hammersmith-one-regular";
+}
+
+input[type="file"]{
+    cursor: pointer;
 }
 
 textarea{
@@ -230,11 +241,11 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 .map-container{
-    border: #073064 1px solid;
     width: 50%;
 }
 
 #form_map {
+    border: #073064 solid 5px;
     height: 400px;
     width: 100%;
 }

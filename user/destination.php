@@ -248,7 +248,7 @@ include "/include/star_rating.inc.php";
                 <div class="dest-rating-container">
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
-                        <?php star_ratings($destination_rating); ?>
+                        <?php star_ratings(0); ?>
                         <div class="dest-num-reviews">(
                             <?php echo $destination_num_reviews; ?>)
                         </div>

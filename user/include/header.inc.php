@@ -23,11 +23,11 @@
                         Contact
                     </span>
                 </a>
-                <a href="#" class="nav-menu">
+                <!-- <a href="#" class="nav-menu">
                     <span class="menu-name">
                         Support
                     </span>
-                </a>
+                </a> -->
                 <div>
                     <div class="profile-container">
                         <button class="profile-btn" id="user-profile-btn">

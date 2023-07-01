@@ -206,9 +206,10 @@ include "/include/star_rating.inc.php";
                                     <span id="no-of-results">0</span>results
                                 </div>
                                 <div class="group-btn">
-                                    <button  class="btn-delete search-page-btn" id="reset"
+                                    <button class="btn-delete search-page-btn" id="reset"
                                         onclick="javascript:resetBtn(); return false;">RESET</button>
-                                    <button type="submit" class="btn-search search-page-btn" id="search-button">SEARCH</button>
+                                    <button type="submit" class="btn-search search-page-btn"
+                                        id="search-button">SEARCH</button>
                                 </div>
                             </div>
                         </div>
@@ -267,9 +268,7 @@ include "/include/star_rating.inc.php";
 
             <div class="picture-container" id="picture-contain">
                 <div class="picture-box">
-                    <img class="picture"
-                        src="../image/Nepal.webp"
-                        alt="This is my picture" />
+                    <img class="picture" src="../image/Nepal.webp" alt="This is my picture" />
                 </div>
             </div>
         </div>

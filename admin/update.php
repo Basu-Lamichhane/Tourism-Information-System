@@ -17,6 +17,7 @@ session_start();
     <title>Sidebar Menu for Admin Dashboard | Traverse Nepal</title>
     <link rel="stylesheet" href="assets/style/admin_panel.css" />
     <link rel="stylesheet" href="assets/style/dashboard.css" />
+    <link rel="stylesheet" href="assets/style/update_form.css" />
 </head>
 
 <body>
@@ -31,7 +32,7 @@ session_start();
                 <div class="menu-title">Admin Panel</div>
 
                 <li class="item" onclick="showDashboard();">
-                    <a href="#" >Dashboard</a>
+                    <a href="admin.php?type=dashboard" >Dashboard</a>
                 </li>
 
                 <li class="item">
@@ -46,50 +47,27 @@ session_start();
                             Manage Tourism
                         </div>
                         <li class="item">
-                            <a href="#"  onclick='attractionTable() ;'>Attractions</a>
+                            <a href="admin.php?type=district" >District</a>
                         </li>
                         <li class="item">
-                            <a href="#">Accommodations</a>
+                            <a href="admin.php?type=attraction" >Attractions</a>
                         </li>
                         <li class="item">
-                            <a href="#">Restaurants</a>
+                            <a href="admin.php?type=accommodation">Accommodations</a>
                         </li>
                         <li class="item">
-                            <a href="#">Cafes</a>
+                            <a href="admin.php?type=restaurant">Restaurants</a>
+                        </li>
+                        <li class="item">
+                            <a href="admin.php?type=cafe">Cafes</a>
                         </li>
                     </ul>
                 </li>
                 <li class="item">
-                    <div class="submenu-item">
-                        <span>Manage Users</span>
-                        <span class="arrow-right"></span>
-                    </div>
-
-                    <ul class="menu-items submenu">
-                        <div class="menu-title">
-                            <span class="arrow-left"></span>
-                            Manage Users
-                        </div>
-                        <li class="item">
-                            <a href="#">View user details</a>
-                        </li>
-                        <li class="item">
-                            <a href="#">Add user</a>
-                        </li>
-                        <li class="item">
-                            <a href="#">Update user</a>
-                        </li>
-                        <li class="item">
-                            <a href="#">Delete user</a>
-                        </li>
-                    </ul>
+                    <a href="admin.php?type=user" >Manage User</a>
                 </li>
                 <li class="item">
                     <a href="#">Manage user suggestions</a>
-                </li>
-
-                <li class="item">
-                    <a href="#">Manage Inquiries</a>
                 </li>
 
                 <li>
@@ -102,7 +80,6 @@ session_start();
                             <div class="admin-name">Admin</div>
                             <div class="admin-desc">Traverse Nepal</div>
                         </div>
-
                         <a href="#" class="logout"></a>
                     </div>
                 </li>
@@ -116,13 +93,19 @@ session_start();
 
     <main class="main" id="main_content">
         <div id="table-content">
-
+            <?php include "config/update.inc.php";?>
         </div>
+        
     </main>
+
+    
 
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>
+
+
+
     
 </body>
 

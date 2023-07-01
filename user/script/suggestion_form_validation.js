@@ -8,7 +8,16 @@ const addressInput = document.getElementById('dest-address');
 const phoneInput = document.getElementById('dest-phone');
 const emailInput = document.getElementById('dest-email');
 const websiteInput = document.getElementById('dest-website');
-var inputArray = new Array(serviceInput, typeInput, addressInput, phoneInput, emailInput, websiteInput);
+
+
+if(serviceInput===null){//if it is place suggestion page it does not have service field input
+    var inputArray = new Array(typeInput, addressInput, phoneInput, emailInput,websiteInput);
+
+}else{
+    var inputArray = new Array(serviceInput, typeInput, addressInput, phoneInput, emailInput,websiteInput);
+}
+
+console.log(inputArray);
 
 var error = {};
 error['validMessage'] = " ";
@@ -60,6 +69,7 @@ function validateAddress(text) {
     var regex = /^[a-zA-Z0-9\s\.,#-]+$/;//can accept space, periods, comma, hash and hyphen and
     if (text == "") {
         delete error['addressError'];
+
 
         inputError.innerHTML = objLastError(error);
         return true;

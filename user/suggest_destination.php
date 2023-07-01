@@ -30,8 +30,8 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="style/suggest_destination_style.css">
     <link rel="stylesheet" href="style/footer_style.css">
+    <link rel="stylesheet" href="style/suggest_destination_style.css">
     <link rel="stylesheet" href="style/reload_animation_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -50,7 +50,7 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
         <?php include "include/header.inc.php"; ?>
     </header>
     <main>
-        <div class="suggestion-container">
+        <div class="suggestion-container" <?php if(!isset($_GET['type'])) echo('style="margin-top:118px;"');?>>
             <div class="suggestion-desc-title">
                 Suggest
                 <?php if (isset($_GET['type']))
@@ -126,10 +126,10 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                         <form method="post" id="dest-suggest-form" class="suggestion-form" action="include/suggestion_form_action.php">
                             <div class="destination-name">
                                 <label for="dest-name">
-                                    <?php echo $destination; ?> Name :
+                                    <?php echo ucfirst($destination); ?> Name :
                                 </label>
                                 <input name="suggest-name" id="dest-name" type="text"
-                                    placeholder="Enter <?php echo $destination; ?>'s name" maxlength="100" required />
+                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100" required />
                             </div>
                             <?php if ($destination == "place") { ?>
                                 <div class="destination-description">
@@ -142,9 +142,9 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                             <?php } else { ?>
                                 <div class="destination-services">
                                     <label for="dest-services">
-                                        <?php echo $destination; ?> Services :
+                                        <?php echo ucfirst($destination); ?> Services :
                                     </label>
-                                    <textarea name="suggest-services" id="dest-services" rows="3" maxlength="50"
+                                    <textarea name="suggest-services" id="dest-services" rows="3"   maxlength="50"
                                         style="resize: none"
                                         placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )"
                                         required onkeyup="javascript:validateServices(this.value)"></textarea>
@@ -225,7 +225,7 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
 
     </main>
-    <footer>
+    <footer <?php if(!isset($_GET['type'])) echo ('style="position:absolute; bottom:0;"') ?>>
         <?php include "include/footer.inc.php"; ?>
     </footer>
 

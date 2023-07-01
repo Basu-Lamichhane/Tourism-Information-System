@@ -39,7 +39,7 @@ if(isset($_SESSION['admin_email'])){
         ?>
     <fieldset>
     <legend><h1>Admin Login</h1></legend>
-      <form action="include/check_db.php" method="POST">
+      <form action="include/check_db.php">
         <div id="login" class="form_style">
           <label for="username" class="lbl">Enter Admin Username</label>
           <input type="text" placeholder="Username" id="login_email" class="text" name="email" />

@@ -1,0 +1,46 @@
+.dashboard {
+  border: 2px solid black;
+  height: 250px;
+  width: 500px;
+}
+.dashboard td {
+  text-align: center;
+}
+
+.attraction {
+  width: 1200px;
+  margin-top: 50px;
+  overflow: scroll;
+  border: 2px solid black;
+  background-color: rgba(248, 137, 50, 0.5);
+}
+.attraction tr {
+  height: 75px;
+}
+.attraction tr th {
+  text-align: center;
+  color: white;
+  background-color: rgba(7, 48, 100, 0.75);
+  height: 50px;
+  min-width: 100px;
+}
+.attraction tr td {
+  padding: 25px;
+  border-bottom: 2px solid black;
+  word-wrap: break-word;
+}
+.attraction a {
+  text-decoration: none;
+}
+
+.addPlace {
+  z-index: 200;
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.addPlace:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=dashboard.css.map */
