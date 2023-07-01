@@ -26,7 +26,6 @@ body{
 }
 
 main#district_page {
-    background-color: rgb(7, 48, 100, 0.1);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -68,8 +67,7 @@ main#district_page {
 }
 
 .menu,
-.picture-box,
-.info-container,
+.picture-info-container,
 .feed-title,
 .feed-line {
     max-width: 100%;
@@ -79,6 +77,18 @@ main#district_page {
     padding-left: 24px;
     padding-right: 24px;
     width: 1184px;
+}
+
+.picture-info-container {
+    display: flex;
+    gap: 20px;
+}
+
+.info-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .picture-box {
@@ -229,9 +239,8 @@ main#district_page {
 
 
 img.picture {
-    min-width: 100%;
     transition: 0.5s;
-    height: 500px;
+    height: 300px;
 }
 
 img.picture:hover {
@@ -239,12 +248,53 @@ img.picture:hover {
 }
 
 .info-grid {
-    display: grid;
-    gap: 112px;
-    grid-template-columns: 50% 1fr;
+    display: flex;
+    gap: 10px;
 }
 
 .info-about {
     font-size: xxx-large;
     font-weight: bold;
+}
+
+.destination-share-like-container {
+    display: inline-flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.destination-share-like-container div {
+    padding: 0 10px;
+    position: relative;
+}
+
+.destination-share-like-container div button {
+    border-radius: 16px;
+    height: 32px;
+    min-width: 32px;
+    padding: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.destination-share-like-container div button:hover {
+    background-color: #f88932;
+    color: #073064;
+    fill: #073064;
+    border-color: #073064;
+    transform: scale(1.2);
+}
+
+.destination-share-like-container div button:active {
+    background-color: #073064;
+    color: #f88932;
+    fill: #f88932;
+    border-color: #f88932;
+}
+
+.like-info-about {
+    display: flex;
+    justify-content: space-evenly;
 }

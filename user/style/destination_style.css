@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .destination-page {
     font-family: 'traverse-nepal-hammersmith-one-regular';
 }

@@ -12,7 +12,6 @@
                 |
                 <a href="#">Support</a>
             </p>
-
             <p class="footer-company-name">Copyright © 2021 <strong>traversenepal</strong> All rights reserved</p>
         </div>
 

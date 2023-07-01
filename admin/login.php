@@ -11,13 +11,13 @@ if(isset($_SESSION['admin_email'])){
 <head>
   <meta charset="UTF-8">
   <title>Admin Login</title>
-  <link rel="stylesheet" href="style/login_style.css">
-  <link rel="stylesheet" href="style/noti.css">
+  <link rel="stylesheet" href="assets/style/login_style.css">
+  <link rel="stylesheet" href="assets/style/noti.css">
 </head>
 
 <body>
   <nav class="nav_admin">
-    <img src="./img/logo.png" alt="">
+    <img src="assets/img/logo.png" alt="">
   </nav>
 
   <div class="login_container">
@@ -39,7 +39,7 @@ if(isset($_SESSION['admin_email'])){
         ?>
     <fieldset>
     <legend><h1>Admin Login</h1></legend>
-      <form action="include/check_db.php">
+      <form action="config/check_db.php" method="POST">
         <div id="login" class="form_style">
           <label for="username" class="lbl">Enter Admin Username</label>
           <input type="text" placeholder="Username" id="login_email" class="text" name="email" />
@@ -56,7 +56,7 @@ if(isset($_SESSION['admin_email'])){
   </div>
   </form>
   </div>
-  <script src="script/noti.js"></script>
+  <script src="assets/script/noti.js"></script>
 </body>
 
 </html>

@@ -61,10 +61,10 @@ include "/include/star_rating.inc.php";
     <link rel="stylesheet" href="style/nav_style.css">
     <link rel="stylesheet" href="style/header_style.css">
     <link rel="stylesheet" href="style/search.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/footer_style.css">
     <link rel="stylesheet" href="style/feed_container_style.css">
     <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
 

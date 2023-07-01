@@ -31,7 +31,6 @@ function validateServices(text) {
     }
     else if (!regex.test(text)) {
         error['serviceError'] = "**Invalid service input <br>(It mustn't contain numbers & special chars except ','.) ";
-        // inputError.innerHTML = "**Invalid service input <br>(It mustn't contain numbers & special chars except ','.) ";
         inputError.innerHTML = objLastError(error);
 
         return false;

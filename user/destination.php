@@ -107,7 +107,7 @@ include "/include/star_rating.inc.php";
                     <?php echo $destination_name; ?>
                 </div>
                 <div class="destination-share-like-container">
-                    <div class="like-btn-container" id="like-dest" destination>
+                    <div class="like-btn-container" id="like-dest">
                         <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
                             data-destination-id="<?php echo $destination_id; ?>">
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
@@ -176,7 +176,7 @@ include "/include/star_rating.inc.php";
                                 Closes at :
                                 <div class="close-details">
                                 
-                                ' . ltrim(date('h:i A', strtotime($destination_close_time)), '0') . ' 
+                                ' . ltrim(date('h:i', strtotime($destination_close_time))) . ' 
 
                                 <!--// Converting 24-hour format to 12-hour format and removing leading 0 from the date format-->
 
@@ -248,7 +248,7 @@ include "/include/star_rating.inc.php";
                 <div class="dest-rating-container">
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
-                        <?php star_ratings(0); ?>
+                        <?php star_ratings($destination_rating); ?>
                         <div class="dest-num-reviews">(
                             <?php echo $destination_num_reviews; ?>)
                         </div>
