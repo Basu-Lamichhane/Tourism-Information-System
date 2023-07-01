@@ -224,6 +224,7 @@ include "/include/star_rating.inc.php";
 
     </script>
     <script src="./script/ajax_script/like_update.js"></script>
+    <script src="./script/destination_share.js"></script>
     <?php include "include/like_update_reload.inc.php"; ?>
 </body>
 

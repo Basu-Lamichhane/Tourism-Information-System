@@ -356,25 +356,7 @@ include "/include/star_rating.inc.php";
     <!-- javascripts -->
 
     <script src="./script/destination.js"></script>
-    <script>
-        document.getElementById("share-dest").addEventListener("click", function () {
-            if (navigator.share) { // Check if the share API is supported
-                navigator.share({
-                    title: document.title,
-                    url: window.location.href
-                })
-                    .then(function () {
-                        console.log("Successfully shared.");
-                    })
-                    .catch(function (error) {
-                        console.error("Error sharing:", error);
-                    });
-            } else {
-                console.log("Share API is not supported.");
-            }
-        });
-
-    </script>
+    <script src="./script/destination_share.js"></script>
     <script src="./script/ajax_script/like_update.js"></script>
     <?php include "include/like_update_reload.inc.php"; ?>
 </body>
