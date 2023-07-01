@@ -6,6 +6,7 @@ if (!isset($_SESSION['email'])) {
     header('location:login.php');
 }
 require "include/dbconn.inc.php";
+
 $district = "";
 $district = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
 

@@ -1,6 +1,6 @@
 <fieldset>
   <legend>Register</legend>
-  <form action="include/registerOK.php" method="POST" onchange="checkevent();">
+  <form action="include/registerOK.php" method="POST">
     <div id="register" class="form_style">
 
       <label for="name" class="lbl">Enter Your Name :</label>
@@ -30,7 +30,8 @@
           <span><input type="text" placeholder="Enter your district" id="address_district" class="text" onkeyup="district_addressvalid()" name="district"
               required /></span>
         </div>
-        <p id="address_err" class="error_style"></p>
+        <p id="city_err" class="error_style"></p>
+        <p id="district_err" class="error_style"></p>
       </div>
 
       <div class="gender">
@@ -39,7 +40,7 @@
           
           <i><input type="radio" name="gender" id="reg_gender_male" value="Male"><span>Male</span></i>
           <i><input type="radio" name="gender" id="reg_gender_female" value="Female"><span>Female</span></i>
-          <i><input type="radio" name="gender" id="reg_gender_others" value="Others"><span>Others</span></i>
+          <i><input type="radio" name="gender" id="reg_gender_others" value="Others" required><span>Others</span></i>
           
         </div>
       </div>

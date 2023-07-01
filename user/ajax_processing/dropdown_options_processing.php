@@ -34,7 +34,6 @@ function district_dropdown_value()
     UNION
     SELECT DISTINCT(c_district) AS district
     FROM tbl_cafe
-    
     ";
 
 

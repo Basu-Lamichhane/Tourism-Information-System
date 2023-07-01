@@ -142,9 +142,12 @@ section.destination-information-container {
 }
 
 /* if destination is accommodation */
-.desc-accommodation {
+.desc-destination {
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* for room-info-details */
@@ -192,11 +195,74 @@ section.destination-information-container {
     font-size: xx-large;
 }
 
+
+
+.services-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.services-info-title{
+    color: #073064;
+    font-size: x-large;
+}
+.services-info {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.services-info ul li{
+    font-size: medium;
+    list-style: none;
+}
+
+
+.open-close-info-title{
+    color: #073064;
+    font-size: x-large;
+}
+.open-close-room-info {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.open-close-info span {
+    border: #073064 solid 3px;
+    border-radius: 10%;
+    height: 80px;
+    display: inline-grid;
+    align-items: center;
+    text-decoration: none;
+    color: #073064;
+    fill: #073064;
+    transition: 0.5s;
+    padding: 0 10px;
+    cursor: default;
+}
+.open-close-info span:hover {
+    border: #f88932 solid 3px;
+    color: #f88932;
+    fill: #f88932;
+}
+
+.open-close-info span div{
+    display: flex;
+    flex-direction: column;
+}
+
+.open-details,.close-details{
+    font-size: xx-large;
+}
+
+
 /* end */
 /* For contact info section */
 .contact-info-details {
     display: flex;
-    margin-top: 70px;
+    /* margin-top: 70px; */
     flex-direction: column;
     text-align: center;
 }

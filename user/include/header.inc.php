@@ -68,7 +68,7 @@
                                 </span>
                             </a>
                             <hr>
-                            <a href="" class="dropdown-content">
+                            <a href="./suggest_destination.php" target="_blank" class="dropdown-content">
                                 <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"
                                         viewBox="0 0 320 512">
                                         <path
@@ -76,7 +76,7 @@
                                     </svg>
                                 </span>
                                 <span class="dropdown-label">
-                                    <li>Add Locations</li>
+                                    <li>Suggest</li>
                                     <span>></span>
                                 </span>
                             </a>
@@ -98,10 +98,23 @@
                     </div>
                 </div>
 
-                
+                <?php
+                if(isset($_SESSION['email'])){
+                    $user_name=$_SESSION['name'];
+                    $user_name_array=explode(" ",$user_name);
+                    array_pop($user_name_array);
+                    $user_first_name=implode(" ",$user_name_array);
+                    $user_gender=$_SESSION['gender'];
+                    $user_city=$_SESSION['city'];
+                    $user_district=$_SESSION['district'];
+                }
+                ?>
                 <div class="profile-details-content" id="profile-details">
                     <div class="profile-user-name">
-                        <?php echo $_SESSION['name']; ?>
+                        <?php echo $user_first_name; ?>
+                    </div>
+                    <div class="profile-user-district">
+                    <?php echo $user_district; ?>
                     </div>
                 </div>
             </div>

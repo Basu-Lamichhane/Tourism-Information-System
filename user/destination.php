@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['email'])){
-    $_SESSION['not_signed']="Plz, Log in first";
+if (!isset($_SESSION['email'])) {
+    $_SESSION['not_signed'] = "Plz, Log in first";
     header('location:login.php');
 }
 
@@ -36,10 +36,12 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
         $destination_website = $destination_record[$first_char . '_website'];
         $destination_room = $destination_record[$first_char . '_no_of_rooms'];
         $destination_room_rate = $destination_record[$first_char . '_room_rate'];
+        $destination_service = $destination_record[$first_char . '_services'];
     }
 
     if ($destination == "restaurant") {
         $destination_phone = $destination_record[$first_char . '_phone'];
+        $destination_email = $destination_record[$first_char . '_email'];
         $destination_website = $destination_record[$first_char . '_website'];
         $destination_service = $destination_record[$first_char . '_services'];
         $destination_start_time = $destination_record[$first_char . '_starttime'];
@@ -48,11 +50,14 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
 
     if ($destination == "cafe") {
         $destination_phone = $destination_record[$first_char . '_phone'];
+        $destination_email = $destination_record[$first_char . '_email'];
+        $destination_website = $destination_record[$first_char . '_website'];
         $destination_service = $destination_record[$first_char . '_services'];
         $destination_start_time = $destination_record[$first_char . '_starttime'];
         $destination_close_time = $destination_record[$first_char . '_closetime'];
     }
 
+} else {
 }
 include "/include/star_rating.inc.php";
 ?>
@@ -93,17 +98,18 @@ include "/include/star_rating.inc.php";
     <!-- main -->
     <main>
 
-    <!-- including breadcrumb -->
-    <?php include "/include/breadcrumb.inc.php"; ?>
+        <!-- including breadcrumb -->
+        <?php include "/include/breadcrumb.inc.php"; ?>
 
-            <div class="destination-container">
-                <section class="destination-title-container">
-                    <div class="destination-title">
+        <div class="destination-container">
+            <section class="destination-title-container">
+                <div class="destination-title">
                     <?php echo $destination_name; ?>
                 </div>
                 <div class="destination-share-like-container">
                     <div class="like-btn-container" id="like-dest" destination>
-                        <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>" data-destination-id="<?php echo $destination_id; ?>">
+                        <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
+                            data-destination-id="<?php echo $destination_id; ?>">
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M3.798 5.786A5.769 5.769 0 017.72 4.25c1.455 0 2.857.548 3.922 1.536l.005.005.341.322.332-.317a5.769 5.769 0 013.928-1.54c1.458 0 2.862.55 3.928 1.54l.004.004c1.093 1.032 1.599 2.324 1.569 3.662-.03 1.323-.578 2.643-1.5 3.785-.884 1.096-2.85 2.943-4.547 4.478a183.566 183.566 0 01-3.153 2.785l-.069.059-.489-.569.49.569-.486.416-.488-.412a101.98 101.98 0 01-7.75-7.288l-.021-.021-.02-.023c-1.725-2.115-2.203-5.32.08-7.453l.002-.002zm8.19 13.226a174.415 174.415 0 002.708-2.4c1.72-1.556 3.59-3.32 4.385-4.306.757-.939 1.148-1.948 1.168-2.877.02-.912-.313-1.795-1.097-2.536a4.269 4.269 0 00-2.904-1.138 4.269 4.269 0 00-2.903 1.136l-1.35 1.292-1.375-1.3a4.269 4.269 0 00-2.9-1.133 4.269 4.269 0 00-2.901 1.135c-1.507 1.408-1.353 3.659.042 5.385a100.45 100.45 0 007.127 6.742z">
@@ -133,30 +139,65 @@ include "/include/star_rating.inc.php";
                             About
                             <?php echo $destination_name; ?>
                         </div>
-                        <?php if ($destination == "place")
+                        <?php if ($destination == "place") {
                             echo ('<div class="desc-text-place">' . $destination_desc . '</div>');
-                        elseif ($destination == "accommodation")
-
-                            echo ('<div class="desc-accommodation">
-                                    <div class="room-info-details">
-                                    <div class="room-info-title">Room Info:</div>
+                        } else {
+                            echo ('<div class="desc-destination">');
+                            if ($destination == "accommodation") {
+                                echo ('<div class="room-info-details">
+                                    <div class="room-info-title">Room Info :</div>
                                     <div class="room-info">
-                                    <span href="#">
+                                    <span>
                                     <div class="room-details">
                                     ' . $destination_room . '
                                     </div>
                                     Rooms
                                     </span>
-                                    <span href="#">
+                                    <span>
                                     <div class="room-rate-details">
                                     <small style="font-size: small; display:contents;">NRs.</small>' . $destination_room_rate . '/-
                                     </div>
                                     Per room
                                     </span>
                                     </div>
+                                    </div>');
+                            } else {
+                                echo ('<div class="open-close-info-details">
+                                <div class="open-close-info-title">' . ucfirst($destination) . '\'s Info :</div>
+                                <div class="open-close-info">
+                                <span>
+                                Opens at :
+                                <div class="open-details">
+                                ' . $destination_start_time . '
+                                <small style="font-size: small; display:contents;">A.M</small>
+                                </div>
+                                </span>
+                                <span>
+                                Closes at :
+                                <div class="close-details">
+                                
+                                ' . ltrim(date('h:i A', strtotime($destination_close_time)), '0') . ' 
+
+                                <!--// Converting 24-hour format to 12-hour format and removing leading 0 from the date format-->
+
+                                <small style="font-size: small; display:contents;">P.M</small>
+                                </div>
+                                </span>
+                                </div>
+                                </div>');
+
+                            }
+                            echo ('<div class="services-info-details">
+                                    <div class="services-info-title">Services :
+                                    <div class="services-info">
+                                    <ul>
+                                    <li>' . $destination_service . '</li>
+                                    </ul>
+                                    </div>
+                                    </div>
                                     </div>
                                     <div class="contact-info-details">
-                                    <div class="contact-info-title">Contact Info:</div>
+                                    <div class="contact-info-title">Contact Info :</div>
                                     <div class="contact-info">
                                     <a href="tel:' . $destination_phone . '">
                                     <div class="phone-details">
@@ -183,16 +224,18 @@ include "/include/star_rating.inc.php";
                                     </a>
                                     </div>
                                     </div>
-                            </div>')
-                                ?>
+                                    </div>'
+                            );
+                        }
+                        ?>
 
-                        </div>
                     </div>
-                </section>
-                <section class="destination-information-container">
-                    <div class="dest-type-container">
-                        <div class="dest-info-title">TYPE OF DESTINATION:</div>
-                        <div class="dest-type">
+                </div>
+            </section>
+            <section class="destination-information-container">
+                <div class="dest-type-container">
+                    <div class="dest-info-title">TYPE OF DESTINATION:</div>
+                    <div class="dest-type">
                         <?php echo $destination_type; ?>
                     </div>
                 </div>
@@ -293,7 +336,7 @@ include "/include/star_rating.inc.php";
 
 
     <footer>
-    <?php include 'include/footer.inc.php'; ?>
+        <?php include 'include/footer.inc.php'; ?>
     </footer>
     <!-- javascripts -->
     <script src="./script/reload_animation.js"></script>

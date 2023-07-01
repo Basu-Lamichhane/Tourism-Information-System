@@ -8,7 +8,7 @@ likeBtns.forEach(function (likeBtn) {
     }
 
 
-    // if like button is clicked seending the ajax request 
+    // if like button is clicked, sending the ajax request 
     likeBtn.addEventListener("click", function () {
         liked_dest_type = likeBtn.getAttribute("data-destination-type");
         liked_dest_id = likeBtn.getAttribute("data-destination-id");

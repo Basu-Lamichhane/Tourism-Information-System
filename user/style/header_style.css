@@ -150,6 +150,8 @@ picture img {
     display: grid;
     gap: 8px;
     grid-auto-flow: column;
+    align-items: center;
+    color: #073064;
 }
 
 .nav-menu:hover {
@@ -161,7 +163,6 @@ picture img {
     height: 40px;
     min-width: 40px;
     padding: 6px;
-    color: black;
     border: 2px solid transparent;
     cursor: pointer;
     display: flex;
@@ -172,6 +173,7 @@ picture img {
     justify-content: center;
     text-decoration: none;
     width: 90px;
+    color: #073064;
 }
 
 .nav-menu:hover {
@@ -298,4 +300,17 @@ picture img {
     fill: #073064;
     color: #073064;
     background-color: #f88932;
+}
+
+.profile-user-district {
+    font-size: small;
+    color: #f88932;
+    text-align: end;
+}
+.profile-user-district::before {
+    content: "-";
+}
+
+.profile-details-content{
+    cursor: default;
 }

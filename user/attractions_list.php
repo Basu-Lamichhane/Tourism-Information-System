@@ -282,7 +282,7 @@ include "/include/star_rating.inc.php";
                             echo $pagination_result['name']; ?>">
                             <?php
                             if (isset($_GET['destination']) && $_GET['destination'] == 'district') {
-                                echo '<a href="./district_page.php?district=',$pagination_result['d_name'];
+                                echo '<a href="./district_page.php?district=' . $pagination_result['d_name'];
                             } else {
                                 if (isset($_GET['destination'])) {
                                     echo '<a href="./destination.php?district=';
@@ -292,7 +292,7 @@ include "/include/star_rating.inc.php";
                                     echo $pagination_result['district']; ?>&destination=<?php
                                 }
                                 if (isset($_GET['destination']))
-                                    echo $destination;
+                                    echo "&destination=".$destination;
                                 else
                                     echo substr($pagination_result['source_table'], 4); ?>&dest_id=<?php
                                        if (isset($_GET['destination']))
@@ -325,21 +325,19 @@ include "/include/star_rating.inc.php";
                                 <div class="attraction-rating-review">
                                     <div class="attraction-rating">
                                         <?php
-                                        if (isset($_GET['destination'])){
-                                            if($_GET['destination']!='district')
-                                            star_ratings($pagination_result[$first_char . '_rating']);
-                                        }
-                                        else
+                                        if (isset($_GET['destination'])) {
+                                            if ($_GET['destination'] != 'district')
+                                                star_ratings($pagination_result[$first_char . '_rating']);
+                                        } else
                                             star_ratings($pagination_result['rating']); ?>
                                     </div>
 
                                     <div class="attraction-review">
                                         <?php
-                                        if (isset($_GET['destination'])){
-                                            if($_GET['destination']!='district')
-                                            echo $pagination_result[$first_char . '_num_reviews'];
-                                        }
-                                        else
+                                        if (isset($_GET['destination'])) {
+                                            if ($_GET['destination'] != 'district')
+                                                echo $pagination_result[$first_char . '_num_reviews'];
+                                        } else
                                             echo $pagination_result['num_reviews']; ?>
                                     </div>
                                 </div>

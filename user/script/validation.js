@@ -1,10 +1,22 @@
+const nameError = document.getElementById("name_err");
+const emailError = document.getElementById("email_err");
+const passError = document.getElementById("pass_err");
+const cpassError = document.getElementById("cpass_err");
+const cityError = document.getElementById("city_err");
+const districtError = document.getElementById("district_err");
+
+const regBtn = document.getElementById("reg_btn");
+
+var errorArray= new Array(nameError,emailError,passError,cpassError,cityError,districtError);
+console.log(errorArray);
+
 function namevalid() {
   var name = document.getElementById("name").value;
   const name_regex = /^[a-zA-Z\s]+$/;
   if (!name_regex.test(name)) {
     document.getElementById("name_err").innerHTML =
       "**Invalid Name <br> (Your name must contains a-z, A-Z only)";
-  } else document.getElementById("name_err").innerHTML = " ";
+  } else document.getElementById("name_err").innerHTML = "";
 }
 
 function emailvalid() {
@@ -13,7 +25,7 @@ function emailvalid() {
   if (!email_regex.test(email)) {
     document.getElementById("email_err").innerHTML =
       '**Invalid email <br> (Email must be in format of "email@example.com").';
-  } else document.getElementById("email_err").innerHTML = " ";
+  } else document.getElementById("email_err").innerHTML = "";
 }
 
 function passvalid() {
@@ -32,7 +44,7 @@ function passvalid() {
     } else if (pass.length > 16) {
       document.getElementById("pass_err").innerHTML =
         "**Invalid password format <br> (Password must be atmost 16 characters)";
-    } else document.getElementById("pass_err").innerHTML = " ";
+    } else document.getElementById("pass_err").innerHTML = "";
   }
 }
 
@@ -43,7 +55,7 @@ function cpassvalid() {
     document.getElementById("cpass_err").innerHTML =
       "Invalid password <br> (Password must match.)";
   } else {
-    document.getElementById("cpass_err").innerHTML = " ";
+    document.getElementById("cpass_err").innerHTML = "";
   }
 }
 
@@ -55,7 +67,7 @@ function dobvalid() {
   var current_month = current_date.getMonth() + 1; //month starts with 0
   var current_year = current_date.getFullYear();
 
-  console.log(current_year+"-"+current_month+"-"+current_day);
+  console.log(current_year + "-" + current_month + "-" + current_day);
   document.getElementById("reg_date").value = dateFormat(
     current_day,
     current_month,
@@ -85,68 +97,54 @@ function city_addressvalid() {
   var city = document.getElementById("address_city").value;
   const city_regex = /^[A-Za-z0-9'\.\-\s\,]+$/g;
   if (!city_regex.test(city)) {
-    document.getElementById("address_err").innerHTML =
+    document.getElementById("city_err").innerHTML =
       "**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',',']";
   } else {
-    document.getElementById("address_err").innerHTML = " ";
+    document.getElementById("city_err").innerHTML = "";
   }
 }
 function district_addressvalid() {
   var district = document.getElementById("address_district").value;
-  constdistrict_regex = /^[A-Za-z\s]+$/g;
+  const district_regex = /^[A-Za-z]+$/g;
   if (!district_regex.test(district)) {
-    document.getElementById("address_err").innerHTML =
+    document.getElementById("district_err").innerHTML =
       "**Invalid district address format <br>(District address only contains [a-z,A-Z])";
   } else {
-    document.getElementById("address_err").innerHTML = " ";
+    document.getElementById("district_err").innerHTML = "";
   }
 }
 
 
-function checkevent() {
-  const inputs = document.querySelectorAll(
-    "#name, #reg_email, #reg_password, #reg_cpassword, #address_city, #address_district"
-  );
+const inputs = document.querySelectorAll(
+  "#name, #reg_email, #reg_password, #reg_cpassword, #address_city, #address_district"
+);
 
-  let isValid = true;
-  inputs.forEach((input) => {
-    if (!input.value.trim()) {
-      isValid = false;
-      return;
+inputs.forEach(function (inputElement) {
+
+  inputElement.addEventListener("keyup", function () {
+
+    var formError = isError(); 
+    var formValid = !formError;
+
+    console.log(formValid);
+
+    regBtn.disabled = !formValid;
+  });
+});
+
+// checks if any of the error elements are empty or not
+function isError(){
+  var errorCount=0;
+  errorArray.forEach(function(errorElement){
+    console.log(errorElement.innerHTML);
+    if(errorElement.innerHTML !=""){
+      console.log("true");
+      errorCount++;
+    }
+    else{
+      console.log("false");
     }
   });
-
-  const btn = document.getElementById("reg_btn");
-  btn.disabled = !isValid;
-  // if (btn.disabled == false) {
-  //   accountregister();
-  // }
+  console.log(errorCount);
+  return (errorCount > 0)? true : false;
 }
-
-// function accountregister() {
-//   var t_name = document.getElementById("name").value;
-//   var t_email = document.getElementById("reg_email").value;
-//   var t_pass = document.getElementById("reg_password").value;
-//   var t_city = document.getElementById("address_city").value;
-//   var t_district = document.getElementById("address_district").value;
-//   var t_dob = document.getElementById("reg_date").value;
-//   var t_gender = document.querySelector('input[name="gender"]:checked').value;
-//   $.ajax({
-//     type: "POST",
-//     url: "./include/check_db.php",
-//     data: {
-//       name: t_name,
-//       email: t_email,
-//       password: t_pass,
-//       city: t_city,
-//       district: t_district,
-//       gender: t_gender,
-//       dob: t_dob,
-//     },
-//     success: function (responseText) {
-//       if (responseText != "200") {
-//         alert(responseText);
-//       }
-//     },
-//   });
-// }
