@@ -1,6 +1,6 @@
 <fieldset>
   <legend>Register</legend>
-  <form action="include/registerOK.php" method="POST">
+  <form action="user/include/registerOK.php" method="POST">
     <div id="register" class="form_style">
 
       <label for="name" class="lbl">Enter Your Name :</label>
@@ -54,7 +54,7 @@
       <input type="submit" value="Register" id="reg_btn" class="register_btn" disabled />
       <p>
 
-        Have an Account already? Login in <a href="./login.php" style="text-decoration:underline;">here</a>
+        Have an Account already? Login in <a href="login.php" style="text-decoration:underline;">here</a>
       </p>
     </div>
   </form>

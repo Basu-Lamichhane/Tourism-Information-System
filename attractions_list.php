@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     header('location:login.php');
 }
 
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 //if only destination is selected
 if (isset($_GET['destination']) && (!isset($_GET['district'])) && (!isset($_GET['type'])) && (!isset($_GET['query']))) { //
     $destination = $_GET['destination'];
@@ -211,7 +211,7 @@ else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET[
 }
 
 
-include "/include/star_rating.inc.php";
+include "user/include/star_rating.inc.php";
 ?>
 
 
@@ -233,14 +233,14 @@ include "/include/star_rating.inc.php";
             echo $district;
         echo " Traverse Nepal"; ?>
     </title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/footer_style.css">
-    <link rel="stylesheet" href="style/attraction_list_style.css">
-    <link rel="stylesheet" href="style/feed_container_style.css">
-    <link rel="stylesheet" href="style/pagination_style.css">
-    <link rel="stylesheet" href="style/breadcrumb_style.css">
+    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
+    <link rel="stylesheet" href="user/style/attraction_list_style.css">
+    <link rel="stylesheet" href="user/style/feed_container_style.css">
+    <link rel="stylesheet" href="user/style/pagination_style.css">
+    <link rel="stylesheet" href="user/style/breadcrumb_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <!-- <script src="https://kit.fontawesome.com/ed931f650e.js" crossorigin="anonymous"></script> -->
 </head>
@@ -248,17 +248,17 @@ include "/include/star_rating.inc.php";
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
     <header>
-        <?php include "include/header.inc.php" ?>
+        <?php include "user/include/header.inc.php" ?>
     </header>
 
     <main>
 
         <!-- including breadcrumb -->
-        <?php include "include/breadcrumb.inc.php" ?>
+        <?php include "user/include/breadcrumb.inc.php" ?>
 
         <div class="attractions-list-container">
 
@@ -378,16 +378,16 @@ include "/include/star_rating.inc.php";
         <!-- including pagination -->
 
         <?php if ($pages > 1)
-            include "include/pagination.inc.php"; ?>
+            include "user/include/pagination.inc.php"; ?>
         <!-- including pagination -->
     </main>
 
     <footer>
-        <?php include "include/footer.inc.php" ?>
+        <?php include "user/include/footer.inc.php" ?>
     </footer>
-    <script src="./script/reload_animation.js"></script>
-    <script src="./script/ajax_script/like_update.js"></script>
-    <?php include "./include/like_update_reload.inc.php"; ?>
+    <script src="user/script/reload_animation.js"></script>
+    <script src="user/script/ajax_script/like_update.js"></script>
+    <?php include "user/include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

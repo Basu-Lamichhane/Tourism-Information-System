@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     header('location:login.php');
 }
 
-require "/include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
@@ -59,7 +59,7 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
 
 } else {
 }
-include "/include/star_rating.inc.php";
+include "user/include/star_rating.inc.php";
 ?>
 
 
@@ -73,25 +73,25 @@ include "/include/star_rating.inc.php";
     <title>
         <?php echo $destination_name . " | " . $district . "  Traverse Nepal"; ?>
     </title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/breadcrumb_style.css">
-    <link rel="stylesheet" href="style/footer_style.css">
-    <link rel="stylesheet" href="style/destination_style.css">
-    <link rel="stylesheet" href="style/feed_container_style.css">
+    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/breadcrumb_style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
+    <link rel="stylesheet" href="user/style/destination_style.css">
+    <link rel="stylesheet" href="user/style/feed_container_style.css">
 </head>
 
 <body class="destination-page">
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
 
     <!-- header -->
     <header>
-        <?php include "/include/header.inc.php"; ?>
+        <?php include "user/include/header.inc.php"; ?>
     </header>
     <!-- header -->
 
@@ -99,7 +99,7 @@ include "/include/star_rating.inc.php";
     <main>
 
         <!-- including breadcrumb -->
-        <?php include "/include/breadcrumb.inc.php"; ?>
+        <?php include "user/include/breadcrumb.inc.php"; ?>
 
         <div class="destination-container">
             <section class="destination-title-container">
@@ -265,48 +265,48 @@ include "/include/star_rating.inc.php";
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/accommodation_feed.inc.php";
+            include "user/include/feeds/accommodation_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/place_feed.inc.php";
-            include "include/feeds/restaurant_feed.inc.php";
-            include "include/feeds/cafe_feed.inc.php";
+            include "user/include/feeds/place_feed.inc.php";
+            include "user/include/feeds/restaurant_feed.inc.php";
+            include "user/include/feeds/cafe_feed.inc.php";
         } elseif ($destination == 'restaurant') { ?>
             <div class="recommended-title-bar">
                 More Restaurants to eat out in
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/restaurant_feed.inc.php";
+            include "user/include/feeds/restaurant_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/place_feed.inc.php";
-            include "include/feeds/accommodation_feed.inc.php";
-            include "include/feeds/cafe_feed.inc.php";
+            include "user/include/feeds/place_feed.inc.php";
+            include "user/include/feeds/accommodation_feed.inc.php";
+            include "user/include/feeds/cafe_feed.inc.php";
         } elseif ($destination == 'cafe') { ?>
             <div class="recommended-title-bar">
                 More Cafes to socialize in
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/cafe_feed.inc.php";
+            include "user/include/feeds/cafe_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/place_feed.inc.php";
-            include "include/feeds/accommodation_feed.inc.php";
-            include "include/feeds/restaurant_feed.inc.php";
+            include "user/include/feeds/place_feed.inc.php";
+            include "user/include/feeds/accommodation_feed.inc.php";
+            include "user/include/feeds/restaurant_feed.inc.php";
         } else {
             ?>
             <div class="recommended-title-bar">
@@ -314,32 +314,32 @@ include "/include/star_rating.inc.php";
                 <?php echo $district; ?>:
             </div>
             <?php
-            include "include/feeds/place_feed.inc.php";
+            include "user/include/feeds/place_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
                 <?php echo $district; ?>.
             </div>
             <?php
-            include "include/feeds/accommodation_feed.inc.php";
-            include "include/feeds/restaurant_feed.inc.php";
-            include "include/feeds/cafe_feed.inc.php";
+            include "user/include/feeds/accommodation_feed.inc.php";
+            include "user/include/feeds/restaurant_feed.inc.php";
+            include "user/include/feeds/cafe_feed.inc.php";
         } ?>
         <div class="recommended-title-bar">
             Know more about other districts in Nepal
         </div>
         <?php
-        include "include/feeds/district_feed.inc.php"; ?>
+        include "user/include/feeds/district_feed.inc.php"; ?>
 
     </main>
     <!-- main -->
 
 
     <footer>
-        <?php include 'include/footer.inc.php'; ?>
+        <?php include 'userinclude/footer.inc.php'; ?>
     </footer>
     <!-- javascripts -->
-    <script src="./script/reload_animation.js"></script>
+    <script src="user/script/reload_animation.js"></script>
     <script>
         function scrollContent(scrollAmount, action) {
             const scrollContainer = document.querySelector('#container-' + action);
@@ -355,10 +355,10 @@ include "/include/star_rating.inc.php";
     </script>
     <!-- javascripts -->
 
-    <script src="./script/destination.js"></script>
-    <script src="./script/destination_share.js"></script>
-    <script src="./script/ajax_script/like_update.js"></script>
-    <?php include "include/like_update_reload.inc.php"; ?>
+    <script src="user/script/destination.js"></script>
+    <script src="user/script/destination_share.js"></script>
+    <script src="user/script/ajax_script/like_update.js"></script>
+    <?php include "user/include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

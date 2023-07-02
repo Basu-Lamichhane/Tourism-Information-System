@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 ?>
 
 
@@ -10,23 +10,23 @@ require "include/dbconn.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>Login | Traverse Nepal</title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="style/home_style.css">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/login_style.css">
-    <link rel="stylesheet" href="style/noti.css">
+    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="user/style/style.css">
+    <link rel="stylesheet" href="user/style/home_style.css">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/login_style.css">
+    <link rel="stylesheet" href="user/style/noti.css">
 </head>
 <body>
 
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
 
     <header>
-        <?php include "include/header.inc.php"; ?>
+        <?php include "user/include/header.inc.php"; ?>
     </header>
     <?php
         if (isset($_SESSION['!login_pass_match']))
@@ -46,12 +46,12 @@ require "include/dbconn.inc.php";
         ?>
 
     <div class="login_container">
-        <?php include "include/login.inc.php"; ?>
+        <?php include "user/include/login.inc.php"; ?>
     </div>
-    <script src="./script/noti.js"></script>
-    <script src="./script/login.js"></script>
-    <script src="./script/validation.js"></script>
-    <script src="./script/reload_animation.js"></script>
+    <script src="user/script/noti.js"></script>
+    <script src="user/script/login.js"></script>
+    <script src="user/script/validation.js"></script>
+    <script src="user/script/reload_animation.js"></script>
 
 </body>
 </html>

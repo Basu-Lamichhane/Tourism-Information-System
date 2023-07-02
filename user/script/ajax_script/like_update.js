@@ -18,7 +18,7 @@ likeBtns.forEach(function (likeBtn) {
 
 
         var like_ajax_request = new XMLHttpRequest();
-        like_ajax_request.open("POST", "./ajax_processing/update_like.php");
+        like_ajax_request.open("POST", "user/ajax_processing/update_like.php");
         like_ajax_request.send(like_form_data);
 
 

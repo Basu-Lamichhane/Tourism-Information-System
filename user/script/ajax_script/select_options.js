@@ -5,7 +5,7 @@
     form_data.append("select_option", "district");
 
     var ajax_request = new XMLHttpRequest();
-    ajax_request.open("POST", "./ajax_processing/dropdown_options_processing.php");
+    ajax_request.open("POST", "user/ajax_processing/dropdown_options_processing.php");
     ajax_request.send(form_data);
 
     ajax_request.onreadystatechange = function () {
@@ -33,7 +33,7 @@ function type_dropdown_options(option) {
     form_data.append("dest_option", option);
 
     var ajax_request = new XMLHttpRequest();
-    ajax_request.open("POST", "./ajax_processing/dropdown_options_processing.php");
+    ajax_request.open("POST", "user/ajax_processing/dropdown_options_processing.php");
     ajax_request.send(form_data);
 
     ajax_request.onreadystatechange = function () {

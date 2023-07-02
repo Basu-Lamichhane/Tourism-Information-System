@@ -2,7 +2,7 @@
     <nav class="nav-container">
         <a class="logo-container" href="./search.php">
             <picture>
-                <img src="./img/logo.png" alt="Traverse Nepal" class="logo">
+                <img src="user/img/logo.png" alt="Traverse Nepal" class="logo">
             </picture>
         </a>
 
@@ -101,9 +101,13 @@
                 <?php
                 if(isset($_SESSION['email'])){
                     $user_name=$_SESSION['name'];
-                    $user_name_array=explode(" ",$user_name);
-                    array_pop($user_name_array);
-                    $user_first_name=implode(" ",$user_name_array);
+                    if(str_word_count($user_name) > 1){
+                        $user_name_array=explode(" ",$user_name);
+                        array_pop($user_name_array);
+                        $user_first_name=implode(" ",$user_name_array);
+                    }else{
+                        $user_first_name=$user_name;
+                    }
                     $user_gender=$_SESSION['gender'];
                     $user_city=$_SESSION['city'];
                     $user_district=$_SESSION['district'];

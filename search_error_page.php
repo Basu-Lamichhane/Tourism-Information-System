@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 
 
 if (isset($_POST['surprise-btn'])) {
@@ -32,21 +32,21 @@ if (isset($_POST['surprise-btn'])) {
         <?php echo "No search results | Traverse Nepal"; ?>
     </title>
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/search_error_page_style.css">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/footer_style.css">
+    <link rel="stylesheet" href="user/style/search_error_page_style.css">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
     <header>
-        <?php include "include/header.inc.php" ?>
+        <?php include "user/include/header.inc.php" ?>
     </header>
     <main>
         <div class="empty-result-container">
@@ -94,10 +94,10 @@ if (isset($_POST['surprise-btn'])) {
 
     </main>
     <footer>
-        <?php include "include/footer.inc.php" ?>
+        <?php include "user/include/footer.inc.php" ?>
     </footer>
 
-    <script src="./script/reload_animation.js"></script>
+    <script src="user/script/reload_animation.js"></script>
 </body>
 
 </html>

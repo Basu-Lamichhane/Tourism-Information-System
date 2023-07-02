@@ -1,7 +1,6 @@
 .feed-container {
     gap: 80px;
     transform: translateZ(0);
-    margin-top: 64px;
     margin-bottom: 64px;
     overflow: hidden;
     display: flex;

@@ -5,7 +5,7 @@ if (!isset($_SESSION['email'])) {
     $_SESSION['not_signed'] = "Plz, Log in first";
     header('location:login.php');
 }
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 
 $district = "";
 $district = $place_selected = $accommodation_selected = $restaurant_selected = $cafe_selected = "";
@@ -46,7 +46,7 @@ if (isset($_GET['district'])) {
     $cafe_query = "select * from tbl_cafe;";
     $cafe_result = $con->query($cafe_query);
 }
-include "/include/star_rating.inc.php";
+include "user/include/star_rating.inc.php";
 ?>
 
 
@@ -57,26 +57,26 @@ include "/include/star_rating.inc.php";
 
 <head>
     <title>Traverse Nepal</title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/nav_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/search.css">
+    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="user/style/nav_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/search.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/footer_style.css">
-    <link rel="stylesheet" href="style/feed_container_style.css">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
+    <link rel="stylesheet" href="user/style/feed_container_style.css">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
 </head>
 
 
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
 
     <header id="search-page-header">
-        <?php include "include/header.inc.php"; ?>
+        <?php include "user/include/header.inc.php"; ?>
     </header>
     <main>
 
@@ -268,7 +268,7 @@ include "/include/star_rating.inc.php";
 
             <div class="picture-container" id="picture-contain">
                 <div class="picture-box">
-                    <img class="picture" src="../image/Nepal.webp" alt="This is my picture" />
+                    <img class="picture" src="image/Nepal.webp" alt="This is my picture" />
                 </div>
             </div>
         </div>
@@ -279,26 +279,26 @@ include "/include/star_rating.inc.php";
         <?php $restaurant_url = "attractions_list.php?destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?destination=cafe"; ?>
 
-        <?php include "include/feeds/district_feed.inc.php" ?>
-        <?php include "include/feeds/place_feed.inc.php" ?>
-        <?php include "include/feeds/accommodation_feed.inc.php" ?>
-        <?php include "include/feeds/restaurant_feed.inc.php" ?>
-        <?php include "include/feeds/cafe_feed.inc.php" ?>
+        <?php include "user/include/feeds/district_feed.inc.php" ?>
+        <?php include "user/include/feeds/place_feed.inc.php" ?>
+        <?php include "user/include/feeds/accommodation_feed.inc.php" ?>
+        <?php include "user/include/feeds/restaurant_feed.inc.php" ?>
+        <?php include "user/include/feeds/cafe_feed.inc.php" ?>
     </main>
 
     <!-- including footer.inc.php -->
     <footer id="search-page-footer">
-        <?php include 'include/footer.inc.php'; ?>
+        <?php include 'user/include/footer.inc.php'; ?>
     </footer>
 
-    <script src="./script/jquery.js"></script>
-    <script src="./script/reload_animation.js"></script>
-    <script src="./script/ajax_script/search_query_suggestion.js"></script>
-    <script src="./script/ajax_script/select_options.js"></script>
-    <script src="./script/search.js"></script>
-    <script src="./script/reverse_geocoding_script/find_current_district.js"></script>
-    <script src="./script/ajax_script/like_update.js"></script>
-    <?php include "include/like_update_reload.inc.php"; ?>
+    <script src="user/script/jquery.js"></script>
+    <script src="user/script/reload_animation.js"></script>
+    <script src="user/script/ajax_script/search_query_suggestion.js"></script>
+    <script src="user/script/ajax_script/select_options.js"></script>
+    <script src="user/script/search.js"></script>
+    <script src="user/script/reverse_geocoding_script/find_current_district.js"></script>
+    <script src="user/script/ajax_script/like_update.js"></script>
+    <?php include "user/include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

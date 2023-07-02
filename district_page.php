@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
     header('location:login.php');
 }
 
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 // $district="";
 $district;
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -18,7 +18,7 @@ $selected_district_result = $con->query($selected_district_query);
 $selected_district_data_row = $selected_district_result->fetch_assoc();
 
 
-include "/include/star_rating.inc.php";
+include "user/include/star_rating.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -31,30 +31,30 @@ include "/include/star_rating.inc.php";
     <title>
         <?php echo $selected_district_data_row['d_name'] ?> | Traverse Nepal
     </title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="style/breadcrumb_style.css">
-    <link rel="stylesheet" href="style/footer_style.css">
+    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="user/style/breadcrumb_style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style/district_page_style.css">
-    <link rel="stylesheet" href="style/feed_container_style.css">
+    <link rel="stylesheet" href="user/style/district_page_style.css">
+    <link rel="stylesheet" href="user/style/feed_container_style.css">
 </head>
 
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
     <header>
-        <?php include "include/header.inc.php"; ?>
+        <?php include "user/include/header.inc.php"; ?>
     </header>
 
     <main id="district_page">
 
         <!-- breadcrumb included -->
-        <?php include "include/breadcrumb.inc.php"; ?>
+        <?php include "user/include/breadcrumb.inc.php"; ?>
 
         <div class="container" id="sticky-div">
 
@@ -68,7 +68,7 @@ include "/include/star_rating.inc.php";
                 <div class="menu">
                     <div class="menu-container">
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=place"
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=place"
                                 class="menu-content" target="_blank">
                                 <span class="name">Attractions/Places</span>
                                 <span class="blank"></span>
@@ -80,7 +80,7 @@ include "/include/star_rating.inc.php";
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=accommodation"
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=accommodation"
                                 class="menu-content" target="_blank">
                                 <span class="name">Accommodation</span>
                                 <span class="blank"></span>
@@ -92,7 +92,7 @@ include "/include/star_rating.inc.php";
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=restaurant"
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=restaurant"
                                 class="menu-content" target="_blank">
                                 <span class="name">Restaurants</span>
                                 <span class="blank"></span>
@@ -104,7 +104,7 @@ include "/include/star_rating.inc.php";
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&&destination=cafe"
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=cafe"
                                 class="menu-content" target="_blank">
                                 <span class="name">cafes</span>
                                 <span class="blank"></span>
@@ -181,23 +181,23 @@ include "/include/star_rating.inc.php";
         </div>
 
         <?php $district_url = "attractions_list.php?destination=district"; ?>
-        <?php $place_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&&destination=place"; ?>
-        <?php $accommodation_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&&destination=accommodation"; ?>
-        <?php $restaurant_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&&destination=restaurant"; ?>
-        <?php $cafe_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&&destination=cafe"; ?>
+        <?php $place_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=place"; ?>
+        <?php $accommodation_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=accommodation"; ?>
+        <?php $restaurant_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=restaurant"; ?>
+        <?php $cafe_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=cafe"; ?>
         <?php //include "include/feed_container.inc.php" ?>
-        <?php include "include/feeds/district_feed.inc.php" ?>
-        <?php include "include/feeds/place_feed.inc.php" ?>
-        <?php include "include/feeds/accommodation_feed.inc.php" ?>
-        <?php include "include/feeds/restaurant_feed.inc.php" ?>
-        <?php include "include/feeds/cafe_feed.inc.php" ?>
+        <?php include "user/include/feeds/district_feed.inc.php" ?>
+        <?php include "user/include/feeds/place_feed.inc.php" ?>
+        <?php include "user/include/feeds/accommodation_feed.inc.php" ?>
+        <?php include "user/include/feeds/restaurant_feed.inc.php" ?>
+        <?php include "user/include/feeds/cafe_feed.inc.php" ?>
     </main>
 
     <footer>
-        <?php include "include/footer.inc.php"; ?>
+        <?php include "user/include/footer.inc.php"; ?>
     </footer>
 
-    <script src="./script/reload_animation.js"></script>
+    <script src="user/script/reload_animation.js"></script>
 
     <script>
         function toggleMenu() {
@@ -223,9 +223,9 @@ include "/include/star_rating.inc.php";
         }
 
     </script>
-    <script src="./script/ajax_script/like_update.js"></script>
-    <script src="./script/destination_share.js"></script>
-    <?php include "include/like_update_reload.inc.php"; ?>
+    <script src="user/script/ajax_script/like_update.js"></script>
+    <script src="user/script/destination_share.js"></script>
+    <?php include "user/include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

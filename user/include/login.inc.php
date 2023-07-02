@@ -13,7 +13,7 @@ else{
 
 <fieldset>
   <legend>Login</legend>
-  <form action="include/loginOKinc.php" method="POST">
+  <form action="user/include/loginOKinc.php" method="POST">
     <div id="login" class="form_style">
 
       <!-- <p id="name_err" class="error_style"></p> -->
@@ -25,7 +25,7 @@ else{
       <input type="submit" value="Login" id="login_btn" class="login_btn" onClick="loginvalid();" />
       <p>
         Don't have an account?
-        <a href="./register.php" style="text-decoration:underline;">Register</a> yourself
+        <a href="register.php" style="text-decoration:underline;">Register</a> yourself
       </p>
 
     </div>

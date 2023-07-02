@@ -13,7 +13,7 @@ if(isset($_POST['email'])&& isset($_POST['pass'])){
 
     if (isEmailRegistered($con, $email)) {
         $_SESSION['used_email']="Email is already Registered";
-        header('location:../register.php');
+        header('location:../../register.php');
         exit;
     }
     $str = "insert into tbl_user(u_name,u_email,u_pass,u_city,u_district,u_gender,u_dob) values('$name','$email','$pass','$city','$district','$gender','$dob')";
@@ -25,7 +25,7 @@ if(isset($_POST['email'])&& isset($_POST['pass'])){
                 $_SESSION['city']=$city;
                 $_SESSION['district']=$district;
                 $_SESSION['dob']=$dob;
-                header('location:../login.php');
+                header('location:../../login.php');
             }
 }
 

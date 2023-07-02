@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 if (isset($_GET['type'])) {
     $destination = $_GET['type'];
 }
-require "include/dbconn.inc.php";
+require "user/include/dbconn.inc.php";
 
 $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
@@ -28,11 +28,11 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
         ?> | Traverse Nepal
     </title>
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style/header_style.css">
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="style/footer_style.css">
-    <link rel="stylesheet" href="style/suggest_destination_style.css">
-    <link rel="stylesheet" href="style/reload_animation_style.css">
+    <link rel="stylesheet" href="user/style/header_style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="user/style/footer_style.css">
+    <link rel="stylesheet" href="user/style/suggest_destination_style.css">
+    <link rel="stylesheet" href="user/style/reload_animation_style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -42,12 +42,12 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="./img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
 
     <header id="search-page-header">
-        <?php include "include/header.inc.php"; ?>
+        <?php include "user/include/header.inc.php"; ?>
     </header>
     <main>
         <div class="suggestion-container" <?php if(!isset($_GET['type'])) echo('style="margin-top:118px;"');?>>
@@ -226,12 +226,12 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
     </main>
     <footer <?php if(!isset($_GET['type'])) echo ('style="position:absolute; bottom:0;"') ?>>
-        <?php include "include/footer.inc.php"; ?>
+        <?php include "user/include/footer.inc.php"; ?>
     </footer>
 
-    <script src="script/suggest_destination.js"></script>
-    <script src="script/reload_animation.js"></script>
-    <script src="script/suggestion_form_validation.js"></script>
+    <script src="user/script/suggest_destination.js"></script>
+    <script src="user/script/reload_animation.js"></script>
+    <script src="user/script/suggestion_form_validation.js"></script>
 </body>
 
 </html>
