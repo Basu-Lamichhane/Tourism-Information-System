@@ -10,7 +10,7 @@ if(isset($_POST['email'])&& isset($_POST['pass'])){
         while($row=$result->fetch_assoc()){
             if($pass!=$row['u_pass']){
                 $_SESSION['!login_pass_match'] = "Please Enter Your Correct Password";
-                header('location:../login.php');
+                header('location:../../login.php');
             }else{
                 $_SESSION['email'] = $row['u_email'];
                 $_SESSION['name']=$row['u_name'];
