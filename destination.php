@@ -335,7 +335,7 @@ include "user/include/star_rating.inc.php";
 
 
     <footer>
-        <?php include 'userinclude/footer.inc.php'; ?>
+        <?php include 'user/include/footer.inc.php'; ?>
     </footer>
     <!-- javascripts -->
     <script src="user/script/reload_animation.js"></script>

@@ -10,30 +10,6 @@ const emailInput = document.getElementById("dest-email");
 const websiteInput = document.getElementById("dest-website");
 const check = document.getElementById("hidden_value").value;
 
-// if (check!=="place") {
-//   //if it is place suggestion page it does not have service field input
-//   const check = document.getElementById("hidden_value").value;
-//   if (check != "place") {
-//     var inputArray = new Array(
-//       typeInput,
-//       addressInput,
-//       phoneInput,
-//       emailInput,
-//       websiteInput
-//     );
-//   } else {
-//     var inputArray = new Array(typeInput, addressInput);
-//   }
-// } else {
-//   var inputArray = new Array(
-//     serviceInput,
-//     typeInput,
-//     addressInput,
-//     phoneInput,
-//     emailInput,
-//     websiteInput
-//   );
-// }
 
 if (check == "place") {
   var inputArray = new Array(typeInput, addressInput);

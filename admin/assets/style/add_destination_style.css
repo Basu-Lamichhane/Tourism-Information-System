@@ -138,7 +138,7 @@ body{
     align-content: center;
 }
 
-.suggestion-form div input:not(#dest-submit,#dest-image),select{
+.suggestion-form div input:not(#dest-submit,#dest-image,#dest-return),select{
     height: 30px;
     width: 50%;
     font-size: large;
@@ -148,7 +148,7 @@ body{
     box-shadow: 1px 1px 1px #999;
 }
 
-.suggestion-form div input:not(input[type="submit"]){
+.suggestion-form div input:not(input[type="submit"],#dest-return){
     height: 30px;
     width: 50%;
     font-size: large;
@@ -198,6 +198,7 @@ input[type="number"]::-webkit-outer-spin-button {
     text-align: center;
     display: flex;
     justify-content: center;
+    justify-content: space-around;
 }
 
 .dest-submit input {

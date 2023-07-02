@@ -5,8 +5,8 @@ require "config/dbconn.inc.php";
 
 
 $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
-if(isset($_GET['type']))
-$destination=$_GET['type'];
+if (isset($_GET['type']))
+    $destination = $_GET['type'];
 ?>
 
 
@@ -22,6 +22,7 @@ $destination=$_GET['type'];
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
+
 <body>
     <!-- Reload Animation -->
     <div id="loader-overlay">
@@ -30,12 +31,12 @@ $destination=$_GET['type'];
     <!-- Reload Animation -->
 
     <main>
-        <div class="suggestion-container" <?php if(!isset($_GET['type'])) echo('style="margin-top:118px;"');?>>
+        <div class="suggestion-container" <?php if (!isset($_GET['type']))
+            echo ('style="margin-top:118px;"'); ?>>
             <div class="suggestion-desc-title">
                 Suggest
                 <?php if (isset($_GET['type']))
                     echo $_GET['type'];
-                    
                 else
                     echo "destination";
                 ?>
@@ -104,19 +105,20 @@ $destination=$_GET['type'];
                 ?>
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
-                        <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form" action="config/add_data.php">
+                        <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form"
+                            action="config/add_data.php">
                             <div class="destination-name">
                                 <label for="dest-name">
                                     <?php echo ucfirst($destination); ?> Name :
                                 </label>
                                 <input name="name" id="dest-name" type="text"
-                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100" required />
+                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100"
+                                    required />
                             </div>
                             <?php if ($destination == "place") { ?>
                                 <div class="destination-description">
                                     <label for="dest-desc">Place Description :</label>
-                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700"
-                                        style="resize: none"
+                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none"
                                         placeholder="Enter the description for the destination (Max characters : 700 )"
                                         required></textarea>
                                 </div>
@@ -125,8 +127,7 @@ $destination=$_GET['type'];
                                     <label for="dest-services">
                                         <?php echo ucfirst($destination); ?> Services :
                                     </label>
-                                    <textarea name="services" id="dest-services" rows="3"   maxlength="50"
-                                        style="resize: none"
+                                    <textarea name="services" id="dest-services" rows="3" maxlength="50" style="resize: none"
                                         placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )"
                                         required onkeyup="javascript:validateServices(this.value)"></textarea>
                                 </div>
@@ -135,36 +136,39 @@ $destination=$_GET['type'];
                                 <label for="dest-type">Type of
                                     <?php echo $destination; ?>:
                                 </label>
-                                <input type="text" name="type" id="dest-type" required maxlength="50" onkeyup="javascript:validateType(this.value)"></input>
+                                <input type="text" name="type" id="dest-type" required maxlength="50"
+                                    onkeyup="javascript:validateType(this.value)"></input>
                             </div>
                             <?php
                             if ($destination == 'accommodation') {
                                 ?>
-                            <div>
-                                <label>
-                                   No of Rooms: 
-                                </label>
-                                <input type="number" name="rooms" pattern="^([1-9]?[0-9]|100)$">
-                            </div>
-                            <div>
-                                <label>
-                                   Room Rate:
-                                </label>
-                                <input type="number" name="room_rate" pattern="^([1-9]?[0-9]|100)$" >
-                            </div>
-                            <?php
-                            } 
+                                <div>
+                                    <label for="dest-room">
+                                        No of Rooms:
+                                    </label>
+                                    <input type="number" name="rooms" pattern="^([1-9][0-9]{0,2}|1000)$"
+                                        placeholder="must be >1 && <=1000">
+                                </div>
+                                <div>
+                                    <label for="dest-room-rate">
+                                        Room Rate:
+                                    </label>
+                                    <input type="number" name="room_rate" id="dest-room-rate" pattern="[0-9]{1,6}(\.[0-9]{2})?">
+                                </div>
+                                <?php
+                            }
                             ?>
                             <div>
                                 <label for="dest-image">Image of the
                                     <?php echo $destination; ?> :
                                 </label>
-                                <input type="file" id="image" accept="image/jpeg, image/png, image/gif"
-                                    name="image" required>
+                                <input type="file" id="image" accept="image/jpeg, image/png, image/gif" name="image"
+                                    required>
                             </div>
                             <div>
                                 <label for="dest-address">Address :</label>
-                                <input type="text" id="address" name="address" required maxlength="50" onkeyup="javascript:validateAddress(this.value)">
+                                <input type="text" id="address" name="address" required maxlength="50"
+                                    onkeyup="javascript:validateAddress(this.value)">
                             </div>
                             <div>
                                 <label for="dest-district">District :</label>
@@ -190,33 +194,61 @@ $destination=$_GET['type'];
                                     <input type="number" name="longitude" id="dest-longitude" required step="any">
                                 </div>
                             </div>
+                            <div class="destination-rating">
+                                <label for="dest-rating">Rating :</label>
+                                <input type="number" name="rating" id="dest-rating" required placeholder="for e.g 2.0"
+                                    min="1" max="5" step="0.1" pattern="[1-5](\.\d)?" />
+                            </div>
+                            <div class="destination-num-reviews">
+                                <label for="dest-review">No of Reviews :</label>
+                                <input type="number" name="review" id="dest-review" min="0" max="299999999"
+                                    pattern="\d{1,9}" required placeholder="Enter number of reviews" />
+                            </div>
                             <?php
                             if ($destination != 'place') {
                                 ?>
-                            <div class="dest-contact-info-title">Contact Information of <?php echo $destination; ?></div>
-                            <div class="dest-contact-info">
-                            <div class="destination-phone">
-                                <label for="dest-phone">Phone :</label>
-                                <input type="text" name="phone" id="dest-phone" maxlength="14" onkeyup="javascript:validatePhone(this.value)" required placeholder="+9770000000000"/>
-                            </div>
-                            <div class="destination-email">
-                                <label for="dest-email">Email :</label>
-                                <input type="email" name="email" id="dest-email" onkeyup="javascript:validateEmail(this.value)" maxlength="100" required>
-                            </div>
-                            <div class="destination-website">
-                                <label for="dest-website">Web URL :</label>
-                                <input type="url" name="website" id="dest-website" placeholder="https://example.com" onkeyup="javascript:validateWebsite(this.value)" required>
-                            </div>
-                        </div>
-                        <?php
+                                <?php if ($destination != 'accommodation') { ?>
+                                    <div class="destination-start">
+                                        <label for="dest-start">Start time :</label>
+                                        <input type="text" name="start" id="dest-start" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                                            placeholder="Enter time in HH:MM format" required />
+                                    </div>
+                                    <div class="destination-close">
+                                        <label for="dest-close">Close time :</label>
+                                        <input type="text" name="close" id="dest-close" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                                            placeholder="Enter time in HH:MM format" required />
+                                    </div>
+                                <?php } ?>
+                                <div class="dest-contact-info-title">Contact Information of
+                                    <?php echo $destination; ?>
+                                </div>
+                                <div class="dest-contact-info">
+                                    <div class="destination-phone">
+                                        <label for="dest-phone">Phone :</label>
+                                        <input type="text" name="phone" id="dest-phone" maxlength="14"
+                                            onkeyup="javascript:validatePhone(this.value)" required
+                                            placeholder="+9770000000000" />
+                                    </div>
+                                    <div class="destination-email">
+                                        <label for="dest-email">Email :</label>
+                                        <input type="email" name="email" id="dest-email"
+                                            onkeyup="javascript:validateEmail(this.value)" maxlength="100" required>
+                                    </div>
+                                    <div class="destination-website">
+                                        <label for="dest-website">Web URL :</label>
+                                        <input type="url" name="website" id="dest-website" placeholder="https://example.com"
+                                            onkeyup="javascript:validateWebsite(this.value)" required>
+                                    </div>
+                                </div>
+                                <?php
                             }
-                         ?>
-                        <p class="error_style" id="input-error" style="height:15px"></p>
+                            ?>
+                            <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
                                 <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
-                                <input type="submit" name="return" id="dest-submit" value="Return" disabled>
+                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
                             </div>
-                            <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination;?>">
+                            <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination; ?>">
                         </form>
                     </div>
 
@@ -234,10 +266,10 @@ $destination=$_GET['type'];
     </main>
 
     <?php
-    if(isset($_SESSION['action'])){
-        echo "<script> alert('".$_SESSION['action']."') </script>";
+    if (isset($_SESSION['action'])) {
+        echo "<script> alert('" . $_SESSION['action'] . "') </script>";
         unset($_SESSION['action']);
-} 
+    }
     ?>
     <!-- <script src="script/add_destination.js"></script> -->
     <script src="assets/script/reload_animation.js"></script>
