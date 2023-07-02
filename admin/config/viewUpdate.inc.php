@@ -62,7 +62,7 @@ if(isset($_GET['type'])){
         }
     }
     else if($_GET['type']=="restaurant"){
-        include "config/get_restaurant.php";
+        include "config/get_restaurants.php";
         if ($res->num_rows > 0) {
             $row = $res->fetch_assoc();
             $name = $row['r_name'];
