@@ -167,7 +167,7 @@ include "user/include/star_rating.inc.php";
                                 <span>
                                 Opens at :
                                 <div class="open-details">
-                                ' . $destination_start_time . '
+                                ' . ltrim(date('h:i', strtotime($destination_start_time))) . '
                                 <small style="font-size: small; display:contents;">A.M</small>
                                 </div>
                                 </span>
