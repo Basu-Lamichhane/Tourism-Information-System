@@ -257,7 +257,7 @@ if (isset($_GET['type']))
                             ?>
                             <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
-                                <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
+                                <input type="submit" name="submit" id="dest-submit" value="Submit">
                                 <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
                             </div>
                             
@@ -287,7 +287,7 @@ if (isset($_GET['type']))
     ?>
     <!-- <script src="script/add_destination.js"></script> -->
     <script src="assets/script/reload_animation.js"></script>
-    <script src="assets/script/add_form_validation.js"></script>
+    <!-- <script src="assets/script/add_form_validation.js"></script> -->
 </body>
 
 </html>

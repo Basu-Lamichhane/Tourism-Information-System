@@ -18,7 +18,6 @@ session_start();
     <link rel="stylesheet" href="assets/style/admin_panel.css" />
     <link rel="stylesheet" href="assets/style/dashboard.css" />
     <link rel="stylesheet" href="assets/style/pagination_style.css" />
-    <link rel="stylesheet" href="assets/style/popup.css" />
 </head>
 
 <body>
@@ -96,16 +95,12 @@ session_start();
         <div id="table-content">
             <?php include "config/get_info.php";?>
         </div>
-        <?php include "config/action.php"; ?>
-        
     </main>
-        <?php include "config/popup.php";?>
     
 
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>
-    <script src="assets/script/addPopup.js"></script>
 
 
     
