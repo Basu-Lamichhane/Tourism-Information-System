@@ -155,7 +155,7 @@ include "user/include/star_rating.inc.php";
                     <div class="basic-search">
                         <div class="input-field">
                             <input id="search" type="text" placeholder="Enter a destination..."
-                                onkeyup="javascript:(load_search_result(this.value))" />
+                                onkeyup="javascript:(load_search_result(this.value))" autocomplete="off"/>
                             <div id="search-cancel-btn">
                                 <button class="icon-wrap" id="search-btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -279,6 +279,7 @@ include "user/include/star_rating.inc.php";
         <?php $restaurant_url = "attractions_list.php?destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?destination=cafe"; ?>
 
+        <div class="feed-title">Find your next trip around Nepal now :</div>
         <?php include "user/include/feeds/district_feed.inc.php" ?>
         <?php include "user/include/feeds/place_feed.inc.php" ?>
         <?php include "user/include/feeds/accommodation_feed.inc.php" ?>

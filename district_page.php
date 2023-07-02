@@ -185,7 +185,8 @@ include "user/include/star_rating.inc.php";
         <?php $accommodation_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=accommodation"; ?>
         <?php $restaurant_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=cafe"; ?>
-        <?php //include "include/feed_container.inc.php" ?>
+
+        <div class="feed-title">Find your next trip around <?php echo $selected_district_data_row['d_name']; ?> now.</div>
         <?php include "user/include/feeds/district_feed.inc.php" ?>
         <?php include "user/include/feeds/place_feed.inc.php" ?>
         <?php include "user/include/feeds/accommodation_feed.inc.php" ?>

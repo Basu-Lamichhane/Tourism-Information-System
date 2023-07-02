@@ -1,9 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])){
-    header('location:../../search.php');
-}
-else if(isset($_POST['email'])&& isset($_POST['pass'])){
+if(isset($_POST['email'])&& isset($_POST['pass'])){
     $email=$_POST['email'];
     $pass = $_POST['pass'];
     require "dbconn.inc.php";
@@ -27,7 +24,7 @@ else if(isset($_POST['email'])&& isset($_POST['pass'])){
         }
     }else{
         $_SESSION['login_err'] = "Email is not registered";
-        header('location:../register.php');
+        header('location:../../register.php');
     }
 }
 
