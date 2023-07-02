@@ -26,9 +26,6 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
     </div>
     <!-- Reload Animation -->
 
-    <header id="search-page-header">
-        <?php include "include/header.inc.php"; ?>
-    </header>
     <main>
         <div class="suggestion-container" <?php if(!isset($_GET['type'])) echo('style="margin-top:118px;"');?>>
             <div class="suggestion-desc-title">
@@ -205,9 +202,6 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
 
     </main>
-    <footer <?php if(!isset($_GET['type'])) echo ('style="position:absolute; bottom:0;"') ?>>
-        <?php include "include/footer.inc.php"; ?>
-    </footer>
 
     <script src="script/suggest_destination.js"></script>
     <script src="assets/script/reload_animation.js"></script>

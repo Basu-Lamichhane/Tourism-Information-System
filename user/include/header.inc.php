@@ -41,7 +41,7 @@
                     <div class="profile-dropdown-content" id="profile-dropdown">
                         <ul class="dropdown-contents">
                             <hr>
-                            <a href="" class="dropdown-content">
+                            <a href="profile.php" class="dropdown-content">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"
                                         viewBox="0 0 576 512">

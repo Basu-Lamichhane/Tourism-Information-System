@@ -1,12 +1,6 @@
 <?php
 
-session_start();
-if (!isset($_SESSION['email'])) {
-    $_SESSION['not_signed'] = "Plz, Log in first";
-    header('location:login.php');
-}
-
-require "user/include/dbconn.inc.php";
+require "config/dbconn.inc.php";
 
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
@@ -58,7 +52,7 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
     }
 
 }
-include "user/include/star_rating.inc.php";
+include "config/star_rating.inc.php";
 ?>
 
 
@@ -74,31 +68,19 @@ include "user/include/star_rating.inc.php";
     </title>
     <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="user/style/reload_animation_style.css">
-    <link rel="stylesheet" href="user/style/header_style.css">
-    <link rel="stylesheet" href="user/style/breadcrumb_style.css">
-    <link rel="stylesheet" href="user/style/footer_style.css">
-    <link rel="stylesheet" href="user/style/destination_style.css">
-    <link rel="stylesheet" href="user/style/feed_container_style.css">
+    <link rel="stylesheet" href="assets/style/view_destination_style.css">
 </head>
 
 <body class="destination-page">
     <!-- Reload Animation -->
     <div id="loader-overlay">
-        <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
+        <img src="assets/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
     <!-- Reload Animation -->
-
-    <!-- header -->
-    <header>
-        <?php include "user/include/header.inc.php"; ?>
-    </header>
-    <!-- header -->
 
     <!-- main -->
     <main>
 
-        <!-- including breadcrumb -->
-        <?php include "user/include/breadcrumb.inc.php"; ?>
 
         <div class="destination-container">
             <section class="destination-title-container">
@@ -106,16 +88,6 @@ include "user/include/star_rating.inc.php";
                     <?php echo $destination_name; ?>
                 </div>
                 <div class="destination-share-like-container">
-                    <div class="like-btn-container" id="like-dest">
-                        <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
-                            data-destination-id="<?php echo $destination_id; ?>">
-                            <svg viewBox="0 0 24 24" width="20px" height="20px">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M3.798 5.786A5.769 5.769 0 017.72 4.25c1.455 0 2.857.548 3.922 1.536l.005.005.341.322.332-.317a5.769 5.769 0 013.928-1.54c1.458 0 2.862.55 3.928 1.54l.004.004c1.093 1.032 1.599 2.324 1.569 3.662-.03 1.323-.578 2.643-1.5 3.785-.884 1.096-2.85 2.943-4.547 4.478a183.566 183.566 0 01-3.153 2.785l-.069.059-.489-.569.49.569-.486.416-.488-.412a101.98 101.98 0 01-7.75-7.288l-.021-.021-.02-.023c-1.725-2.115-2.203-5.32.08-7.453l.002-.002zm8.19 13.226a174.415 174.415 0 002.708-2.4c1.72-1.556 3.59-3.32 4.385-4.306.757-.939 1.148-1.948 1.168-2.877.02-.912-.313-1.795-1.097-2.536a4.269 4.269 0 00-2.904-1.138 4.269 4.269 0 00-2.903 1.136l-1.35 1.292-1.375-1.3a4.269 4.269 0 00-2.9-1.133 4.269 4.269 0 00-2.901 1.135c-1.507 1.408-1.353 3.659.042 5.385a100.45 100.45 0 007.127 6.742z">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
                     <div class="share-btn-container" id="share-dest">
                         <button>
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
@@ -130,7 +102,7 @@ include "user/include/star_rating.inc.php";
             <section class="destination-desc-image-container">
                 <div class="destination-desc-image">
                     <div class="destination-image-container">
-                        <img src="<?php echo $destination_image ?>"
+                        <img src=".<?php echo $destination_image ?>"
                             alt="This is <?php echo $destination_name ?>'s picture.">
                     </div>
                     <div class="destination-desc-container">
@@ -247,7 +219,8 @@ include "user/include/star_rating.inc.php";
                 <div class="dest-rating-container">
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
-                        <?php star_ratings($destination_rating); ?>
+                        <?php star_ratings($destination_rating);
+                                echo "(".$destination_rating.")"; ?>
                         <div class="dest-num-reviews">(
                             <?php echo $destination_num_reviews; ?>)
                         </div>
@@ -256,108 +229,9 @@ include "user/include/star_rating.inc.php";
             </section>
         </div>
 
+    <script src="assets/script/view_destination_share.js"></script>
+    <script src="assets/script/reload_animation.js"></script>
 
-        <?php //displaying the feeds section differently for each destination pages
-        if ($destination == 'accommodation') { ?>
-            <div class="recommended-title-bar">
-                More Accommodations to stay in
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/accommodation_feed.inc.php";
-            ?>
-            <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/place_feed.inc.php";
-            include "user/include/feeds/restaurant_feed.inc.php";
-            include "user/include/feeds/cafe_feed.inc.php";
-        } elseif ($destination == 'restaurant') { ?>
-            <div class="recommended-title-bar">
-                More Restaurants to eat out in
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/restaurant_feed.inc.php";
-            ?>
-            <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/place_feed.inc.php";
-            include "user/include/feeds/accommodation_feed.inc.php";
-            include "user/include/feeds/cafe_feed.inc.php";
-        } elseif ($destination == 'cafe') { ?>
-            <div class="recommended-title-bar">
-                More Cafes to socialize in
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/cafe_feed.inc.php";
-            ?>
-            <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/place_feed.inc.php";
-            include "user/include/feeds/accommodation_feed.inc.php";
-            include "user/include/feeds/restaurant_feed.inc.php";
-        } else {
-            ?>
-            <div class="recommended-title-bar">
-                More Places to visit in
-                <?php echo $district; ?>:
-            </div>
-            <?php
-            include "user/include/feeds/place_feed.inc.php";
-            ?>
-            <div class="recommended-title-bar">
-                More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
-            </div>
-            <?php
-            include "user/include/feeds/accommodation_feed.inc.php";
-            include "user/include/feeds/restaurant_feed.inc.php";
-            include "user/include/feeds/cafe_feed.inc.php";
-        } ?>
-        <div class="recommended-title-bar">
-            Know more about other districts in Nepal
-        </div>
-        <?php
-        include "user/include/feeds/district_feed.inc.php"; ?>
-
-    </main>
-    <!-- main -->
-
-
-    <footer>
-        <?php include 'userinclude/footer.inc.php'; ?>
-    </footer>
-    <!-- javascripts -->
-    <script src="user/script/reload_animation.js"></script>
-    <script>
-        function scrollContent(scrollAmount, action) {
-            const scrollContainer = document.querySelector('#container-' + action);
-            const scrollContent = document.querySelector('#content-' + action);
-            const scrollPosition = scrollContainer.scrollLeft;
-            const scrollStep = scrollContent.clientWidth / 3;
-
-            scrollContainer.scrollBy({
-                left: scrollStep * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-    <!-- javascripts -->
-
-    <script src="user/script/destination.js"></script>
-    <script src="user/script/destination_share.js"></script>
-    <script src="user/script/ajax_script/like_update.js"></script>
-    <?php include "user/include/like_update_reload.inc.php"; ?>
 </body>
 
 </html>

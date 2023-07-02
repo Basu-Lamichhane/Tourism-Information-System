@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="user/style/header_style.css">
     <link rel="stylesheet" href="user/style/reload_animation_style.css">
     <link rel="stylesheet" href="user/style/home_style.css">
-    <title>Home</title>
+    <title>Traverse Nepal - Discover, Explore, Experience !!!</title>
   </head>
   <body>
     <!-- Reload Animation -->
