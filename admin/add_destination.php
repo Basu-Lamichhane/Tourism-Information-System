@@ -1,9 +1,12 @@
 <?php
+session_start();
 
 require "config/dbconn.inc.php";
 
-$district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
+$district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
+if(isset($_GET['type']))
+$destination=$_GET['type'];
 ?>
 
 
@@ -32,6 +35,7 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                 Suggest
                 <?php if (isset($_GET['type']))
                     echo $_GET['type'];
+                    
                 else
                     echo "destination";
                 ?>
@@ -100,18 +104,18 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                 ?>
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
-                        <form method="post" id="dest-suggest-form" class="suggestion-form" action="include/suggestion_form_action.php">
+                        <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form" action="config/add_data.php">
                             <div class="destination-name">
                                 <label for="dest-name">
                                     <?php echo ucfirst($destination); ?> Name :
                                 </label>
-                                <input name="suggest-name" id="dest-name" type="text"
+                                <input name="name" id="dest-name" type="text"
                                     placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100" required />
                             </div>
                             <?php if ($destination == "place") { ?>
                                 <div class="destination-description">
                                     <label for="dest-desc">Place Description :</label>
-                                    <textarea name="suggest-desc" id="dest-desc" cols="30" rows="5" maxlength="700"
+                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700"
                                         style="resize: none"
                                         placeholder="Enter the description for the destination (Max characters : 700 )"
                                         required></textarea>
@@ -121,7 +125,7 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                                     <label for="dest-services">
                                         <?php echo ucfirst($destination); ?> Services :
                                     </label>
-                                    <textarea name="suggest-services" id="dest-services" rows="3"   maxlength="50"
+                                    <textarea name="services" id="dest-services" rows="3"   maxlength="50"
                                         style="resize: none"
                                         placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )"
                                         required onkeyup="javascript:validateServices(this.value)"></textarea>
@@ -131,22 +135,40 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                                 <label for="dest-type">Type of
                                     <?php echo $destination; ?>:
                                 </label>
-                                <input type="text" name="suggest-type" id="dest-type" required maxlength="50" onkeyup="javascript:validateType(this.value)"></input>
+                                <input type="text" name="type" id="dest-type" required maxlength="50" onkeyup="javascript:validateType(this.value)"></input>
                             </div>
+                            <?php
+                            if ($destination == 'accommodation') {
+                                ?>
+                            <div>
+                                <label>
+                                   No of Rooms: 
+                                </label>
+                                <input type="number" name="rooms" pattern="^([1-9]?[0-9]|100)$">
+                            </div>
+                            <div>
+                                <label>
+                                   Room Rate:
+                                </label>
+                                <input type="number" name="room_rate" pattern="^([1-9]?[0-9]|100)$" >
+                            </div>
+                            <?php
+                            } 
+                            ?>
                             <div>
                                 <label for="dest-image">Image of the
                                     <?php echo $destination; ?> :
                                 </label>
-                                <input type="file" id="dest-image" accept="image/jpeg, image/png, image/gif"
-                                    name="suggest-image" required>
+                                <input type="file" id="image" accept="image/jpeg, image/png, image/gif"
+                                    name="image" required>
                             </div>
                             <div>
                                 <label for="dest-address">Address :</label>
-                                <input type="text" id="dest-address" name="suggest-address" required maxlength="50" onkeyup="javascript:validateAddress(this.value)">
+                                <input type="text" id="address" name="address" required maxlength="50" onkeyup="javascript:validateAddress(this.value)">
                             </div>
                             <div>
                                 <label for="dest-district">District :</label>
-                                <select name="suggest-district" id="dest-district" required>
+                                <select name="district" id="dest-district" required>
                                     <option value="" selected disabled>Plz, choose a district</option>
                                     <?php while ($district_row = $district_query_execute->fetch_assoc()) {
                                         echo '<option value="' . $district_row['d_name'] . '">' . $district_row['d_name'] . '</option>';
@@ -161,38 +183,46 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
                             <div class="destination-coordinates">
                                 <div>
                                     <label for="dest-latitude">Latitude :</label>
-                                    <input type="number" name="suggest-latitude" id="dest-latitude" required step="any">
+                                    <input type="number" name="latitude" id="dest-latitude" required step="any">
                                 </div>
                                 <div>
                                     <label for="dest-longitude">Longitude :</label>
-                                    <input type="number" name="suggest-longitude" id="dest-longitude" required step="any">
+                                    <input type="number" name="longitude" id="dest-longitude" required step="any">
                                 </div>
                             </div>
+                            <?php
+                            if ($destination != 'place') {
+                                ?>
                             <div class="dest-contact-info-title">Contact Information of <?php echo $destination; ?></div>
                             <div class="dest-contact-info">
                             <div class="destination-phone">
                                 <label for="dest-phone">Phone :</label>
-                                <input type="text" name="suggest-phone" id="dest-phone" maxlength="14" onkeyup="javascript:validatePhone(this.value)" required placeholder="+9770000000000"/>
+                                <input type="text" name="phone" id="dest-phone" maxlength="14" onkeyup="javascript:validatePhone(this.value)" required placeholder="+9770000000000"/>
                             </div>
                             <div class="destination-email">
                                 <label for="dest-email">Email :</label>
-                                <input type="email" name="suggest-email" id="dest-email" onkeyup="javascript:validateEmail(this.value)" maxlength="100" required>
+                                <input type="email" name="email" id="dest-email" onkeyup="javascript:validateEmail(this.value)" maxlength="100" required>
                             </div>
                             <div class="destination-website">
                                 <label for="dest-website">Web URL :</label>
-                                <input type="url" name="suggest-website" id="dest-website" placeholder="https://example.com" onkeyup="javascript:validateWebsite(this.value)" required>
+                                <input type="url" name="website" id="dest-website" placeholder="https://example.com" onkeyup="javascript:validateWebsite(this.value)" required>
                             </div>
                         </div>
+                        <?php
+                            }
+                         ?>
                         <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
-                                <input type="submit" name="suggest-submit" id="dest-submit" value="Submit" disabled>
+                                <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
+                                <input type="submit" name="return" id="dest-submit" value="Return" disabled>
                             </div>
+                            <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination;?>">
                         </form>
                     </div>
 
                     <div class="map-container">
                         <!-- <div class="view-map"></div> -->
-                        <?php include "include/maps/form_map.inc.php"; ?>
+                        <?php include "config/maps/form_map.inc.php"; ?>
 
                     </div>
                 </div>
@@ -203,9 +233,15 @@ $district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
 
     </main>
 
-    <script src="script/suggest_destination.js"></script>
+    <?php
+    if(isset($_SESSION['action'])){
+        echo "<script> alert('".$_SESSION['action']."') </script>";
+        unset($_SESSION['action']);
+} 
+    ?>
+    <!-- <script src="script/add_destination.js"></script> -->
     <script src="assets/script/reload_animation.js"></script>
-    <script src="script/suggestion_form_validation.js"></script>
+    <script src="assets/script/add_form_validation.js"></script>
 </body>
 
 </html>
