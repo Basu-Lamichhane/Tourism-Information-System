@@ -1,6 +1,6 @@
 <?php
 session_start();
-// if(!isset($_SESSION['uname'])){
+// if(!isset($_SESSION['admin_email'])){
 //     $_SESSION['admin_login'] = "Please login first";
 //     header('Location:login.php');
 // }
@@ -17,7 +17,7 @@ session_start();
     <title>Sidebar Menu for Admin Dashboard | Traverse Nepal</title>
     <link rel="stylesheet" href="assets/style/admin_panel.css" />
     <link rel="stylesheet" href="assets/style/dashboard.css" />
-    <link rel="stylesheet" href="assets/style/pagination_style.css" />
+    <link rel="stylesheet" href="assets/style/update_form.css" />
 </head>
 
 <body>
@@ -50,7 +50,7 @@ session_start();
                             <a href="admin.php?type=district" >District</a>
                         </li>
                         <li class="item">
-                            <a href="admin.php?type=place" >Attractions</a>
+                            <a href="admin.php?type=attraction" >Attractions</a>
                         </li>
                         <li class="item">
                             <a href="admin.php?type=accommodation">Accommodations</a>
@@ -93,14 +93,17 @@ session_start();
 
     <main class="main" id="main_content">
         <div id="table-content">
-            <?php include "config/get_info.php";?>
+            <?php include "config/update.inc.php";?>
         </div>
+        
     </main>
+
     
 
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>
+
 
 
     
