@@ -108,7 +108,7 @@ if (isset($_GET['type']))
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
                         <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form"
-                            action="config/add_data.php">
+                            action="config/pushUpdate.php">
                             <input type="hidden" name="old_image"  value="<?php echo $image;?>" >
                             <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination; ?>">
                             <input type="hidden" name="id" value="<?php echo $_GET['id'];?>" >
