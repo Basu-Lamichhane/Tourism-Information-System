@@ -24,21 +24,19 @@ session_start();
     </div>
     <!-- Reload Animation -->
 
-    <header id="search-page-header">
+    <header>
         <?php include "user/include/header.inc.php"; ?>
     </header>
     <main>
         <div class="profile-details-container">
-            <div></div>
+            <div clas></div>
             <div></div>
         </div>
     </main>
 
     <footer>
-
+        <?php include "user/include/footer.inc.php"; ?>
     </footer>
-
-
     <script src="user/script/reload_animation.js"></script>
 </body>
 </html>

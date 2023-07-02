@@ -27,6 +27,9 @@
 
             <?php if (isset($_GET['dest_id']))
                 echo '<li class="crumb">' . $destination_name . '</li>' ?>
+
+            <?php if(basename($_SERVER['PHP_SELF'])=="liked_destinations.php")
+                echo '<li class="crumb">Liked Trips</li>' ?>
             </ul>
         </div>
     </div>
