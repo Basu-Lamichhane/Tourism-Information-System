@@ -101,7 +101,7 @@ if(isset($_SESSION['action'])){
         </div>
         <?php include "config/action.php"; ?>
     </main>
-  
+
     
 
     <script src="assets/script/admin_panel.js"></script>

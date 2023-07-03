@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['email'])) {
     $_SESSION['not_signed'] = "Plz, Log in first";
     header('location:login.php');

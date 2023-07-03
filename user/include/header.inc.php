@@ -1,3 +1,17 @@
+<?php 
+
+if(isset($_SESSION['email'])){
+    $user_email = $_SESSION['email'];
+    $user_name=$_SESSION['name'];
+    
+    require "dbconn.inc.php";
+    
+    $user_image_exec = $con->query("SELECT u_image FROM tbl_user WHERE u_email = '$user_email';");
+    $row = $user_image_exec->fetch_assoc();
+    $user_image = $row['u_image'];
+}
+
+?>
 <div class="header-container">
     <nav class="nav-container">
         <a class="logo-container" href="./search.php">
@@ -32,8 +46,13 @@
                     <div class="profile-container">
                         <button class="profile-btn" id="user-profile-btn">
                             <picture class="profile-pic">
-                                <img src="https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/f1/b8/default-avatar-2020-22.jpg"
-                                    alt="Profile pic">
+                                <?php if($user_image!=""){?>
+                                    <img src="<?php echo $user_image; ?>"
+                                        alt="profile pic">
+                                <?php } else { ?>
+                                    <img src="image/default-pp.jpg"
+                                        alt="default Profile pic">
+                                    <?php } ?>
                             </picture>
                         </button>
                     </div>
