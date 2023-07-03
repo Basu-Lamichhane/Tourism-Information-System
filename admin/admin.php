@@ -4,6 +4,10 @@ session_start();
 //     $_SESSION['admin_login'] = "Please login first";
 //     header('Location:login.php');
 // }
+if(isset($_SESSION['action'])){
+    echo "<script> alert(" . $_SESSION['action'] . ")</script>";
+    unset($_SESSION['action']);
+}
  ?>
 
 <!DOCTYPE html>
