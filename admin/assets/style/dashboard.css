@@ -43,4 +43,25 @@
 }
 .addPlace:hover {
   cursor: pointer;
+}
+
+.main_block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main_block .block {
+  display: grid;
+  height: 250px;
+  width: 250px;
+  grid-template-columns: 80% 20%;
+}
+.main_block .block .block_num {
+  background-color: aqua;
+  font-size: 50px;
+  color: red;
+}
+.main_block .block .block_name {
+  font-size: 25px;
+  color: blue;
 }/*# sourceMappingURL=dashboard.css.map */

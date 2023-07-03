@@ -13,23 +13,30 @@ if (isset($_GET['type'])) {
         $res3 = $con->query($str3);
         $res4 = $con->query($str4);
         $res5 = $con->query($str5);
-        echo "<table class='dashboard' border='2' cellspacing='0'>
-        <tr>
-        <td>Users</td><td>" . $res1->num_rows . "</td>
-        </tr>
-        <tr>
-        <td>Place</td><td>" . $res2->num_rows . "</td>
-        </tr>
-        <tr>
-        <td>Accomodation</td><td>" . $res3->num_rows . "</td>
-        </tr>
-        <tr>
-        <td>Restaurant</td><td>" . $res4->num_rows . "</td>
-        </tr>
-        <tr>
-        <td>Cafe</td><td>" . $res5->num_rows . "</td>
-        </tr>
-        </table>";
+
+        echo "<div class='main_block'>
+            <div class='block'>
+                <div class='block_num'><p>" . $res1 . "</p></div>
+                <div class='block_name' ><p>Total Users</p></div> 
+                  </div>
+            <div class='block'>
+                <div class='block_num' ><p>" . $res2 . "</p></div>
+                <div class='block_name' ><p>Total Places</p></div> 
+                  </div>
+            <div class='block'>
+                <div class='block_num' ><p> " . $res3 . "</p></div>
+                <div class='block_name' ><p>Total Accommodation</p></div> 
+                  </div>
+            <div class='block'>
+                <div class='block_num' ><p> " . $res4 . "</p></div>
+                <div class='block_name' ><p>Total Restaurant</p></div> 
+                  </div>
+            <div class='block'>
+                <div class='block_num' ><p> " . $res5 . "</p></div>
+                <div class='block_name' ><p>Total Cafes</p></div> 
+                  </div>
+        </div>";
+    
     } else if ($_GET['type'] == "place") {
         $str1 = "select * from tbl_place";
         $res1 = $con->query($str1);
@@ -337,31 +344,5 @@ if (isset($_GET['type'])) {
 }
 
 
-// $str1 = "select * from tbl_user";
-// $str2 = "select * from tbl_place";
-// $str3 = "select * from tbl_accommodation";
-// $str4 = "select * from tbl_restaurant";
-// $str5 = "select * from tbl_cafe";
-// $res1 = $con->query($str1);
-// $res2 = $con->query($str2);
-// $res3 = $con->query($str3);
-// $res4 = $con->query($str4);
-// $res5 = $con->query($str5);
-// echo "<table class='dashboard' border='2' cellspacing='0'>
-// <tr>
-// <td>Users</td><td>".$res1->num_rows."</td>
-// </tr>
-// <tr>
-// <td>Place</td><td>".$res2->num_rows."</td>
-// </tr>
-// <tr>
-// <td>Accomodation</td><td>".$res3->num_rows."</td>
-// </tr>
-// <tr>
-// <td>Restaurant</td><td>".$res4->num_rows."</td>
-// </tr>
-// <tr>
-// <td>Cafe</td><td>".$res5->num_rows."</td>
-// </tr>
 
 ?>
