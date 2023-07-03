@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if(!isset($_SESSION['uname'])){
-//     $_SESSION['admin_login'] = "Please login first";
-//     header('Location:login.php');
-// }
+if(!isset($_SESSION['uname'])){
+    $_SESSION['admin_login'] = "Please login first";
+    header('Location:login.php');
+}
 if(isset($_SESSION['action'])){
     echo "<script> alert(" . $_SESSION['action'] . ")</script>";
     unset($_SESSION['action']);

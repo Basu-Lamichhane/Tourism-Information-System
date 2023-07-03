@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['uname'])){
+    $_SESSION['admin_login'] = "Please login first";
+    header('Location:login.php');
+}
 require "dbconn.inc.php";
 if (isset($_GET['type']) && isset($_GET['id'])) {
     $destination = $_GET['type'];
