@@ -95,9 +95,9 @@ session_start();
         <div id="table-content">
             <?php include "config/get_info.php";?>
         </div>
-        <?php include "action.php"; ?>
+        <?php include "config/action.php"; ?>
     </main>
-  
+
     
 
     <script src="assets/script/admin_panel.js"></script>

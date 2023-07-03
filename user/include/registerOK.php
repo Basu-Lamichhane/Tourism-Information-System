@@ -7,7 +7,7 @@ if(isset($_POST['email'])&& isset($_POST['pass'])){
     $email=cleanInput($_POST['email']);
     $pass = cleanInput($_POST['pass']);
     $city = cleanInput($_POST['city']);
-    $district = cleanInput($_POST['district']);
+    $district = ucfirst(cleanInput($_POST['district']));
     $gender = cleanInput($_POST['gender']);
     $dob = cleanInput($_POST['reg_date']);
 
