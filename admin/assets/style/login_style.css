@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "traverse-nepal-hammersmith-one-regular";
+  src: url(../../fonts/traverse-nepal-hammersmith-one-regular.ttf);
+}
+
+*{
+font-family: "traverse-nepal-hammersmith-one-regular";
+}
+
+
 * {
   margin: 0px;
   padding: 0px;

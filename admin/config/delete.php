@@ -16,8 +16,7 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
 
         $result = $con->query($qry);
         if ($result == TRUE) {
-            header("Location:../admin.php/type=" . $destination);
-            $_SESSION['action'] = "Data Deleted Sucessfully";
+            header("Location:../admin.php");
         }else{
             echo "Database Error";
         }

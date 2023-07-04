@@ -314,3 +314,7 @@ picture img {
 .profile-details-content{
     cursor: default;
 }
+
+.scroll-to-bottom{
+    scroll-behavior: smooth;
+}

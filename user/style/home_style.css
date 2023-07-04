@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "traverse-nepal-hammersmith-one-regular";
+    src: url(../fonts/traverse-nepal-hammersmith-one-regular.ttf);
+}
+
+*{
+font-family: "traverse-nepal-hammersmith-one-regular";
+}
+
+
 body {
   background: url("../img/home_page2.jpg");
   background-size: cover;
@@ -21,12 +31,10 @@ body {
 .home_page .home_left .home_left_content h1 span {
   font-size: 200px;
   color: #073064;
-  cursor: default;
 }
 .home_page .home_left .home_left_content h4 {
   font-size: 30px;
   color: #073064;
-  cursor: default;
 }
 .home_page .home_left .home_left_content .home_left_buttons {
   display: flex;
@@ -52,51 +60,8 @@ body {
   transform: rotate(20deg);
 }/*# sourceMappingURL=home_style.css.map */
 
-
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-a {
+#home_login_btn a,#home_register_btn a {
   text-decoration: none;
   color: #073064;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-}
-.navbar .logo {
-  height: 10vh;
-  width: auto;
-  padding: 25px;
-}
-.navbar .logo img {
-  height: inherit;
-  width: inherit;
-}
-.navbar nav {
-  padding: 20px;
-  text-align: end;
-  background: transparent;
-}
-.navbar nav ul li {
-  margin-right: 25px;
-  display: inline-block;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 2px 2px #073064;
-  background: #f88932;
-  border: 1px solid black;
-  padding: 4px;
-  border-radius: 25px;
-}/*# sourceMappingURL=nav_style.css.map */
