@@ -53,7 +53,6 @@ include "user/include/star_rating.inc.php";
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Traverse Nepal</title>
     <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">

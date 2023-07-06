@@ -67,7 +67,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
         $first_char = $destination[0];
         $query_data = "
             SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
-            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'ORDER BY name ASC;";
+            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY name ASC;";
 
     } else if ($district != "" && $destination != "" && $type == "") { // if only type is not selected
         $first_char = $destination[0];
@@ -104,6 +104,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
 
     }
     echo json_encode($data);
+    // print_r($data);
+    // echo json_encode($data);
     
 
 }

@@ -4,10 +4,7 @@ if(!isset($_SESSION['uname'])){
     $_SESSION['admin_login'] = "Please login first";
     header('Location:login.php');
 }
-if(isset($_SESSION['action'])){
-    echo "<script> alert(" . $_SESSION['action'] . ")</script>";
-    unset($_SESSION['action']);
-}
+
  ?>
 
 <!DOCTYPE html>
@@ -76,9 +73,9 @@ if(isset($_SESSION['action'])){
 
                 <li>
                     <div class="profile-details">
-                        <div class="profile-content">
+                        <!-- <div class="profile-content">
                             <img src="" alt="photo">
-                        </div>
+                        </div> -->
 
                         <div class="admin-profile">
                             <div class="admin-name">Admin</div>
@@ -107,9 +104,6 @@ if(isset($_SESSION['action'])){
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>
-
-
-    
 </body>
 
 </html>

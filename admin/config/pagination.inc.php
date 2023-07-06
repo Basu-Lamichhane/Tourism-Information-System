@@ -1,5 +1,5 @@
 <?php
-    if(isset($_GET['type'])&&$_GET['type']=="attraction"){
+    if(isset($_GET['type'])&&$_GET['type']=="place"){
         $query_string="?type=". $_GET['type'];
     }
     elseif(isset($_GET['type']) && $_GET['type']=="accommodation"){

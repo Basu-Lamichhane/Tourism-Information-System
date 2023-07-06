@@ -75,7 +75,7 @@ $user_image = $row['u_image'];
                     </div>
                     <div class="pp-upload">
                         <form action="user/include/image_upload.php" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="pp-upload" id="image-input" hidden>
+                            <input type="file" name="pp-upload" id="image-input" accept="image/jpeg, image/png, image/gif" hidden>
                             <button type="submit" id="upload-btn" disabled>Upload Profile picture</button>
                         </form>
                     </div>

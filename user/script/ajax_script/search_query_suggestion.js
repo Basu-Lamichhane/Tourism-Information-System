@@ -33,6 +33,7 @@ function load_search_result(search_query) {
             if (ajax_request.readyState == 4 && ajax_request.status == 200) {
                 console.log(ajax_request.responseText);
                 // var response = ajax_request.responseText;
+                
                 var response = JSON.parse(ajax_request.responseText);
 
 

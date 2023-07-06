@@ -54,12 +54,18 @@
   display: grid;
   height: 250px;
   width: 250px;
-  grid-template-columns: 80% 20%;
+  text-align: center;
+  border: #073064 solid 2px;
+  margin-bottom: 10px;
 }
 .main_block .block .block_num {
-  background-color: aqua;
+  background-color: #f88932;
   font-size: 50px;
-  color: red;
+  color: #073064;
+  margin: 20px;
+}
+.main_block .block .block_num p {
+  margin-top: 20%;
 }
 .main_block .block .block_name {
   font-size: 25px;

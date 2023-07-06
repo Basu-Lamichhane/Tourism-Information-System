@@ -38,7 +38,7 @@ if (isset($_GET['type']))
         <div class="suggestion-container" <?php if (!isset($_GET['type']))
             echo ('style="margin-top:118px;"'); ?>>
             <div class="suggestion-desc-title">
-                Suggest
+                Add
                 <?php if (isset($_GET['type']))
                     echo $_GET['type'];
                 else

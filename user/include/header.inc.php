@@ -22,17 +22,17 @@ if(isset($_SESSION['email'])){
 
         <div class="navbar-container">
             <div class="nav-menus">
-                <a href="./search.php" class="nav-menu">
+                <a href="./index.php" class="nav-menu">
                     <span class="menu-name">
                         Home
                     </span>
                 </a>
-                <a href="#" class="nav-menu">
+                <a href="#bottom" class="nav-menu scroll-to-bottom">
                     <span class="menu-name">
                         About
                     </span>
                 </a>
-                <a href="#" class="nav-menu">
+                <a href="#bottom" class="nav-menu scroll-to-bottom">
                     <span class="menu-name">
                         Contact
                     </span>
@@ -87,7 +87,7 @@ if(isset($_SESSION['email'])){
                                 </span>
                             </a>
                             <hr>
-                            <!-- <a href="./suggest_destination.php" target="_blank" class="dropdown-content">
+                            <a href="./search.php" target="_blank" class="dropdown-content">
                                 <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"
                                         viewBox="0 0 320 512">
                                         <path
@@ -95,11 +95,11 @@ if(isset($_SESSION['email'])){
                                     </svg>
                                 </span>
                                 <span class="dropdown-label">
-                                    <li>Suggest</li>
+                                    <li>Search</li>
                                     <span>></span>
                                 </span>
                             </a>
-                            <hr> -->
+                            <hr>
                             <a href="./logout.php" class="dropdown-content">
                                 <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px"
                                         viewBox="0 0 512 512">

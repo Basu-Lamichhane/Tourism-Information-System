@@ -20,7 +20,7 @@ footer{
 /* The footer is fixed to the bottom of the page */
 
 .footer-section {
-    background-color: rgb(7, 48, 100,0.75);
+    background-color: rgb(7, 48, 100);
     box-sizing: border-box;
     width: 100%;
     text-align: left;
@@ -74,6 +74,14 @@ footer{
 
 .footer-section .footer-center {
     width: 30%;
+    gap: 35px;
+    display: inline-grid;
+    fill: white;
+}
+
+.footer-section .footer-center div svg{
+    height: 24px;
+    width: 24px;
 }
 
 .footer-section .footer-center i {
@@ -143,7 +151,7 @@ footer{
 .footer-section .footer-icons a {
     display: inline-block;
     width: 35px;
-    height: 35px;
+    height: 30px;
     cursor: pointer;
     background-color: #33383b;
     border-radius: 2px;
@@ -153,6 +161,11 @@ footer{
     line-height: 35px;
     margin-right: 3px;
     margin-bottom: 5px;
+}
+
+.footer-section .footer-icons a svg{
+    margin-top: 3px;
+    fill: white;
 }
 
 .footer-section .footer-icons a:hover {

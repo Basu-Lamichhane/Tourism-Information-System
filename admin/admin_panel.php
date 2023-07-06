@@ -94,9 +94,9 @@ session_start();
 
                 <li>
                     <div class="profile-details">
-                        <div class="profile-content">
+                        <!-- <div class="profile-content">
                             <img src="" alt="photo">
-                        </div>
+                        </div> -->
 
                         <div class="admin-profile">
                             <div class="admin-name">Admin</div>
