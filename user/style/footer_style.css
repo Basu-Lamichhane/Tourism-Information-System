@@ -187,3 +187,13 @@ footer{
         margin-left: 0;
     }
 }       
+
+.logo-details-container{
+    display: flex;
+    align-items: center;
+}
+
+.logo-details-container span svg{
+    height: 40px;
+    width: 40px;
+}
