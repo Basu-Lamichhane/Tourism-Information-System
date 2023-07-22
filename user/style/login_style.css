@@ -14,8 +14,20 @@
   border: 1px solid black;
   box-shadow: 2px 2px black;
   border-radius: 10px;
-  background-color: rgba(248, 137, 50, 0.5);
+  background-color: rgba(248, 137, 50);
 }
+
+input[type="submit"] {
+cursor: pointer;
+transition: 0.5s;
+}
+
+input[type="submit"]:hover{
+  transform: translateY(-5px);
+  background-color: #073064 !important;
+  color: #f88932;
+}
+
 .login_container fieldset legend {
   font-size: 36px;
 }
@@ -38,3 +50,11 @@
   margin: 10px 30%;
   display: inline-block;
 }/*# sourceMappingURL=login_style.css.map */
+
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.7;
+}

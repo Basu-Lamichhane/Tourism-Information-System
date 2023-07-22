@@ -15,6 +15,10 @@
         <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
 
+    <video autoplay loop muted plays-inline class="back-video">
+        <source src="./image/videos/Nepal-2.mp4" type="video/mp4">
+    </video>
+
     <?php include "user/include/header.inc.php";?>
 
     <section class="home_page">
@@ -23,9 +27,9 @@
           <h1><span>J</span>oin Now</h1>
           <h4>To get your next destination planned...!</h4>
           <div class="home_left_buttons">
-          <button id="home_login_btn"><a href="./login.php">Login</a></button>
+          <a href="./login.php"><button id="home_login_btn">Login</button></a>
           <div class="slash"></div>
-          <button id="home_register_btn"><a href="./register.php">Register</a></button>
+          <a href="./register.php"><button id="home_register_btn">Register</button></a>
         </div>
         </div>
       </div>

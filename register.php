@@ -27,6 +27,10 @@ require "user/include/dbconn.inc.php";
         <img src="user/img/TN-reload-page-animation.gif" alt="Loading...">
     </div>
 
+    <video autoplay loop muted plays-inline class="back-video">
+        <source src="./image/videos/Nepal-3.mp4" type="video/mp4">
+    </video>
+
     <?php include "user/include/header.inc.php"; ?>
     <?php
     if (isset($_SESSION['login_err'])) {
