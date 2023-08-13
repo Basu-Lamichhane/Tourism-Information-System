@@ -80,7 +80,6 @@ if(isset($_GET['type'])){
             $website= $row['r_website'];
             $starttime = $row['r_starttime'];
             $closetime = $row['r_closetime'];
-
         }
     }
 } 

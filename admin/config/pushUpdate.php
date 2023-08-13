@@ -167,10 +167,11 @@ else if(isset($_POST['submit'])){
 
         // $qry = "INSERT INTO `tbl_restaurant` (`r_name`, `r_image`, `r_address`, `r_district`, `r_latitude`, `r_longitude`, `r_type`, `r_services`, `r_rating`, `r_num_reviews`, `r_phone`, `r_website`, `r_email`, `r_starttime`, `r_closetime`) VALUES ('$name', '$db_image', '$address', '$district', '$latitude', '$longitude', '$type', '$services', '$rating', '$review', '$phone', '$web', '$email', '$starttime', '$closetime')" ;
 
+
         $result = $con->query($qry);
         if($result==TRUE){
-            header("Location:../add_destination.php?type=".$destination);
-            $_SESSION['action'] = "Data Updated Sucessfully";
+            header("Location:../admin.php?type=".$destination);
+            $_SESSION['action'] = "Data Updated Sucessfully".$starttime;
         }
     }
 

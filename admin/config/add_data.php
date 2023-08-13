@@ -61,6 +61,9 @@ else if(isset($_POST['submit'])){
             header("Location:../add_destination.php");
             $_SESSION['action'] = "Data Added Sucessfully";
         }
+        else{
+            echo "<script>alert('Cafe could not be added');</script>".$qry;
+        }
 
     }
     else if($destination=="accommodation"){

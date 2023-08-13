@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require "config/dbconn.inc.php";
 
 
@@ -133,8 +132,8 @@ if (isset($_GET['type']))
                                         <?php echo ucfirst($destination); ?> Services :
                                     </label>
                                     <textarea name="services" id="dest-services" rows="3" maxlength="50" style="resize: none"
-                                        placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )"
-                                        required onkeyup="javascript:validateServices(this.value)"></textarea>
+                                        placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )" 
+                                        required onkeyup="javascript:validateServices(this.value)"><?php echo htmlentities($services);?></textarea>
                                 </div>
                             <?php } ?>
                             <div class="destination-type">
@@ -167,9 +166,10 @@ if (isset($_GET['type']))
                                 <label for="dest-image">Image of the
                                     <?php echo $destination; ?> :
                                 </label>
-                                <input type="file" value="<?php echo $image;?>" id="image" accept="image/jpeg, image/png, image/gif" name="image"
+                                <input type="file" value="<?php echo $image;?>"  id="image" accept="image/jpeg, image/png, image/gif" name="image"
                                     required>
-                                    <!-- <img src="../<?php echo $image;?>" style="display:inline-block;height:50px;width:50px;" > -->
+                                    
+                                    
                             </div>
                             <div>
                                 <label for="dest-address">Address :</label>
@@ -222,12 +222,14 @@ if (isset($_GET['type']))
                                 <?php if ($destination != 'accommodation') { ?>
                                     <div class="destination-start">
                                         <label for="dest-start">Start time :</label>
-                                        <input type="text" name="start" id="dest-start" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" value="<?php echo $starttime; ?>"
+                                        <input type="text" name="starttime" id="dest-start" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" value="<?php echo $starttime; ?>"
                                             placeholder="Enter time in HH:MM format" required />
                                     </div>
+                                    <?php
+                                    ?>
                                     <div class="destination-close">
                                         <label for="dest-close">Close time :</label>
-                                        <input type="text" name="close" id="dest-close" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" value="<?php echo $closetime; ?>"
+                                        <input type="text" name="closetime" id="dest-close" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" value="<?php echo $closetime; ?>"
                                             placeholder="Enter time in HH:MM format" required />
                                     </div>
                                 <?php } ?>

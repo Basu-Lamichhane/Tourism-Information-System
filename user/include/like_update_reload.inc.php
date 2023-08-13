@@ -1,7 +1,7 @@
 <?php
 
 $user_email=$_SESSION['email'];
-require "/dbconn.inc.php";
+require "dbconn.inc.php";
 
 $user_id_query_exec=$con->query("SELECT u_id FROM tbl_user WHERE u_email = '$user_email';");
 $user_data_row=$user_id_query_exec->fetch_assoc();
@@ -20,7 +20,6 @@ while($liked_destinations_row=$liked_destinations_details_exec->fetch_assoc()){?
     liked_destination_element.style.backgroundColor ="#f88932";
     liked_destination_element.setAttribute("data-liked","yes");
 </script>
-
 
 <?php
 }

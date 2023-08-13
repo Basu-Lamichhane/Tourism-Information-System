@@ -37,7 +37,7 @@ if(!isset($_SESSION['uname'])){
                 </li>
 
                 <li class="item">
-                    <div class="submenu-item">
+                    <div class="submenu-item" id="manage-tourism">
                         <span>Manage Tourism</span>
                         <span class="arrow-right"></span>
                     </div>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['uname'])){
                             Manage Tourism
                         </div>
                         <li class="item">
-                            <a href="admin.php?type=district" >District</a>
+                            <a href="admin.php?type=district">District</a>
                         </li>
                         <li class="item">
                             <a href="admin.php?type=place" >Attractions</a>
@@ -66,9 +66,6 @@ if(!isset($_SESSION['uname'])){
                 </li>
                 <li class="item">
                     <a href="admin.php?type=user" >Manage User</a>
-                </li>
-                <li class="item">
-                    <a href="#">Manage user suggestions</a>
                 </li>
 
                 <li>
@@ -101,6 +98,12 @@ if(!isset($_SESSION['uname'])){
 
     
 
+    <?php
+    if (isset($_SESSION['action'])) {
+        echo "<script> alert('" . $_SESSION['action'] . "') </script>";
+        unset($_SESSION['action']);
+    }
+    ?>
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>

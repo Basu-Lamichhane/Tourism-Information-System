@@ -269,12 +269,6 @@ if (isset($_GET['type']))
 
     </main>
 
-    <?php
-    if (isset($_SESSION['action'])) {
-        echo "<script> alert('" . $_SESSION['action'] . "') </script>";
-        unset($_SESSION['action']);
-    }
-    ?>
     <!-- <script src="script/add_destination.js"></script> -->
     <script src="assets/script/reload_animation.js"></script>
     <script src="assets/script/add_form_validation.js"></script>
