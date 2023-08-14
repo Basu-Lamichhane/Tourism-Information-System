@@ -106,6 +106,19 @@ include "user/include/star_rating.inc.php";
                     <?php echo $destination_name; ?>
                 </div>
                 <div class="destination-share-like-container">
+                    <div class="show-map-btn-container" id="map-dest">
+                        <button class="show-map-button"
+                            onclick="showLocation('<?php echo $destination; ?>','<?php echo $destination_id; ?>');">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" style="fill:#073064;"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
+                            </svg>
+                            <div class="show-map-btns">
+                                Show Location
+                            </div>
+                        </button>
+                    </div>
                     <div class="like-btn-container" id="like-dest">
                         <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
                             data-destination-id="<?php echo $destination_id; ?>">
@@ -350,6 +363,17 @@ include "user/include/star_rating.inc.php";
                 left: scrollStep * scrollAmount,
                 behavior: 'smooth'
             });
+        }
+
+        function showLocation(a, b) {
+            console.log("running");
+            var urlToOpen = './user/include/maps/show_map.inc.php?type=' + a + '&id=' + b;
+            var mapTab = window.open(urlToOpen, "_blank", "width=800,height=600");
+
+            // Check if the new tab was successfully opened
+            if (mapTab === null) {
+                alert("Popup blocked. Make sure to allow popups for this site.");
+            }
         }
     </script>
     <!-- javascripts -->

@@ -43,6 +43,16 @@ section.destination-title-container {
     font-family: 'traverse-nepal-hammersmith-one-regular';
 }
 
+button.show-map-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: inherit;
+    font-size: large;
+    font-weight: bold;
+    color: #073064;
+}
+
 .destination-share-like-container {
     display: inline-flex;
     align-content: center;
@@ -56,10 +66,9 @@ section.destination-title-container {
 }
 
 .destination-share-like-container div button {
-    border-radius: 16px;
-    height: 32px;
+    border-radius: 15px;
     min-width: 32px;
-    padding: 4px;
+    padding: 10px;
     background-color: white;
     cursor: pointer;
     transition: 0.5s;

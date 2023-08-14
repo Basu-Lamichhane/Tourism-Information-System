@@ -1,11 +1,11 @@
 <?php
 session_start();
-if(!isset($_SESSION['uname'])){
+if (!isset($_SESSION['uname'])) {
     $_SESSION['admin_login'] = "Please login first";
     header('Location:login.php');
 }
 
- ?>
+?>
 
 <!DOCTYPE html>
 
@@ -19,6 +19,7 @@ if(!isset($_SESSION['uname'])){
     <link rel="stylesheet" href="assets/style/admin_panel.css" />
     <link rel="stylesheet" href="assets/style/dashboard.css" />
     <link rel="stylesheet" href="assets/style/pagination_style.css" />
+    <link rel="stylesheet" href="assets/datatable/datatables.min.css" />
 </head>
 
 <body>
@@ -33,7 +34,7 @@ if(!isset($_SESSION['uname'])){
                 <div class="menu-title">Admin Panel</div>
 
                 <li class="item" onclick="showDashboard();">
-                    <a href="admin.php?type=dashboard" >Dashboard</a>
+                    <a href="admin.php?type=dashboard">Dashboard</a>
                 </li>
 
                 <li class="item">
@@ -51,7 +52,7 @@ if(!isset($_SESSION['uname'])){
                             <a href="admin.php?type=district">District</a>
                         </li>
                         <li class="item">
-                            <a href="admin.php?type=place" >Attractions</a>
+                            <a href="admin.php?type=place">Attractions</a>
                         </li>
                         <li class="item">
                             <a href="admin.php?type=accommodation">Accommodations</a>
@@ -65,7 +66,7 @@ if(!isset($_SESSION['uname'])){
                     </ul>
                 </li>
                 <li class="item">
-                    <a href="admin.php?type=user" >Manage User</a>
+                    <a href="admin.php?type=user">Manage User</a>
                 </li>
 
                 <li>
@@ -91,12 +92,12 @@ if(!isset($_SESSION['uname'])){
 
     <main class="main" id="main_content">
         <div id="table-content">
-            <?php include "config/get_info.php";?>
+            <?php include "config/get_info.php"; ?>
         </div>
         <?php include "config/action.php"; ?>
     </main>
 
-    
+
 
     <?php
     if (isset($_SESSION['action'])) {
@@ -107,6 +108,15 @@ if(!isset($_SESSION['uname'])){
     <script src="assets/script/admin_panel.js"></script>
     <script src="assets/script/attraction_table_ajax.js"></script>
     <script src="assets/script/admin_dashboard.js"></script>
+    <script src="assets/script/jquery.js"></script>
+    <script src="assets/datatable/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').dataTable({
+                "lengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+            });
+        });
+    </script>
 </body>
 
 </html>
