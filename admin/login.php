@@ -10,7 +10,8 @@ if(isset($_SESSION['admin_email'])){
 
 <head>
   <meta charset="UTF-8">
-  <title>Admin Login</title>
+  <title>Admin Login | Traverse Nepal</title>
+  <link rel="icon" href="../image/TN_favicon_white.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style/login_style.css">
   <link rel="stylesheet" href="assets/style/noti.css">
 </head>

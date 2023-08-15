@@ -66,7 +66,7 @@ include "config/star_rating.inc.php";
     <title>
         <?php echo $destination_name . " | " . $district . "  Traverse Nepal"; ?>
     </title>
-    <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="image/TN_favicon_white.svg" type="image/svg+xml">
     <link rel="stylesheet" href="user/style/reload_animation_style.css">
     <link rel="stylesheet" href="assets/style/view_destination_style.css">
 </head>

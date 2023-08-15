@@ -1,0 +1,61 @@
+@font-face {
+    font-family: "traverse-nepal-hammersmith-one-regular";
+    src: url(../../fonts/traverse-nepal-hammersmith-one-regular.ttf);
+}
+
+* {
+    /* margin: 0; */
+    padding: 0;
+    font-family: "traverse-nepal-hammersmith-one-regular" !important;
+}
+
+
+.picture-info-container {
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 1184px;
+    display: flex;
+    gap: 20px;
+    margin-top: 120px;
+}
+.info-about {
+    font-size: xxx-large;
+    font-weight: bold;
+}
+
+.info-container {
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.info-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.info-desc {
+    text-indent: 50px;
+}
+
+.picture-container {
+    position: relative;
+}
+
+.picture-box {
+    margin-top: 3vh;
+}
+
+img.picture {
+    transition: 0.5s;
+    height: 300px;
+}
+
+img.picture:hover {
+    transform: scale(1.03);
+}

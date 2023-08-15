@@ -19,7 +19,7 @@ if (isset($_GET['type']))
 
 <head>
     <title>Add Destination</title>
-    <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../image/TN_favicon_white.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="assets/style/add_destination_style.css">
     <link rel="stylesheet" href="assets/style/reload_animation_style.css">
@@ -105,7 +105,7 @@ if (isset($_GET['type']))
                 </span>
             <?php } ?>
             <?php
-            if (isset($_GET['type'])) {
+            if (isset($_GET['type']) && ($_GET['type']!="district")) {
                 ?>
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
@@ -262,7 +262,62 @@ if (isset($_GET['type']))
 
                     </div>
                 </div>
-            <?php } ?>
+            <?php }elseif(isset($_GET['type']) && ($_GET['type']=="district")) { ?>
+                <div class="suggestion-form-map-container">
+                    <div class="suggestion-form-container">
+                        <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form"
+                            action="config/add_data.php">
+                            <div class="destination-name">
+                                <label for="dest-name">
+                                    <?php echo ucfirst($destination); ?> Name :
+                                </label>
+                                <input name="name" id="dest-name" type="text"
+                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100"
+                                    required />
+                            </div>
+                            <?php if ($destination == "place" || $destination=="district") { ?>
+                                <div class="destination-description">
+                                    <label for="dest-desc">Place Description :</label>
+                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none"
+                                        placeholder="Enter the description for the destination (Max characters : 700 )"
+                                        required></textarea>
+                                </div>
+                            <?php } else { ?>
+                                <div class="destination-services">
+                                    <label for="dest-services">
+                                        <?php echo ucfirst($destination); ?> Services :
+                                    </label>
+                                    <textarea name="services" id="dest-services" rows="3" maxlength="50" style="resize: none"
+                                        placeholder="Enter the services of <?php echo $destination; ?>(More than one services must be separated by comma ',') (Max characters : 50 )"
+                                        required onkeyup="javascript:validateServices(this.value)"></textarea>
+                                </div>
+                            <?php } ?>
+                            <div class="destination-type">
+                                <label for="dest-type">Type of
+                                    <?php echo $destination; ?>:
+                                </label>
+                                <input type="text" name="type" id="dest-type" required maxlength="50"
+                                    onkeyup="javascript:validateType(this.value)"></input>
+                            </div>
+                            <div>
+                                <label for="dest-image">Image of the
+                                    <?php echo $destination; ?> :
+                                </label>
+                                <input type="file" id="image" accept="image/jpeg, image/png, image/gif" name="image"
+                                    required>
+                            </div>
+
+                            <p class="error_style" id="input-error" style="height:15px"></p>
+                            <div class="dest-submit">
+                                <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
+                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
+                            </div>
+                            <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination; ?>">
+                        </form>
+                    </div>
+
+                </div>
+            <?php }?>
 
         </div>
 

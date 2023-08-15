@@ -16,6 +16,7 @@ if (isset($_GET['type']))
 
 <head>
     <title>Add Destination</title>
+    <link rel="icon" href="../image/TN_favicon_white.svg" type="image/svg+xml">
     <link rel="icon" href="../image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="assets/style/add_destination_style.css">
@@ -203,7 +204,7 @@ if (isset($_GET['type']))
                                 </div>
                                 <div>
                                     <label for="dest-longitude">Longitude :</label>
-                                    <input type="number" name="longitude" id="dest-longitude" value="<?php echo $longitude; ?>"  required step="any">
+                                    <input type="number" name="longitude" id="dest-longitude" value="<?=$longitude?>"  required step="any">
                                 </div>
                             </div>
                             <div class="destination-rating">

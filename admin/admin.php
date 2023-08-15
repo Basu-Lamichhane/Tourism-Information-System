@@ -15,7 +15,8 @@ if (!isset($_SESSION['uname'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidebar Menu for Admin Dashboard | Traverse Nepal</title>
+    <title>Admin Dashboard | Traverse Nepal</title>
+    <link rel="icon" href="../image/TN_favicon_white.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/style/admin_panel.css" />
     <link rel="stylesheet" href="assets/style/dashboard.css" />
     <link rel="stylesheet" href="assets/style/pagination_style.css" />
@@ -79,7 +80,7 @@ if (!isset($_SESSION['uname'])) {
                             <div class="admin-name">Admin</div>
                             <div class="admin-desc">Traverse Nepal</div>
                         </div>
-                        <a href="#" class="logout"></a>
+                        <a href="logout.php" class="logout"></a>
                     </div>
                 </li>
             </ul>
@@ -90,9 +91,18 @@ if (!isset($_SESSION['uname'])) {
         <span class="nav-bars" id="sidebar-close"></span>
     </nav>
 
-    <main class="main" id="main_content">
+    <main class="main" id="main_content" <?php if (isset($_GET['type']) && $_GET['type'] != "dashboard") {
+        echo 'style="height:91vh"';
+    }
+    ?>>
         <div id="table-content">
             <?php include "config/get_info.php"; ?>
+            <?php if (isset($_GET['type']) && $_GET['type'] == "dashboard") {
+                echo '<div class="chart-container">';
+                include "config/chart.inc.php";
+                echo '</div>';
+            }
+            ?>
         </div>
         <?php include "config/action.php"; ?>
     </main>
@@ -113,7 +123,7 @@ if (!isset($_SESSION['uname'])) {
     <script>
         $(document).ready(function () {
             $('#myTable').dataTable({
-                "lengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
             });
         });
     </script>

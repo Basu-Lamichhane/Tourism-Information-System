@@ -10,10 +10,11 @@ const emailInput = document.getElementById("dest-email");
 const websiteInput = document.getElementById("dest-website");
 const check = document.getElementById("hidden_value").value;
 
-
 if (check == "place") {
   var inputArray = new Array(typeInput, addressInput);
-} else {
+} else if (check == "district") {
+  var inputArray = new Array(typeInput);
+}else {
   var inputArray = new Array(
     serviceInput,
     typeInput,

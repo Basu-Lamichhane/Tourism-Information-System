@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "traverse-nepal-hammersmith-one-regular";
+    src: url(../../fonts/traverse-nepal-hammersmith-one-regular.ttf);
+}
+
+* {
+    /* margin: 0; */
+    padding: 0;
+    font-family: "traverse-nepal-hammersmith-one-regular" !important;
+}
+
+body {
+    height: 100vh;
+}
+
+.form-container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    width: 1184px;
+    padding: 20px;
+    height: 100vh;
+}
+
+#field-set {
+    padding: 12px;
+    font-size: xx-large;
+    border-radius: 20px;
+    border: 5px solid #073064;
+}
+
+.form {
+    display: flex;
+    gap: 25px;
+    font-size: large;
+}
+
+img {
+    height: 200px;
+    border: solid 2px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.image.form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#ddesc {
+    resize: none;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 20px;
+    font-style: italic;
+    overflow: hidden;
+}
+
+.submit.form {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.submit.form button {
+    background: rgb(255, 255, 255, 0.5);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border: 2px solid;
+    color: #073064;
+    display: flex;
+    gap: 12px;
+    padding: 11px 16px;
+    transition: 0.5s;
+    text-align: left;
+    border-radius: 12px;
+    height: 100%;
+    align-items: flex-start;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: large;
+    fill: #073064;
+}
+
+.submit.form button:hover {
+    background-color: #073064;
+    color: #f88932;
+    border-color: #f88932;
+    fill: #f88932;
+    transform: scale(1.1);
+}
