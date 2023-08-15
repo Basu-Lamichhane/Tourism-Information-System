@@ -40,9 +40,12 @@ if (isset($_GET['name'])) {
         $result2 = $con->query("UPDATE `tbl_district` SET `d_name`='{$new_district_name}',`d_desc`='{$new_district_desc}',`d_image`='{$db_image_path}',`d_type`='{$new_district_type}' WHERE `d_name`='{$district_name}';");
 
         // echo "UPDATE `tbl_district` SET `d_name`='{$new_district_name}',`d_desc`='{$new_district_desc}',`d_image`='{$db_image_path}',`d_type`='{$new_district_type}' WHERE `d_name`='{$district_name}';";
-        if ($result2)
+        if ($result2){
             echo ("<script>alert('The datas for {$district_name} is updated');</script>");
             echo '<script>window.location.href="../admin.php?type=district"</script>';
+        }else{
+            echo ("<script>alert('Sorry, the datas for {$district_name} is cannot be updated');</script>");
+        }
 
     }
 } else {

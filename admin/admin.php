@@ -97,10 +97,16 @@ if (!isset($_SESSION['uname'])) {
     ?>>
         <div id="table-content">
             <?php include "config/get_info.php"; ?>
-            <?php if (isset($_GET['type']) && $_GET['type'] == "dashboard") {
-                echo '<div class="chart-container">';
-                include "config/chart.inc.php";
-                echo '</div>';
+            <?php if (isset($_GET['type']) && $_GET['type'] == "dashboard") { ?>
+                <div class="chart-main">
+                    <div class="chart-title">
+                        Most liked destinations by the users:
+                    </div>
+                    <div class="chart-container">
+                        <?php include "config/chart.inc.php"; ?>
+                    </div>
+                </div>
+                <?php
             }
             ?>
         </div>

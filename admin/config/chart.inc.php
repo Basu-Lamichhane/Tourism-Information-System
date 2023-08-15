@@ -1,7 +1,98 @@
-<?php
 
+<?php
 require "dbconn.inc.php";
 
+// For the diagram for districts ------------------------------------------------------------------------------------------------------------
+$result_liked_districts = $con->query("
+SELECT like_dest_id, COUNT(*) AS frequency FROM tbl_user_liked_trip WHERE like_dest_type='district' GROUP BY like_dest_id ORDER BY frequency DESC
+    ");
+
+$liked_districts_rows = [];
+while ($liked_districts_row = $result_liked_districts->fetch_assoc()) {
+    $liked_districts_rows[] = $liked_districts_row;
+}
+$total_liked_districts = count($liked_districts_rows);
+
+$total_districts_like_count = 0;
+foreach ($liked_districts_rows as $districts_like_count) {
+    $total_districts_like_count += $districts_like_count['frequency'];
+}
+$liked_districts = $result_liked_districts->num_rows;
+
+$LIMIT = 5; //Change this to change the number of sections in pie chart
+
+?>
+
+<canvas class="chart" id="chart-district" style="width:50%;max-width:600px"></canvas>
+
+<script src="assets/chart/chart.js"></script>
+<script>
+    var xValues = [];
+    var yValues = [];
+    <?php
+    $popular_districts_like_count = 0;
+    $other_liked_districts_count = 0;
+    $i = 0;
+    foreach ($liked_districts_rows as $districts_row) {
+        if ($i < $LIMIT) {
+            $i++;
+            $popular_districts_like_count += $districts_row['frequency'];
+            ?>
+            xValues.push(`<?= $districts_row["like_dest_id"] ?>`);
+            yValues.push(<?= $districts_row["frequency"] ?>);
+            <?php
+        } else {
+            $other_liked_districts_count += $districts_row['frequency'];
+        }
+    }
+
+    if ($LIMIT < $total_liked_districts) { ?>
+        xValues.push(`Other districts`);
+        yValues.push(<?= $other_liked_districts_count ?>);
+        <?php
+    }
+    ?>
+    console.log(xValues, yValues);
+
+    const barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145",
+        "#f58231",
+        "#e6194B",
+        "#f032e6",
+        "#800000",
+        "#3cb44b",
+        "#911eb4"
+    ];
+
+    new Chart("chart-district", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            legend: {display:false},
+            title: {
+                display: true,
+                text: "Most Liked districts"
+            }
+        }
+    });
+</script>
+
+
+<?php
+// For the diagram for districts ------------------------------------------------------------------------------------------------------------
+?>
+
+<?php
 // For the diagram for attractions/places ------------------------------------------------------------------------------------------------------------
 $result_liked_places = $con->query("
 SELECT p_district,p_name,like_dest_id, COUNT(*) AS frequency
@@ -42,7 +133,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_places_like_count += $places_row['frequency'];
             ?>
-            xValues.push(`<?= $places_row["p_name"] ?>`);
+            xValues.push(`<?= $places_row["p_name"].", ".$places_row['p_district'] ?>`);
             yValues.push(<?= $places_row["frequency"] ?>);
             <?php
         } else {
@@ -57,19 +148,6 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
     }
     ?>
     console.log(xValues, yValues);
-    const barColors = [
-        "#b91d47",
-        "#00aba9",
-        "#2b5797",
-        "#e8c3b9",
-        "#1e7145",
-        "#f58231",
-        "#e6194B",
-        "#f032e6",
-        "#800000",
-        "#3cb44b",
-        "#911eb4"
-    ];
 
     new Chart("chart-place", {
         type: "pie",
@@ -136,7 +214,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_accommodations_like_count += $accommodations_row['frequency'];
             ?>
-            xValues.push(`<?= $accommodations_row["a_name"] ?>`);
+            xValues.push(`<?= $accommodations_row["a_name"].", ".$accommodations_row['a_district'] ?>`);
             yValues.push(<?= $accommodations_row["frequency"] ?>);
             <?php
         } else {
@@ -217,7 +295,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_restaurants_like_count += $restaurants_row['frequency'];
             ?>
-            xValues.push(`<?= $restaurants_row["r_name"] ?>`);
+            xValues.push(`<?= $restaurants_row["r_name"].", ".$restaurants_row['r_district'] ?>`);
             yValues.push(<?= $restaurants_row["frequency"] ?>);
             <?php
         } else {
@@ -298,7 +376,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_cafes_like_count += $cafes_row['frequency'];
             ?>
-            xValues.push(`<?= $cafes_row["c_name"] ?>`);
+            xValues.push(`<?= $cafes_row["c_name"].", ".$cafes_row['c_district'] ?>`);
             yValues.push(<?= $cafes_row["frequency"] ?>);
             <?php
         } else {
