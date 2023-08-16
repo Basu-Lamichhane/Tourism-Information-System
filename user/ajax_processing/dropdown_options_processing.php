@@ -23,25 +23,13 @@ function district_dropdown_value()
 
     $data = array();
 
-    $query_district = "SELECT DISTINCT(p_district) AS district
-    FROM tbl_place
-    UNION
-    SELECT DISTINCT(a_district) AS district
-    FROM tbl_accommodation
-    UNION
-    SELECT DISTINCT(r_district) AS district
-    FROM tbl_restaurant
-    UNION
-    SELECT DISTINCT(c_district) AS district
-    FROM tbl_cafe
-    ";
-
+    $query_district = "SELECT * FROM tbl_district;";
 
     $result = $con->query($query_district);
 
     foreach ($result as $row) {
         $data[] = array(
-            'district' => $row["district"]
+            'district' => $row["d_name"]
         );
     }
 
@@ -64,9 +52,6 @@ function type_dropdown_value($dest_option)
     $data = array();
 
     $query_district = "select DISTINCT(" . $fstchar . "_type) from tbl_" . $dest_option;
-
-
-
 
     $result = $con->query($query_district);
 

@@ -6,13 +6,13 @@ $cafe_selected = "";
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
     $destination_id = $_GET['dest_id'];
-    $cafe_query = "select * from tbl_cafe where c_district='" . $district . "' AND c_id!='" . $destination_id . "';";
+    $cafe_query = "select * from tbl_cafe inner join tbl_district on c_district=d_id where c_district='" . $district . "' AND c_id!='" . $destination_id . "';";
     $cafe_result = $con->query($cafe_query);
 }
 // for district_page.php
 elseif (isset($_GET['district'])) {
     $district = $_GET['district'];
-    $cafe_query = "select * from tbl_cafe where c_district='" . $district . "';";
+    $cafe_query = "select * from tbl_cafe inner join tbl_district on c_district=d_id  where d_name='" . $district . "';";
     $cafe_result = $con->query($cafe_query);
 }
 else {

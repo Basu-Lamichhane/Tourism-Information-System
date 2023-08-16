@@ -31,7 +31,7 @@ likeBtns.forEach(function (likeBtn) {
                 }
                 else if(like_ajax_request.responseText=="disliked"){
                     likeBtn.style.backgroundColor="white";
-                    likeBtn.setAttribute("data-liked","no");
+                    likeBtn.setAttribute("data-liked","no");    
                 }
             }
         }

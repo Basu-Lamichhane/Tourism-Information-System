@@ -95,7 +95,7 @@ if (isset($_GET['district'])) {
                                                 <div class="rating-icon-circle">
                                                     <button class="like-btn" data-liked="no"
                                                     data-destination-type="district"
-                                                        data-destination-id="<?php echo $district_data_row['d_name'] ?>">
+                                                        data-destination-id="<?php echo $district_data_row['d_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
                                                             height="24px"><!--haven't applied css-->
                                                             <path fill-rule="evenodd" clip-rule="evenodd"

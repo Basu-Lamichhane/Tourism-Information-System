@@ -5,13 +5,13 @@ $district = "";
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
     $destination_id = $_GET['dest_id'];
-    $accommodation_query = "select * from tbl_accommodation where a_district='" . $district . "' AND a_id!='" . $destination_id . "';";
+    $accommodation_query = "select * from tbl_accommodation inner join tbl_district on a_district=d_id where a_district='" . $district . "' AND a_id!='" . $destination_id . "';";
     $accommodation_result = $con->query($accommodation_query);
 }
 // for district_page.php
 elseif (isset($_GET['district'])) {
     $district = $_GET['district'];
-    $accommodation_query = "select * from tbl_accommodation where a_district='" . $district . "';";
+    $accommodation_query = "select * from tbl_accommodation inner join tbl_district on a_district=d_id where d_name='" . $district . "';";
     $accommodation_result = $con->query($accommodation_query);
 }
 else {

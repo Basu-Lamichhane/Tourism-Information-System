@@ -5,13 +5,13 @@
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
     $destination_id = $_GET['dest_id'];
-    $place_query = "select * from tbl_place where p_district='" . $district . "' AND p_id!='" . $destination_id . "';";
+    $place_query = "select * from tbl_place join tbl_district on p_district=d_id where p_district='" . $district . "' AND p_id!='" . $destination_id . "';";
     $place_result = $con->query($place_query);
 }
 // for district_page.php
 elseif (isset($_GET['district'])) {
     $district = $_GET['district'];
-    $place_query = "select * from tbl_place where p_district='" . $district . "';";
+    $place_query = "select * from tbl_place inner join tbl_district on p_district=d_id where d_name='" . $district . "';";
     $place_result = $con->query($place_query);
 }
 else {

@@ -59,8 +59,8 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
             UNION
             SELECT c_id AS id,c_name AS name, c_address AS address, c_district AS district, c_type AS type , 'tbl_cafe' AS source_table
             FROM tbl_cafe
-        ) AS combined_table
-        WHERE name LIKE '" . $condition . "%' and district = '" . $district . "'
+        ) AS combined_table INNER JOIN tbl_district ON district=d_id
+        WHERE name LIKE '" . $condition . "%' and d_name = '" . $district . "'
         ORDER BY name ASC;
         ";
     } else if ($district == "" && $destination != "" && $type == "") { //if only destination is selected
@@ -72,14 +72,12 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')) {
     } else if ($district != "" && $destination != "" && $type == "") { // if only type is not selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
-            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' ORDER BY name ASC;";
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table FROM tbl_" . $destination . " INNER JOIN tbl_district ON ".$first_char."_district=d_id where " . $first_char . "_name LIKE '" . $condition . "%'and d_name ='" . $district . "' ORDER BY name ASC;";
 
     } else if ($district != "" && $destination != "" && $type != "") { // if all options are selected
         $first_char = $destination[0];
         $query_data = "
-            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table
-            FROM tbl_" . $destination . " where " . $first_char . "_name LIKE '" . $condition . "%'and " . $first_char . "_district ='" . $district . "' and " . $first_char . "_type ='" . $type . "' ORDER BY name ASC;";
+            SELECT " . $first_char . "_id AS id," . $first_char . "_name AS name, " . $first_char . "_address AS address, " . $first_char . "_district AS district, " . $first_char . "_type AS type , 'tbl_" . $destination . "' AS source_table FROM tbl_" . $destination . " INNER JOIN tbl_district ON ".$first_char."_district=d_id where " . $first_char . "_name LIKE '" . $condition . "%'and d_name ='" . $district . "' and " . $first_char . "_type ='" . $type . "' ORDER BY name ASC;";
     }
     // echo $query_data;
     $result = $con->query($query_data);

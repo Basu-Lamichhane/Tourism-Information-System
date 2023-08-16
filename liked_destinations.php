@@ -96,7 +96,7 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
 
                 <div class="attractions-list-title">
                     <div class="list-title">
-                        <?php echo "Hello, ".$_SESSION['name']." Here are the destinations that you've liked"; ?>
+                        <?php echo "Hello, ".$_SESSION['name']." !!!, Here are the destinations that you've liked"; ?>
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
                         $dest_id = $liked_destinations_row['like_dest_id'];
                         $first_char = substr($dest_type, 0, 1);
                         if ($dest_type == 'district') {
-                            $pagination_query_execute = $con->query("SELECT * FROM tbl_district WHERE d_name='" . $dest_id . "';");
+                            $pagination_query_execute = $con->query("SELECT * FROM tbl_district WHERE d_id='" . $dest_id . "';");
                         } else {
                             $pagination_query_execute = $con->query("SELECT * FROM tbl_" . $dest_type . " where " . $first_char . "_id='" . $dest_id . "';");
                         }
@@ -163,7 +163,7 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
                                     <button class="like-btn" data-liked="no" data-destination-type="<?php echo $dest_type; ?>"
                                         data-destination-id="<?php
                                         if ($dest_type == "district")
-                                            echo $pagination_result['d_name'];
+                                            echo $pagination_result['d_id'];
                                         else
                                             echo $pagination_result[$first_char . '_id']; ?>">
                                         <svg viewBox="0 0 24 24" width="24px" height="24px"><!--haven't applied css-->

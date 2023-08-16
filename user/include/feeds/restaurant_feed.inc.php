@@ -6,13 +6,13 @@ $restaurant_selected = "";
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
     $destination_id = $_GET['dest_id'];
-    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "' AND r_id!='" . $destination_id . "';";
+    $restaurant_query = "select * from tbl_restaurant inner join tbl_district on r_district=d_id where r_district='" . $district . "' AND r_id!='" . $destination_id . "';";
     $restaurant_result = $con->query($restaurant_query);
 }
 // for district_page.php
 elseif (isset($_GET['district'])) {
     $district = $_GET['district'];
-    $restaurant_query = "select * from tbl_restaurant where r_district='" . $district . "';";
+    $restaurant_query = "select * from tbl_restaurant inner join tbl_district on r_district=d_id where d_name='" . $district . "';";
     $restaurant_result = $con->query($restaurant_query);
 }
 else {
