@@ -155,6 +155,13 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
                                     </div>
                                     <div class="attraction-type">
                                         <?php echo $pagination_result[$first_char . '_type']; ?>
+                                        <br>
+                                        <b>
+                                            <?php
+                                            if ($dest_type == 'district')
+                                            echo "District";
+                                        ?>
+                                        </b>
                                     </div>
                                 </div>
 

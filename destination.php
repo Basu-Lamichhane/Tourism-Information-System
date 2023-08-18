@@ -13,8 +13,10 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
     $destination = $_GET['destination'];
     $destination_id = $_GET['dest_id'];
     $first_char = substr($destination, 0, 1);
-    $destination_record_exec = $con->query("SELECT * FROM tbl_" . $destination . " WHERE " . $first_char . "_id = '" . $destination_id . "' AND " . $first_char . "_district = '" . $district . "'");
+    $destination_record_exec = $con->query("SELECT * FROM tbl_" . $destination . " INNER JOIN tbl_district ON ".$first_char."_district=d_id WHERE " . $first_char . "_id = '" . $destination_id . "' AND " . $first_char . "_district = '" . $district . "'");
     $destination_record = $destination_record_exec->fetch_assoc();
+
+    $district_name=$destination_record['d_name'];
 
     $destination_name = $destination_record[$first_char . '_name'];
 
@@ -70,7 +72,7 @@ include "user/include/star_rating.inc.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?php echo $destination_name . " | " . $district . "  Traverse Nepal"; ?>
+        <?php echo $destination_name . " | " . $district_name . "  Traverse Nepal"; ?>
     </title>
     <link rel="icon" href="image/TN_favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="user/style/reload_animation_style.css">
@@ -270,18 +272,19 @@ include "user/include/star_rating.inc.php";
         </div>
 
 
+        <?php $max_feeds = 4 ?>
         <?php //displaying the feeds section differently for each destination pages
         if ($destination == 'accommodation') { ?>
             <div class="recommended-title-bar">
                 More Accommodations to stay in
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/accommodation_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/place_feed.inc.php";
@@ -290,14 +293,14 @@ include "user/include/star_rating.inc.php";
         } elseif ($destination == 'restaurant') { ?>
             <div class="recommended-title-bar">
                 More Restaurants to eat out in
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/restaurant_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/place_feed.inc.php";
@@ -306,14 +309,14 @@ include "user/include/star_rating.inc.php";
         } elseif ($destination == 'cafe') { ?>
             <div class="recommended-title-bar">
                 More Cafes to socialize in
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/cafe_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/place_feed.inc.php";
@@ -323,14 +326,14 @@ include "user/include/star_rating.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Places to visit in
-                <?php echo $district; ?>:
+                <?php echo $district_name; ?>:
             </div>
             <?php
             include "user/include/feeds/place_feed.inc.php";
             ?>
             <div class="recommended-title-bar">
                 More Destinations to that you might want to have a look around
-                <?php echo $district; ?>.
+                <?php echo $district_name; ?>.
             </div>
             <?php
             include "user/include/feeds/accommodation_feed.inc.php";

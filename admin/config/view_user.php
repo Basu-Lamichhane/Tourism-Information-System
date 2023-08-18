@@ -222,7 +222,7 @@ if (isset($_GET['uid'])) {
     <script>
         $(document).ready(function () {
             $('#like-table').dataTable({
-                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+                "lengthMenu": [[5], [5]]
             });
         });
     </script>

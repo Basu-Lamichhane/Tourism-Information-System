@@ -5,7 +5,7 @@
 if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest_id'])) {
     $district = $_GET['district'];
     $destination_id = $_GET['dest_id'];
-    $place_query = "select * from tbl_place join tbl_district on p_district=d_id where p_district='" . $district . "' AND p_id!='" . $destination_id . "';";
+    $place_query = "select * from tbl_place inner join tbl_district on p_district=d_id where p_district='" . $district . "' AND p_id!='" . $destination_id . "';";
     $place_result = $con->query($place_query);
 }
 // for district_page.php
@@ -13,11 +13,11 @@ elseif (isset($_GET['district'])) {
     $district = $_GET['district'];
     $place_query = "select * from tbl_place inner join tbl_district on p_district=d_id where d_name='" . $district . "';";
     $place_result = $con->query($place_query);
-}
-else {
+} else {
     $place_query = "select * from tbl_place;";
     $place_result = $con->query($place_query);
 }
+$num_of_feeds = $place_result->num_rows;
 ?>
 
 <div class="feed-container" id="feed-do-container">
@@ -48,18 +48,20 @@ else {
                 <!-- start of feed contents -->
                 <div class="feed-contents-blocks-container">
                     <div class="feed-block-container ">
-                        <div class="arrow-keys-div left">
-                            <div class="arrow-keys"><!--no padding-->
-                                <span class="arrow-key-left">
-                                    <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'do');"><svg
-                                            viewBox="0 0 24 24" width="24px" height="24px">
-                                            <path
-                                                d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
-                                            </path>
-                                        </svg></button>
-                                </span>
+                        <?php if ($num_of_feeds > $max_feeds) { ?>
+                            <div class="arrow-keys-div left">
+                                <div class="arrow-keys"><!--no padding-->
+                                    <span class="arrow-key-left">
+                                        <button id="left-scroll-button" class=arrow onclick="scrollContent(-3,'do');"><svg
+                                                viewBox="0 0 24 24" width="24px" height="24px">
+                                                <path
+                                                    d="M10.304 3.506l-8.048 8.047a.644.644 0 000 .895l8.048 8.047a.624.624 0 00.883 0l.882-.883a.624.624 0 000-.883l-5.481-5.48h14.714a.625.625 0 00.623-.625v-1.248a.624.624 0 00-.623-.624H6.588l5.481-5.481a.624.624 0 000-.883l-.882-.883a.623.623 0 00-.883-.004c-.001.002-.002.003 0 .005z">
+                                                </path>
+                                            </svg></button>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
                         <div class="feed-container-boxes">
                             <div class="feed-contents-container" id="container-do">
@@ -72,7 +74,8 @@ else {
                                         <li class="feed-content-li" id="<?php echo $place_data_row['p_id']; ?>">
                                             <!--width to be aligned -->
                                             <div class="feed-content-box">
-                                                <a href="./destination.php?district=<?php echo $place_data_row['p_district']; ?>&destination=place&dest_id=<?php echo $place_data_row['p_id']; ?>" target="_blank">
+                                                <a href="./destination.php?district=<?php echo $place_data_row['p_district']; ?>&destination=place&dest_id=<?php echo $place_data_row['p_id']; ?>"
+                                                    target="_blank">
                                                     <div class="image-container-box">
                                                         <div class="image-container">
                                                             <div class="image-div">
@@ -92,7 +95,7 @@ else {
 
                                                         <div class="destination-rating-review-container">
                                                             <div class="destination-rating">
-                                                            <?php star_ratings($place_data_row['p_rating'])?>
+                                                                <?php star_ratings($place_data_row['p_rating']) ?>
                                                                 <span class="destination-review-container">
                                                                     <span class="destination-review">
                                                                         <?php echo $place_data_row['p_num_reviews']; ?>
@@ -108,8 +111,7 @@ else {
                                                 </a>
 
                                                 <div class="rating-icon-circle">
-                                                    <button class="like-btn" data-liked="no"
-                                                    data-destination-type="place"
+                                                    <button class="like-btn" data-liked="no" data-destination-type="place"
                                                         data-destination-id="<?php echo $place_data_row['p_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
                                                             height="24px"><!--haven't applied css-->
@@ -127,27 +129,25 @@ else {
                         </div>
 
 
-                        <!-- right key arrow -->
-                        <div class="arrow-keys-div right">
-                            <div class="arrow-keys">
-                                <span class="arrow-key-right">
-                                    <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'do');">
-                                        <svg viewBox="0 0 24 24" width="24px" height="24px">
-                                            <path
-                                                d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </span>
-
+                        <?php if ($num_of_feeds > $max_feeds) { ?>
+                            <!-- right key arrow -->
+                            <div class="arrow-keys-div right">
+                                <div class="arrow-keys">
+                                    <span class="arrow-key-right">
+                                        <button id="right-scroll-button" class="arrow" onclick="scrollContent(3,'do');">
+                                            <svg viewBox="0 0 24 24" width="24px" height="24px">
+                                                <path
+                                                    d="M13.696 3.502a.624.624 0 00-.884.004l-.882.883a.624.624 0 000 .883l5.481 5.481H2.698a.624.624 0 00-.623.624v1.248c0 .346.279.623.623.625h14.714l-5.481 5.48a.624.624 0 000 .883l.882.883c.245.244.64.244.883 0l8.049-8.047a.646.646 0 000-.895l-8.049-8.048v-.004z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-

@@ -221,7 +221,7 @@ else if (isset($_GET['destination']) && !isset($_GET['district']) && isset($_GET
 } //if district,destination,type and query are selected
 else if (isset($_GET['destination']) && isset($_GET['district']) && isset($_GET['type']) && isset($_GET['query'])) {
     $pagination_query_execute = $con->query("
-    SELECT * FROM tbl_" . $destination . " INNER JOIN tbl_district ON ".$first_char."_district=d_id where d_name='" . $district . "' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";
+    SELECT * FROM tbl_" . $destination . " INNER JOIN tbl_district ON " . $first_char . "_district=d_id where d_name='" . $district . "' AND " . $first_char . "_type='" . $type . "' AND " . $first_char . "_name LIKE '" . $condition . "%' ORDER BY " . $first_char . "_rating DESC LIMIT " . $start . "," . $contents_per_page . ";
     ");
 }
 
@@ -362,6 +362,13 @@ include "user/include/star_rating.inc.php";
                                         echo $pagination_result[$first_char . '_type'];
                                     else
                                         echo $pagination_result['type']; ?>
+                                    <br>
+                                    <b>
+                                        <?php
+                                        if ($_GET['destination'] == 'district')
+                                            echo "District";
+                                        ?>
+                                    </b>
                                 </div>
                             </div>
 

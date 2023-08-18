@@ -14,13 +14,13 @@ $dest_type=$_GET['type'];
 $first_char = substr($dest_type, 0, 1);
 $dest_id=$_GET['id'];
 
-$result=$con->query("SELECT * FROM tbl_".$dest_type." WHERE ".$first_char."_id = ".$dest_id.";");
+$result=$con->query("SELECT * FROM tbl_".$dest_type." INNER JOIN tbl_district ON ".$first_char."_district=d_id WHERE ".$first_char."_id = ".$dest_id.";");
 
 if($result->num_rows>0){
     $row=$result->fetch_assoc();
     $dest_name=$row[$first_char."_name"];
     $dest_address=$row[$first_char."_address"];
-    $dest_district=$row[$first_char."_district"];
+    $dest_district=$row["d_name"];
     $dest_lat=$row[$first_char."_latitude"];
     $dest_lon=$row[$first_char."_longitude"];
 }else{

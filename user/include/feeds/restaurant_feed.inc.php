@@ -48,6 +48,7 @@ else {
                 <!-- start of feed contents -->
                 <div class="feed-contents-blocks-container">
                     <div class="feed-block-container ">
+                    <?php if($num_of_feeds>$max_feeds){?>
                         <div class="arrow-keys-div left">
                             <div class="arrow-keys"><!--no padding-->
                                 <span class="arrow-key-left">
@@ -60,6 +61,7 @@ else {
                                 </span>
                             </div>
                         </div>
+                        <?php } ?>
 
                         <div class="feed-container-boxes">
                             <div class="feed-contents-container" id="container-eat">
@@ -127,7 +129,7 @@ else {
                             </div>
                         </div>
 
-
+                        <?php if($num_of_feeds>$max_feeds){?>
                         <!-- right key arrow -->
                         <div class="arrow-keys-div right">
                             <div class="arrow-keys">
@@ -143,7 +145,7 @@ else {
 
                             </div>
                         </div>
-
+                        <?php } ?>
                     </div>
                 </div>
             </div>
