@@ -15,16 +15,6 @@ require "user/include/dbconn.inc.php";
 $user_image_exec = $con->query("SELECT u_image FROM tbl_user WHERE u_email = '$user_email';");
 $row = $user_image_exec->fetch_assoc();
 $user_image = $row['u_image'];
-// if ($user_image == "") { // checking if image already exists or not
-//     //if it doesn't exist then inserting a new image
-//     echo "User image not found";
-
-// } else {
-//     //if it already exists then updating the image
-//     echo "User image found";
-//     $user_old_image = $row['u_image'];
-// }
-
 ?>
 
 <!DOCTYPE html>

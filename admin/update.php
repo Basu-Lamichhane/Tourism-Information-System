@@ -151,14 +151,14 @@ if (isset($_GET['type']))
                                     <label for="dest-room">
                                         No of Rooms:
                                     </label>
-                                    <input type="number" name="rooms" pattern="^([1-9][0-9]{0,2}|1000)$"
+                                    <input type="number" value="<?=$rooms?>" name="rooms" pattern="^([1-9][0-9]{0,2}|1000)$"
                                         placeholder="must be >1 && <=1000">
                                 </div>
                                 <div>
                                     <label for="dest-room-rate">
                                         Room Rate:
                                     </label>
-                                    <input type="number" name="room_rate" id="dest-room-rate" pattern="[0-9]{1,6}(\.[0-9]{2})?">
+                                    <input type="number" value="<?=$rate?>" name="room_rate" id="dest-room-rate" pattern="[0-9]{1,6}(\.[0-9]{2})?">
                                 </div>
                                 <?php
                             }
@@ -261,7 +261,7 @@ if (isset($_GET['type']))
                             <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
                                 <input type="submit" name="submit" id="dest-submit" value="Submit">
-                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
+                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='admin.php?type=<?=$destination?>'">
                             </div>
                             
                         </form>
@@ -271,8 +271,6 @@ if (isset($_GET['type']))
                         <!-- <div class="view-map"></div> -->
                         <?php include "config/maps/form_map.inc.php"; ?>
                         <img src="../<?php echo $image;?>" style="display:inline-block;height:auto;width:250px;margin-top:50px;" >
-                        
-
                     </div>
                 </div>
             <?php } ?>

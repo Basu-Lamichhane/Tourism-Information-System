@@ -4,7 +4,7 @@ require "dbconn.inc.php";
 
 // For the diagram for districts ------------------------------------------------------------------------------------------------------------
 $result_liked_districts = $con->query("
-SELECT like_dest_id, COUNT(*) AS frequency FROM tbl_user_liked_trip WHERE like_dest_type='district' GROUP BY like_dest_id ORDER BY frequency DESC
+SELECT *, COUNT(*) AS frequency FROM tbl_user_liked_trip INNER JOIN tbl_district ON like_dest_id=d_id WHERE like_dest_type='district' GROUP BY like_dest_id ORDER BY frequency DESC;
     ");
 
 $liked_districts_rows = [];
@@ -22,8 +22,7 @@ $liked_districts = $result_liked_districts->num_rows;
 $LIMIT = 5; //Change this to change the number of sections in pie chart
 
 ?>
-
-<canvas class="chart" id="chart-district" style="width:50%;max-width:600px"></canvas>
+    <canvas class="chart" id="chart-district" style="width:50%;max-width:600px">Hello</canvas>
 
 <script src="assets/chart/chart.js"></script>
 <script>
@@ -38,7 +37,7 @@ $LIMIT = 5; //Change this to change the number of sections in pie chart
             $i++;
             $popular_districts_like_count += $districts_row['frequency'];
             ?>
-            xValues.push(`<?= $districts_row["like_dest_id"] ?>`);
+            xValues.push(`<?= $districts_row["d_name"] ?>`);
             yValues.push(<?= $districts_row["frequency"] ?>);
             <?php
         } else {
@@ -95,8 +94,8 @@ $LIMIT = 5; //Change this to change the number of sections in pie chart
 <?php
 // For the diagram for attractions/places ------------------------------------------------------------------------------------------------------------
 $result_liked_places = $con->query("
-SELECT p_district,p_name,like_dest_id, COUNT(*) AS frequency
-    FROM tbl_user_liked_trip INNER JOIN tbl_place WHERE tbl_user_liked_trip.like_dest_id=tbl_place.p_id AND like_dest_type='place'
+SELECT *, COUNT(*) AS frequency
+    FROM tbl_user_liked_trip INNER JOIN tbl_place ON tbl_user_liked_trip.like_dest_id=tbl_place.p_id INNER JOIN tbl_district ON p_district=d_id AND like_dest_type='place'
     GROUP BY like_dest_id
     ORDER BY frequency DESC;
     ");
@@ -133,7 +132,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_places_like_count += $places_row['frequency'];
             ?>
-            xValues.push(`<?= $places_row["p_name"].", ".$places_row['p_district'] ?>`);
+            xValues.push(`<?= $places_row["p_name"].", ".$places_row['d_name'] ?>`);
             yValues.push(<?= $places_row["frequency"] ?>);
             <?php
         } else {
@@ -177,8 +176,8 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
 
 // For the diagram for accommodations ------------------------------------------------------------------------------------------------------------
 $result_liked_accommodations = $con->query("
-SELECT a_district,a_name,like_dest_id, COUNT(*) AS frequency
-    FROM tbl_user_liked_trip INNER JOIN tbl_accommodation WHERE tbl_user_liked_trip.like_dest_id=tbl_accommodation.a_id AND like_dest_type='accommodation'
+SELECT *, COUNT(*) AS frequency
+    FROM tbl_user_liked_trip INNER JOIN tbl_accommodation ON tbl_user_liked_trip.like_dest_id=tbl_accommodation.a_id INNER JOIN tbl_district ON a_district=d_id AND like_dest_type='accommodation'
     GROUP BY like_dest_id
     ORDER BY frequency DESC;
     ");
@@ -214,7 +213,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_accommodations_like_count += $accommodations_row['frequency'];
             ?>
-            xValues.push(`<?= $accommodations_row["a_name"].", ".$accommodations_row['a_district'] ?>`);
+            xValues.push(`<?= $accommodations_row["a_name"].", ".$accommodations_row['d_name'] ?>`);
             yValues.push(<?= $accommodations_row["frequency"] ?>);
             <?php
         } else {
@@ -258,8 +257,8 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
 
 // For the diagram for restaurants ------------------------------------------------------------------------------------------------------------
 $result_liked_restaurants = $con->query("
-SELECT r_district,r_name,like_dest_id, COUNT(*) AS frequency
-    FROM tbl_user_liked_trip INNER JOIN tbl_restaurant WHERE tbl_user_liked_trip.like_dest_id=tbl_restaurant.r_id AND like_dest_type='restaurant'
+SELECT *, COUNT(*) AS frequency
+    FROM tbl_user_liked_trip INNER JOIN tbl_restaurant ON tbl_user_liked_trip.like_dest_id=tbl_restaurant.r_id INNER JOIN tbl_district ON r_district=d_id AND like_dest_type='restaurant'
     GROUP BY like_dest_id
     ORDER BY frequency DESC;
     ");
@@ -295,7 +294,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_restaurants_like_count += $restaurants_row['frequency'];
             ?>
-            xValues.push(`<?= $restaurants_row["r_name"].", ".$restaurants_row['r_district'] ?>`);
+            xValues.push(`<?= $restaurants_row["r_name"].", ".$restaurants_row['d_name'] ?>`);
             yValues.push(<?= $restaurants_row["frequency"] ?>);
             <?php
         } else {
@@ -339,8 +338,8 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
 
 // For the diagram for cafes ------------------------------------------------------------------------------------------------------------
 $result_liked_cafes = $con->query("
-SELECT c_district,c_name,like_dest_id, COUNT(*) AS frequency
-    FROM tbl_user_liked_trip INNER JOIN tbl_cafe WHERE tbl_user_liked_trip.like_dest_id=tbl_cafe.c_id AND like_dest_type='cafe'
+SELECT *, COUNT(*) AS frequency
+    FROM tbl_user_liked_trip INNER JOIN tbl_cafe ON tbl_user_liked_trip.like_dest_id=tbl_cafe.c_id INNER JOIN tbl_district ON c_district=d_id AND like_dest_type='cafe'
     GROUP BY like_dest_id
     ORDER BY frequency DESC;
     ");
@@ -376,7 +375,7 @@ $LIMIT = 10; //Change this to change the number of sections in pie chart
             $i++;
             $popular_cafes_like_count += $cafes_row['frequency'];
             ?>
-            xValues.push(`<?= $cafes_row["c_name"].", ".$cafes_row['c_district'] ?>`);
+            xValues.push(`<?= $cafes_row["c_name"].", ".$cafes_row['d_name'] ?>`);
             yValues.push(<?= $cafes_row["frequency"] ?>);
             <?php
         } else {

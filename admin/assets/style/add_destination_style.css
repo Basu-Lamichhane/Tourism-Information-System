@@ -250,3 +250,16 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 400px;
     width: 100%;
 }
+.preview-image-destination-container{
+    height: 500px;
+    width: 600px;
+    margin: 50px;
+}
+.preview-image-district-container{
+    width: 50%;
+}
+#img-show{
+    width: 40%;
+    height: 40%;
+    border-radius: 15%;
+}

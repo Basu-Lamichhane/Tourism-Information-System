@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "traverse-nepal-hammersmith-one-regular";
+    src: url(../../fonts/traverse-nepal-hammersmith-one-regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "traverse-nepal-hammersmith-one-regular" !important;
+}
+
+::-webkit-scrollbar {
+    background-color: #f6b98a;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #779dd0;
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #073064;
+}
+
+main{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    height: 60vh;
+}
+
+body{
+    overflow: hidden;
+}
+.profile-details-container {
+    /* flex: 1; */
+    font-size: x-large;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.like-details-container{
+    /* flex: 1; */
+}
+
+.profile-details-container,.like-details-container{
+    border: #073064 solid 3px;
+    border-radius: 2%;
+}
+
+.like-details-table{
+    padding: 0% 2%;
+}
+.information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-title,.like-details-title {
+    font-size: x-large;
+    cursor: default;
+    color: rgb(7, 48, 100);
+    transition: transform 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.detail-icon {
+    fill: #f88932;
+}
+
+.details-title:hover, .like-details-title:hover {
+    color: #f88932;
+    transform: scaleX(1.1);
+}
+
+.detail-value {
+    cursor: default;
+    color: rgb(7, 48, 100);
+    transition: margin 0.3s ease, left 0.3s ease, transform 0.3s ease;
+
+    position: relative;
+}
+
+.detail-value:hover {
+    color: #f88932;
+    transform: translateY(-10px);
+}
+
+.detail {
+    display: flex;
+    gap: 30px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: medium;
+}
+
+.user-pp-container{
+    /* margin: auto; */
+}
+
+.pp {
+    height: 300px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.pp img {
+    width:70%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 15%;
+    transition: 0.5s;
+    margin-top: 25px;
+}
+.pp img:hover{
+    transform: translateY(-10px);
+}
+
+.pp-upload button {
+    margin: 10px;
+    background: transparent;
+    /* border: none; */
+    padding: 10px;
+    border-radius: 15px;
+    color: #f88932;
+    border: #073064 solid;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.pp-upload button:hover {
+    background: #f88932;
+    color: #073064;
+    transform: translateY(-10px);
+}
+
+#like-table tbody td:nth-of-type(4) {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 300px;
+}
+

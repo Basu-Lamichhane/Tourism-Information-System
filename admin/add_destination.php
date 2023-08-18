@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['uname'])){
+if (!isset($_SESSION['uname'])) {
     $_SESSION['admin_login'] = "Please login first";
     header('Location:login.php');
 }
@@ -8,7 +8,7 @@ if(!isset($_SESSION['uname'])){
 require "config/dbconn.inc.php";
 
 
-$district_query_execute = $con->query("SELECT d_name FROM tbl_district;");
+$district_query_execute = $con->query("SELECT * FROM tbl_district;");
 if (isset($_GET['type']))
     $destination = $_GET['type'];
 ?>
@@ -23,8 +23,8 @@ if (isset($_GET['type']))
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="assets/style/add_destination_style.css">
     <link rel="stylesheet" href="assets/style/reload_animation_style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+    <script src="assets/leaflet/leaflet.js"></script>
 </head>
 
 <body>
@@ -105,7 +105,7 @@ if (isset($_GET['type']))
                 </span>
             <?php } ?>
             <?php
-            if (isset($_GET['type']) && ($_GET['type']!="district")) {
+            if (isset($_GET['type']) && ($_GET['type'] != "district")) {
                 ?>
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
@@ -116,8 +116,8 @@ if (isset($_GET['type']))
                                     <?php echo ucfirst($destination); ?> Name :
                                 </label>
                                 <input name="name" id="dest-name" type="text"
-                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100"
-                                    required />
+                                    placeholder="Only alphabets and numbers and - & _" maxlength="100"
+                                    pattern="^[a-zA-Z0-9\s\-_]*$" style="font-size:large;width:70%;" required />
                             </div>
                             <?php if ($destination == "place") { ?>
                                 <div class="destination-description">
@@ -166,12 +166,12 @@ if (isset($_GET['type']))
                                 <label for="dest-image">Image of the
                                     <?php echo $destination; ?> :
                                 </label>
-                                <input type="file" id="image" accept="image/jpeg, image/png, image/gif" name="image"
-                                    required>
+                                <input type="file" placeholder="Max Size : 1 MB" id="image"
+                                    accept="image/jpeg, image/png, image/gif" name="image" required>
                             </div>
                             <div>
                                 <label for="dest-address">Address :</label>
-                                <input type="text" id="address" name="address" required maxlength="50"
+                                <input type="text" name="address" id="dest-address" required maxlength="50"
                                     onkeyup="javascript:validateAddress(this.value)">
                             </div>
                             <div>
@@ -190,12 +190,16 @@ if (isset($_GET['type']))
                             </div>
                             <div class="destination-coordinates">
                                 <div>
-                                    <label for="dest-latitude">Latitude :</label>
-                                    <input type="number" name="latitude" id="dest-latitude" required step="any">
+                                    <label for="dest-latitude">Latitude(<sup>o</sup>N) :</label>
+                                    <input type="number" name="latitude" id="dest-latitude" min="26.347" max="30.447"
+                                        placeholder="26.347 - 30.447" style="font-size: smaller;" readonly required
+                                        step="any">
                                 </div>
                                 <div>
-                                    <label for="dest-longitude">Longitude :</label>
-                                    <input type="number" name="longitude" id="dest-longitude" required step="any">
+                                    <label for="dest-longitude">Longitude(<sup>o</sup>E) :</label>
+                                    <input type="number" name="longitude" id="dest-longitude" min="80.058" max="88.201"
+                                        placeholder="80.058 - 88.201" style="font-size: smaller;" readonly required
+                                        step="any">
                                 </div>
                             </div>
                             <div class="destination-rating">
@@ -250,7 +254,8 @@ if (isset($_GET['type']))
                             <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
                                 <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
-                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
+                                <input type="button" name="return" id="dest-return" value="Return"
+                                    onclick="javascript:window.location.href='admin.php?type=<?= $destination ?>'">
                             </div>
                             <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination; ?>">
                         </form>
@@ -260,9 +265,12 @@ if (isset($_GET['type']))
                         <!-- <div class="view-map"></div> -->
                         <?php include "config/maps/form_map.inc.php"; ?>
 
+                        <div class="preview-image-destination-container">
+                        <img src="" id="img-show" alt="Preview Destination Image">
+                    </div>
                     </div>
                 </div>
-            <?php }elseif(isset($_GET['type']) && ($_GET['type']=="district")) { ?>
+            <?php } elseif (isset($_GET['type']) && ($_GET['type'] == "district")) { ?>
                 <div class="suggestion-form-map-container">
                     <div class="suggestion-form-container">
                         <form method="post" id="dest-suggest-form" enctype="multipart/form-data" class="suggestion-form"
@@ -275,11 +283,11 @@ if (isset($_GET['type']))
                                     placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100"
                                     required />
                             </div>
-                            <?php if ($destination == "place" || $destination=="district") { ?>
+                            <?php if ($destination == "place" || $destination == "district") { ?>
                                 <div class="destination-description">
                                     <label for="dest-desc">Place Description :</label>
                                     <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none"
-                                        placeholder="Enter the description for the destination (Max characters : 700 )"
+                                        placeholder="Enter the description for the District (Max characters : 700 )"
                                         required></textarea>
                                 </div>
                             <?php } else { ?>
@@ -310,20 +318,57 @@ if (isset($_GET['type']))
                             <p class="error_style" id="input-error" style="height:15px"></p>
                             <div class="dest-submit">
                                 <input type="submit" name="submit" id="dest-submit" value="Submit" disabled>
-                                <input type="button" name="return" id="dest-return" value="Return" onclick="javascript:window.location.href='add_destination.php'">
+                                <input type="button" name="return" id="dest-return" value="Return"
+                                    onclick="javascript:window.location.href='admin.php?type=district'">
                             </div>
                             <input type="hidden" name="destination" id="hidden_value" value="<?php echo $destination; ?>">
                         </form>
                     </div>
-
+                    <div class="preview-image-district-container">
+                        <img src="" id="img-show" alt="Preview District Image">
+                    </div>
                 </div>
-            <?php }?>
+            <?php } ?>
 
         </div>
 
 
     </main>
+    <!-- For image size restriction -->
+    <script>
+        const imageInput = document.getElementById('image');
+        document.querySelector('#dest-suggest-form').addEventListener('submit', function (event) {
+            const imageInput = document.getElementById('image');
+            const imageSize = imageInput.files[0].size; // size in bytes
+            const maxSize = 1 * 1024 * 1024; // 1MB
 
+            if (imageSize > maxSize) {
+                event.preventDefault(); // Prevent form submission
+                alert('Image size exceeds the maximum allowed size of 1MB.');
+            }
+        });
+
+    </script>
+
+    <script>
+        // For image preview
+        const previewImage = document.getElementById('img-show');
+
+        imageInput.addEventListener('change', function () {
+            const selectedImage = imageInput.files[0];
+            if (selectedImage) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    previewImage.src = event.target.result;
+                    previewImage.style.border="solid 3px #073064";
+                };
+
+                reader.readAsDataURL(selectedImage);
+            } else {
+                previewImage.src = ''; // Clear the preview if no image is selected
+            }
+        });
+    </script>
     <!-- <script src="script/add_destination.js"></script> -->
     <script src="assets/script/reload_animation.js"></script>
     <script src="assets/script/add_form_validation.js"></script>

@@ -74,7 +74,7 @@
   padding: 15px 20px;
 }
 
-.item a,
+.item a:nth-child(2),
 .submenu-item {
   padding: 16px;
   display: inline-block;
@@ -135,7 +135,7 @@
 
 .sidebar.close~.navbar,
 .sidebar.close~.main {
-  left: 0;
+  left: 60px;
   width: 100%;
 }
 
@@ -227,6 +227,14 @@
   background: url(../img/logout.png);
 }
 
+.item svg{
+  height: 40px;
+  width: 40px;
+}
+
+.menu-items li.item{
+  display: flex;
+}
 
 /* For dataTable */
 div#myTable_length,

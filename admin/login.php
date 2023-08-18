@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(isset($_SESSION['admin_email'])){
-    header('Location:admin_dashboard.php');
+if (isset($_SESSION['admin_email'])) {
+  $_SESSION['action_msg'] = "Welcome, Admin!!!";
+  header('Location:admin.php');
 }
 ?>
 
@@ -23,23 +24,22 @@ if(isset($_SESSION['admin_email'])){
 
   <div class="login_container">
     <?php
-        if (isset($_SESSION['!admin_pass_match']))
-            {
-                echo "<div id='noti'>" . $_SESSION['!admin_pass_match'] . "</div>";
-                unset($_SESSION['!admin_pass_match']);
-            }
-            elseif(isset( $_SESSION['admin_err'])){
-                echo "<div id='noti'>" .  $_SESSION['admin_err'] . "</div>";
-                unset( $_SESSION['admin_err']);
-            }
-            elseif(isset($_SESSION['admin_login'])){
-              echo "<div id='noti'>" .  $_SESSION['admin_login'] . "</div>";
+    if (isset($_SESSION['!admin_pass_match'])) {
+      echo "<div id='noti'>" . $_SESSION['!admin_pass_match'] . "</div>";
+      unset($_SESSION['!admin_pass_match']);
+    } elseif (isset($_SESSION['admin_err'])) {
+      echo "<div id='noti'>" . $_SESSION['admin_err'] . "</div>";
+      unset($_SESSION['admin_err']);
+    } elseif (isset($_SESSION['admin_login'])) {
+      echo "<div id='noti'>" . $_SESSION['admin_login'] . "</div>";
       unset($_SESSION['admin_login']);
-            }
+    }
 
-        ?>
+    ?>
     <fieldset>
-    <legend><h1>Admin Login</h1></legend>
+      <legend>
+        <h1>Admin Login</h1>
+      </legend>
       <form action="config/check_db.php" method="POST">
         <div id="login" class="form_style">
           <label for="username" class="lbl">Enter Admin Username</label>
