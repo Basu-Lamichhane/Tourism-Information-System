@@ -19,6 +19,7 @@ else {
     $cafe_query = "select * from tbl_cafe;";
     $cafe_result = $con->query($cafe_query);
 }
+$num_of_feeds = $cafe_result->num_rows;
 ?>
 <div class="feed-container" id="feed-socialize-container">
 

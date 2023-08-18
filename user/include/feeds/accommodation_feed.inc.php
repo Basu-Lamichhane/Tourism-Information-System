@@ -17,7 +17,7 @@ elseif (isset($_GET['district'])) {
     $accommodation_query = "select * from tbl_accommodation;";
     $accommodation_result = $con->query($accommodation_query);
 }
-
+$num_of_feeds = $accommodation_result->num_rows;
 ?>
 
 <div class="feed-container" id="feed-stay-container">

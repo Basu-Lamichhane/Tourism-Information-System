@@ -19,6 +19,7 @@ else {
     $restaurant_query = "select * from tbl_restaurant;";
     $restaurant_result = $con->query($restaurant_query);
 }
+$num_of_feeds = $restaurant_result->num_rows;
 ?>
 <div class="feed-container" id="feed-eat-container">
 
