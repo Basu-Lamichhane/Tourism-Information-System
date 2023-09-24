@@ -50,6 +50,9 @@ $user_image = $row['u_image'];
     } 
     ?>
     <main>
+        <div class="pp-upload back-btn">
+            <button onclick="window.location.href='search.php'">Back</button>
+        </div>
         <div class="profile-details-container">
             <div class="details-title">
                 Account Information

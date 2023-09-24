@@ -263,9 +263,12 @@ include "user/include/star_rating.inc.php";
                     <div class="dest-info-title">RATING OF DESTINATION:</div>
                     <div class="dest-type">
                         <?php star_ratings($destination_rating); ?>
-                        <div class="dest-num-reviews">(
-                            <?php echo $destination_num_reviews; ?>)
+                        <div class="dest-num-reviews">(<?php echo $destination_num_reviews; ?>)
                         </div>
+                    </div>
+                    <br>
+                    <div>
+                        src : Google
                     </div>
                 </div>
             </section>

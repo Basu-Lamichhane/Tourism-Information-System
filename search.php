@@ -278,8 +278,6 @@ include "user/include/star_rating.inc.php";
         <?php $restaurant_url = "attractions_list.php?destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?destination=cafe"; ?>
         <?php $max_feeds = 3 ?>
-
-        <div class="feed-title">Find your next trip around Nepal now :</div>
         <?php include "user/include/feeds/district_feed.inc.php" ?>
         <?php include "user/include/feeds/place_feed.inc.php" ?>
         <?php include "user/include/feeds/accommodation_feed.inc.php" ?>

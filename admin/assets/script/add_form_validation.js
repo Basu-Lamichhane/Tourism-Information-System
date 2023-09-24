@@ -9,12 +9,13 @@ const phoneInput = document.getElementById("dest-phone");
 const emailInput = document.getElementById("dest-email");
 const websiteInput = document.getElementById("dest-website");
 const check = document.getElementById("hidden_value").value;
+const descInput = document.getElementById("dest-desc");
 
 if (check == "place") {
   var inputArray = new Array(typeInput, addressInput);
 } else if (check == "district") {
-  var inputArray = new Array(typeInput);
-}else {
+  var inputArray = new Array(typeInput, descInput);
+} else {
   var inputArray = new Array(
     serviceInput,
     typeInput,
@@ -28,6 +29,7 @@ if (check == "place") {
 console.log(inputArray);
 
 var error = {};
+
 error["validMessage"] = " ";
 function validateServices(text) {
   var regex = /^[a-zA-Z\s,]+$/; //only accept ',' and text
@@ -44,6 +46,27 @@ function validateServices(text) {
     return false;
   } else {
     delete error["serviceError"];
+
+    inputError.innerHTML = objLastError(error);
+    return true;
+  }
+}
+
+function validateDesc(text) {
+  var regex = /^[a-zA-Z\s]+$/; //only accept text
+  if (text == "") {
+    delete error["descError"];
+
+    inputError.innerHTML = objLastError(error);
+    return true;
+  } else if (!regex.test(text)) {
+    error["descError"] =
+      "**Invalid description input <br>(It mustn't contain numbers & special chars.) ";
+    inputError.innerHTML = objLastError(error);
+
+    return false;
+  } else {
+    delete error["descError"];
 
     inputError.innerHTML = objLastError(error);
     return true;

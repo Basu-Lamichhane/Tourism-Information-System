@@ -266,8 +266,8 @@ if (isset($_GET['type']))
                         <?php include "config/maps/form_map.inc.php"; ?>
 
                         <div class="preview-image-destination-container">
-                        <img src="" id="img-show" alt="Preview Destination Image">
-                    </div>
+                            <img src="" id="img-show" alt="Preview Destination Image">
+                        </div>
                     </div>
                 </div>
             <?php } elseif (isset($_GET['type']) && ($_GET['type'] == "district")) { ?>
@@ -279,14 +279,96 @@ if (isset($_GET['type']))
                                 <label for="dest-name">
                                     <?php echo ucfirst($destination); ?> Name :
                                 </label>
-                                <input name="name" id="dest-name" type="text"
-                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100"
-                                    required />
+                                <!-- <input name="name" id="dest-name" type="text" list="district-names"
+                                    placeholder="Enter <?php echo ucfirst($destination); ?>'s name" maxlength="100" autocomplete="off"
+                                    required /> -->
+                                <select id="dest-name" name="name">
+                                    <option value="" selected disabled>--Select a District--</option>
+                                    <option value="Achham">Achham</option>
+                                    <option value="Arghakhanchi">Arghakhanchi</option>
+                                    <option value="Baglung">Baglung</option>
+                                    <option value="Baitadi">Baitadi</option>
+                                    <option value="Bajhang">Bajhang</option>
+                                    <option value="Bajura">Bajura</option>
+                                    <option value="Banke">Banke</option>
+                                    <option value="Bara">Bara</option>
+                                    <option value="Bardiya">Bardiya</option>
+                                    <option value="Bhaktapur">Bhaktapur</option>
+                                    <option value="Bhojpur">Bhojpur</option>
+                                    <option value="Chitwan">Chitwan</option>
+                                    <option value="Dadeldhura">Dadeldhura</option>
+                                    <option value="Dailekh">Dailekh</option>
+                                    <option value="Dang">Dang</option>
+                                    <option value="Darchula">Darchula</option>
+                                    <option value="Dhading">Dhading</option>
+                                    <option value="Dhankuta">Dhankuta</option>
+                                    <option value="Dhanusha">Dhanusha</option>
+                                    <option value="Dolakha">Dolakha</option>
+                                    <option value="Dolpa">Dolpa</option>
+                                    <option value="Doti">Doti</option>
+                                    <option value="Eastern Rukum">Eastern Rukum</option>
+                                    <option value="Gorkha">Gorkha</option>
+                                    <option value="Gulmi">Gulmi</option>
+                                    <option value="Humla">Humla</option>
+                                    <option value="Ilam">Ilam</option>
+                                    <option value="Jajarkot">Jajarkot</option>
+                                    <option value="Jhapa">Jhapa</option>
+                                    <option value="Jumla">Jumla</option>
+                                    <option value="Kailali">Kailali</option>
+                                    <option value="Kalikot">Kalikot</option>
+                                    <option value="Kanchanpur">Kanchanpur</option>
+                                    <option value="Kapilvastu">Kapilvastu</option>
+                                    <option value="Kaski">Kaski</option>
+                                    <option value="Kathmandu">Kathmandu</option>
+                                    <option value="Kavrepalanchok">Kavrepalanchok</option>
+                                    <option value="Khotang">Khotang</option>
+                                    <option value="Lalitpur">Lalitpur</option>
+                                    <option value="Lamjung">Lamjung</option>
+                                    <option value="Mahottari">Mahottari</option>
+                                    <option value="Makwanpur">Makwanpur</option>
+                                    <option value="Manang">Manang</option>
+                                    <option value="Morang">Morang</option>
+                                    <option value="Mugu">Mugu</option>
+                                    <option value="Mustang">Mustang</option>
+                                    <option value="Myagdi">Myagdi</option>
+                                    <option value="Nawalparasi (East Bardaghat Susta)">Nawalparasi (East of Bardaghat Susta)
+                                    </option>
+                                    <option value="Nawalparasi (West Bardaghat Susta)">Nawalparasi (West of Bardaghat Susta)
+                                    </option>
+                                    <option value="Nuwakot">Nuwakot</option>
+                                    <option value="Okhaldhunga">Okhaldhunga</option>
+                                    <option value="Palpa">Palpa</option>
+                                    <option value="Panchthar">Panchthar</option>
+                                    <option value="Parbat">Parbat</option>
+                                    <option value="Parsa">Parsa</option>
+                                    <option value="Pyuthan">Pyuthan</option>
+                                    <option value="Ramechhap">Ramechhap</option>
+                                    <option value="Rasuwa">Rasuwa</option>
+                                    <option value="Rautahat">Rautahat</option>
+                                    <option value="Rolpa">Rolpa</option>
+                                    <option value="Rupandehi">Rupandehi</option>
+                                    <option value="Salyan">Salyan</option>
+                                    <option value="Sankhuwasabha">Sankhuwasabha</option>
+                                    <option value="Saptari">Saptari</option>
+                                    <option value="Sarlahi">Sarlahi</option>
+                                    <option value="Sindhuli">Sindhuli</option>
+                                    <option value="Sindhupalchok">Sindhupalchok</option>
+                                    <option value="Siraha">Siraha</option>
+                                    <option value="Solukhumbu">Solukhumbu</option>
+                                    <option value="Sunsari">Sunsari</option>
+                                    <option value="Surkhet">Surkhet</option>
+                                    <option value="Syangja">Syangja</option>
+                                    <option value="Tanahun">Tanahun</option>
+                                    <option value="Taplejung">Taplejung</option>
+                                    <option value="Tehrathum">Tehrathum</option>
+                                    <option value="Udayapur">Udayapur</option>
+                                    <option value="Western Rukum">Western Rukum</option>
+                                </select>
                             </div>
                             <?php if ($destination == "place" || $destination == "district") { ?>
                                 <div class="destination-description">
                                     <label for="dest-desc">Place Description :</label>
-                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none"
+                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none" onkeyup="javascript:validateDesc(this.value)"
                                         placeholder="Enter the description for the District (Max characters : 700 )"
                                         required></textarea>
                                 </div>
@@ -360,7 +442,7 @@ if (isset($_GET['type']))
                 const reader = new FileReader();
                 reader.onload = function (event) {
                     previewImage.src = event.target.result;
-                    previewImage.style.border="solid 3px #073064";
+                    previewImage.style.border = "solid 3px #073064";
                 };
 
                 reader.readAsDataURL(selectedImage);
