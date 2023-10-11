@@ -144,7 +144,7 @@ include "user/include/star_rating.inc.php";
                                 <?php echo $selected_district_data_row['d_name'] ?>
                             </div>
                             <div class="destination-share-like-container">
-                                <div class="like-btn-container" id="like-dest">
+                                <!-- <div class="like-btn-container" id="like-dest">
                                     <button class="like-btn" data-liked="no" data-destination-type="district"
                                         data-destination-id="<?php echo $selected_district_data_row['d_id'] ?>">
                                         <svg viewBox="0 0 24 24" width="20px" height="20px">
@@ -153,7 +153,7 @@ include "user/include/star_rating.inc.php";
                                             </path>
                                         </svg>
                                     </button>
-                                </div>
+                                </div> -->
                                 <div class="share-btn-container" id="share-dest">
                                     <button>
                                         <svg viewBox="0 0 24 24" width="20px" height="20px">

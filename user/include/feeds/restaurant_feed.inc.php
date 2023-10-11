@@ -110,6 +110,7 @@ $num_of_feeds = $restaurant_result->num_rows;
 
                                                 <div class="rating-icon-circle">
                                                     <button class="like-btn" data-liked="no"
+                                                    data-destination-district="<?php echo $restaurant_data_row['r_district'] ?>"
                                                     data-destination-type="restaurant"
                                                         data-destination-id="<?php echo $restaurant_data_row['r_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"

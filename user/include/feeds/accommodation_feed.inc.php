@@ -109,6 +109,7 @@ $num_of_feeds = $accommodation_result->num_rows;
 
                                                 <div class="rating-icon-circle">
                                                     <button class="like-btn" data-liked="no"
+                                                    data-destination-district="<?php echo $accommodation_data_row['a_district'] ?>"
                                                         data-destination-type="accommodation"
                                                         data-destination-id="<?php echo $accommodation_data_row['a_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"

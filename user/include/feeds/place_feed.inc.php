@@ -111,7 +111,9 @@ $num_of_feeds = $place_result->num_rows;
                                                 </a>
 
                                                 <div class="rating-icon-circle">
-                                                    <button class="like-btn" data-liked="no" data-destination-type="place"
+                                                    <button class="like-btn" data-liked="no" 
+                                                    data-destination-district="<?php echo $place_data_row['p_district'] ?>"
+                                                    data-destination-type="place"
                                                         data-destination-id="<?php echo $place_data_row['p_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
                                                             height="24px"><!--haven't applied css-->

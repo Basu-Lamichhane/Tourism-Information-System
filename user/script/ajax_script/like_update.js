@@ -10,9 +10,11 @@ likeBtns.forEach(function (likeBtn) {
 
     // if like button is clicked, sending the ajax request 
     likeBtn.addEventListener("click", function () {
+        liked_dest_district_id = likeBtn.getAttribute("data-destination-district");
         liked_dest_type = likeBtn.getAttribute("data-destination-type");
         liked_dest_id = likeBtn.getAttribute("data-destination-id");
         var like_form_data = new FormData();
+        like_form_data.append("liked-dest-district", liked_dest_district_id);
         like_form_data.append("liked-dest-id", liked_dest_id);
         like_form_data.append("liked-dest-type", liked_dest_type);
 

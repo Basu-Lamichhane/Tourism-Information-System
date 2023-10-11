@@ -112,6 +112,7 @@ $num_of_feeds = $cafe_result->num_rows;
 
                                                 <div class="rating-icon-circle">
                                                     <button class="like-btn" data-liked="no"
+                                                    data-destination-district="<?php echo $cafe_data_row['c_district'] ?>"
                                                     data-destination-type="cafe"
                                                         data-destination-id="<?php echo $cafe_data_row['c_id'] ?>">
                                                         <svg viewBox="0 0 24 24" width="24px"
