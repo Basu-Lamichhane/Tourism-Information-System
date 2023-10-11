@@ -26,10 +26,10 @@ if (isset($_GET['type']) && isset($_GET['id'])) {
     $district_name = $_GET['name'];
     $result1 = $con->query("DELETE FROM tbl_district WHERE d_name='{$district_name}';");
     if ($result1) {
-        $_SESSION['action_msg'] = "The data of . $district_name . is deleted successfully!";
+        $_SESSION['action_msg'] = "The data of $district_name is deleted successfully!";
         header("Location:../admin.php");
     } else {
-        $_SESSION['action_msg'] = "The data of . $district_name . couldnot be deleted!";
+        $_SESSION['action_msg'] = "The data of $district_name couldnot be deleted!";
         header("Location:../admin.php");
     }
 } else {

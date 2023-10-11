@@ -2,6 +2,7 @@ const inputError = document.getElementById("input-error");
 const submitBtn = document.getElementById("dest-submit");
 const submitForm = document.getElementById("dest-suggest-form");
 
+const nameInput= document.getElementById("dest-name");
 const serviceInput = document.getElementById("dest-services");
 const typeInput = document.getElementById("dest-type");
 const addressInput = document.getElementById("dest-address");
@@ -201,3 +202,7 @@ function objLastError(error) {
   var lastError = error[lastErrorKey];
   return lastError;
 }
+
+document.getElementById("dest-name")
+
+

@@ -406,3 +406,11 @@ if (isset($_GET['type'])) {
 }
 
 ?>
+
+<!-- <script>
+    function deleteDistrict(){
+        if(confirm("Are you sure?")){
+            window.location.href=""
+        }
+    }
+</script> -->

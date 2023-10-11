@@ -40,10 +40,10 @@ if (isset($_GET['name'])) {
         $result2 = $con->query("UPDATE `tbl_district` SET `d_name`='{$new_district_name}',`d_desc`='{$new_district_desc}',`d_image`='{$db_image_path}',`d_type`='{$new_district_type}' WHERE `d_name`='{$district_name}';");
 
         // echo "UPDATE `tbl_district` SET `d_name`='{$new_district_name}',`d_desc`='{$new_district_desc}',`d_image`='{$db_image_path}',`d_type`='{$new_district_type}' WHERE `d_name`='{$district_name}';";
-        if ($result2){
+        if ($result2) {
             echo ("<script>alert('The datas for {$district_name} is updated');</script>");
             echo '<script>window.location.href="../admin.php?type=district"</script>';
-        }else{
+        } else {
             echo ("<script>alert('Sorry, the datas for {$district_name} is cannot be updated');</script>");
         }
 
@@ -83,6 +83,88 @@ if (isset($_GET['name'])) {
                     <label for="dname">Name of the district : </label>
                     <input type="text" name="name" id="dname" value="<?php echo $district_name; ?>" pattern="[a-zA-Z]+"
                         required>
+                    <select id="dest-name" name="name">
+                        <option value="" selected disabled>--Select a District--</option>
+                        <option value="Achham">Achham</option>
+                        <option value="Arghakhanchi">Arghakhanchi</option>
+                        <option value="Baglung">Baglung</option>
+                        <option value="Baitadi">Baitadi</option>
+                        <option value="Bajhang">Bajhang</option>
+                        <option value="Bajura">Bajura</option>
+                        <option value="Banke">Banke</option>
+                        <option value="Bara">Bara</option>
+                        <option value="Bardiya">Bardiya</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Bhojpur">Bhojpur</option>
+                        <option value="Chitwan">Chitwan</option>
+                        <option value="Dadeldhura">Dadeldhura</option>
+                        <option value="Dailekh">Dailekh</option>
+                        <option value="Dang">Dang</option>
+                        <option value="Darchula">Darchula</option>
+                        <option value="Dhading">Dhading</option>
+                        <option value="Dhankuta">Dhankuta</option>
+                        <option value="Dhanusha">Dhanusha</option>
+                        <option value="Dolakha">Dolakha</option>
+                        <option value="Dolpa">Dolpa</option>
+                        <option value="Doti">Doti</option>
+                        <option value="Eastern Rukum">Eastern Rukum</option>
+                        <option value="Gorkha">Gorkha</option>
+                        <option value="Gulmi">Gulmi</option>
+                        <option value="Humla">Humla</option>
+                        <option value="Ilam">Ilam</option>
+                        <option value="Jajarkot">Jajarkot</option>
+                        <option value="Jhapa">Jhapa</option>
+                        <option value="Jumla">Jumla</option>
+                        <option value="Kailali">Kailali</option>
+                        <option value="Kalikot">Kalikot</option>
+                        <option value="Kanchanpur">Kanchanpur</option>
+                        <option value="Kapilvastu">Kapilvastu</option>
+                        <option value="Kaski">Kaski</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Kavrepalanchok">Kavrepalanchok</option>
+                        <option value="Khotang">Khotang</option>
+                        <option value="Lalitpur">Lalitpur</option>
+                        <option value="Lamjung">Lamjung</option>
+                        <option value="Mahottari">Mahottari</option>
+                        <option value="Makwanpur">Makwanpur</option>
+                        <option value="Manang">Manang</option>
+                        <option value="Morang">Morang</option>
+                        <option value="Mugu">Mugu</option>
+                        <option value="Mustang">Mustang</option>
+                        <option value="Myagdi">Myagdi</option>
+                        <option value="Nawalparasi (East Bardaghat Susta)">Nawalparasi (East of Bardaghat Susta)
+                        </option>
+                        <option value="Nawalparasi (West Bardaghat Susta)">Nawalparasi (West of Bardaghat Susta)
+                        </option>
+                        <option value="Nuwakot">Nuwakot</option>
+                        <option value="Okhaldhunga">Okhaldhunga</option>
+                        <option value="Palpa">Palpa</option>
+                        <option value="Panchthar">Panchthar</option>
+                        <option value="Parbat">Parbat</option>
+                        <option value="Parsa">Parsa</option>
+                        <option value="Pyuthan">Pyuthan</option>
+                        <option value="Ramechhap">Ramechhap</option>
+                        <option value="Rasuwa">Rasuwa</option>
+                        <option value="Rautahat">Rautahat</option>
+                        <option value="Rolpa">Rolpa</option>
+                        <option value="Rupandehi">Rupandehi</option>
+                        <option value="Salyan">Salyan</option>
+                        <option value="Sankhuwasabha">Sankhuwasabha</option>
+                        <option value="Saptari">Saptari</option>
+                        <option value="Sarlahi">Sarlahi</option>
+                        <option value="Sindhuli">Sindhuli</option>
+                        <option value="Sindhupalchok">Sindhupalchok</option>
+                        <option value="Siraha">Siraha</option>
+                        <option value="Solukhumbu">Solukhumbu</option>
+                        <option value="Sunsari">Sunsari</option>
+                        <option value="Surkhet">Surkhet</option>
+                        <option value="Syangja">Syangja</option>
+                        <option value="Tanahun">Tanahun</option>
+                        <option value="Taplejung">Taplejung</option>
+                        <option value="Tehrathum">Tehrathum</option>
+                        <option value="Udayapur">Udayapur</option>
+                        <option value="Western Rukum">Western Rukum</option>
+                    </select>
                 </div>
                 <br>
                 <div class="desc form text">

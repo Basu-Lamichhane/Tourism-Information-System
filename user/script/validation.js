@@ -21,7 +21,7 @@ function namevalid() {
 
 function emailvalid() {
   var email = document.getElementById("reg_email").value;
-  const email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const email_regex = /^(?=[a-zA-Z])[a-zA-Z0-9._-]+@(?=[a-zA-Z])[a-zA-Z0-9.-]+\.[a-zA-Z.]{2,6}$/;
   if (!email_regex.test(email)) {
     document.getElementById("email_err").innerHTML =
       '**Invalid email <br> (Email must be in format of "email@example.com").';
@@ -30,13 +30,13 @@ function emailvalid() {
 
 function passvalid() {
   var pass = document.getElementById("reg_password").value;
-  var pass_regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/;
+  var pass_regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/;
   if (/\s+/g.test(pass)) {
     document.getElementById("pass_err").innerHTML =
       "**Invalid password format <br> (Password shouldn't contain whitespaces)";
   } else if (!pass_regex.test(pass)) {
     document.getElementById("pass_err").innerHTML =
-      "**Invalid password format <br> (Password should contain atleast one number <br> and one special character)";
+      "**Invalid password format <br> (Password should contain atleast one number, capital letter <br> and one special character)";
   } else {
     if (pass.length < 8) {
       document.getElementById("pass_err").innerHTML =
@@ -98,7 +98,7 @@ function city_addressvalid() {
   const city_regex = /^[A-Za-z0-9'\.\-\s\,]+$/g;
   if (!city_regex.test(city)) {
     document.getElementById("city_err").innerHTML =
-      "**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',',']";
+      "**Invalid city address format <br>(City address only contains [a-z,A-Z,0-9,'.','-',','])";
   } else {
     document.getElementById("city_err").innerHTML = "";
   }
