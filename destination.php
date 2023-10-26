@@ -16,6 +16,7 @@ if (isset($_GET['district']) && isset($_GET['destination']) && isset($_GET['dest
     $destination_record_exec = $con->query("SELECT * FROM tbl_" . $destination . " INNER JOIN tbl_district ON ".$first_char."_district=d_id WHERE " . $first_char . "_id = '" . $destination_id . "' AND " . $first_char . "_district = '" . $district . "'");
     $destination_record = $destination_record_exec->fetch_assoc();
 
+    $district_id=$destination_record['d_id'];
     $district_name=$destination_record['d_name'];
 
     $destination_name = $destination_record[$first_char . '_name'];
@@ -122,7 +123,7 @@ include "user/include/star_rating.inc.php";
                         </button>
                     </div>
                     <div class="like-btn-container" id="like-dest">
-                        <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
+                        <button class="like-btn" data-destination-district="<?php echo $district_id; ?>" data-liked="no" data-destination-type="<?php echo $destination; ?>"
                             data-destination-id="<?php echo $destination_id; ?>">
                             <svg viewBox="0 0 24 24" width="20px" height="20px">
                                 <path fill-rule="evenodd" clip-rule="evenodd"

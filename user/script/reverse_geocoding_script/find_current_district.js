@@ -24,7 +24,7 @@ nearby_search.addEventListener('click', function (event) {
                         longitude = data.lon;
 
                         //setting the district value in href
-                        nearby_search.setAttribute('href', "district_page.php?district=" + district);
+                        nearby_search.setAttribute('href', "district_page.php?district=Chitwan");
 
                         // Converting the coordinates in form data
                         var locationForm = new FormData();

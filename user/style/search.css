@@ -47,6 +47,11 @@ textarea,option{
     transition: 0.3s;
 }
 
+option{
+    background: white !important;
+    color: #000 !important;
+}
+
 #search:hover,select:hover{
     background: #f88932;
     border: #073064 2px solid;

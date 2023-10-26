@@ -221,7 +221,7 @@ include "user/include/star_rating.inc.php";
         <div class="typeahead_suggestions_container" id="suggestions_container" style="display: none;">
 
             <div class="nearby_search">
-                <a target="_blank" class="suggestion_container" id="location-link" ;>
+                <a  target="_blank" class="suggestion_container" id="location-link" ;>
                     <div class="suggestion-logo">
                         <svg viewBox="0 0 24 24" width="24px" height="24px">
                             <path fill-rule="evenodd" clip-rule="evenodd"

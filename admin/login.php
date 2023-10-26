@@ -43,9 +43,9 @@ if (isset($_SESSION['admin_email'])) {
       <form action="config/check_db.php" method="POST">
         <div id="login" class="form_style">
           <label for="username" class="lbl">Enter Admin Username</label>
-          <input type="text" placeholder="Username" id="login_email" class="text" name="email" />
+          <input type="text" placeholder="Username" id="login_email" class="text" name="email" required />
           <label for="password" class="lbl">Enter Admin Password</label>
-          <input type="password" placeholder="Password" id="login_password" class="text password" name="pass" />
+          <input type="password" placeholder="Password" id="login_password" class="text password" name="pass" required/>
 
           <input type="submit" value="Login" id="login_btn" class="login_btn" onClick="loginvalid();" />
           <!-- <p>

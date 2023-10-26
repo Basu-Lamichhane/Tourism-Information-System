@@ -18,6 +18,9 @@ elseif (isset($_GET['district'])) {
     $place_result = $con->query($place_query);
 }
 $num_of_feeds = $place_result->num_rows;
+
+if($num_of_feeds>0){
+
 ?>
 
 <div class="feed-container" id="feed-do-container">
@@ -153,3 +156,7 @@ $num_of_feeds = $place_result->num_rows;
         </div>
     </div>
 </div>
+
+<?php
+}
+?>

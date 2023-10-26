@@ -368,7 +368,8 @@ if (isset($_GET['type']))
                             <?php if ($destination == "place" || $destination == "district") { ?>
                                 <div class="destination-description">
                                     <label for="dest-desc">Place Description :</label>
-                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none" onkeyup="javascript:validateDesc(this.value)"
+                                    <textarea name="desc" id="dest-desc" cols="30" rows="5" maxlength="700" style="resize: none"
+                                        onkeyup="javascript:validateDesc(this.value)"
                                         placeholder="Enter the description for the District (Max characters : 700 )"
                                         required></textarea>
                                 </div>
@@ -427,6 +428,17 @@ if (isset($_GET['type']))
             if (imageSize > maxSize) {
                 event.preventDefault(); // Prevent form submission
                 alert('Image size exceeds the maximum allowed size of 1MB.');
+            }
+
+            var file = imageInput.files[0];
+            if (file) {
+                var fileType = file.type;
+
+                // Check if the file type is an image
+                if (!fileType.startsWith('image/')) {
+                    alert('Please upload only image files.');
+                    event.preventDefault(); // Prevent form submission
+                }
             }
         });
 

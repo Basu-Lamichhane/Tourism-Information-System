@@ -288,6 +288,8 @@ include "user/include/star_rating.inc.php";
                 <ul class="attractions-list-body">
                     <!-- php code here -->
                     <?php while ($pagination_result = $pagination_query_execute->fetch_assoc()) {
+                        if(isset($_GET['destination']) && $_GET['destination']!='district')
+                        $district_id=$pagination_result[$first_char.'_district'];
                         $start++; ?>
                         <!-- php code here -->
                         <li class="attraction-content" id="<?php
@@ -373,8 +375,14 @@ include "user/include/star_rating.inc.php";
                             </div>
 
                             </a>
+                            <?php
+                            if(isset($_GET['destination']) && $_GET['destination']!='district'){
+
+                            ?>
                             <div class="rating-icon-circle">
-                                <button class="like-btn" data-liked="no" data-destination-type="<?php echo $destination; ?>"
+                                <button class="like-btn"
+                                data-destination-district="<?php echo $district_id; ?>" 
+                                data-liked="no" data-destination-type="<?php echo $destination; ?>"
                                     data-destination-id="<?php
                                     if ($destination == "district")
                                         echo $pagination_result['d_id'];
@@ -387,6 +395,10 @@ include "user/include/star_rating.inc.php";
                                     </svg>
                                 </button>
                             </div>
+
+                            <?php
+                            }
+                            ?>
                         </li>
 
                         <!-- php code here -->

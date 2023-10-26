@@ -22,7 +22,7 @@ $liked_districts = $result_liked_districts->num_rows;
 $LIMIT = 5; //Change this to change the number of sections in pie chart
 
 ?>
-    <canvas class="chart" id="chart-district" style="width:50%;max-width:600px">Hello</canvas>
+    <!-- <canvas class="chart" id="chart-district" style="width:50%;max-width:600px">Hello</canvas> -->
 
 <script src="assets/chart/chart.js"></script>
 <script>

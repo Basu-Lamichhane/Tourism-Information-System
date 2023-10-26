@@ -20,7 +20,10 @@ else {
     $restaurant_result = $con->query($restaurant_query);
 }
 $num_of_feeds = $restaurant_result->num_rows;
+
+if($num_of_feeds>0){
 ?>
+
 <div class="feed-container" id="feed-eat-container">
 
 
@@ -155,3 +158,5 @@ $num_of_feeds = $restaurant_result->num_rows;
     </div>
 
 </div>
+<?php
+}?>

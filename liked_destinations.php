@@ -104,6 +104,7 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
                     <!-- php code here -->
                     <?php
                     while ($liked_destinations_row = $liked_dest_page->fetch_assoc()) {
+                        $dest_district_id=$liked_destinations_row['like_district_id'];
                         $dest_type = $liked_destinations_row['like_dest_type'];
                         $dest_id = $liked_destinations_row['like_dest_id'];
                         $first_char = substr($dest_type, 0, 1);
@@ -167,7 +168,7 @@ $liked_dest_page=$con->query("SELECT * FROM tbl_user_liked_trip WHERE like_user_
 
                                 </a>
                                 <div class="rating-icon-circle">
-                                    <button class="like-btn" data-liked="no" data-destination-type="<?php echo $dest_type; ?>"
+                                    <button class="like-btn" data-destination-district="<?php echo $dest_district_id; ?>" data-liked="no" data-destination-type="<?php echo $dest_type; ?>"
                                         data-destination-id="<?php
                                         if ($dest_type == "district")
                                             echo $pagination_result['d_id'];
