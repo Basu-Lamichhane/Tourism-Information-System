@@ -29,6 +29,15 @@
 
     <main>
 
+    <?php
+    if(isset($_GET['payment_status']) && $_GET['payment_status']=='success'){
+        echo "<div id='noti'>Transaction Successful, ".$_SESSION['name']."</div>";
+    }
+    elseif(isset($_GET['payment_status']) && $_GET['payment_status']=='failure'){
+        echo "<div id='noti'>Transaction Failed, ".$_SESSION['name']."</div>";
+    }
+    ?>
+
         <div class="container" id="sticky-div">
 
             <div class="title" id="menu-title">

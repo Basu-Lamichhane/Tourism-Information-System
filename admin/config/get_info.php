@@ -134,7 +134,6 @@ if (isset($_GET['type'])) {
             });
         </script>";
         }
-
     } else if ($_GET['type'] == "accommodation") {
         $str1 = "select * from tbl_accommodation";
         $res1 = $con->query($str1);
@@ -318,8 +317,8 @@ if (isset($_GET['type'])) {
                 <td>" . $row['u_city'] . "</td>
                 <td>" . $row['u_district'] . "</td>
                 <td>" . $row['u_gender'] . "</td>
-                <td><a href='config/view_user.php?uid=".$row['u_id']."'><svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'><path d='M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z'/></svg></a></td>
-                <td><a href='config/deleteuser.php?uid=".$row['u_id']."'><svg style='fill:red;' xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d='M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z'/></svg></a></td>
+                <td><a href='config/view_user.php?uid=" . $row['u_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'><path d='M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z'/></svg></a></td>
+                <td><a href='config/deleteuser.php?uid=" . $row['u_id'] . "'><svg style='fill:red;' xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d='M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z'/></svg></a></td>
                 </tr>
                 ";
             }
@@ -365,8 +364,8 @@ if (isset($_GET['type'])) {
             echo "</table>";
             include "config/pagination.inc.php";
         }
-    } else if ($_GET['type'] == "district"){
-        $start=0;
+    } else if ($_GET['type'] == "district") {
+        $start = 0;
         $str2 = "select * from tbl_district;";
         $res2 = $con->query($str2);
         if ($res2->num_rows > 0) {
@@ -402,23 +401,97 @@ if (isset($_GET['type'])) {
             }
             echo "</tbody></table>";
         }
+    } else if ($_GET['type'] == "transaction") {
+        $start = 0;
+        $str2 = "select * from tbl_transaction inner join tbl_user on tbl_transaction.u_id=tbl_user.u_id;";
+        $res2 = $con->query($str2);
+        if ($res2->num_rows > 0) {
+        }
+        echo "<table class='attraction'  cellspacing='0' id='myTable'>
+            <thead>
+            <tr>
+            <th>S.N</th>
+            <th>User Name</th>
+            <th>Transaction ID</th>
+            <th>Amount (Rs.)</th>
+            <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            "; ?>
+        <script>
+            async function status_check(amount, transid) {
+                return new Promise((resolve, reject) => {
+                    const apiUrl = 'https://uat.esewa.com.np/api/epay/transaction/status/?product_code=EPAYTEST&total_amount=' + amount + '&transaction_uuid=' + transid;
+
+                    console.log(apiUrl);
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', apiUrl, true);
+                    xhr.responseType = 'json';
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log(xhr.response); // Process JSON response
+                            const json_result = xhr.response;
+                            resolve(json_result.status);
+                        } else {
+                            console.error('Request failed with status:', xhr.status);
+                            reject(new Error('Request failed with status:', xhr.status));
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error('There was a problem with the request.');
+                        reject(new Error('There was a problem with the request.'));
+                    };
+                    xhr.send();
+                });
+            }
+        </script>
+        <?php
+        while ($row = $res2->fetch_assoc()) { ?>
+            <script>
+                console.log("<?php echo $row['trans_id']; ?>");
+                (async () => {
+                    try {
+                        var tid = "<?php echo $row['trans_id']; ?>";
+                        var status = await status_check("<?php echo $row['t_amount']; ?>", tid);
+                        var status_col = document.querySelector('td[data-tid="' + tid + '"]');
+                        console.log(status_col);
+                        status_col.innerHTML = status;
+                    } catch (error) {
+                        console.error(error);
+                    }
+                })();
+            </script>
+<?php
+            echo "<tr>
+                <td>" . ++$start . "</td>
+                <td>" . $row['u_name'] . "</td>
+                <td>" . $row['trans_id'] . "</td>
+                <td>" . $row['t_amount'] . "</td>
+                <td class='col-status' data-tid='" . $row['trans_id'] . "'></td>
+                </tr>
+                ";
+        }
+        echo "</tbody></table>";
     }
 }
 
 ?>
 
 <script>
-     // Get the delete link element by its ID
-     var deleteLink = document.getElementById('delete-district');
+    // Get the delete link element by its ID
+    var deleteLink = document.getElementById('delete-district');
 
-// Attach a click event listener to the delete link
-deleteLink.addEventListener('click', function (event) {
-    // Ask for confirmation
-    var confirmation = confirm('Are you sure you want to delete this district?');
+    // Attach a click event listener to the delete link
+    deleteLink.addEventListener('click', function(event) {
+        // Ask for confirmation
+        var confirmation = confirm('Are you sure you want to delete this district?');
 
-    // If user confirms, proceed with deletion
-    if (!confirmation) {
-        event.preventDefault(); // Prevent the default action (e.g., following the link)
-    }
-});
+        // If user confirms, proceed with deletion
+        if (!confirmation) {
+            event.preventDefault(); // Prevent the default action (e.g., following the link)
+        }
+    });
 </script>

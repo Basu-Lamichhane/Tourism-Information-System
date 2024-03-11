@@ -4,8 +4,8 @@ if (!isset($_SESSION['uname'])) {
     $_SESSION['admin_login'] = "Please login first";
     header('Location:login.php');
 }
-if(!isset($_GET['type'])){
-    header('Location:'.$_SERVER['PHP_SELF'].'?type=dashboard');
+if (!isset($_GET['type'])) {
+    header('Location:' . $_SERVER['PHP_SELF'] . '?type=dashboard');
 }
 ?>
 <!DOCTYPE html>
@@ -28,8 +28,8 @@ if(!isset($_GET['type'])){
 
 <body>
     <?php
-    if(isset($_SESSION['action_msg']) && $_GET['type']=="dashboard"){
-        echo'<div id="noti">'.$_SESSION["action_msg"].'</div>';
+    if (isset($_SESSION['action_msg']) && $_GET['type'] == "dashboard") {
+        echo '<div id="noti">' . $_SESSION["action_msg"] . '</div>';
         unset($_SESSION["action_msg"]);
     }
     ?>
@@ -56,6 +56,12 @@ if(!isset($_GET['type'])){
                         <a href="admin.php?type=dashboard" class="link flex">
                             <i class='bx bxs-dashboard'></i>
                             <span>Overview</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="admin.php?type=transaction" class="link flex">
+                            <i class='bx bx-transfer'></i>
+                            <span>Transactions</span>
                         </a>
                     </li>
                 </ul>
@@ -144,7 +150,7 @@ if(!isset($_GET['type'])){
                 <option value="Users">Manage Users</option>
             </datalist>
             <span class="nav_image">
-            <i class='bx bxs-right-arrow-circle' id="search-btn"></i>
+                <i class='bx bxs-right-arrow-circle' id="search-btn"></i>
             </span>
         </nav>
         <div class="main-chart">
@@ -158,7 +164,7 @@ if(!isset($_GET['type'])){
                         <?php include "config/chart.inc.php"; ?>
                     </div>
                 </div>
-                <?php
+            <?php
             }
             ?>
         </div>
@@ -177,9 +183,12 @@ if(!isset($_GET['type'])){
     <script src="assets/script/jquery.js"></script>
     <script src="assets/datatable/datatables.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#myTable').dataTable({
-                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
             });
         });
     </script>

@@ -11,12 +11,12 @@ require "user/include/dbconn.inc.php";
 
 
 if (isset($_POST['surprise-btn'])) {
-    $random_place_exec=$con->query("SELECT * FROM tbl_place ORDER BY RAND() LIMIT 1");
-    $random_place=$random_place_exec->fetch_assoc();
-    $random_place_district=$random_place["p_district"];
-    $random_place_id=$random_place["p_id"];
-    header("Location:destination.php?district=".$random_place_district."&destination=place&dest_id=".$random_place_id);
-}else if(isset($_POST['search-btn'])){
+    $random_place_exec = $con->query("SELECT * FROM tbl_place ORDER BY RAND() LIMIT 1");
+    $random_place = $random_place_exec->fetch_assoc();
+    $random_place_district = $random_place["p_district"];
+    $random_place_id = $random_place["p_id"];
+    header("Location:destination.php?district=" . $random_place_district . "&destination=place&dest_id=" . $random_place_id);
+} else if (isset($_POST['search-btn'])) {
     header("Location:search.php");
 }
 ?>
@@ -68,26 +68,26 @@ if (isset($_POST['surprise-btn'])) {
                     </div>
                 </div>
                 <form action="" method="POST">
-                <div class="choices-container">
-                    <div class="search-again-container">
-                        <div class="search-again-desc">Don't worry, we've got you covered! Our virtual explorers are
-                            ready for another round of searching. Just hit the 'Search Again!' button and let us dive
-                            back into the depths of Nepal's wonders to find that elusive place you seek.</div>
-                        <div class="search-again-btn-container">
-                            <button class="choice-btn" id="search-again" value="search" name="search-btn">Search
-                                Again!</button>
+                    <div class="choices-container">
+                        <div class="search-again-container">
+                            <div class="search-again-desc">Don't worry, we've got you covered! Our virtual explorers are
+                                ready for another round of searching. Just hit the 'Search Again!' button and let us dive
+                                back into the depths of Nepal's wonders to find that elusive place you seek.</div>
+                            <div class="search-again-btn-container">
+                                <button class="choice-btn" id="search-again" value="search" name="search-btn">Search
+                                    Again!</button>
+                            </div>
+                        </div>
+                        <div class="random-suggestion-container">
+                            <div class="random-suggestion-desc">"Feeling adventurous? Let us take you on a virtual roulette
+                                through Nepal's hidden treasures! Click the 'Surprise Me!' button and get ready to be
+                                whisked away to a random breathtaking destination."</div>
+                            <div class="random-suggestion-btn-container">
+                                <button class="choice-btn" id="surprise-me" value="surprise" name="surprise-btn">Surprise
+                                    Me!</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="random-suggestion-container">
-                        <div class="random-suggestion-desc">"Feeling adventurous? Let us take you on a virtual roulette
-                            through Nepal's hidden treasures! Click the 'Surprise Me!' button and get ready to be
-                            whisked away to a random breathtaking destination."</div>
-                        <div class="random-suggestion-btn-container">
-                            <button class="choice-btn" id="surprise-me" value="surprise" name="surprise-btn">Surprise
-                                Me!</button>
-                        </div>
-                    </div>
-                </div>
                 </form>
             </div>
         </div>

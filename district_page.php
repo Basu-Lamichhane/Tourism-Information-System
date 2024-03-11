@@ -68,50 +68,38 @@ include "user/include/star_rating.inc.php";
                 <div class="menu">
                     <div class="menu-container">
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=place"
-                                class="menu-content" target="_blank">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=place" class="menu-content" target="_blank">
                                 <span class="name">Attractions/Places</span>
                                 <span class="blank"></span>
-                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                                        width="24px" height="24px">
-                                        <path
-                                            d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
+                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24px" height="24px">
+                                        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
                                     </svg></span>
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=accommodation"
-                                class="menu-content" target="_blank">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=accommodation" class="menu-content" target="_blank">
                                 <span class="name">Accommodation</span>
                                 <span class="blank"></span>
-                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                        width="24px" viewBox="0 0 512 512">
-                                        <path
-                                            d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
+                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 512 512">
+                                        <path d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
                                     </svg></span>
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=restaurant"
-                                class="menu-content" target="_blank">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=restaurant" class="menu-content" target="_blank">
                                 <span class="name">Restaurants</span>
                                 <span class="blank"></span>
-                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                        width="24px" viewBox="0 0 448 512">
-                                        <path
-                                            d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z" />
+                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 448 512">
+                                        <path d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z" />
                                     </svg></span>
                             </a>
                         </div>
                         <div class="menu-box">
-                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=cafe"
-                                class="menu-content" target="_blank">
+                            <a href="attractions_list.php?district=<?php echo $selected_district_data_row['d_name']; ?>&destination=cafe" class="menu-content" target="_blank">
                                 <span class="name">cafes</span>
                                 <span class="blank"></span>
-                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                        width="24px" viewBox="0 0 640 512">
-                                        <path
-                                            d="M96 64c0-17.7 14.3-32 32-32H448h64c70.7 0 128 57.3 128 128s-57.3 128-128 128H480c0 53-43 96-96 96H192c-53 0-96-43-96-96V64zM480 224h32c35.3 0 64-28.7 64-64s-28.7-64-64-64H480V224zM32 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
+                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 640 512">
+                                        <path d="M96 64c0-17.7 14.3-32 32-32H448h64c70.7 0 128 57.3 128 128s-57.3 128-128 128H480c0 53-43 96-96 96H192c-53 0-96-43-96-96V64zM480 224h32c35.3 0 64-28.7 64-64s-28.7-64-64-64H480V224zM32 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
                                     </svg></span>
                             </a>
                         </div>
@@ -157,8 +145,7 @@ include "user/include/star_rating.inc.php";
                                 <div class="share-btn-container" id="share-dest">
                                     <button>
                                         <svg viewBox="0 0 24 24" width="20px" height="20px">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M12 .94l4.102 4.101-1.06 1.06-2.292-2.29V12.5h-1.5V3.81L8.959 6.103l-1.061-1.06L12 .938zM4.043 8.301C4.505 7.73 5.2 7.25 6.003 7.25H8v1.5H6.004c-.196 0-.503.134-.793.494-.28.347-.461.81-.461 1.256v7.956c0 1.17.72 1.794 1.254 1.794h11.992c.538 0 1.254-.628 1.254-1.794V10.5c0-.448-.18-.91-.46-1.257-.289-.359-.595-.493-.794-.493H16v-1.5h1.996c.806 0 1.501.48 1.963 1.052.47.585.791 1.372.791 2.198v7.956c0 1.638-1.072 3.294-2.754 3.294H6.004c-1.674 0-2.754-1.645-2.754-3.294V10.5c0-.826.322-1.614.793-2.198z">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .94l4.102 4.101-1.06 1.06-2.292-2.29V12.5h-1.5V3.81L8.959 6.103l-1.061-1.06L12 .938zM4.043 8.301C4.505 7.73 5.2 7.25 6.003 7.25H8v1.5H6.004c-.196 0-.503.134-.793.494-.28.347-.461.81-.461 1.256v7.956c0 1.17.72 1.794 1.254 1.794h11.992c.538 0 1.254-.628 1.254-1.794V10.5c0-.448-.18-.91-.46-1.257-.289-.359-.595-.493-.794-.493H16v-1.5h1.996c.806 0 1.501.48 1.963 1.052.47.585.791 1.372.791 2.198v7.956c0 1.638-1.072 3.294-2.754 3.294H6.004c-1.674 0-2.754-1.645-2.754-3.294V10.5c0-.826.322-1.614.793-2.198z">
                                             </path>
                                         </svg>
                                     </button>
@@ -174,8 +161,7 @@ include "user/include/star_rating.inc.php";
 
             <div class="picture-container">
                 <div class="picture-box">
-                    <img class="picture" src="<?php echo $selected_district_data_row['d_image'] ?>"
-                        alt="This is <?php echo $selected_district_data_row['d_name'] ?> district's picture" />
+                    <img class="picture" src="<?php echo $selected_district_data_row['d_image'] ?>" alt="This is <?php echo $selected_district_data_row['d_name'] ?> district's picture" />
                 </div>
             </div>
         </div>
@@ -186,7 +172,7 @@ include "user/include/star_rating.inc.php";
         <?php $restaurant_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=restaurant"; ?>
         <?php $cafe_url = "attractions_list.php?district=" . $selected_district_data_row['d_name'] . "&destination=cafe"; ?>
         <?php $max_feeds = 3 ?>
-        
+
         <div class="feed-title">Find your next trip around <?php echo $selected_district_data_row['d_name']; ?> now.</div>
         <?php include "user/include/feeds/district_feed.inc.php" ?>
         <?php include "user/include/feeds/place_feed.inc.php" ?>
@@ -223,7 +209,6 @@ include "user/include/star_rating.inc.php";
                 behavior: 'smooth'
             });
         }
-
     </script>
     <script src="user/script/ajax_script/like_update.js"></script>
     <script src="user/script/destination_share.js"></script>
