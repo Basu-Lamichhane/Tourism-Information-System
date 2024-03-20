@@ -85,7 +85,7 @@ if (isset($_POST['submit-amount'])) {
         <input type="hidden" id="signed_field_names" name="signed_field_names" value="total_amount,transaction_uuid,product_code" required>
         <input type="hidden" id="signature" name="signature" value="<?= base64_encode($s) ?>" required>
         <center class="confirmation">
-            <h2>Ar you sure you want to proceed? (Amount : Rs. <?= $amt ?>)</h2>
+            <h2>Are you sure you want to proceed? (Amount : Rs. <?= $amt ?>)</h2>
             <input value="Proceed" type="submit" name="submit" class="submit-button">
             <i class='bx bx-check'></i>
             <input value="Cancel" type="reset" name="cancel" class="cancel-button" onclick="window.location.href='http://localhost/Tourism-Information-System/search.php'">
