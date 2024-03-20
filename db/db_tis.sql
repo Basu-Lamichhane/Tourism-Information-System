@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2023 at 11:38 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: Mar 20, 2024 at 02:21 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -45,7 +44,7 @@ CREATE TABLE `tbl_accommodation` (
   `a_phone` varchar(255) NOT NULL,
   `a_email` varchar(255) NOT NULL,
   `a_website` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_accommodation`
@@ -223,7 +222,7 @@ CREATE TABLE `tbl_admin` (
   `admin_id` int(11) NOT NULL,
   `admin_uname` varchar(255) NOT NULL,
   `admin_pass` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_admin`
@@ -255,7 +254,7 @@ CREATE TABLE `tbl_cafe` (
   `c_website` varchar(255) NOT NULL,
   `c_starttime` varchar(255) NOT NULL,
   `c_closetime` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_cafe`
@@ -451,7 +450,7 @@ CREATE TABLE `tbl_district` (
   `d_desc` text NOT NULL,
   `d_image` text NOT NULL,
   `d_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_district`
@@ -491,7 +490,7 @@ CREATE TABLE `tbl_place` (
   `p_type` varchar(255) NOT NULL,
   `p_rating` float NOT NULL,
   `p_num_reviews` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_place`
@@ -553,7 +552,7 @@ CREATE TABLE `tbl_restaurant` (
   `r_email` varchar(255) NOT NULL,
   `r_starttime` varchar(10) NOT NULL,
   `r_closetime` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_restaurant`
@@ -717,6 +716,28 @@ INSERT INTO `tbl_restaurant` (`r_id`, `r_name`, `r_image`, `r_address`, `r_distr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_transaction`
+--
+
+CREATE TABLE `tbl_transaction` (
+  `t_id` int(11) NOT NULL,
+  `trans_id` mediumtext NOT NULL,
+  `t_amount` varchar(255) NOT NULL,
+  `u_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_transaction`
+--
+
+INSERT INTO `tbl_transaction` (`t_id`, `trans_id`, `t_amount`, `u_id`) VALUES
+(39, '1710243420 - 86407156565f03e5c1936c8.82210196', '120', 2),
+(40, '1710297852 - 186014125365f112fcbd41b9.17188104', '120', 2),
+(41, '1710297895 - 55964575865f11327bd9462.90022137', '120', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_user`
 --
 
@@ -730,7 +751,7 @@ CREATE TABLE `tbl_user` (
   `u_gender` enum('Male','Female','Others') NOT NULL,
   `u_dob` date NOT NULL,
   `u_image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_user`
@@ -741,7 +762,8 @@ INSERT INTO `tbl_user` (`u_id`, `u_name`, `u_email`, `u_pass`, `u_city`, `u_dist
 (2, 'Basu Lamichhane', 'basulamichane1000@gmail.com', 'Nepal@12345', 'Tandi', 'Chitwan', 'Male', '2010-06-29', './image/user_images/Basu Lamichhane.png'),
 (5, 'Suraj Ghimire', 'surajghimire@gmail.com', 'Nepal@12345', 'Hakim chowk', 'Chitwan', 'Male', '2000-03-01', './image/user_images/default-pp.jpg'),
 (13, 'Ram', 'basulamichane111@gmail.com', 'Nepal@12345', 'Sauraha', 'Chitwan', 'Male', '2007-02-06', ''),
-(14, 'User name', 'useremail.com@123.com', 'Nepal@12345', 'Tandi', 'Chitwan', 'Male', '2010-07-01', './image/user_images/pp.jpeg');
+(14, 'User name', 'useremail.com@123.com', 'Nepal@12345', 'Tandi', 'Chitwan', 'Male', '2010-07-01', './image/user_images/pp.jpeg'),
+(15, 'Pawan Pudasaini', 'pwan21@gmail.com', 'Hawa@12345', 'Tandi', 'Chitwan', 'Male', '2011-03-08', './image/user_images/Pawan Pudasaini.png');
 
 -- --------------------------------------------------------
 
@@ -754,7 +776,7 @@ CREATE TABLE `tbl_user_liked_trip` (
   `like_user_id` int(11) NOT NULL,
   `like_dest_type` enum('place','accommodation','restaurant','cafe','district') NOT NULL,
   `like_dest_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_user_liked_trip`
@@ -842,6 +864,13 @@ ALTER TABLE `tbl_restaurant`
   ADD KEY `r_district` (`r_district`);
 
 --
+-- Indexes for table `tbl_transaction`
+--
+ALTER TABLE `tbl_transaction`
+  ADD PRIMARY KEY (`t_id`),
+  ADD KEY `u_id` (`u_id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -895,10 +924,16 @@ ALTER TABLE `tbl_restaurant`
   MODIFY `r_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
 
 --
+-- AUTO_INCREMENT for table `tbl_transaction`
+--
+ALTER TABLE `tbl_transaction`
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_user_liked_trip`
@@ -933,6 +968,12 @@ ALTER TABLE `tbl_place`
 --
 ALTER TABLE `tbl_restaurant`
   ADD CONSTRAINT `tbl_restaurant_ibfk_1` FOREIGN KEY (`r_district`) REFERENCES `tbl_district` (`d_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_transaction`
+--
+ALTER TABLE `tbl_transaction`
+  ADD CONSTRAINT `tbl_transaction_ibfk_1` FOREIGN KEY (`u_id`) REFERENCES `tbl_user` (`u_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_user_liked_trip`
